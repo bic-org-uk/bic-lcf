@@ -1,14 +1,14 @@
-** Book Industry Communication **
+**Book Industry Communication**
 
 ***Library Interoperability Standards***
 
-** Library Data Communication Framework for Terminal Applications (LCF) Code Lists Issue 1**
+**Library Data Communication Framework for Terminal Applications (LCF) Code Lists Issue 1**
 
 DRAFT 4, 11 November 2013
 
 This document defines code lists for use with LCF version 1.0.
 
-** NOTES **
+**NOTES**
 
 1.  Code lists may be revised independently and more frequently than the
     overall data framework.
@@ -22,10 +22,6 @@ This document defines code lists for use with LCF version 1.0.
     implementations may adopt the short, numeric code values specified
     in this document while other implementations may adopt more verbose
     alpha-numeric code values.
-
-** Contents **
-
-[TOC]
 
 ### ALF Allow fees flag
 
