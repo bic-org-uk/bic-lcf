@@ -29,18 +29,18 @@ This document defines code lists for use with LCF version 1.0.
 
 ### ALF Allow fees flag
 
-  *Code ID*      *Code value*       *Definition*                                                         Notes*
-  --------------  ----------------- -------------------------------------------------------------------  ----------------------------------
-  ALF01           Y                  Allow fees on items for which loan or renewal fees are applicable     
-  ALF02           N                  Do not allow fees                                                   The item may not be checked out if fees apply.
+  *Code ID*      |*Code value*       |*Definition*                                                         |Notes*
+  -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
+  ALF01          | Y                 | Allow fees on items for which loan or renewal fees are applicable   |  
+  ALF02          | N                 | Do not allow fees                                                   |The item may not be checked out if fees apply.
 
 ### CHS Charge status
 
-  *Code ID*      *Code value*      *Definition*   *Notes*
-  -------------- ----------------- -------------- ----------------------------------
-  CHS01          01                Not yet paid   
-  CHS02          02                Part paid      
-  CHS03          03                Fully paid     Used when recording past charges
+  *Code ID*      |*Code value*      |*Definition*   |*Notes*
+  -------------- |----------------- |-------------- |----------------------------------
+  CHS01          |01                |Not yet paid   |
+  CHS02          |02                |Part paid      |
+  CHS03          |03                |Fully paid     |Used when recording past charges
 
 ### CHT Charge type (based upon SIP 2 fee type code list)
 
