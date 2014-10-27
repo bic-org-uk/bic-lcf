@@ -11,4 +11,4 @@ This repository holds three things:
  * The issue tracker, used to request amendments to the standard, or seek clarifications
 
 ## Twitter ##
-@BICLCF is our Twitter account, please follow us!
+[@BICLCF](http://twitter.com/bic_lcf) is our Twitter account, please follow us!
