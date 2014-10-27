@@ -4,7 +4,7 @@
 
 This repository holds three things:
 
- * The documentation for BIC Library Communication Framework, on the [wiki pages](Home);
+ * The documentation for BIC Library Communication Framework, on the [wiki pages](https://github.com/anthonywhitford/bic-lcf/wiki);
 
  * The example source code for reference implementations and compliance validation, within the source repository;
 
