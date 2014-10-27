@@ -1,18 +1,12 @@
 # README #
 
-
 ### What is this repository for? ###
 
 This repository holds three things:
 
- * The documentation for BIC Library Communication Framework, [on the wiki pages](wiki/Home)
+ * The documentation for BIC Library Communication Framework, on the wiki pages;
 
- * The example source code for reference implementations and compliance validation, within [the source repository](commits/all)
+ * The example source code for reference implementations and compliance validation, within the source repository;
 
- * The [issue tracker](issues?status=new&status=open), used to request amendments to the standard
+ * The issue tracker, used to request amendments to the standard, or seek clarifications
 
-### How do I get set up? ###
-
-### Contribution guidelines ###
-
-### Who do I talk to? ###
