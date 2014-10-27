@@ -12,7 +12,7 @@ This repository holds three things:
 
 ## Getting Started ##
 * Read the wiki;
-* Get the XML Schemas by cloning [the repository](https://github.com/anthonywhitford/bic-lcf.git), or just [download the zipped content](https://github.com/anthonywhitford/bic-lcf/archive/master.zip).
+* Get the XML Schemas by cloning the repository, or just [download the zipped content](https://github.com/anthonywhitford/bic-lcf/archive/master.zip).
 * Make the world a more open and integrated place.
 
 ## Twitter ##
