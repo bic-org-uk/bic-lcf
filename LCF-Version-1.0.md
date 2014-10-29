@@ -155,8 +155,8 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 #### Properties
 
-| *Id*       | *Element*   | *SIP2 ID*    | *Card.*[3] | *Format*   | *Description* |
-|------------|-------------|--------------|------------|------------|---------------|
+| *Id*       | *Element*   | *SIP2 ID*    | *Card.*[3] | *Format*   | *Description*                                    |
+|------------|-------------|--------------|------------|------------|--------------------------------------------------|
 | **E01D01** | **Identifier**                                  |       | **1**[4]   | **String** | **The primary LMS identifier normally used when referring to this manifestation.**  |
 | *E01C02*   | *Additional identifier*                         |       | 1-n        |            | Composite element containing details of an additional identifier for the manifestation.  |
 | E01D02.1   | Identifier type                                 |       | 1          | Code       | LCF code list **MNI** |
