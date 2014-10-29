@@ -310,13 +310,11 @@ An identified place where an item may be located, either inside or outside a lib
 
 #### Properties
 
-| *Id*       | *Element*               | *SIP2 
-                                        ID*    | *Card.* | *Format*   | *Description*                                                                       |
-|------------|-------------------------|-------|---------|------------|-------------------------------------------------------------------------------------|
+| *Id*       | *Element*               | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|-------------------------|-------|---------|------------|----------------------|
 | **E04D01** | **Identifier**          |       | **1**   | **String** | **The primary LMS identifier normally used when referring to this location.**       |
 | *E04C02*   | *Additional identifier* |       | 0-n     |            | Composite element containing details of an additional identifier for this location. |
-| E04D02.1   | Identifier type         |       | 1       | Code       | LCF code list **LOI**                                                               
-                                                                       The identification scheme                                                            |
+| E04D02.1   | Identifier type         |       | 1       | Code       | LCF code list **LOI**<br/>The identification scheme                                                            |
 | E04D02.2   | Identifier type name    |       | 0-1     | String     | If the identification scheme is proprietary, the name of the scheme.                |
 | E04D02.3   | Identifier value        |       | 1       | String     | The identifier string.                                                              |
 | E04D03     | Location name           |       | 0-1     | String     |                                                                                     |
@@ -337,9 +335,8 @@ An identified event in which one or more items have been loaned to a patron.
 
 #### Properties
 
-| *Id*       | *Element*                | *SIP2  
-                                         ID*     | *Card.* | *Format*     | *Description*                                                                   |
-|------------|--------------------------|--------|---------|--------------|---------------------------------------------------------------------------------|
+| *Id*       | *Element*                | *SIP2 ID*     | *Card.* | *Format*     | *Description* |
+|------------|--------------------------|--------|---------|--------------|----------------------|
 | **E05D01** | **Loan identifier**      |        | **1**   | **String**   | **The LMS identifier used when referring to this loan.**                        |
 | **E05D02** | **Patron reference**     | **AA** | **1**   | **String**   |                                                                                 |
 | **E05D03** | **Item reference**       | **AB** | **1**   | **String**   | **A loan applies to a single item**                                             |
@@ -366,9 +363,8 @@ An identified event in which one or more titles have been reserved for a patron.
 
 #### Properties
 
-| *Id*       | *Element*                   | *SIP2  
-                                            ID*     | *Card.* | *Format*   | *Description*                                                                                                                                                                                            |
-|------------|-----------------------------|--------|---------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *Id*       | *Element*                   | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
+|------------|-----------------------------|--------|---------|------------|----------------------|
 | **E06D01** | **Reservation identifier**  |        | **1**   | **String** | **The LMS identifier used when referring to this reservation.**                                                                                                                                          |
 | **E06D02** | **Reservation type**        |        | **1**   | **Code**   | **LCF code list RVT**                                                                                                                                                                                    |
 | **E06D03** | **Patron reference**        | **AA** | **1**   | **String** |                                                                                                                                                                                                          |
@@ -397,13 +393,11 @@ An identified charge made to a patron. May be a fee or a fine.
 
 #### Properties
 
-| *Id*       | *Element*                 | *SIP2  
-                                          ID*     | *Card.* | *Format*                                            | *Description*                                                                                                            |
-|------------|---------------------------|--------|---------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| *Id*       | *Element*                 | *SIP2 ID*     | *Card.* | *Format* | *Description* |
+|------------|---------------------------|--------|---------|-----------------|---------------|
 | **E07D01** | **Charge identifier**     | **CG** | **1**   | **String**                                          | **The LMS identifier used when referring to this charge.**                                                               |
 | **E07D02** | **Patron reference**      | **AA** | **1**   | **String**                                          |                                                                                                                          |
-| **E07D03** | **Charge type**           | **BT** | **1**   | <span id="h.1t3h5sf" class="anchor"></span>**Code** | **LCF code list CHT                                                                                                      
-                                                                                                                   The type or category of charge.**                                                                                         |
+| **E07D03** | **Charge type**           | **BT** | **1**   | **Code** | **LCF code list CHT<br/>The type or category of charge.**                                                                                         |
 | **E07D04** | **Charge status**         |        | **1**   | **Code**                                            | **LCF code list CHS**                                                                                                    |
 | E07D05     | Charge description        |        | 0-1     | String                                              | Free-text description of charge.                                                                                         |
 | E07D06     | item reference            | AB     | 0-1     | String                                              | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.         |
@@ -433,13 +427,11 @@ An identified payment made by a patron to settle one or more charges.
 
 #### Properties
 
-| *Id*       | *Element*              | *SIP2  
-                                       ID*     | *Card.* | *Format*   | *Description*                                                     |
-|------------|------------------------|--------|---------|------------|-------------------------------------------------------------------|
+| *Id*       | *Element*              | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
+|------------|------------------------|--------|---------|------------|----------------------|
 | **E08D01** | **Payment identifier** | **AA** | **1**   | **String** | **The LMS identifier used when referring to this payment.**       |
 | **E08D02** | **Patron reference**   |        | **1**   | **String** |                                                                   |
-| **E08D03** | **Payment type**       |        | **1**   | **Code**   | **LCF code list PYT                                               
-                                                                       The type or method of payment.**                                   |
+| **E08D03** | **Payment type**       |        | **1**   | **Code**   | **LCF code list PYT<br/>The type or method of payment.**                                   |
 | E08D04     | Payment description    |        | 0-1     | String     | Further information on type or method of payment.                 |
 | **E08D05** | **Charge reference**   |        | **1-n** | **String** | **One or more charges to which this payment relates.**            |
 | E08D06     | Payment date-time      |        | 0-1     |            | The date and optionally time at which the payment was made.       |
@@ -462,9 +454,8 @@ The contact details for a person or organization represented by a patron.
 
 #### Properties
 
-| *Id*       | *Element*               | *SIP2  
-                                        ID*     | *Card.* | *Format*   | *Description*                                                                                                                                |
-|------------|-------------------------|--------|---------|------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| *Id*       | *Element*               | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
+|------------|-------------------------|--------|---------|------------|----------------------|
 | **E09D01** | **Contact identifier**  |        | **1**   | **String** |                                                                                                                                              |
 | **E09D02** | **Name**                | **AE** | **1**   | **String** | **Name of person or organization.**                                                                                                          |
 | **E09D03** | **Patron ref**          |        | **1-n** | **String** |                                                                                                                                              |
@@ -487,9 +478,8 @@ An identified scheme for classification of titles.
 
 #### Properties
 
-| *Id*       | *Element*                            | *SIP2 
-                                                     ID*    | *Card.* | *Format*   | *Description*                                              |
-|------------|--------------------------------------|-------|---------|------------|------------------------------------------------------------|
+| *Id*       | *Element*                            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|--------------------------------------|-------|---------|------------|----------------------|
 | **E10D01** | **Classification scheme identifier** |       | **1**   | **String** | **The LMS identifier used when referring to this scheme.** |
 | **E10D02** | **Scheme name**                      |       | **1**   | **String** | **A name or short description of the scheme**              |
 | *E10C03*   | *Scheme description / note*          |       | 0-1     |            | Further, more extensive description of the scheme          |
@@ -507,9 +497,8 @@ An identified scheme for classification of titles.
 
 #### Properties
 
-| *Id*       | *Element*                           | *SIP2 
-                                                    ID*    | *Card.* | *Format*   | *Description*                                                                                  |
-|------------|-------------------------------------|-------|---------|------------|------------------------------------------------------------------------------------------------|
+| *Id*       | *Element*                           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|-------------------------------------|-------|---------|------------|----------------------|
 | **E11D01** | **Classification identifier**       |       | **1**   | **String** | **A system identifier for the classification**                                                 |
 | **E11D02** | **Classification code**             |       | **1**   | **String** | **A code or number used as a label for the classification.**                                   |
 | **E11D03** | **Classification scheme reference** |       | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification code belongs** |
@@ -529,13 +518,11 @@ An identified property of an entity that can be used as a selection criterion wh
 
 #### Properties
 
-| *Id*       | *Element*                  | *SIP2 
-                                           ID*    | *Card.* | *Format*   | *Description*                                                                                                  |
-|------------|----------------------------|-------|---------|------------|----------------------------------------------------------------------------------------------------------------|
+| *Id*       | *Element*                  | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|----------------------------|-------|---------|------------|----------------------|
 | **E12D01** | **Identifier**             |       | **1**   | **String** | **System identifier of the selection criterion type**                                                          |
 | **E12D02** | **Criterion type name**    |       | **1**   | **String** | **Name of the selection criterion type, to be used in item list requests.**                                    |
-| E12D03     | Entity type                |       | 0-n     | Code       | ONIX code list **ENT**                                                                                         
-                                                                          If applicable, the types of entity for which this is a valid selection criterion.                               |
+| E12D03     | Entity type                |       | 0-n     | Code       | ONIX code list **ENT**<br/>If applicable, the types of entity for which this is a valid selection criterion.                               |
 | E12D04     | Criterion type description |       | 0-1     | String     | A description of the criterion type and the domain and range of its values.                                    |
 | E12D05     | Criterion value scheme     |       | 0-1     | String     | Identifier of the scheme from which values of this criterion type are drawn, to be used in item list requests. |
 | *E12C06*   | *Criterion note*           |       | 0-n     |            |                                                                                                                |
@@ -552,47 +539,40 @@ The following data elements and composites are typically used for control of mes
 
 ### Q00 Elements common to requests
 
-| *Id*     | *Element*                   | *SIP2 
-                                          ID*    | *Card.* | *Format*                                        | *Description*                                                                                                                                                             |
-|----------|-----------------------------|-------|---------|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *Id*     | *Element*                   | *SIP2 ID*    | *Card.* | *Format* | *Description* |
+|----------|-----------------------------|-------|---------|-----------------|---------------|
 | *Q00C01* | *User ID *                  | CN    | 0-1     |                                                 | Composite element.                                                                                                                                                        |
-| Q00D01.1 | Encryption algorithm        |       | 0-1     | <span id="h.4d34og8" class="anchor"></span>Code | LCF code list **ECR**                                                                                                                                                     
+| Q00D01.1 | Encryption algorithm        |       | 0-1     | Code | LCF code list **ECR**                                                                                                                                                     
                                                                                                               The specific encryption algorithm, if any, employed by the terminal application for encrypting the user ID. If omitted, the string value may or may not be encrypted.      |
 | Q00D01.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string. Element Q00D01.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.                                |
 | *Q00C02* | *Password*                  | CO    | 0-1     |                                                 | Composite element. It would be unusual for the password not to be encrypted.                                                                                              |
-| Q00D02.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**                                                                                                                                                     
-                                                                                                              The specific encryption algorithm, if any, employed by the terminal application for encrypting the password. If omitted, the string value may or may not be encrypted.     |
+| Q00D02.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the password. If omitted, the string value may or may not be encrypted.     |
 | Q00D02.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string. Element Q00D02.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.                                |
 | Q00D03   | Institution identifier      | AO    | 0-1     | String                                          | LMS identifier for the institution, if terminals may be in one of several institutions.                                                                                   |
 | *Q00C04* | *Terminal ID*               |       | 0-1     | String                                          | LMS identifier for the device or terminal on which the terminal application is running.                                                                                   |
-| Q00D04.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**                                                                                                                                                     
-                                                                                                              The specific encryption algorithm, if any, employed by the terminal application for encrypting the terminal ID. If omitted, the string value may or may not be encrypted.  |
+| Q00D04.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the terminal ID. If omitted, the string value may or may not be encrypted.  |
 | Q00D04.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string. Element Q00D04.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.                                |
 | *Q00C05* | *Terminal password*         |       | 0-1     |                                                 |                                                                                                                                                                           |
 | Q00D05.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**                                                                                                                                                     |
 | Q00D05.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string.                                                                                                                                      |
 | Q00D06   | Terminal location reference | CP    | 0-1     | String                                          | The identifier for the location of the device or terminal on which the terminal application is running.                                                                   |
 | Q00D07   | Request ID                  |       | 0-1     | String                                          | An ID of a request. If included in a request, it must also be included in the LMS response.                                                                               |
-| Q00D08   | Request date-time           |       | 0-1     | DateTime                                        | ISO date-time                                                                                                                                                             
-                                                                                                              The date-time at which the terminal application user submitted the request. Normally generated by the application.                                                         |
+| Q00D08   | Request date-time           |       | 0-1     | DateTime                                        | ISO date-time<br/>The date-time at which the terminal application user submitted the request. Normally generated by the application.                                                         |
 | Q00D09   | Previous request ID         |       | 0-1     | String                                          | Used when cancelling a previous request, in which case this element contains the identifier of the previous request (see element Q00D07).                                 |
 
 ### 
 
 ### R00 Elements common to responses
 
-| *Id*     | *Element*             | *SIP2   
-                                    ID*      | *Card.* | *Format*                                        | *Description*                                                                                                                                          |
-|----------|-----------------------|---------|---------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *Id*     | *Element*             | *SIP2 ID*      | *Card.* | *Format* | *Description* |
+|----------|-----------------------|---------|---------|-----------------|---------------|
 | R00D01   | Response ID           |         | 0-1     | String                                          | An ID of a response.                                                                                                                                   |
 | R00D02   | Response type         |         | 0-1     | Code                                            | LCF code list RST                                                                                                                                      |
 | R00D03   | Request reference     |         | 0-1     | String                                          | The ID of the request to which this is the response. Mandatory if the request included a request ID.                                                   |
 | R00D04   | Response date-time    |         | 0-1     | DateTime                                        | The date and time of the response.                                                                                                                     |
 | *R00C05* | *Exception condition* |         | 0-n     | <span id="h.2s8eyo1" class="anchor"></span>     | Response if there is an exception condition, in which case this and, optionally, one or more of the following message elements terminate the response. |
-| R00D05.1 | Condition type        |         | 1       | Code                                            | LCF code list **EXC                                                                                                                                    
-                                                                                                          **Response code will often be specific to the function requested.                                                                                       |
-| R00D05.2 | Reason request denied |         | 0-1     | Code                                            | LCF code list **RDN                                                                                                                                    
-                                                                                                          **Used if R00D05.1 contains ''08' (request denied)                                                                                                      |
+| R00D05.1 | Condition type        |         | 1       | Code                                            | LCF code list **EXC**<br/>Response code will often be specific to the function requested.                                                                                       |
+| R00D05.2 | Reason request denied |         | 0-1     | Code                                            | LCF code list **RDN**<br/>Used if R00D05.1 contains ''08' (request denied)                                                                                                      |
 | R00D05.3 | Element reference     |         | 0-1     | String                                          | A reference (e.g. the LCF element ID) that uniquely identifies the element in the request payload that generated the exception condition.              |
 | *R00C06* | *Response message*    | AF / AG | 0-n     |                                                 | Composite element containing text to display or print on terminal.                                                                                     |
 | R00D06.1 | Message display type  |         | 1       | <span id="h.17dp8vu" class="anchor"></span>Code | LCF code list **MGT**                                                                                                                                  |
