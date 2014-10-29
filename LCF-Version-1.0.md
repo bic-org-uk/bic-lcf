@@ -588,14 +588,11 @@ This function may be used to retrieve information about an instance of an entity
 
 #### Request
 
-| *Id*       | *Element*                           | *SIP2  
-                                                    ID*     | *Card.* | *Format*   | *Description*                                                                                                                                                                                                                                                     |
-|------------|-------------------------------------|--------|---------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Q01D01** | **Entity type**                     |        | **1**   | **Code**   | **LCF code list ENT                                                                                                                                                                                                                                               
-                                                                                    The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                                             |
+| *Id*       | *Element*                           | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
+|------------|-------------------------------------|--------|---------|------------|----------------------|
+| **Q01D01** | **Entity type**                     |        | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                                             |
 | **Q01D02** | **Entity instance identifier**      | **\*** | **1**   | **String** | **The primary (LMS) identifier for the entity instance.**                                                                                                                                                                                                         |
-| Q01D03     | Requested item detailed information |        | 0-n     | Code       | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q01D01.                                                                                                                                                                        
-                                                                                    Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, the details to be included are determined by the LMS.  |
+| Q01D03     | Requested item detailed information |        | 0-n     | Code       | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q01D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, the details to be included are determined by the LMS.  |
 
 \* The correspondence with a SIP2 element depends upon the entity type. For entity types 'patron' and 'item' the correspondence is with SIP2 elements AA and AB respectively. The only other entity type that is likely to be specified with any frequency is ‘manifestation’.
 
@@ -603,9 +600,8 @@ This function may be used to retrieve information about an instance of an entity
 
 NOTE – The elements included in the response will depend upon both the entity type and whether a specific level of detail has been requested, by the inclusion of one or more elements Q01D03 in the request. Elements marked as mandatory may only be omitted if there has been an exception condition and the response is in effect empty.
 
-| *Id*     | *Element*                                                                                                                                              | *SIP2 
-                                                                                                                                                                     ID*    | *Card.* | *Format* | *Description* |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|-------|---------|----------|---------------|
+| *Id*     | *Element* | *SIP2 ID*    | *Card.* | *Format* | *Description* |
+|----------|-----------|-------|---------|----------|---------------|
 | *R01C01* | Entity element as determined by the specified entity type – see E01 to E12 above – taking into account any instances of element Q01D03 in the request. |       | 0-n     |          |               |
 
 ### 02 Retrieve entity instance list
@@ -614,16 +610,13 @@ This function may be used to retrieve a list of entity instances, with or withou
 
 #### Request
 
-| *Id*       | *Element*                                                                         | *SIP2 
-                                                                                                  ID*    | *Card.* | *Format*                 | *Description*                                                                                                                                                                                                                                                                                                                                       |
-|------------|-----------------------------------------------------------------------------------|-------|---------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Q02D01** | **Entity type**                                                                   |       | **1**   | **Code**                 | **LCF code list ENT                                                                                                                                                                                                                                                                                                                                 
-                                                                                                                                               The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                                                                                                                               |
+| *Id*       | *Element* | *SIP2 ID*    | *Card.* | *Format*                 | *Description* |
+|------------|-----------|-------|---------|--------------------------|----------------------|
+| **Q02D01** | **Entity type**                                                                   |       | **1**   | **Code**                 | **LCF code list ENT<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                                                                                                                               |
 | *Q02C02*   | *Selection criterion*                                                             |       | 0-n     |                          | A criterion for selecting instances to be retrieved. If multiple selection criteria are specified, all must apply to all items retrieved. If no selection criteria are specified, all items of the specified entity type are to be included in the list.                                                                                            |
 | Q02D02.1   | Selection criterion reference                                                     |       | 1       | String                   | A reference to an identified selection criterion (see E12 above)                                                                                                                                                                                                                                                                                    |
 | Q02D02.2   | Criterion value                                                                   |       | 1       | String                   |                                                                                                                                                                                                                                                                                                                                                     |
-| Q02D03     | Requested instance detailed information                                           |       | 0-n     | Code                     | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q02D01.                                                                                                                                                                                                                                                          
-                                                                                                                                               Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, minimal details are included as determined by the LMS.                                                                                   |
+| Q02D03     | Requested instance detailed information                                           |       | 0-n     | Code                     | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q02D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, minimal details are included as determined by the LMS.                                                                                   |
 | Q02D04     | Requested maximum number of instances in response                                 |       | 0-1     | Positive integer         | If present, the maximum number of instances from the list matching the specified selection criteria that are desired in the response. If not present, the entire list of instances matching the specified selection criteria should be included in the response. Responses should, wherever possible, honour this maximum when requested.           |
 | Q02D05     | Index, in the complete list of instances found, of first instance in the response |       | 0-1     | Positive integer or zero | If present, the desired index of the first instance in the response in the list of instances that match the specified selection criteria. For example, an offset value ‘10’ would imply that the first instance in the response should be the eleventh instance in the list. Responses should, wherever possible, honour this index when requested. |
 
@@ -631,10 +624,9 @@ This function may be used to retrieve a list of entity instances, with or withou
 
 #### Response
 
-| *Id*     | *Element*                                                                                                                                                   | *SIP2 
-                                                                                                                                                                          ID*    | *Card.* | *Format*                 | *Description*                                                                                                                                                                                                                                                                                                                                         |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| R02D01   | Entity type                                                                                                                                                 |       | 0-1     | Code                     | LCF code list **ENT** - Mandatory if the number of instances in the response is greater than zero.                                                                                                                                                                                                                                                    |
+| *Id*     | *Element* | *SIP2 ID*    | *Card.* | *Format*                 | *Description* |
+|----------|-----------|-------|---------|--------------------------|----------------------|
+| R02D01   | Entity type                                                                                                                                                 |       | 0-1     | Code                     | LCF code list **ENT**<br/>Mandatory if the number of instances in the response is greater than zero.                                                                                                                                                                                                                                                    |
 | *Q02C02* | *Selection criterion*                                                                                                                                       |       | 0-n     |                          | A criterion used for selecting instances, as specified in the request. It is recommended that if selection criteria are included in the request, they should also be included in the response for reference purposes.                                                                                                                                 |
 | Q02D02.1 | Selection criterion reference                                                                                                                               |       | 1       | String                   | A reference to an identified selection criterion (see E12 above)                                                                                                                                                                                                                                                                                      |
 | Q02D02.2 | Criterion value                                                                                                                                             |       | 1       | String                   |                                                                                                                                                                                                                                                                                                                                                       |
@@ -652,20 +644,16 @@ This function is used to create a new item of a specific entity type. In practic
 
 #### Request
 
-| *Id*       | *Element*                                                                                                       | *SIP2 
-                                                                                                                                ID*    | *Card.* | *Format* | *Description*                                 |
-|------------|-----------------------------------------------------------------------------------------------------------------|-------|---------|----------|-----------------------------------------------|
-| **Q03D01** | **Entity type**                                                                                                 |       | **1**   | **Code** | **LCF code list ENT                           
-                                                                                                                                                             The entity type of the item to be created. **  |
+| *Id*       | *Element* | *SIP2 ID*    | *Card.* | *Format* | *Description* |
+|------------|-----------|-------|---------|----------|----------------------|
+| **Q03D01** | **Entity type**                                                                                                 |       | **1**   | **Code** | **LCF code list ENT<br/>The entity type of the item to be created. **  |
 |            | Other elements, excluding the LMS identifier, as determined by the specified entity type – see E01 to E112above |       |         |          |                                               |
 
 #### Response
 
-| *Id*       | *Element*           | *SIP2 
-                                    ID*    | *Card.* | *Format*   | *Description*                                                                                                       |
-|------------|---------------------|-------|---------|------------|---------------------------------------------------------------------------------------------------------------------|
-| **R03D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT                                                                                                 
-                                                                   The entity type of the item created in response to the request. **                                                   |
+| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|---------------------|-------|---------|------------|----------------------|
+| **R03D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request. **                                                   |
 | **R03D02** | **Item identifier** |       | **1**   | **String** | **The primary identifier for the inventory item, assigned by the LMS if a new item has been successfully created.** |
 
 ### 
@@ -676,9 +664,8 @@ This function is used to modify an existing item of a specific entity type.
 
 #### Request 
 
-| *Id*       | *Element*                                                                        | *SIP2 
-                                                                                                 ID*    | *Card.* | *Format*   | *Description*                                  |
-|------------|----------------------------------------------------------------------------------|-------|---------|------------|------------------------------------------------|
+| *Id*       | *Element* | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|-----------|-------|---------|------------|----------------------|
 | **Q04D01** | **Entity type**                                                                  |       | **1**   | **Code**   | **LCF code list ENT**                          |
 | **Q04D02** | **Item identifier**                                                              |       | **1**   | **String** | **The identifier of the item to be modified.** |
 | **Q04D03** | **Modification type**                                                            |       | **1**   | **Code**   | **LCF code list MOT**                          |
@@ -686,11 +673,9 @@ This function is used to modify an existing item of a specific entity type.
 
 #### Response
 
-| *Id*       | *Element*           | *SIP2 
-                                    ID*    | *Card.* | *Format*   | *Description*                                                        |
-|------------|---------------------|-------|---------|------------|----------------------------------------------------------------------|
-| **R04D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT                                                  
-                                                                   The entity type of the item created in response to the request. **    |
+| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|---------------------|-------|---------|------------|----------------------|
+| **R04D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request. **    |
 | **R04D02** | **Item identifier** |       | **1**   | **String** | **The identifier for the item that has been successfully modified.** |
 
 ### 
@@ -701,19 +686,16 @@ This function is used to delete an item of a specific entity type. Since deletio
 
 #### Request
 
-| *Id*       | *Element*           | *SIP2 
-                                    ID*    | *Card.* | *Format*   | *Description*                                 |
-|------------|---------------------|-------|---------|------------|-----------------------------------------------|
+| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|---------------------|-------|---------|------------|----------------------|
 | **Q05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT**                         |
 | **Q05D02** | **Item identifier** |       | **1**   | **String** | **The identifier of the item to be deleted.** |
 
 #### Response
 
-| *Id*       | *Element*           | *SIP2 
-                                    ID*    | *Card.* | *Format*   | *Description*                                                      |
-|------------|---------------------|-------|---------|------------|--------------------------------------------------------------------|
-| **R05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT                                                
-                                                                   The entity type of the item created in response to the request. **  |
+| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|---------------------|-------|---------|------------|----------------------|
+| **R05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request. **  |
 | **R05D02** | **Item identifier** |       | **1**   | **String** | **The identifier of the item that has been successfully deleted**  |
 
 Circulation management functions
@@ -739,13 +721,10 @@ The terminal application must provide all the information required for all the n
 
 #### Request
 
-| *Id*       | *Element*           | *SIP2 
-                                    ID*    | *Card.* | *Format*                                            | *Description*                                                                           |
-|------------|---------------------|-------|---------|-----------------------------------------------------|-----------------------------------------------------------------------------------------|
-| **Q11D01** | **Request type**    |       | **1**   | <span id="h.3rdcrjn" class="anchor"></span>**Code** | **LCF code list RQT                                                                     
-                                                                                                            Indicates type of check-out request. **                                                  |
-| Q11D02     | Renewal type        |       | 0-1     | Code                                                | LCF code list RNQ                                                                       
-                                                                                                            Indicates that the request is a renewal request and which type                           |
+| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format* | *Description* |
+|------------|---------------------|-------|---------|-----------------|---------------|
+| **Q11D01** | **Request type**    |       | **1**   | **Code** | **LCF code list RQT<br/>Indicates type of check-out request. **                                                  |
+| Q11D02     | Renewal type        |       | 0-1     | Code                                                | LCF code list RNQ<br/>Indicates that the request is a renewal request and which type                           |
 | Q11D03     | Patron reference    | AA    | 0-1     | String                                              | Reference to the patron record. Mandatory in a new check-out.                           |
 | Q11D04     | Item reference      | AB    | 0-1     | String                                              | Reference to the item in question. Mandatory unless cancelling a check-out / renewal.   |
 | Q11D05     | Loan reference      |       | 0-1     | String                                              | Mandatory when renewing or cancelling a check-out or renewal.                           |
@@ -754,14 +733,12 @@ The terminal application must provide all the information required for all the n
 
 #### Response
 
-| *Id*   | *Element*                    | *SIP2 ID* | *Card.* | *Format* | *Description*                                                                                                                                                                                                        |
-|--------|------------------------------|-----------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *Id*   | *Element*                    | *SIP2 ID* | *Card.* | *Format* | *Description* |
+|--------|------------------------------|-----------|---------|----------|---------------|
 | R11D01 | Loan reference               |           | 0-1     | String   | LMS identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                                                                                                     |
 | R11C02 | Loan entity record           |           | 0-1     |          | See E05                                                                                                                                                                                                              |
-| R11D03 | Item sensitive media warning |           | 0-1     | Code     | LCF code list **MEW**                                                                                                                                                                                                
-                                                                          Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.  |
-| R11D04 | Desensitize item security    |           | 0-1     | Code     | LCF code list **SCD**                                                                                                                                                                                                
-                                                                          Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.             |
+| R11D03 | Item sensitive media warning |           | 0-1     | Code     | LCF code list **MEW**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.  |
+| R11D04 | Desensitize item security    |           | 0-1     | Code     | LCF code list **SCD**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.             |
 | R11D05 | Charge reference             |           | 0-1     | String   | Reference to charge created with this loan.                                                                                                                                                                          |
 
 ### 
@@ -778,9 +755,9 @@ The check-in function combines the following core functions:
 
 #### Request
 
-| *Id*       | *Element*          | *SIP2 ID* | *Card.* | *Format*                                           | *Description*                                                           |
-|------------|--------------------|-----------|---------|----------------------------------------------------|-------------------------------------------------------------------------|
-| **Q12D01** | **Request type**   |           | **1**   | <span id="h.lnxbz9" class="anchor"></span>**Code** | **LCF code list RQT**                                                   |
+| *Id*       | *Element*          | *SIP2 ID* | *Card.* | *Format* | *Description* |
+|------------|--------------------|-----------|---------|----------|---------------|
+| **Q12D01** | **Request type**   |           | **1**   | **Code** | **LCF code list RQT**                                                   |
 | Q12D02     | Patron reference   | AA        | 0-1     | String                                             |                                                                         |
 | **Q12D03** | **Item reference** | **AB**    | **0-1** | **String**                                         |                                                                         |
 | Q12D04     | Loan reference     |           | 0-1     | String                                             |                                                                         |
@@ -788,17 +765,15 @@ The check-in function combines the following core functions:
 
 #### Response
 
-| Id     | *Element*                       | *SIP2 ID* | *Card.* | *Format*                                          | *Description*                                                                                                              |
-|--------|---------------------------------|-----------|---------|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Id     | *Element*                       | *SIP2 ID* | *Card.* | *Format* | *Description* |
+|--------|---------------------------------|-----------|---------|----------|---------------|
 | R12D01 | Loan reference                  |           | 0-1     | String                                            |                                                                                                                            |
 | R12D02 | Patron reference                | AA        | 0-1     | String                                            |                                                                                                                            |
 | R12D03 | Item reference                  | AB        | 0-1     | String                                            |                                                                                                                            |
 | R12D04 | Item return location reference  | CL        | 0-1     | String                                            | LMS identifier for return location, e.g. sort bin.                                                                         |
-| R12D05 | Item sensitive media warning    |           | 0-1     | <span id="h.1ksv4uv" class="anchor"></span>Code   | LCF code list **MEW**                                                                                                      
-                                                                                                                      Flag indicating that the item contains a media component that is sensitive to some security setting devices.                |
-| R12D06 | Item requires special attention |           | 0-1     | Code                                              | LCF code list **SPA**                                                                                                      
-                                                                                                                      Flag indicating that this item requires special attention before it is returned to its shelf location.                      |
-| R12D07 | Special attention description   |           | 0-1     | <span id="h.2jxsxqh" class="anchor"></span>String | Description of special attention required, if any.                                                                         |
+| R12D05 | Item sensitive media warning    |           | 0-1     | Code   | LCF code list **MEW**<br/>Flag indicating that the item contains a media component that is sensitive to some security setting devices.                |
+| R12D06 | Item requires special attention |           | 0-1     | Code                                              | LCF code list **SPA**<br/>Flag indicating that this item requires special attention before it is returned to its shelf location.                      |
+| R12D07 | Special attention description   |           | 0-1     | String | Description of special attention required, if any.                                                                         |
 | R12D08 | Charge reference                |           | 0-n     | String                                            | LMS identifier of any charge due on this item. Repeatable if more than one charge is due (e.g. loan fee and overdue fine). |
 
 ### 13 Patron payment
@@ -811,20 +786,20 @@ The patron payment function combines the following core functions:
 
 #### Request
 
-| *Id*       | *Element*                | *SIP2 ID* | *Card.* | *Format*                                           | *Description*                                                                                                             |
-|------------|--------------------------|-----------|---------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| *Id*       | *Element*                | *SIP2 ID* | *Card.* | *Format* | *Description* |
+|------------|--------------------------|-----------|---------|----------|---------------|
 | **Q13D01** | **Request type**         |           | **1**   | **Code**                                           | **LCF code list RQT**                                                                                                     |
 | **Q13D02** | **Patron reference**     | **AA**    | **1**   | **String**                                         |                                                                                                                           |
 | Q13D03     | Charge reference         |           | 0-n     | String                                             | Charge(s) against which to set this payment. If omitted, the LMS determines the charges against which to set the payment. |
-| **Q13D04** | **Payment type**         |           | **1**   | <span id="h.z337ya" class="anchor"></span>**Code** | **LCF code list PYT**                                                                                                     |
+| **Q13D04** | **Payment type**         |           | **1**   | **Code** | **LCF code list PYT**                                                                                                     |
 | Q13D05     | Payment type description |           | 0-1     | String                                             | Further information on method of payment                                                                                  |
 | **Q13D06** | **Payment amount**       |           | **1**   | **Value**                                          | **Currency value.**                                                                                                       |
 | Q13D07     | Payment currency         |           | 0-1     | Code                                               | ISO three-letter currency code, e.g. ‘GBP’                                                                                |
 
 #### Response
 
-| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format*   | *Description*                                                     |
-|------------|----------------------|-----------|---------|------------|-------------------------------------------------------------------|
+| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format*   | *Description* |
+|------------|----------------------|-----------|---------|------------|---------------|
 | **R13D01** | **Patron reference** | **AA**    | **1**   | **String** |                                                                   |
 | R13D02     | Payment Identifier   |           | 0-1     | String     | Included if attempt to make the payment is successful.            |
 | R13D03     | Charge reference     |           | 0-n     |            | Mandatory if payment of any charge item is accepted or confirmed. |
@@ -835,17 +810,16 @@ Used to prevent unauthorised use of a patron account, such as when the patron’
 
 #### Request
 
-| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format*                                        | *Description*         |
-|------------|----------------------|-----------|---------|-------------------------------------------------|-----------------------|
+| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format* | *Description*         |
+|------------|----------------------|-----------|---------|----------|-----------------------|
 | **Q14D01** | **Patron reference** | **AA**    | **1**   | **String**                                      |                       |
-| Q14D02     | Library card status  |           | 0-1     | <span id="h.3j2qqm3" class="anchor"></span>Code | LCF code list **PCS** |
+| Q14D02     | Library card status  |           | 0-1     | Code | LCF code list **PCS** |
 | Q14D03     | Blocked card message | AL        | 0-1     | String                                          |                       |
 
 #### Response
 
-| *Id*       | *Element*            | *SIP2 
-                                     ID*    | *Card.* | *Format*   | *Description*                                                                 |
-|------------|----------------------|-------|---------|------------|-------------------------------------------------------------------------------|
+| *Id*       | *Element*            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
+|------------|----------------------|-------|---------|------------|----------------------|
 | **R14D01** | **Patron reference** |       | **1**   | **String** | **The identifier for the Patron record that has been successfully modified.** |
 
 ### 
@@ -863,8 +837,8 @@ This function is very similar to function 14 Block patron. A patron record is re
 #### Response
 
 | *Id*       | *Element*            | *SIP2 
-                                     ID*    | *Card.* | *Format*   | *Description*                                                                 |
-|------------|----------------------|-------|---------|------------|-------------------------------------------------------------------------------|
+                                     ID*    | *Card.* | *Format*   | *Description* |
+|------------|----------------------|-------|---------|------------|---------------|
 | **R15D01** | **Patron reference** |       | **1**   | **String** | **The identifier for the Patron record that has been successfully modified.** |
 
 ### 
@@ -885,13 +859,13 @@ The reserve function combines the following core functions:
 
 #### Request
 
-| *Id*       | *Element*                     | *SIP2 ID*   | *Card.* | *Format*                                            | *Description*                                                                                                                                                                            |
-|------------|-------------------------------|-------------|---------|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Q16D01** | **Request type**              | **BX / BI** | **1**   | <span id="h.1y810tw" class="anchor"></span>**Code** | **LCF code list RQT**                                                                                                                                                                    |
+| *Id*       | *Element*                     | *SIP2 ID*   | *Card.* | *Format* | *Description* |
+|------------|-------------------------------|-------------|---------|----------|---------------|
+| **Q16D01** | **Request type**              | **BX / BI** | **1**   | **Code** | **LCF code list RQT**                                                                                                                                                                    |
 | **Q16D02** | **Patron identifier**         | **AA**      | **1**   | **String**                                          |                                                                                                                                                                                          |
 | **Q16D03** | **Item entity type**          |             | **1**   | **Code**                                            | **LCF code list ENT – only code values '01' and '02' are valid**                                                                                                                         |
 | **Q16D04** | **Item identifier**           | **AB**      | **1**   | **String**                                          |                                                                                                                                                                                          |
-| Q16D05     | Reservation type              | BY          | 0-1     | <span id="h.4i7ojhp" class="anchor"></span>Code     | LCF code list **RVT**                                                                                                                                                                    |
+| Q16D05     | Reservation type              | BY          | 0-1     | Code     | LCF code list **RVT**                                                                                                                                                                    |
 | Q16D06     | Pick-up institution reference | AO          | 0-1     | String                                              | The LMS identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                 |
 | Q16D07     | Pick-up location reference    | BS          | 0-1     | String                                              | The LMS identifier of the location where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to Q16D06. |
 | Q16D08     | Reservation start date        |             | 0-1     | DateTime                                            | Only used in confirmations.                                                                                                                                                              |
@@ -900,8 +874,8 @@ The reserve function combines the following core functions:
 
 #### Response
 
-| *Id*   | *Element*                 | *SIP2 ID* | *Card.* | *Format* | *Description*                                                                                        |
-|--------|---------------------------|-----------|---------|----------|------------------------------------------------------------------------------------------------------|
+| *Id*   | *Element*                 | *SIP2 ID* | *Card.* | *Format* | *Description* |
+|--------|---------------------------|-----------|---------|----------|---------------|
 | R16D01 | Reservation reference     |           | 0-1     | String   | Either a reservation reference or a copy of the reservation record must be included in the response. |
 | R16D02 | Reservation entity record |           | 0-1     |          | See E06.                                                                                             |
 | R16D03 | Charge reference          | BT / BV   | 0-1     | String   | LMS identifier for the charge associated with reservation of this manifestation or item.             |
