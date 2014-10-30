@@ -836,8 +836,7 @@ This function is very similar to function 14 Block patron. A patron record is re
 
 #### Response
 
-| *Id*       | *Element*            | *SIP2 
-                                     ID*    | *Card.* | *Format*   | *Description* |
+| *Id*       | *Element*            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|----------------------|-------|---------|------------|---------------|
 | **R15D01** | **Patron reference** |       | **1**   | **String** | **The identifier for the Patron record that has been successfully modified.** |
 
