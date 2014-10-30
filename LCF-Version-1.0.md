@@ -1,5 +1,3 @@
-![](media/image1.png)
-
 ***Book Industry Communication***
 
 **Library Interoperability Standards**
