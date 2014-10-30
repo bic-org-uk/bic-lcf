@@ -78,22 +78,22 @@ E01 MANIFESTATION
 
 *Example of a manifestation*
 
-`\<manifestation xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>`<br/>
-` \<identifier\>1234567890\</identifier\>`<br/>
-` \<media-type\>`<br/>
-` \<media-type-scheme\>02\</media-type-scheme\>`<br/>
-` \<scheme-code\>001\</scheme-code\>`<br/>
-` \</media-type\>`<br/>
-` \<title\>`<br/>
-` \<title-type\>01\</title-type\>`<br/>
-` \<title-text\>Title on book\</title-text\>`<br/>
-` \</title\>`<br/>
-` \<contributor\>`<br/>
-` \<contributor-role\>A01\</contributor-role\>`<br/>
-` \<contributor-name\>Smith, J.\</contributor-name\>`<br/>
-` \</contributor\>`<br/>
-` \<manifestation-status\>02\</manifestation-status\>`<br/>
-`\</manifestation\>`
+`<manifestation xmlns="http://ns.bic.org/lcf/1.0" version="1.0">`<br/>
+&#xA0;`<identifier\>1234567890</identifier>`<br/>
+&#xA0;`<media-type>`<br/>
+&#xA0;`<media-type-scheme>02</media-type-scheme>`<br/>
+&#xA0;`<scheme-code>001</scheme-code>`<br/>
+&#xA0;`</media-type>`<br/>
+&#xA0;`<title>`<br/>
+&#xA0;&#xA0;`<title-type>01</title-type>`<br/>
+&#xA0;&#xA0;`<title-text>Title on book</title-text>`<br/>
+&#xA0;`</title>`<br/>
+&#xA0;`<contributor>`<br/>
+&#xA0;&#xA0;`<contributor-role>A01</contributor-role>`<br/>
+&#xA0;&#xA0;`<contributor-name>Smith, J.</contributor-name>`<br/>
+&#xA0;`</contributor>`<br/>
+&#xA0;`<manifestation-status>02</manifestation-status>`<br/>
+`</manifestation>`
 
 E02 ITEM
 --------
@@ -370,4 +370,3 @@ EXCEPTION CONDITIONS
 | 6     | R00C06       | message                     | 0-n     | Code        |                                                          |
 | 7     | R00D06.1     | message-type                | 1       | String      | MGT                                                      |
 | 8     | R00D06.2     | message-text                | 1-n     | String      |                                                          |
-
