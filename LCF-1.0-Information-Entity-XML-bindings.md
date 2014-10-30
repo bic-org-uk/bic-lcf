@@ -24,9 +24,7 @@ E01 MANIFESTATION
 
 |        | *Element ID* | *XML structure*                  | *Card.* | *Data type* | *Notes*                                                                                                  |
 |--------|--------------|----------------------------------|---------|-------------|----------------------------------------------------------------------------------------------------------|
-| **1**  |              | **manifestation<br/>xmlns=                            
-                         "http://ns.bic.org/lcf/1.0"       
-                         version="1.0"**                   |         |             | **Top-level element with mandatory ‘version’ attribute**                                                 |
+| **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**                   |         |             | **Top-level element with mandatory ‘version’ attribute**                                                 |
 | **2**  | **E01D01**   | **identifier**                   | **1**   | **String**  |                                                                                                          |
 | 3      | E01C02       | additional-manifestation-id      | 0-n     |             |                                                                                                          |
 | 4      | E01D02.1     | manifestation-id-type            | 1       | Code        | MNI                                                                                                      |
