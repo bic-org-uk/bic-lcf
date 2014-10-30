@@ -147,12 +147,9 @@ E02 ITEM
 E03 PATRON
 ----------
 
-|       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
-|-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **patron                    
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+|       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
+|-------|--------------|-----------------------------|---------|-------------|---------|
+| **1** |              | **patron<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E03D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | 3     | E03D02       | contact-ref                 | 0-1     | String      |                                                          |
 | 3     | E03C03       | associated-location         | 0-n     |             |                                                          |
@@ -186,12 +183,9 @@ E03 PATRON
 E04 LOCATION
 ------------
 
-|       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
+|       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **location                  
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **location<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E04D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | 3     | E04C02       | additional-location-id      | 0-n     |             |                                                          |
 | 4     | E04D02.1     | location-id-type            | 1       | Code        | LOI                                                      |
@@ -210,10 +204,7 @@ E05 LOAN
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type*  | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|--------------|----------------------------------------------------------|
-| **1** |              | **loan                      
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |              | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **loan<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |              | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E05D01**   | **identifier**              | **1**   | **String**   |                                                          |
 | **3** | **E05D02**   | **patron-ref**              | **1**   | **String**   |                                                          |
 | **4** | **E05D03**   | **item-ref**                | **1**   | **String**   |                                                          |
@@ -235,10 +226,7 @@ E06 RESERVATION
 
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                               |
 |--------|--------------|-----------------------------|---------|-------------|-----------------------------------------------------------------------|
-| **1**  |              | **reservation               
-                         xmlns=                       
-                         "http://ns.bic.org/lcf/1.0"  
-                         version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute**              |
+| **1**  |              | **reservation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute**              |
 | **2**  | **E06D01**   | **identifier**              | **1**   | **String**  |                                                                       |
 | **3**  | **E06D02**   | **reservation-type**        | **1**   | **Code**    | **RVT**                                                               |
 | **4**  | **E06D03**   | **patron-ref**              | **1**   | **String**  |                                                                       |
@@ -262,10 +250,7 @@ E07 CHARGE
 
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |--------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1**  |              | **charge                    
-                         xmlns=                       
-                         "http://ns.bic.org/lcf/1.0"  
-                         version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1**  |              | **charge<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2**  | **E07D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | **3**  | **E07D02**   | **patron-ref**              | **1**   | **String**  |                                                          |
 | **4**  | **E07D03**   | **charge-type**             | **1**   | **Code**    | **CHT**                                                  |
@@ -293,10 +278,7 @@ E08 PAYMENT
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **payment                   
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E08D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | **3** | **E08D02**   | **patron-ref**              | **1**   | **String**  |                                                          |
 | **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **PYT**                                                  |
@@ -317,10 +299,7 @@ E09 CONTACT
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **contact                   
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E09D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | **3** | **E09D02**   | **name**                    | **1**   | **String**  |                                                          |
 | **4** | **E09D03**   | **patron-ref**              | **1-n** | **String**  |                                                          |
@@ -339,10 +318,7 @@ E10 TITLE CLASSIFICATION SCHEME
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **class-scheme              
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **class-scheme<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E10D01**   | **identifier**              | **1**   | **String**  | Mandatory except when creating a new entity record       |
 | **3** | **E10D02**   | **name**                    | **1**   | **String**  |                                                          |
 | 4     | E10C03       | note                        | 0-n     |             |                                                          |
@@ -355,10 +331,7 @@ E11 TITLE CLASSIFICATION TERM
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **class-term                
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **class-term<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **E11D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | **3** | **E11D02**   | **code**                    | **1**   | **String**  |                                                          |
 | **4** | **E11D03**   | **class-scheme-ref**        | **1**   | **String**  |                                                          |
@@ -373,10 +346,7 @@ E12 SELECTION CRITERION
 
 |                                                 | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------------------------------------------------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1**                                           |              | **property                  
-                                                                  xmlns=                       
-                                                                  "http://ns.bic.org/lcf/1.0"  
-                                                                  version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1**                                           |              | **property<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2**                                           | **E12D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | <span id="h.gjdgxs" class="anchor"></span>**3** | **E12D02**   | **name**                    | **1**   | **String**  |                                                          |
 | 4                                               | E12D03       | entity-type                 | 0-n     | Code        | ENT                                                      |
@@ -392,10 +362,7 @@ EXCEPTION CONDITIONS
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1** |              | **lcf-exception             
-                        xmlns=                       
-                        "http://ns.bic.org/lcf/1.0"  
-                        version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **1** |              | **lcf-exception<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2** | **R00C05**   | **exception-condition**     | **1-n** |             |                                                          |
 | **3** | **R00D05.1** | **condition-type**          | **1**   | **Code**    | **EXC**                                                  |
 | 4     | R00D05.2     | reason-denied               | 0-1     | Code        | RDN                                                      |
