@@ -135,14 +135,13 @@ E02 ITEM
 
 *Example of an item*
 
-\<item xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
- \<item-id\>9876543210\</item-id\>
- \<manifestation-ref\>1234567890\</manifestation-ref\>
- \<media-warning\>02\</media-warning\>
- \<security-desensitize\>01\</security-desensitize\>
- \<circulation-status\>03\</circulation-status\>
-
-\</item\>
+`<item xmlns="http://ns.bic.org/lcf/1.0" version="1.0">`<br/>
+&#xA0;`<item-id>9876543210</item-id>`<br/>
+&#xA0;`<manifestation-ref>1234567890</manifestation-ref>`<br/>
+&#xA0;`<media-warning>02</media-warning>`<br/>
+&#xA0;`<security-desensitize>01</security-desensitize>`<br/>
+&#xA0;`<circulation-status>03</circulation-status>`<br/>
+`</item>`
 
 E03 PATRON
 ----------
