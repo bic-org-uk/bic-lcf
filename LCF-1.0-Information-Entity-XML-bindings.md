@@ -24,8 +24,7 @@ E01 MANIFESTATION
 
 |        | *Element ID* | *XML structure*                  | *Card.* | *Data type* | *Notes*                                                                                                  |
 |--------|--------------|----------------------------------|---------|-------------|----------------------------------------------------------------------------------------------------------|
-| **1**  |              | **manifestation                  
-                         xmlns=                            
+| **1**  |              | **manifestation<br/>xmlns=                            
                          "http://ns.bic.org/lcf/1.0"       
                          version="1.0"**                   |         |             | **Top-level element with mandatory ‘version’ attribute**                                                 |
 | **2**  | **E01D01**   | **identifier**                   | **1**   | **String**  |                                                                                                          |
@@ -101,10 +100,9 @@ E01 MANIFESTATION
 E02 ITEM
 --------
 
-|        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
-|--------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
-| **1**  |              | **item                      
-                         xmlns=                       
+|        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
+|--------|--------------|-----------------------------|---------|-------------|---------|
+| **1**  |              | **item<br/>xmlns=                       
                          "http://ns.bic.org/lcf/1.0"  
                          version="1.0"**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2**  | **E02D01**   | **identifier**              | **1**   | **String**  |                                                          |
