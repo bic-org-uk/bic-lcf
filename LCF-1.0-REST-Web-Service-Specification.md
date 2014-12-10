@@ -109,12 +109,11 @@ NOTE – LCF element Q02D03 is not implemented in this binding.
 
 *Examples of a Request *
 
-GET http://192.168.0.99:80/lcf/1.0/manifestations
+    GET http://192.168.0.99:80/lcf/1.0/manifestations
 
-GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
+    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
 
-GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?os:count=10
-os:startIndex=0
+    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?os:count=10&os:startIndex=0
 
 ### XML payload format for response message
 
@@ -136,10 +135,10 @@ NOTE – LCF element R02C07 is not implemented.
 
 *Example of a Response XML payload*
 
-\<lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
- \<entity-type\>01\</entity-type\>
- \<entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/\>
-\</lcf-entity-list-response\>
+    \<lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
+     \<entity-type\>01\</entity-type\>
+     \<entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/\>
+    \</lcf-entity-list-response\>
 
 If the request is unsuccessful, the HTTP response will include an appropriate status code, which may be 207 (Multi-status), in which case the response must contain an XML payload that conforms to the LCF exception conditions XML schema.
 
@@ -162,9 +161,9 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 
 *Examples of a Request *
 
-POST http://192.168.0.99:80/lcf/1.0/manifestation
+    POST http://192.168.0.99:80/lcf/1.0/manifestation
 
-POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/item
+    POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/item
 
 ### XML payload format for response message
 
@@ -192,7 +191,7 @@ NOTE – This function replaces the entity item identified in the request with t
 
 *Example of a Request*
 
-PUT http://192.168.0.99:80/lcf/1.0/manifestation/1234567890
+    PUT http://192.168.0.99:80/lcf/1.0/manifestation/1234567890
 
 ### XML payload format for response message
 
@@ -216,7 +215,7 @@ The request is formulated using the HTTP DELETE method.
 
 *Example of a Request*
 
-DELETE http://192.168.0.99:80/lcf/1.0/manifestation/1234567890
+    DELETE http://192.168.0.99:80/lcf/1.0/manifestation/1234567890
 
 ### XML payload format for response message
 
@@ -248,15 +247,15 @@ The request is formulated using the HTTP POST method.
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
-POST http://192.168.0.99:80/lcf/1.0/loan
+    POST http://192.168.0.99:80/lcf/1.0/loan
 
 Request to confirm a new check-out, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
 
-POST http://192.168.0.99:80/lcf/1.0/loan?confirmation=Y
+    POST http://192.168.0.99:80/lcf/1.0/loan?confirmation=Y
 
 If a charge is applicable, the response may report an exception unless the 'charge-acknowledged' parameter is included in the request, e.g.
 
-POST http://192.168.0.99:80/lcf/1.0/loan?charge-acknowledged=Y
+    POST http://192.168.0.99:80/lcf/1.0/loan?charge-acknowledged=Y
 
 An XML document that conforms to the XML schema for a loan entity (E05) must be uploaded with the request.
 
@@ -279,16 +278,16 @@ The response to a check-out or renewal may be the same response as for creating 
 
 *Example of a Response XML payload:*
 
-\<lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
- \<loan-ref\>1234567890\</loan-ref\>
- \<sensitive-media-warning\>00\</sensitive-media-warning\>
-\</lcf-check-out-response\>
+    \<lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
+     \<loan-ref\>1234567890\</loan-ref\>
+     \<sensitive-media-warning\>00\</sensitive-media-warning\>
+    \</lcf-check-out-response\>
 
 ### Cancel check-out / renewal
 
 In the case of a new check-out, a cancellation is simply a deletion of a loan, using LCF function 05 (see above), e.g.:
 
-DELETE http://192.168.0.99:80/lcf/1.0/loan/1234567890
+    DELETE http://192.168.0.99:80/lcf/1.0/loan/1234567890
 
 In the case of a renewal, a cancellation involves both deletion of the new loan and modification of the loan that preceded the renewal to modify its status and to remove any reference to the (now deleted) renewal loan.
 
@@ -305,15 +304,15 @@ The check-in function involves modification of a loan, using function 04 above, 
 
 1. The URI of the current loan is found:
 
-GET http://192.168.0.99:80/lcf/1.0/items/1234567890/loans?status=01
+    GET http://192.168.0.99:80/lcf/1.0/items/1234567890/loans?status=01
 
 2. The current loan is retrieved for modification:
 
-GET http://192.168.0.99:80/lcf/1.0/loans/1234567654
+    GET http://192.168.0.99:80/lcf/1.0/loans/1234567654
 
 3. The retrieved loan is modified:
 
-PUT http://192.168.0.99:80/lcf/1.0/loans/1234567654
+    PUT http://192.168.0.99:80/lcf/1.0/loans/1234567654
 
 This presumes that a number of consequential functions are performed server-side.
 
@@ -333,12 +332,12 @@ A check-in response may be the same response as for modifying any entity, or may
 
 *Example of a Response XML payload:*
 
-\<lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
- \<loan-ref\>1234567890\</loan-ref\>
- \<return-location-ref\>repair-bin\</return-location-ref\>
- \<sensitive-media-warning\>00\</sensitive-media-warning\>
- \<special-attention\>02\</special-attention\>
-\</lcf-check-in-response\>
+    \<lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
+     \<loan-ref\>1234567890\</loan-ref\>
+     \<return-location-ref\>repair-bin\</return-location-ref\>
+     \<sensitive-media-warning\>00\</sensitive-media-warning\>
+     \<special-attention\>02\</special-attention\>
+    \</lcf-check-in-response\>
 
 ### Cancel check-in
 
@@ -351,7 +350,7 @@ Cancellation of check-in involves modifying all records affected by the check-in
 
 Making a patron payment involves creating a payment record, assuming that all consequent modifications to charge and patron records are server-side functions.
 
-POST http://192.168.0.99:80/lcf/1.0/payment
+    POST http://192.168.0.99:80/lcf/1.0/payment
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
@@ -366,9 +365,9 @@ The response is the same as for creating any entity – see function 03 above.
 
 Blocking a patron account involves a change to the status of a patron and therefore a modification to a specific patron record. No other functions are involved. Normally the patron record would need to be retrieved, then modified, i.e.:
 
-GET http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    GET http://192.168.0.99:80/lcf/1.0/patron/1234567890
 
-PUT http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    PUT http://192.168.0.99:80/lcf/1.0/patron/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
@@ -383,9 +382,9 @@ The response is the same as for modifying any entity – see function 04 above.
 
 Un-blocking a patron account, as with blocking, involves a change in the status of a patron and therefore a modification to a specific patron record, having first retrieved the record. No other functions are involved.
 
-GET http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    GET http://192.168.0.99:80/lcf/1.0/patron/1234567890
 
-PUT http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    PUT http://192.168.0.99:80/lcf/1.0/patron/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
@@ -414,15 +413,15 @@ The request is formulated using the HTTP POST method.
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
-POST http://192.168.0.99:80/lcf/1.0/reservation
+    POST http://192.168.0.99:80/lcf/1.0/reservation
 
 Request to confirm a reservation, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
 
-POST http://192.168.0.99:80/lcf/1.0/reservation?confirmation=Y
+    POST http://192.168.0.99:80/lcf/1.0/reservation?confirmation=Y
 
 If a charge is applicable, the response may report an exception unless the 'charge-acknowledged' parameter is included in the request, e.g.
 
-POST http://192.168.0.99:80/lcf/1.0/reservation?charge-acknowledged=Y
+    POST http://192.168.0.99:80/lcf/1.0/reservation?charge-acknowledged=Y
 
 An XML document that conforms to the XML schema for a reservation entity (E06) must be uploaded with the request.
 
@@ -439,10 +438,10 @@ A reservation response may be the same response as for creating any entity, i.e.
 
 *Example of a Response XML payload:*
 
-\<lcf-reservation-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
- \<reservation-ref\>R1234\</reservation-ref\>
- \<charge-ref\>C12345\</charge-ref\>
-\</lcf-reservation-response\>
+    \<lcf-reservation-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
+     \<reservation-ref\>R1234\</reservation-ref\>
+     \<charge-ref\>C12345\</charge-ref\>
+    \</lcf-reservation-response\>
 
 Stock management functions
 ==========================
@@ -452,21 +451,21 @@ Stock management functions
 
 This function is the same as core function 02, applied to the retrieval of a list of location entities, for example:
 
-GET http://192.168.0.99:80/lcf/1.0/locations?{selection-criteria}
+    GET http://192.168.0.99:80/lcf/1.0/locations?{selection-criteria}
 
 22 Retrieve title classification scheme list
 --------------------------------------------
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification scheme entities, for example:
 
-GET http://192.168.0.99:80/lcf/1.0/class-schemes
+    GET http://192.168.0.99:80/lcf/1.0/class-schemes
 
 23 Retrieve title classification list
 -------------------------------------
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification code entities, for example:
 
-GET http://192.168.0.99:80/lcf/1.0/class-codes?scheme=xxxxx
+    GET http://192.168.0.99:80/lcf/1.0/class-codes?scheme=xxxxx
 
 24 Retrieve (stock) item list
 -----------------------------
@@ -475,20 +474,20 @@ This function combines the core functions for retrieval of a list of manifestati
 
 The following selects all items for a given set of selection criteria:
 
-GET http://192.168.0.99:80/lcf/1.0/items?{all-selection-criteria}
+    GET http://192.168.0.99:80/lcf/1.0/items?{all-selection-criteria}
 
 The following selects all items that are copies of the same manifestation, for a given set of selection criteria:
 
-GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?{all-selection-criteria}
+    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?{all-selection-criteria}
 
 25 Retrieve selection criterion type list
 -----------------------------------------
 
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
 
-GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=manifestation
+    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=manifestation
 
-GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=location
+    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=location
 
 [1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
 
