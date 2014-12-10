@@ -77,7 +77,7 @@ NOTE – LCF element Q01D03 is not implemented in this binding.
 
 *Example of a Request *
 
-GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
+    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
 
 ### XML payload format for response message
 
