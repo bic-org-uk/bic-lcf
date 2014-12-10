@@ -122,11 +122,8 @@ If the request is successful, the HTTP response will contain an XML payload that
 
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*                                                                                                                                |
 |-------|--------------|-----------------------------------------|---------|-------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **1** |              | **lcf-entity-list-response              
-                         xmlns="http://ns.bic.org/lcf/1.0"       
-                         xmlns:os=                               
-                         "http://a9.com/-/spec/opensearch/1.1/"  
-                         version=”1.0”**                         | **1**   |             | **Top-level message element with namespace declarations and mandatory ‘version’ attribute**                                            |
+| **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"       
+                         xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"<br>version=”1.0”**                         | **1**   |             | **Top-level message element with namespace declarations and mandatory ‘version’ attribute**                                            |
 | **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **ENT**                                                                                                                                |
 | 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity. |
 | 4     | R02D02.1     | property-ref                            | 1       | String      | Reference to an instance of the selection criterion entity (E11).                                                                      |
