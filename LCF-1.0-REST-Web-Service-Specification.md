@@ -130,8 +130,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 | 6     | R02D03       | os:totalResults                         | 0-1     | Integer     |                                                                                                                                        |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | Integer     |                                                                                                                                        |
 | 8     | R02D05       | os:startIndex                           | 0-1     | Integer     |                                                                                                                                        |
-| **9** | **R02C06**   | **entity                                
-                         href="{instance-uri}"**                 | **1-n** | **AnyURI**  | The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type                 |
+| **9** | **R02C06**   | **entity<br>href="{instance-uri}"**                 | **1-n** | **AnyURI**  | The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type                 |
 
 NOTE – LCF element R02C07 is not implemented.
 
