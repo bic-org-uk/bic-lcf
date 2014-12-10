@@ -135,10 +135,10 @@ NOTE – LCF element R02C07 is not implemented.
 
 *Example of a Response XML payload*
 
-    \<lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
-     \<entity-type\>01\</entity-type\>
-     \<entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/\>
-    \</lcf-entity-list-response\>
+    <lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
+     <entity-type>01</entity-type>
+     <entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/>
+    </lcf-entity-list-response>
 
 If the request is unsuccessful, the HTTP response will include an appropriate status code, which may be 207 (Multi-status), in which case the response must contain an XML payload that conforms to the LCF exception conditions XML schema.
 
@@ -278,10 +278,10 @@ The response to a check-out or renewal may be the same response as for creating 
 
 *Example of a Response XML payload:*
 
-    \<lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
-     \<loan-ref\>1234567890\</loan-ref\>
-     \<sensitive-media-warning\>00\</sensitive-media-warning\>
-    \</lcf-check-out-response\>
+    <lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
+     <loan-ref>1234567890</loan-ref>
+     <sensitive-media-warning>00</sensitive-media-warning>
+    </lcf-check-out-response>
 
 ### Cancel check-out / renewal
 
@@ -332,12 +332,12 @@ A check-in response may be the same response as for modifying any entity, or may
 
 *Example of a Response XML payload:*
 
-    \<lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
-     \<loan-ref\>1234567890\</loan-ref\>
-     \<return-location-ref\>repair-bin\</return-location-ref\>
-     \<sensitive-media-warning\>00\</sensitive-media-warning\>
-     \<special-attention\>02\</special-attention\>
-    \</lcf-check-in-response\>
+    <lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
+     <loan-ref>1234567890</loan-ref>
+     <return-location-ref>repair-bin</return-location-ref>
+     <sensitive-media-warning>00</sensitive-media-warning>
+     <special-attention>02</special-attention>
+    </lcf-check-in-response>
 
 ### Cancel check-in
 
@@ -438,10 +438,10 @@ A reservation response may be the same response as for creating any entity, i.e.
 
 *Example of a Response XML payload:*
 
-    \<lcf-reservation-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
-     \<reservation-ref\>R1234\</reservation-ref\>
-     \<charge-ref\>C12345\</charge-ref\>
-    \</lcf-reservation-response\>
+    <lcf-reservation-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
+     <reservation-ref>R1234</reservation-ref>
+     <charge-ref>C12345</charge-ref>
+    </lcf-reservation-response>
 
 Stock management functions
 ==========================
