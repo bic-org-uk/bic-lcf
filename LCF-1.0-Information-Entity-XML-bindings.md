@@ -13,7 +13,7 @@ This document also specifies a standard XML binding for the data framework for c
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
-This document is subject to revision from time to time. The latest versions of this document, the LCF data framework specification, code lists and other resources supporting specific implementations of the LCF standard may be found at <http://www.bic.org/lcf>.
+This document is subject to revision from time to time. The latest versions of this document, the LCF data framework specification, code lists and other resources supporting specific implementations of the LCF standard may be found at <http://www.bic.org.uk/114/LCF/>.
 
 An XML schema is available that corresponds to this specification.
 
