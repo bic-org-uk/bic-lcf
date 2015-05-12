@@ -10,9 +10,9 @@ Version 1.0, 10 January 2014
 
 This document defines a binding of the LCF data communication framework to the HTTP[1] protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[2]) design principles,
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
-This document is subject to revision from time to time. The latest versions of this document, the LCF data framework specification, code lists and other resources supporting this and other specific implementations of the LCF standard may be found at <http://www.bic.org/lcf>.
+This document is subject to revision from time to time. The latest versions of this document, the LCF data framework specification, code lists and other resources supporting this and other specific implementations of the LCF standard may be found at <http://www.bic.org.uk/114/LCF/>.
 
 ### General principles
 
