@@ -11,7 +11,7 @@ This document specifies XML bindings for the information entities defined in ver
 
 This document also specifies a standard XML binding for the data framework for communicating exception conditions in LCF response messages.
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/bicstandardlicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
 This document is subject to revision from time to time. The latest versions of this document, the LCF data framework specification, code lists and other resources supporting specific implementations of the LCF standard may be found at <http://www.bic.org/lcf>.
 
