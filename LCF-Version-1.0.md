@@ -8,7 +8,7 @@ Version 1.0, 10 January 2014
 
 This document defines data frameworks for messages to meet the data communication requirements of a standard set of business functions for terminal applications within libraries.
 
-The use of this document is subject to license terms and conditions that can be found at <http://www.bic.org.uk/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found at <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
 Terminal applications typically involve the use of terminal devices and systems by library staff and patrons to carry out a range of business functions that involve data communication between a user terminal and a Library Management System (LMS). The user terminal communicates with the LMS to request that a specific function be executed. Execution of the function will normally involve retrieval of or changes to information held in the LMS. The LMS will respond to the request in a variety of ways, depending upon the nature of the request. Terminal applications include self-service applications used by library patrons, as well as other applications used by library staff.
 
