@@ -98,8 +98,8 @@ E01 MANIFESTATION
 E02 ITEM
 --------
 
-|        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
-|--------|--------------|-----------------------------|---------|-------------|---------|
+|        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                                                                 |
+|--------|--------------|-----------------------------|---------|-------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | **1**  |              | **item<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**  |         |             | **Top-level element with mandatory ‘version’ attribute** |
 | **2**  | **E02D01**   | **identifier**              | **1**   | **String** |          |
 | 3      | E02C02       | additional-item-id          | 0-n     |            |          |
