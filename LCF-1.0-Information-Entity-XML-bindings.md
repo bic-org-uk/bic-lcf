@@ -100,10 +100,10 @@ E02 ITEM
 
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |--------|--------------|-----------------------------|---------|-------------|---------|
-| **1**  |              | **item<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**              |         |             | **Top-level element with mandatory ‘version’ attribute** |
-| **2**  | **E02D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| 3      | E02C02       | additional-item-id          | 0-n     |             |                                                          |
-| 4      | E02D02.1     | item-id-type                | 1       | Code        | IMI                                                      |
+| **1**  |              | **item<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**  |         |             | **Top-level element with mandatory ‘version’ attribute** |
+| **2**  | **E02D01**   | **identifier**              | **1**   | **String** |          |
+| 3      | E02C02       | additional-item-id          | 0-n     |            |          |
+| 4      | E02D02.1     | item-id-type                | 1       | Code       | IMI      |
 | 5      | E02D02.2     | type-name                   | 0-1     | String      |                                                          |
 | 6      | E02D02.3     | value                       | 1       | String      |                                                          |
 | **7**  | **E02D03**   | **manifestation-ref**       | **1**   | **String**  |                                                          |
