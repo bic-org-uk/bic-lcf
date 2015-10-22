@@ -110,19 +110,22 @@ This document defines code lists for use with LCF version 1.0.
 
 ### ENT Entity type
 
+NOTE - The column headed "Alpha value" is intended for use in RESTful web service 
+implementations of LCF. RESTful requests should always refer to the set of entities 
+of a given type, and hence the use of the plural form.
+
   *Code ID*   |*Code value*   |*Alpha value*   |*Definition*                  |*Notes*
   ----------- |-------------- |--------------- |----------------------------- |----------------
-  ENT01       |01             |manifestation   |Manifestation                 |LCF Entity E01
-  ENT02       |02             |item            |Copy of a manifestation       |LCF Entity E02
-  ENT03       |03             |patron          |Patron                        |LCF Entity E03
-  ENT04       |04             |location        |Physical location             |LCF Entity E04
-  ENT05       |05             |loan            |Loan                          |LCF Entity E05
-  ENT06       |06             |reservation     |Reservation                   |LCF Entity E06
-  ENT07       |07             |charge          |Charge                        |LCF Entity E07
-  ENT08       |08             |payment         |Payment                       |LCF Entity E08
-  ENT09       |09             |class-scheme    |Title classification scheme   |LCF Entity E09
-  ENT10       |10             |class-code      |Title classification code     |LCF Entity E10
-  ENT11       |11             |property        |Selection criterion           |LCF Entity E11  
+  ENT01       |01             |manifestations  |Manifestation                 |LCF Entity E01
+  ENT02       |02             |items           |Copy of a manifestation       |LCF Entity E02
+  ENT03       |03             |patrons         |Patron                        |LCF Entity E03
+  ENT04       |04             |locations       |Physical location             |LCF Entity E04
+  ENT05       |05             |loans           |Loan                          |LCF Entity E05
+  ENT06       |06             |reservations    |Reservation                   |LCF Entity E06
+  ENT07       |07             |charges         |Charge                        |LCF Entity E07
+  ENT08       |08             |payments        |Payment                       |LCF Entity E08
+  ENT09       |09             |class-schemes   |Title classification scheme   |LCF Entity E09
+  ENT10       |10             |class-codes     |Title classification code     |LCF Entity E10
   
 ### EXC Exception condition response
 
