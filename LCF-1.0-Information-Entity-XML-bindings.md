@@ -22,7 +22,7 @@ The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0"
 E01 MANIFESTATION
 -----------------
 
-|        | *Element ID* | *XML structure*                  | *Card.* | *Data type* | *Notes*                                                                                                  |
+|        | *Element ID* | *XML structure*                  | *Card.* | *Data type* | *Notes* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |--------|--------------|----------------------------------|---------|-------------|----------------------------------------------------------------------------------------------------------|
 | **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**                   |         |             | **Top-level element with mandatory ‘version’ attribute**                                                 |
 | **2**  | **E01D01**   | **identifier**                   | **1**   | **String**  |                                                                                                          |
