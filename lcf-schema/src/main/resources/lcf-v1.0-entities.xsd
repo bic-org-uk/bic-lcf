@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by XMLSPY 5 Enterprise Ed. (Talis Information Ltd) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<xs:element name="charge">
 		<xs:complexType>
@@ -60,6 +61,9 @@
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="contact">
+		<xs:annotation>
+			<xs:documentation>Represents a single method of communication with a 'patron'. </xs:documentation>
+		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="identifier"/>
@@ -69,12 +73,9 @@
 	</xs:element>
 	<xs:group name="contact-props">
 		<xs:sequence>
-			<xs:element ref="name"/>
 			<xs:element ref="patron-ref"/>
-			<xs:element ref="address-line" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="communication-detail" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="language" minOccurs="0"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="communication-type"/>
+			<xs:element ref="locator" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="item">
@@ -185,7 +186,9 @@
 	</xs:element>
 	<xs:group name="patron-props">
 		<xs:sequence>
-			<xs:element ref="contact-ref"/>
+			<xs:element ref="name"/>
+			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="language" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:sequence minOccurs="0">
@@ -342,18 +345,18 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="communication-detail">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="communication-type"/>
-				<xs:element ref="locator"/>
-			</xs:sequence>
-		</xs:complexType>
+	<xs:element name="communication-type" type="communicationType">
+		<xs:annotation>
+			<xs:documentation>Value from the CMT list, which determines how the locator multiplicity should work. </xs:documentation>
+		</xs:annotation>
 	</xs:element>
-	<xs:element name="communication-type" type="communicationType"/>
 	<xs:element name="condition-code" type="conditionCode"/>
 	<xs:element name="condition-description" type="nonEmptyString"/>
-	<xs:element name="contact-ref" type="nonEmptyString"/>
+	<xs:element name="contact-ref" type="nonEmptyString">
+		<xs:annotation>
+			<xs:documentation>Llink to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="contributor">
 		<xs:complexType>
 			<xs:sequence>
@@ -391,7 +394,11 @@
 	<xs:element name="fines-due-items" type="xs:int"/>
 	<xs:element name="heading" type="nonEmptyString"/>
 	<xs:element name="hold-items-limit" type="xs:int"/>
-	<xs:element name="identifier" type="nonEmptyString"/>
+	<xs:element name="identifier" type="nonEmptyString">
+		<xs:annotation>
+			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="item-id-type" type="copyIDType"/>
 	<xs:element name="item-ref" type="nonEmptyString"/>
 	<xs:element name="items-in-stock" type="xs:int"/>
@@ -435,7 +442,11 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="media-warning"/>
-	<xs:element name="name" type="nonEmptyString"/>
+	<xs:element name="name" type="nonEmptyString">
+		<xs:annotation>
+			<xs:documentation>The full name of the person or Institution being modelled as this 'patron'.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="note">
 		<xs:complexType>
 			<xs:sequence>
@@ -457,7 +468,11 @@
 	<xs:element name="paid-amount" type="xs:decimal"/>
 	<xs:element name="paid-date" type="xs:dateTime"/>
 	<xs:element name="patron-status" type="patronStatusCode"/>
-	<xs:element name="patron-ref" type="nonEmptyString"/>
+	<xs:element name="patron-ref" type="nonEmptyString">
+		<xs:annotation>
+			<xs:documentation>A 'contact' must be associated with a pre-existing 'patron'.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 	<xs:element name="patrons-in-hold-queue" type="xs:int"/>
 	<xs:element name="payment-date" type="xs:dateTime"/>
 	<xs:element name="payment-due-date" type="xs:dateTime"/>
@@ -579,6 +594,7 @@
 			<xs:enumeration value="03"/>
 			<xs:enumeration value="04"/>
 			<xs:enumeration value="05"/>
+			<xs:enumeration value="06"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="conditionCode">
