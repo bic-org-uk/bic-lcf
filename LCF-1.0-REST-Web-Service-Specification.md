@@ -161,7 +161,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 
 *Examples of a Request *
 
-    POST http://192.168.0.99:80/lcf/1.0/manifestation
+    POST http://192.168.0.99:80/lcf/1.0/manifestations
 
     POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/item
 
@@ -191,7 +191,7 @@ NOTE – This function replaces the entity item identified in the request with t
 
 *Example of a Request*
 
-    PUT http://192.168.0.99:80/lcf/1.0/manifestation/1234567890
+    PUT http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
 
 ### XML payload format for response message
 
@@ -215,7 +215,7 @@ The request is formulated using the HTTP DELETE method.
 
 *Example of a Request*
 
-    DELETE http://192.168.0.99:80/lcf/1.0/manifestation/1234567890
+    DELETE http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
 
 ### XML payload format for response message
 
@@ -247,15 +247,15 @@ The request is formulated using the HTTP POST method.
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loan
+    POST http://192.168.0.99:80/lcf/1.0/loans
 
 Request to confirm a new check-out, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loan?confirmation=Y
+    POST http://192.168.0.99:80/lcf/1.0/loans?confirmation=Y
 
 If a charge is applicable, the response may report an exception unless the 'charge-acknowledged' parameter is included in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loan?charge-acknowledged=Y
+    POST http://192.168.0.99:80/lcf/1.0/loans?charge-acknowledged=Y
 
 An XML document that conforms to the XML schema for a loan entity (E05) must be uploaded with the request.
 
@@ -287,7 +287,7 @@ The response to a check-out or renewal may be the same response as for creating 
 
 In the case of a new check-out, a cancellation is simply a deletion of a loan, using LCF function 05 (see above), e.g.:
 
-    DELETE http://192.168.0.99:80/lcf/1.0/loan/1234567890
+    DELETE http://192.168.0.99:80/lcf/1.0/loans/1234567890
 
 In the case of a renewal, a cancellation involves both deletion of the new loan and modification of the loan that preceded the renewal to modify its status and to remove any reference to the (now deleted) renewal loan.
 
@@ -350,7 +350,7 @@ Cancellation of check-in involves modifying all records affected by the check-in
 
 Making a patron payment involves creating a payment record, assuming that all consequent modifications to charge and patron records are server-side functions.
 
-    POST http://192.168.0.99:80/lcf/1.0/payment
+    POST http://192.168.0.99:80/lcf/1.0/payments
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
@@ -365,9 +365,9 @@ The response is the same as for creating any entity – see function 03 above.
 
 Blocking a patron account involves a change to the status of a patron and therefore a modification to a specific patron record. No other functions are involved. Normally the patron record would need to be retrieved, then modified, i.e.:
 
-    GET http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    GET http://192.168.0.99:80/lcf/1.0/patrons/1234567890
 
-    PUT http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
@@ -382,9 +382,9 @@ The response is the same as for modifying any entity – see function 04 above.
 
 Un-blocking a patron account, as with blocking, involves a change in the status of a patron and therefore a modification to a specific patron record, having first retrieved the record. No other functions are involved.
 
-    GET http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    GET http://192.168.0.99:80/lcf/1.0/patrons/1234567890
 
-    PUT http://192.168.0.99:80/lcf/1.0/patron/1234567890
+    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
@@ -413,15 +413,15 @@ The request is formulated using the HTTP POST method.
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/reservation
+    POST http://192.168.0.99:80/lcf/1.0/reservations
 
 Request to confirm a reservation, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/reservation?confirmation=Y
+    POST http://192.168.0.99:80/lcf/1.0/reservations?confirmation=Y
 
 If a charge is applicable, the response may report an exception unless the 'charge-acknowledged' parameter is included in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/reservation?charge-acknowledged=Y
+    POST http://192.168.0.99:80/lcf/1.0/reservations?charge-acknowledged=Y
 
 An XML document that conforms to the XML schema for a reservation entity (E06) must be uploaded with the request.
 
@@ -485,9 +485,9 @@ The following selects all items that are copies of the same manifestation, for a
 
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
 
-    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=manifestation
+    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=manifestations
 
-    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=location
+    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
 
 [1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
 
