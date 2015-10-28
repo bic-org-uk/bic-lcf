@@ -38,17 +38,21 @@ The LCF elements Q00D04 and Q00C05 should not be used in REST implementations.
 
 #### 2. User authentication, access rights and privileges
 
-In addition to terminal application authentication, an LMS will frequently require that the user (patron or library staff) be authenticated. The elements Q00C01 and Q00C02 should be used for this purpose. These should be included as (additional) query parameters in the request. It is recommended that HTTPS be used for all requests that contain query parameters for user authentication.,
+In addition to terminal application authentication, an LMS will frequently require that the user (patron or library staff) be authenticated. The elements Q00C01 and Q00C02 should be used for this purpose. These should be included as (additional) query parameters in the request. It is recommended that HTTPS be used for all requests that contain query parameters for user authentication.
 
-#### 3. Time-stamped requests and responses
+#### 3. Secure communication
+
+Implementations of LCF, other than for testing purposes, should ensure that all communications are secure. When such implementations are connected to the public internet, suggested approaches include the use of a Virtual Private Network (VPN) service or the use of HTTPS, the secure form of HTTP.
+
+#### 4. Time-stamped requests and responses
 
 Date and time stamps should be carried as HTTP parameters and the LCF elements Q00D08 and R00D04 should not be used in REST implementations.
 
-#### 4. Exception conditions in RESTful web service responses
+#### 5. Exception conditions in RESTful web service responses
 
 In a RESTful web service implementation exception condition responses should either be carried by an HTTP response status code or, if there is no equivalent HTTP status code or if several exception conditions apply, by an HTTP response status code 207 (multi-status) with the exception conditions specified in an XML payload that conforms to the LCF Exception Conditions XML schema.
 
-#### 5. Encoding rules in URI query parts 
+#### 6. Encoding rules in URI query parts 
 
 The URI syntax rules don't allow certain characters in query parts, including the space character. Although these rules allow a space character to be represented by a '+' sign, it is recommended that all non-allowed characters should always be encoded using percent encoding, i.e. '%' followed by hexadecimal digits representing the character's Unicode character number.
 
