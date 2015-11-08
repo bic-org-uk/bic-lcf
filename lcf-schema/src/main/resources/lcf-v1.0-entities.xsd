@@ -441,7 +441,7 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="media-warning"/>
+	<xs:element name="media-warning" type="mediaWarningFlag"/>
 	<xs:element name="name" type="nonEmptyString">
 		<xs:annotation>
 			<xs:documentation>The full name of the person or Institution being modelled as this 'patron'.</xs:documentation>
@@ -1479,6 +1479,13 @@
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
 			<xs:enumeration value="04"/>
+		</xs:restriction>
+	</xs:simpleType>
+        <xs:simpleType name="mediaWarningFlag">
+                <xs:restriction base="xs:token">
+			<xs:enumeration value="00"/>
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="messageDisplayType">
