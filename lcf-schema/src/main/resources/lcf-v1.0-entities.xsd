@@ -542,7 +542,7 @@
 	<xs:element name="volume-or-part" type="nonEmptyString"/>
 	<xs:element name="year-of-publication" type="xs:gYear"/>
 	<xs:simpleType name="cardStatus">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -571,7 +571,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="circulationStatusCode">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -588,7 +588,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="communicationType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -598,10 +598,10 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="conditionCode">
-		<xs:restriction base="xs:token"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="contributorRole">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="A01"/>
 			<xs:enumeration value="A02"/>
 			<xs:enumeration value="A03"/>
@@ -697,7 +697,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="copyIDType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -717,7 +717,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="feeOrFineType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -731,7 +731,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="iso4217CurrencyCode">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="AED"/>
 			<xs:enumeration value="AFA"/>
 			<xs:enumeration value="AFN"/>
@@ -926,10 +926,10 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="innstitutionIDType">
-		<xs:restriction base="xs:token"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="languageCode">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="aar"/>
 			<xs:enumeration value="abk"/>
 			<xs:enumeration value="ace"/>
@@ -1428,17 +1428,17 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="loanCharacteristicType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="loanRestrictionType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="loanStatusCode">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -1460,7 +1460,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="locationIDType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -1474,22 +1474,22 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="mediaTypeScheme">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
 			<xs:enumeration value="04"/>
 		</xs:restriction>
 	</xs:simpleType>
-        <xs:simpleType name="mediaWarningFlag">
-                <xs:restriction base="xs:token">
+	<xs:simpleType name="mediaWarningFlag">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="00"/>
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="messageDisplayType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 		</xs:restriction>
@@ -1505,7 +1505,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="patronStatusCode">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -1523,13 +1523,13 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="paymentStatus">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="paymentType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="00"/>
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
@@ -1538,7 +1538,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="reservationStatus">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -1548,7 +1548,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="reservationType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="1"/>
 			<xs:enumeration value="2"/>
 			<xs:enumeration value="3"/>
@@ -1556,14 +1556,14 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="securityDesensitize">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="00"/>
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="titleType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="00"/>
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="03"/>
@@ -1573,14 +1573,14 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="unnamedContributorType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="manifestationIDType">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -1590,7 +1590,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="manifestationStatus">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
