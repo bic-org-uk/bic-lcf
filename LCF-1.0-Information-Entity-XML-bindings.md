@@ -152,7 +152,7 @@ E03 PATRON
 | **2** | **E03D01**   | **identifier**              | **1**   | **String**  |                                                          |
 | **3** | **E03D22**   | **name**                    | **1**   | **String**  | *Added v1.0.1*                                                    |
 | 4     | E03D02       | contact-ref                 | 0-n     | String      |                                                          |
-| 5     | E03D23       | language                    | 0-1     | String      | *Added v1.0.1*                                                    |
+| 5     | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added v1.0.1*                                                    |
 | 6     | E03C03       | associated-location         | 0-n     |             |                                                          |
 | 7     | E03D03.1     | association-type            | 1       | Code        | LAT                                                      |
 | 8     | E03D03.2     | location-ref                | 1-n     | String      |                                                          |
@@ -302,13 +302,13 @@ E09 CONTACT
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
 | **2** | **E09D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| **3** | **E09D02**   | **name**                    | **1**   | **String**  |                                                          |
+| *3*   | *E09D02*     | *name*                      | *0*     | *String* | *Removed v1.0.1*                                                    |
 | **4** | **E09D03**   | **patron-ref**              | **1-n** | **String**  |                                                          |
 | 5     | E09D04       | address-line                | 0-n     | String      |                                                          |
 | 6     | E09D05       | communication-detail        | 0-n     |             |                                                          |
-| 7     | E09D05.1     | communication-type          | 1       | Code        | CMT                                                      |
+| 7     | E09D05.1     | communication-type          | 1       | Code        | CMT                                                        |
 | 8     | E09D05.2     | locator                     | 1       | String      |                                                          |
-| 9     | E09D06       | language                    | 0-1     | Code        | ISO three-letter code                                    |
+| *9*   | *E09D06*     | *language*                  | *0*     | *Code*      | *ISO three-letter code*<br/>*Removed v1.0.1*                                 |
 | 10    | E09C07       | note                        | 0-n     |             |                                                          |
 | 11    | E09D07.1     | note-type                   | 0-1     | Code        | NOT                                                      |
 | 12    | E09D07.2     | date-time                   | 0-1     | DateTime    |                                                          |
