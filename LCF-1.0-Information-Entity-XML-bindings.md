@@ -305,9 +305,9 @@ E09 CONTACT
 | *3*   | *E09D02*     | *name*                      | *0*     | *String* | *Removed v1.0.1*                                                    |
 | **4** | **E09D03**   | **patron-ref**              | **1-n** | **String**  |                                                          |
 | 5     | E09D04       | address-line                | 0-n     | String      |                                                          |
-| 6     | E09D05       | communication-detail        | 0-n     |             |                                                          |
-| 7     | E09D05.1     | communication-type          | 1       | Code        | CMT                                                        |
-| 8     | E09D05.2     | locator                     | 1       | String      |                                                          |
+| *6*   | *E09D05*     | *communication-detail*      | *0*     |             | *Structure flattened in v1.0.1*                                                    |
+| 7     | E09D08       | communication-type          | 1       | Code        | CMT                                                        |
+| 8     | E09D09       | locator                     | 1-n     | String      | *Cardinality changed v1.0.1*                                                    |
 | *9*   | *E09D06*     | *language*                  | *0*     | *Code*      | *ISO three-letter code*<br/>*Removed v1.0.1*                                 |
 | 10    | E09C07       | note                        | 0-n     |             |                                                          |
 | 11    | E09D07.1     | note-type                   | 0-1     | Code        | NOT                                                      |
