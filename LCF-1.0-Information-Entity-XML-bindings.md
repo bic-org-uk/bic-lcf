@@ -150,9 +150,9 @@ E03 PATRON
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **patron<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
 | **2** | **E03D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| **3** | **E03D22**   | **name**                    | **1**   | **String**  | Added v1.0.1                                                         |
+| **3** | **E03D22**   | **name**                    | **1**   | **String**  | *Added v1.0.1*                                                    |
 | 4     | E03D02       | contact-ref                 | 0-n     | String      |                                                          |
-| 5     | E03D23       | language                    | 0-1     | String      | Added v1.0.1                                                          |
+| 5     | E03D23       | language                    | 0-1     | String      | *Added v1.0.1*                                                    |
 | 6     | E03C03       | associated-location         | 0-n     |             |                                                          |
 | 7     | E03D03.1     | association-type            | 1       | Code        | LAT                                                      |
 | 8     | E03D03.2     | location-ref                | 1-n     | String      |                                                          |
