@@ -20,9 +20,31 @@ All RESTful web service implementations of LCF should use standard HTTP features
 
 All web service implementations must identify the version of LCF that is implemented for each function.
 
+Where URIs are shown in examples, the path and query parts of the URI, as defined by IETF RFC 3986[3] (i.e. the sub-string of the URI that starts with ‘/lcf’) should be the same in all web service implementations. The authority part of the URI (i.e. the sub-string of the URL to the left of ‘/lcf’) is implementation-specific, but should not be obfuscatory.
+
 The datatypes 'string', 'int', 'decimal', 'anyURI' and 'dateTime' used below are specified in W3C XML Schema Part 2: Datatypes – see http://www.w3.org/TR/xmlschema-2/.
 
-Where URIs are shown in examples, the path and query parts of the URI, as defined by IETF RFC 3986[3] (i.e. the sub-string of the URI that starts with ‘/lcf’) should be the same in all web service implementations. The authority part of the URI (i.e. the sub-string of the URL to the left of ‘/lcf’) is implementation-specific, but should not be obfuscatory.
+The datatype of the following entity reference elements, which are defined in the information entity XML binding specification to have datatype 'string', must in all web service implementations be further constrained to be 'anyURI':
+
+- E01D10.1, E11D03 class-scheme-ref
+- E01D10.2 class-term-ref
+- E01D16 manifestation-record-ref
+- E01D19, E05D03, E06D05, E07D06 item-ref
+- E01D20, E02D12, E07D09 reservation-ref
+- E02D03, E06D04, E07D07 manifestation-ref
+- E02D06.2, E03D03.2 location-ref
+- E02D14 on-loan-ref
+- E03D02 contact-ref
+- E03D07, E06D12, E07D08 loan-ref
+- E03D15 reservation-ref
+- E03D19, E05D11, E06D13 charge-ref
+- E05D02, E06D03, E07D02, E09D03 patron-ref
+- E05D08 previous-loan-ref
+- E05D09 renewal-loan-ref
+- E06D07 pickup-institution-ref
+- E06D08 pickup-location-ref
+- E07D17 payment-ref
+- E12D05 value-scheme-ref
 
 ### Implementation notes
 
