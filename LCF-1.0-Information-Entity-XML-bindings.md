@@ -2,8 +2,7 @@
 
 **Library Interoperability Standards**
 
-**LCF Information Entities
-XML bindings**
+**LCF Information Entities XML bindings**
 
 Version 1.0, 10 January 2014
 
@@ -15,13 +14,13 @@ The use of this document is subject to license terms and conditions that can be 
 
 This document is subject to revision from time to time. The latest versions of this document, the LCF data framework specification, code lists and other resources supporting specific implementations of the LCF standard may be found at <http://www.bic.org.uk/114/LCF/>.
 
-An XML schema is available that corresponds to this specification.
-
 The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0".
 
 The datatypes 'string', 'int', 'decimal', 'anyURI', 'year' and 'dateTime' used in these XML bindings are specified in W3C XML Schema Part 2: Datatypes &ndash; see <a href="http://www.w3.org/TR/xmlschema-2/">http://www.w3.org/TR/xmlschema-2/</a>.
 
 Data elements must be non-empty when included, as well as conforming to the specified datatype.
+
+An XML schema is available that corresponds to this specification.
 
 E01 MANIFESTATION
 -----------------
