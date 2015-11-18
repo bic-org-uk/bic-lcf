@@ -190,18 +190,18 @@ E04 LOCATION
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **location<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2** | **E04D01**   | **identifier**              | **1**   | **String**  |                                                          |
+| **2** | **E04D01**   | **identifier**              | **1**   | **string**  |                                                          |
 | 3     | E04C02       | additional-location-id      | 0-n     |             |                                                          |
 | 4     | E04D02.1     | location-id-type            | 1       | Code        | LOI                                                      |
-| 5     | E04D02.2     | type-name                   | 0-1     | String      |                                                          |
-| 6     | E04D02.3     | value                       | 1       | String      |                                                          |
-| 7     | E04D03       | name                        | 0-1     | String      |                                                          |
+| 5     | E04D02.2     | type-name                   | 0-1     | string      |                                                          |
+| 6     | E04D02.3     | value                       | 1       | string      |                                                          |
+| 7     | E04D03       | name                        | 0-1     | string      |                                                          |
 | 8     | E04D04       | location-type               | 0-1     | Code        | LOT                                                      |
-| 9     | E04D05       | description                 | 0-1     | String      |                                                          |
+| 9     | E04D05       | description                 | 0-1     | string      |                                                          |
 | 10    | E04C06       | note                        | 0-n     |             |                                                          |
 | 11    | E04D06.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 12    | E04D06.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 13    | E04D06.3     | note-text                   | 1       | String      |                                                          |
+| 12    | E04D06.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 13    | E04D06.3     | note-text                   | 1       | string      |                                                          |
 
 E05 LOAN
 --------
@@ -209,21 +209,21 @@ E05 LOAN
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type*  | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|--------------|----------------------------------------------------------|
 | **1** |              | **loan<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |              | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2** | **E05D01**   | **identifier**              | **1**   | **String**   |                                                          |
-| **3** | **E05D02**   | **patron-ref**              | **1**   | **String**   |                                                          |
-| **4** | **E05D03**   | **item-ref**                | **1**   | **String**   |                                                          |
-| **5** | **E05D04**   | **start-date**              | **1**   | **DateTime** |                                                          |
-| 6     | E05D05       | end-due-date                | 0-1     | DateTime     |                                                          |
-| 7     | E05D06       | end-date                    | 0-1     | DateTime     |                                                          |
+| **2** | **E05D01**   | **identifier**              | **1**   | **string**   |                                                          |
+| **3** | **E05D02**   | **patron-ref**              | **1**   | **string**   |                                                          |
+| **4** | **E05D03**   | **item-ref**                | **1**   | **string**   |                                                          |
+| **5** | **E05D04**   | **start-date**              | **1**   | **dateTime** |                                                          |
+| 6     | E05D05       | end-due-date                | 0-1     | dateTime     |                                                          |
+| 7     | E05D06       | end-date                    | 0-1     | dateTime     |                                                          |
 | **8** | **E05D07**   | **loan-status**             | **1-n** | **Code**     | **LOS**                                                  |
-| 9     | E05D08       | previous-loan-ref           | 0-1     | String       |                                                          |
-| 10    | E05D09       | renewal-loan-ref            | 0-1R     | String       |                                                          |
-| 11    | E05D10       | recall-notice-date          | 0-1R     | DateTime     |                                                          |
-| 12    | E05D11       | charge-ref                  | 0-nR     | String       |                                                          |
+| 9     | E05D08       | previous-loan-ref           | 0-1     | string       |                                                          |
+| 10    | E05D09       | renewal-loan-ref            | 0-1R     | string       |                                                          |
+| 11    | E05D10       | recall-notice-date          | 0-1R     | dateTime     |                                                          |
+| 12    | E05D11       | charge-ref                  | 0-nR     | string       |                                                          |
 | 13    | E05C12       | note                        | 0-n     |              |                                                          |
 | 14    | E05D12.1     | note-type                   | 0-1     | Code         | NOT                                                      |
-| 15    | E05D12.2     | date-time                   | 0-1     | DateTime     |                                                          |
-| 16    | E05D12.3     | note-text                   | 1       | String       |                                                          |
+| 15    | E05D12.2     | date-time                   | 0-1     | dateTime     |                                                          |
+| 16    | E05D12.3     | note-text                   | 1       | string       |                                                          |
 
 E06 RESERVATION
 ---------------
@@ -231,23 +231,23 @@ E06 RESERVATION
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                               |
 |--------|--------------|-----------------------------|---------|-------------|-----------------------------------------------------------------------|
 | **1**  |              | **reservation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**              |
-| **2**  | **E06D01**   | **identifier**              | **1**   | **String**  |                                                                       |
+| **2**  | **E06D01**   | **identifier**              | **1**   | **string**  |                                                                       |
 | **3**  | **E06D02**   | **reservation-type**        | **1**   | **Code**    | **RVT**                                                               |
-| **4**  | **E06D03**   | **patron-ref**              | **1**   | **String**  |                                                                       |
-| 5      | E06D04       | manifestation-ref           | 0-1     | String      | Either E06D04 or E06D05 must be included in each reservation instance |
-| 6      | E06D05       | item-ref                    | 0-1     | String      |                                                                       |
-| 7      | E06D06       | start-date                  | 0-1     | DateTime    |                                                                       |
-| 8      | E06D07       | pickup-institution-ref      | 0-1     | String      |                                                                       |
-| 9      | E06D08       | pickup-location-ref         | 0-1     | String      |                                                                       |
-| 10     | E06D09       | pickup-date                 | 0-1     | DateTime    |                                                                       |
-| 11     | E06D10       | end-date                    | 0-1     | DateTime    |                                                                       |
+| **4**  | **E06D03**   | **patron-ref**              | **1**   | **string**  |                                                                       |
+| 5      | E06D04       | manifestation-ref           | 0-1     | string      | Either E06D04 or E06D05 must be included in each reservation instance |
+| 6      | E06D05       | item-ref                    | 0-1     | string      |                                                                       |
+| 7      | E06D06       | start-date                  | 0-1     | dateTime    |                                                                       |
+| 8      | E06D07       | pickup-institution-ref      | 0-1     | string      |                                                                       |
+| 9      | E06D08       | pickup-location-ref         | 0-1     | string      |                                                                       |
+| 10     | E06D09       | pickup-date                 | 0-1     | dateTime    |                                                                       |
+| 11     | E06D10       | end-date                    | 0-1     | dateTime    |                                                                       |
 | **12** | **E06D11**   | **reservation-status**      | **1**   | **Code**    | **RVS**                                                               |
-| 13     | E06D12       | loan-ref                    | 0-1R     | String      |                                                                       |
-| 14     | E06D13       | charge-ref                  | 0-nR     | String      |                                                                       |
+| 13     | E06D12       | loan-ref                    | 0-1R     | string      |                                                                       |
+| 14     | E06D13       | charge-ref                  | 0-nR     | string      |                                                                       |
 | 15     | E06C14       | note                        | 0-n     |             |                                                                       |
 | 16     | E06D14.1     | note-type                   | 0-1     | Code        | NOT                                                                   |
-| 17     | E06D14.2     | date-time                   | 0-1     | DateTime    |                                                                       |
-| 18     | E06D14.3     | note-text                   | 1       | String      |                                                                       |
+| 17     | E06D14.2     | date-time                   | 0-1     | dateTime    |                                                                       |
+| 18     | E06D14.3     | note-text                   | 1       | string      |                                                                       |
 
 E07 CHARGE
 ----------
@@ -255,27 +255,27 @@ E07 CHARGE
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |--------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1**  |              | **charge<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2**  | **E07D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| **3**  | **E07D02**   | **patron-ref**              | **1**   | **String**  |                                                          |
+| **2**  | **E07D01**   | **identifier**              | **1**   | **string**  |                                                          |
+| **3**  | **E07D02**   | **patron-ref**              | **1**   | **string**  |                                                          |
 | **4**  | **E07D03**   | **charge-type**             | **1**   | **Code**    | **CHT**                                                  |
 | **5**  | **E07D04**   | **charge-status**           | **1**   | **Code**    | **CHS**                                                  |
-| 6      | E07D05       | description                 | 0-1     | String      |                                                          |
-| 7      | E07D06       | item-ref                    | 0-1     | String      |                                                          |
-| 8      | E07D07       | manifestation-ref           | 0-1     | String      |                                                          |
-| 9      | E07D08       | loan-ref                    | 0-1     | String      |                                                          |
-| 10     | E07D09       | reservation-ref             | 0-1     | String      |                                                          |
-| 11     | E07D10       | creation-date               | 0-1     | DateTime    |                                                          |
-| 12     | E07D11       | payment-due-date            | 0-1     | DateTime    |                                                          |
-| **13** | **E07D12**   | **charge-amount**           | **1**   | **Decimal** |                                                          |
+| 6      | E07D05       | description                 | 0-1     | string      |                                                          |
+| 7      | E07D06       | item-ref                    | 0-1     | string      |                                                          |
+| 8      | E07D07       | manifestation-ref           | 0-1     | string      |                                                          |
+| 9      | E07D08       | loan-ref                    | 0-1     | string      |                                                          |
+| 10     | E07D09       | reservation-ref             | 0-1     | string      |                                                          |
+| 11     | E07D10       | creation-date               | 0-1     | dateTime    |                                                          |
+| 12     | E07D11       | payment-due-date            | 0-1     | dateTime    |                                                          |
+| **13** | **E07D12**   | **charge-amount**           | **1**   | **decimal** |                                                          |
 | 14     | E07D13       | currency                    | 0-1     | Code        | ISO currency code                                        |
-| 15     | E07D14       | paid-amount                 | 0-1     | Decimal     |                                                          |
-| 16     | E07D15       | due-amount                  | 0-1R     | Decimal     |                                                          |
-| 17     | E07D16       | paid-date                   | 0-1     | DateTime    |                                                          |
-| 18     | E07D17       | payment-ref                 | 0-n     | String      |                                                          |
+| 15     | E07D14       | paid-amount                 | 0-1     | decimal     |                                                          |
+| 16     | E07D15       | due-amount                  | 0-1R     | decimal     |                                                          |
+| 17     | E07D16       | paid-date                   | 0-1     | dateTime    |                                                          |
+| 18     | E07D17       | payment-ref                 | 0-n     | string      |                                                          |
 | 19     | E07C18       | note                        | 0-n     |             |                                                          |
 | 20     | E07D18.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 21     | E07D18.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 22     | E07D18.3     | note-text                   | 1       | String      |                                                          |
+| 21     | E07D18.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 22     | E07D18.3     | note-text                   | 1       | string      |                                                          |
 
 E08 PAYMENT
 -----------
@@ -283,20 +283,20 @@ E08 PAYMENT
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2** | **E08D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| **3** | **E08D02**   | **patron-ref**              | **1**   | **String**  |                                                          |
+| **2** | **E08D01**   | **identifier**              | **1**   | **string**  |                                                          |
+| **3** | **E08D02**   | **patron-ref**              | **1**   | **string**  |                                                          |
 | **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **PYT**                                                  |
-| 5     | E08D04       | description                 | 0-1     | String      |                                                          |
-| **6** | **E08D05**   | **charge-ref**              | **1-n** | **String**  |                                                          |
-| 7     | E08D06       | payment-date                | 0-1     | DateTime    |                                                          |
-| **8** | **E08D07**   | **amount**                  | **1**   | **Decimal** |                                                          |
+| 5     | E08D04       | description                 | 0-1     | string      |                                                          |
+| **6** | **E08D05**   | **charge-ref**              | **1-n** | **string**  |                                                          |
+| 7     | E08D06       | payment-date                | 0-1     | dateTime    |                                                          |
+| **8** | **E08D07**   | **amount**                  | **1**   | **decimal** |                                                          |
 | 9     | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                        |
 | 10    | E08D09       | payment-status              | 0-1     | Code        | PYS                                                      |
-| 11    | E08D10       | transaction-ref             | 0-1     | String      |                                                          |
+| 11    | E08D10       | transaction-ref             | 0-1     | string      |                                                          |
 | 12    | E08C11       | note                        | 0-n     |             |                                                          |
 | 13    | E08D11.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 14    | E08D11.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 15    | E08D11.3     | note-text                   | 1       | String      |                                                          |
+| 14    | E08D11.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 15    | E08D11.3     | note-text                   | 1       | string      |                                                          |
 
 E09 CONTACT
 -----------
@@ -304,18 +304,18 @@ E09 CONTACT
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2** | **E09D01**   | **identifier**              | **1**   | **String**  |                                                          |
+| **2** | **E09D01**   | **identifier**              | **1**   | **string**  |                                                          |
 |    | **<strike>E09D02</strike>**     | **<strike>name</strike>**                      | **<strike>1</strike>**     | **<strike>String</strike>** | *Removed v1.0.1*                                                    |
-| **3** | **E09D03**   | **patron-ref**              | **1-n** | **String**  |                                                          |
-|    | <strike>E09D04</strike>       | <strike>address-line</strike>                | <strike>0-n</strike>     | <strike>String</strike>      | *Removed v1.0.1*                                                         |
+| **3** | **E09D03**   | **patron-ref**              | **1-n** | **string**  |                                                          |
+|    | <strike>E09D04</strike>       | <strike>address-line</strike>                | <strike>0-n</strike>     | <strike>string</strike>      | *Removed v1.0.1*                                                         |
 |    | <strike>E09C05</strike>     | <strike>communication-detail</strike>      | <strike>0-n</strike>     |             | *Removed v1.0.1*                                                    |
 | **4**   | **E09D08**   | **communication-type**          | **1**       | **Code**        | **CMT**                                                        |
-| **5**     | **E09D09**       | **locator**                     | **1-n**     | **String**      | *Repeatable v1.0.1*                                                    |
+| **5**     | **E09D09**       | **locator**                     | **1-n**     | **string**      | *Repeatable v1.0.1*                                                    |
 |    | <strike>E09D06</strike>     | <strike>language</strike>                  | <strike>0-1</strike>     | <strike>Code</strike>      | <strike>ISO three-letter code</strike><br/>*Removed v1.0.1*                                 |
 | 6    | E09C07       | note                        | 0-n     |             |                                                          |
 | 7    | E09D07.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 8    | E09D07.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 9    | D09D07.3     | note-text                   | 1       | String      |                                                          |
+| 8    | E09D07.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 9    | D09D07.3     | note-text                   | 1       | string      |                                                          |
 
 E10 TITLE CLASSIFICATION SCHEME
 -------------------------------
@@ -323,12 +323,12 @@ E10 TITLE CLASSIFICATION SCHEME
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **class-scheme<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2** | **E10D01**   | **identifier**              | **1**   | **String**  | Mandatory except when creating a new entity record       |
-| **3** | **E10D02**   | **name**                    | **1**   | **String**  |                                                          |
+| **2** | **E10D01**   | **identifier**              | **1**   | **string**  | Mandatory except when creating a new entity record       |
+| **3** | **E10D02**   | **name**                    | **1**   | **string**  |                                                          |
 | 4     | E10C03       | note                        | 0-n     |             |                                                          |
 | 5     | E10D03.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 6     | E10D03,2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 7     | E10D03.3     | note-text                   | 1       | String      |                                                          |
+| 6     | E10D03,2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 7     | E10D03.3     | note-text                   | 1       | string      |                                                          |
 
 E11 TITLE CLASSIFICATION TERM
 -----------------------------
@@ -336,14 +336,14 @@ E11 TITLE CLASSIFICATION TERM
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **class-term<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2** | **E11D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| **3** | **E11D02**   | **code**                    | **1**   | **String**  |                                                          |
-| **4** | **E11D03**   | **class-scheme-ref**        | **1**   | **String**  |                                                          |
-| 5     | E11D04       | heading                     | 0-1     | String      |                                                          |
-| 6     | E11C05       | note                        | 0-n     | String      |                                                          |
+| **2** | **E11D01**   | **identifier**              | **1**   | **string**  |                                                          |
+| **3** | **E11D02**   | **code**                    | **1**   | **string**  |                                                          |
+| **4** | **E11D03**   | **class-scheme-ref**        | **1**   | **string**  |                                                          |
+| 5     | E11D04       | heading                     | 0-1     | string      |                                                          |
+| 6     | E11C05       | note                        | 0-n     | string      |                                                          |
 | 7     | E11D05.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 8     | E11D05.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 9     | E11D05.3     | note-text                   | 1       | String      |                                                          |
+| 8     | E11D05.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 9     | E11D05.3     | note-text                   | 1       | string      |                                                          |
 
 E12 SELECTION CRITERION
 -----------------------
@@ -351,15 +351,15 @@ E12 SELECTION CRITERION
 |                                                 | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes*                                                  |
 |-------------------------------------------------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1**                                           |              | **property<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
-| **2**                                           | **E12D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| <span id="h.gjdgxs" class="anchor"></span>**3** | **E12D02**   | **name**                    | **1**   | **String**  |                                                          |
+| **2**                                           | **E12D01**   | **identifier**              | **1**   | **string**  |                                                          |
+| <span id="h.gjdgxs" class="anchor"></span>**3** | **E12D02**   | **name**                    | **1**   | **string**  |                                                          |
 | 4                                               | E12D03       | entity-type                 | 0-n     | Code        | ENT                                                      |
-| 5                                               | E12D04       | description                 | 0-1     | String      |                                                          |
-| 6                                               | E12D05       | value-scheme-ref            | 0-1     | String      |                                                          |
-| 7                                               | E12C06       | note                        | 0-n     | String      |                                                          |
+| 5                                               | E12D04       | description                 | 0-1     | string      |                                                          |
+| 6                                               | E12D05       | value-scheme-ref            | 0-1     | string      |                                                          |
+| 7                                               | E12C06       | note                        | 0-n     | string      |                                                          |
 | 8                                               | E12D06.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 9                                               | E12D06.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 10                                              | E12D06.3     | note-text                   | 1       | String      |                                                          |
+| 9                                               | E12D06.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 10                                              | E12D06.3     | note-text                   | 1       | string      |                                                          |
 
 EXCEPTION CONDITIONS
 --------------------
@@ -370,10 +370,10 @@ EXCEPTION CONDITIONS
 | **2** | **R00C05**   | **exception-condition**     | **1-n** |             |                                                          |
 | **3** | **R00D05.1** | **condition-type**          | **1**   | **Code**    | **EXC**                                                  |
 | 4     | R00D05.2     | reason-denied               | 0-1     | Code        | RDN                                                      |
-| 5     | R00D05.3     | element-ref                 | 0-1     | String      |                                                          |
+| 5     | R00D05.3     | element-ref                 | 0-1     | string      |                                                          |
 | 6     | R00C06       | message                     | 0-n     | Code        |                                                          |
-| 7     | R00D06.1     | message-type                | 1       | String      | MGT                                                      |
-| 8     | R00D06.2     | message-text                | 1-n     | String      |                                                          |
+| 7     | R00D06.1     | message-type                | 1       | string      | MGT                                                      |
+| 8     | R00D06.2     | message-text                | 1-n     | string      |                                                          |
 
 -
 
