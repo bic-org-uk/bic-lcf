@@ -302,17 +302,17 @@ E09 CONTACT
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
 | **2** | **E09D01**   | **identifier**              | **1**   | **String**  |                                                          |
-| *3*   | *E09D02*     | *name*                      | *0*     | *String* | *Removed v1.0.1*                                                    |
-| **4** | **E09D03**   | **patron-ref**              | **1-n** | **String**  |                                                          |
-| 5     | E09D04       | address-line                | 0-n     | String      |                                                          |
-| *6*   | *E09D05*     | *communication-detail*      | *0*     |             | *Removed v1.0.1*                                                    |
-| **7** | **E09D08**   | **communication-type**          | **1**       | **Code**        | **CMT**                                                        |
-| **8**     | **E09D09**       | **locator**                     | **1-n**     | **String**      | *Cardinality changed v1.0.1*                                                    |
-| *9*   | *E09D06*     | *language*                  | *0*     | *Code*      | *ISO three-letter code*<br/>*Removed v1.0.1*                                 |
-| 10    | E09C07       | note                        | 0-n     |             |                                                          |
-| 11    | E09D07.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 12    | E09D07.2     | date-time                   | 0-1     | DateTime    |                                                          |
-| 13    | D09D07.3     | note-text                   | 1       | String      |                                                          |
+|    | **<strike>E09D02</strike>**     | **<strike>name</strike>**                      | **<strike>1</strike>**     | **<strike>String</strike>** | *Removed v1.0.1*                                                    |
+| **3** | **E09D03**   | **patron-ref**              | **1-n** | **String**  |                                                          |
+|    | <strike>E09D04</strike>       | <strike>address-line</strike>                | <strike>0-n</strike>     | <strike>String</strike>      | *Removed v1.0.1*                                                         |
+|    | <strike>E09C05</strike>     | <strike>communication-detail</strike>      | <strike>0-n</strike>     |             | *Removed v1.0.1*                                                    |
+| **4**   | **E09D08**   | **communication-type**          | **1**       | **Code**        | **CMT**                                                        |
+| **5**     | **E09D09**       | **locator**                     | **1-n**     | **String**      | *Repeatable v1.0.1*                                                    |
+|    | <strike>E09D06</strike>     | <strike>language</strike>                  | <strike>0-1</strike>     | <strike>Code</strike>      | <strike>ISO three-letter code</strike><br/>*Removed v1.0.1*                                 |
+| 6    | E09C07       | note                        | 0-n     |             |                                                          |
+| 7    | E09D07.1     | note-type                   | 0-1     | Code        | NOT                                                      |
+| 8    | E09D07.2     | date-time                   | 0-1     | DateTime    |                                                          |
+| 9    | D09D07.3     | note-text                   | 1       | String      |                                                          |
 
 E10 TITLE CLASSIFICATION SCHEME
 -------------------------------
