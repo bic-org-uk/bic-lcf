@@ -266,8 +266,10 @@ NOTE – Contact information is held in separate contact records for security an
 | *Id*         | *Element* | *SIP2 ID*     | *Card.* | *Format* | *Description* |
 |--------------|-----------|---------------|---------|----------|---------------|
 | **E03D01**   | **Identifier**                                          | **AA** | **1**   | **String**                                         | **The primary LMS identifier normally used when referring to this patron.**                                                                                             |
-| E03D02       | Contact reference                                       |        | 0-1     | String                                             | A contact person or organisation represented by this patron                                                                                                             |
-| *E03C03*     | *Associated location *                                  |        | 0-n     |                                                    | A location associated with this patron.                                                                                                                                 |
+| **E03D22**   | **Name**                                          | **AE** | **1**   | **String**                                         | **Name of primary contact for this patron.**<br/>*Added v1.0.1*                                                                                             |
+| E03D02       | Contact reference                                       |        | 0-n     | String                                             | A contact person or organisation represented by this patron<br/>*Repeatable v1.0.1*                                                                                                             |
+| E09D06   | Language                                      |        | 1   | Code   | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1* |
+| *E03C03*     | *Associated location*                                  |        | 0-n     |                                                    | A location associated with this patron.                                                                                                                                 |
 | E03D03.1     | Location association type                               |        | 1       | Code                                               | LCF code list **LAT**                                                                                                                                                   |
 | E03D03.2     | Location reference                                      |        | 1-n     | String                                             |                                                                                                                                                                         |
 | ***E03C04*** | ***Patron status***                                     |        | **1**   |                                                    | **Composite element containing a combination of zero or more conditions.**                                                                                              |
@@ -444,20 +446,20 @@ An identified payment made by a patron to settle one or more charges.
 
 #### Description
 
-The contact details for a person or organization represented by a patron.
+Contact details for the primary contact person or organization for a patron.
 
 #### Properties
 
 | *Id*       | *Element*               | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
 |------------|-------------------------|--------|---------|------------|----------------------|
 | **E09D01** | **Contact identifier**  |        | **1**   | **String** |                                                                                                                                              |
-| **E09D02** | **Name**                | **AE** | **1**   | **String** | **Name of person or organization.**                                                                                                          |
+| **<strike>E09D02</strike>** | **<strike>Name</strike>**                | **<strike>AE</strike>** | **<strike>1</strike>**   | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>*Removed v1.0.1*                                                                                                          |
 | **E09D03** | **Patron ref**          |        | **1-n** | **String** |                                                                                                                                              |
-| E09D04     | Address                 | BD     | 0-n     | String     | Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.                             |
-| E09C05     | *Communication details* |        | 0-n     |            | Composite element containing a single communication number, address or locator for the patron. Repeatable for different communication types. |
-| E09D05.1   | Communication type      |        | 1       | Code       | LCF code list **CMT**                                                                                                                        |
-| E09D05.2   | Communication locator   |        | 1       | String     | The number, address or locator                                                                                                               |
-| **E09D06** | **Language**            |        | **1**   | **Code**   | **Language for communication with contact<br/>ISO three-letter language code, e.g. ‘eng’** |
+| <strike>E09D04</strike>     | <strike>Address</strike>                 | <strike>BD</strike>     | <strike>0-n</strike>     | <strike>String</strike>     | <strike>Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.</strike><br/>*Removed v1.0.1*                             |
+| *<strike>E09C05</strike>*     | *<strike>Communication details</strike>* |        | <strike>0-n</strike>     |            | <strike>Composite element containing a single communication number, address or locator for the patron. Repeatable for different communication types.</strike><br/>*Removed v1.0.1* |
+| **E09D05**   | **Communication type**      |        | **1**       | **Code**       | **LCF code list CMT**<br/>*Changed v1.0.1*                                                                                                                        |
+| **E09D06**   | **Communication locator**   |        | **1-n**       | **String**     | The number, address or locator<br/>*Changed v1.0.1*                                                                                                               |
+| **<strike>E09D06</strike>** | **<strike>Language</strike>**            |        | **<strike>1</strike>**   | **<strike>Code</strike>**   | **<strike>Language for communication with contact<br/>ISO three-letter language code, e.g. ‘eng’</strike>**<br/>*Removed v1.0.1* |
 | *E09C07*   | *Contact note*          |        | 0-n     |            | A note attached to the LMS record for this contact.                                                                                          |
 | E09D07.1   | Note type               |        | 0-1     | Code       | LCF code list **NOT**                                                                                                                        |
 | E09D07.2   | Note date-time          |        | 0-1     | DateTime   |                                                                                                                                              |
