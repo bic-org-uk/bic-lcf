@@ -24,7 +24,7 @@ Where URIs are shown in examples, the path and query parts of the URI, as define
 
 The datatypes 'string', 'int', 'decimal', 'anyURI' and 'dateTime' used below are specified in W3C XML Schema Part 2: Datatypes – see http://www.w3.org/TR/xmlschema-2/.
 
-In responses the datatype of the following entity reference elements, which are defined in the information entity XML binding specification to have datatype 'string', must in all web service implementations be further constrained to be 'anyURI':
+In XML payloads the datatype of the following entity reference elements, which are defined in the information entity XML binding specification to have datatype 'string', must in all web service implementations be further constrained to be 'anyURI':
 
 - E01D10.1, E11D03 class-scheme-ref
 - E01D10.2 class-term-ref
@@ -152,7 +152,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 | **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"<br>version=”1.0”**                         | **1**   |             | **Top-level message element with namespace declarations and mandatory ‘version’ attribute**                                            |
 | **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **ENT**                                                                                                                                |
 | 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity. |
-| 4     | R02D02.1     | property-ref                            | 1       | string      | Reference to an instance of the selection criterion entity (E11).                                                                      |
+| 4     | R02D02.1     | property-ref                            | 1       | anyURI      | Reference to an instance of the selection criterion entity (E11).                                                                      |
 | 5     | R02D02.2     | value                                   | 1       | string      |                                                                                                                                        |
 | 6     | R02D03       | os:totalResults                         | 0-1     | int     |                                                                                                                                        |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | int     |                                                                                                                                        |
@@ -298,16 +298,16 @@ The response to a check-out or renewal may be the same response as for creating 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*                                                           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------------------------------------------------------|
 | **1** |              | **lcf-check-out-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**  |
-| 2     | R11D01       | loan-ref                                 | 0-1     | string      | One of R11D01, R11C02 or R11D03 must be included in the response. |
+| 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response. |
 | 3     | R11C02       | loan                                     | 0-1     |             | See E05                                                           |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | MEW – Omitted if responding to a renewal                          |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | SCD – Omitted if responding to a renewal                          |
-| 6     | R11D05       | charge-ref                               | 0-1     | string      |                                                                   |
+| 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                                                                   |
 
 *Example of a Response XML payload:*
 
     <lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
-     <loan-ref>1234567890</loan-ref>
+     <loan-ref>http://192.168.0.99:80/lcf/1.0/loans/1234567890</loan-ref>
      <sensitive-media-warning>00</sensitive-media-warning>
     </lcf-check-out-response>
 
@@ -351,18 +351,18 @@ A check-in response may be the same response as for modifying any entity, or may
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*                                                          |
 |-------|--------------|-----------------------------------------|---------|-------------|------------------------------------------------------------------|
 | **1** |              | **lcf-check-in-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute** |
-| 2     | R12D01       | loan-ref                                | 1       | string      |                                                                  |
-| 3     | R12D04       | return-location-ref                     | 0-1     | string      |                                                                  |
+| 2     | R12D01       | loan-ref                                | 1       | anyURI      |                                                                  |
+| 3     | R12D04       | return-location-ref                     | 0-1     | anyURI      |                                                                  |
 | 4     | R12D05       | media-warning                           | 0-1     | Code        | MEW                                                              |
 | 5     | R12D06       | special-attention                       | 0-1     | Code        | SPA                                                              |
 | 6     | R12D07       | special-attention-note                  | 0-1     | string      |                                                                  |
-| 7     | R12D08       | charge-ref                              | 0-n     | string      |                                                                  |
+| 7     | R12D08       | charge-ref                              | 0-n     | anyURI      |                                                                  |
 
 *Example of a Response XML payload:*
 
     <lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
-     <loan-ref>1234567890</loan-ref>
-     <return-location-ref>repair-bin</return-location-ref>
+     <loan-ref>http://192.168.0.99:80/lcf/1.0/loans/1234567890</loan-ref>
+     <return-location-ref>http://192.168.0.99:80/lcf/1.0/locations/repair-bin</return-location-ref>
      <sensitive-media-warning>00</sensitive-media-warning>
      <special-attention>02</special-attention>
     </lcf-check-in-response>
@@ -460,15 +460,15 @@ A reservation response may be the same response as for creating any entity, i.e.
 |       | *Element ID* | *XML structure*                            | *Card.* | *Data type* | *Notes*                                                          |
 |-------|--------------|--------------------------------------------|---------|-------------|------------------------------------------------------------------|
 | **1** |              | **lcf-reservation-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute** |
-| 2     | R16D01       | reservation-ref                            | 0-1     | string      | Either R16D01 or R16D02 must be included in the response.        |
+| 2     | R16D01       | reservation-ref                            | 0-1     | anyURI      | Either R16D01 or R16D02 must be included in the response.        |
 | 3     | R16C02       | reservation                                | 0-1     |             | See E06                                                          |
-| 7     | R16D03       | charge-ref                                 | 0-1     | string      |                                                                  |
+| 7     | R16D03       | charge-ref                                 | 0-1     | anyURI      |                                                                  |
 
 *Example of a Response XML payload:*
 
     <lcf-reservation-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
-     <reservation-ref>R1234</reservation-ref>
-     <charge-ref>C12345</charge-ref>
+     <reservation-ref>http://192.168.0.99:80/lcf/1.0/reservations/R1234</reservation-ref>
+     <charge-ref>http://192.168.0.99:80/lcf/1.0/charges/C12345</charge-ref>
     </lcf-reservation-response>
 
 Stock management functions
