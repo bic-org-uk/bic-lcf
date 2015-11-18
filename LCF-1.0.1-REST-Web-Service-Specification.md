@@ -24,7 +24,7 @@ Where URIs are shown in examples, the path and query parts of the URI, as define
 
 The datatypes 'string', 'int', 'decimal', 'anyURI' and 'dateTime' used below are specified in W3C XML Schema Part 2: Datatypes – see http://www.w3.org/TR/xmlschema-2/.
 
-The datatype of the following entity reference elements, which are defined in the information entity XML binding specification to have datatype 'string', must in all web service implementations be further constrained to be 'anyURI':
+In responses the datatype of the following entity reference elements, which are defined in the information entity XML binding specification to have datatype 'string', must in all web service implementations be further constrained to be 'anyURI':
 
 - E01D10.1, E11D03 class-scheme-ref
 - E01D10.2 class-term-ref
