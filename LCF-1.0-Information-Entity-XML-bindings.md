@@ -68,12 +68,12 @@ E01 MANIFESTATION
 | 39     | E01D14.1     | fee-type                         | 1       | Code        | CHT                                                                                                      |
 | 40     | E01D14.2     | amount                           | 1       | decimal     |                                                                                                          |
 | 41     | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                        |
-| 42     | E01D15       | patrons-in-hold-queue            | 0-1     | int     |                                                                                                          |
+| 42     | E01D15       | patrons-in-hold-queue            | 0-1R[1]     | int     |                                                                                                          |
 | 43     | E01D16       | manifestation-record-ref         | 0-1     | string      |                                                                                                          |
 | **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **MNS**                                                                                                  |
-| 45     | E01D18       | items-in-stock                   | 0-1     | int     |                                                                                                          |
-| 46     | E01D19       | item-ref                         | 0-n     | string      |                                                                                                          |
-| 47     | E01C20       | reservation-ref                  | 0-n     | string      |                                                                                                          |
+| 45     | E01D18       | items-in-stock                   | 0-1R     | int     |                                                                                                          |
+| 46     | E01D19       | item-ref                         | 0-nR     | string      |                                                                                                          |
+| 47     | E01C20       | reservation-ref                  | 0-nR     | string      |                                                                                                          |
 | 48     | E01C21       | note                             | 0-n     |             |                                                                                                          |
 | 49     | E01D21.1     | note-type                        | 0-1     | Code        | NOT                                                                                                      |
 | 50     | E01D21.2     | date-time                        | 0-1     | dateTime    |                                                                                                          |
@@ -126,9 +126,9 @@ E02 ITEM
 | 21     | E02D10.2     | amount                      | 1       | decimal     |                                                          |
 | 22     | E02D10.3     | currency                    | 0-1     | Code        | ISO 3-letter code                                        |
 | **23** | **E02D11**   | **circulation-status**      | **1**   | **Code**    | **CIS**                                                  |
-| 24     | E02D12       | reservation-ref             | 0-n     | string      |                                                          |
-| 25     | E02D13       | patrons-in-hold-queue       | 0-1     | int     |                                                          |
-| 26     | E02D14       | on-loan-ref                 | 0-1     | string      |                                                          |
+| 24     | E02D12       | reservation-ref             | 0-nR     | string      |                                                          |
+| 25     | E02D13       | patrons-in-hold-queue       | 0-1R     | int     |                                                          |
+| 26     | E02D14       | on-loan-ref                 | 0-1R     | string      |                                                          |
 | 27     | E02D15       | condition-code              | 0-1     | Code        | LMS-proprietary                                          |
 | 28     | E02D16       | condition-description       | 0-1     | string      |                                                          |
 | 29     | E02C17       | note                        | 0-n     |             |                                                          |
@@ -159,22 +159,22 @@ E03 PATRON
 | 6     | E03C03       | associated-location         | 0-n     |             |                                                          |
 | 7     | E03D03.1     | association-type            | 1       | Code        | LAT                                                      |
 | 8     | E03D03.2     | location-ref                | 1-n     | string      |                                                          |
-| 9     | E03D04       | patron-status               | 0-n     | Code        | PNS                                                      |
-| 10    | E03D05       | card-status                 | 0-1     | Code        | PCS                                                      |
-| 11    | E03D06       | blocked-card-message        | 0-1     | string      | Only included if E03D08 is included.                     |
-| 12    | E03D07       | loan-ref                    | 0-n     | string      |                                                          |
-| 13    | E03D08       | on-loan-items               | 0-1     | int    |                                                          |
+| 9     | E03D04       | patron-status               | 0-nR     | Code        | PNS                                                      |
+| 10    | E03D05       | card-status                 | 0-1R     | Code        | PCS                                                      |
+| 11    | E03D06       | blocked-card-message        | 0-1R     | string      | Only included if E03D08 is included.                     |
+| 12    | E03D07       | loan-ref                    | 0-nR     | string      |                                                          |
+| 13    | E03D08       | on-loan-items               | 0-1R     | int    |                                                          |
 | 14    | E03D09       | loan-items-limit            | 0-1     | int     |                                                          |
-| 15    | E03D10       | overdue-items               | 0-1     | int     |                                                          |
+| 15    | E03D10       | overdue-items               | 0-1R     | int     |                                                          |
 | 16    | E03D11       | overdue-items-limit         | 0-1     | int     |                                                          |
-| 17    | E03D12       | recalled-items              | 0-1     | int     |                                                          |
-| 18    | E03D13       | fees-due-items              | 0-1     | int     |                                                          |
-| 19    | E03D14       | fines-due-items             | 0-1     | int     |                                                          |
-| 20    | E03D15       | reservation-ref             | 0-n     | string      |                                                          |
-| 21    | E03D16       | available-hold-items        | 0-1     | int     |                                                          |
-| 22    | E03D17       | unavailable-hold-items      | 0-1     | int     |                                                          |
+| 17    | E03D12       | recalled-items              | 0-1R     | int     |                                                          |
+| 18    | E03D13       | fees-due-items              | 0-1R     | int     |                                                          |
+| 19    | E03D14       | fines-due-items             | 0-1R     | int     |                                                          |
+| 20    | E03D15       | reservation-ref             | 0-nR     | string      |                                                          |
+| 21    | E03D16       | available-hold-items        | 0-1R     | int     |                                                          |
+| 22    | E03D17       | unavailable-hold-items      | 0-1R     | int     |                                                          |
 | 23    | E03D18       | hold-items-limit            | 0-1     | int     |                                                          |
-| 24    | E03D19       | charge-ref                  | 0-n     | string      |                                                          |
+| 24    | E03D19       | charge-ref                  | 0-nR     | string      |                                                          |
 | 25    | E03C20       | charge-limit                | 0-n     |             |                                                          |
 | 26    | E03D20.1     | charge-type                 | 0-1     | Code        | CHT                                                      |
 | 27    | E03D20.2     | amount                      | 1       | decimal     |                                                          |
@@ -217,9 +217,9 @@ E05 LOAN
 | 7     | E05D06       | end-date                    | 0-1     | DateTime     |                                                          |
 | **8** | **E05D07**   | **loan-status**             | **1-n** | **Code**     | **LOS**                                                  |
 | 9     | E05D08       | previous-loan-ref           | 0-1     | String       |                                                          |
-| 10    | E05D09       | renewal-loan-ref            | 0-1     | String       |                                                          |
-| 11    | E05D10       | recall-notice-date          | 0-1     | DateTime     |                                                          |
-| 12    | E05D11       | charge-ref                  | 0-n     | String       |                                                          |
+| 10    | E05D09       | renewal-loan-ref            | 0-1R     | String       |                                                          |
+| 11    | E05D10       | recall-notice-date          | 0-1R     | DateTime     |                                                          |
+| 12    | E05D11       | charge-ref                  | 0-nR     | String       |                                                          |
 | 13    | E05C12       | note                        | 0-n     |              |                                                          |
 | 14    | E05D12.1     | note-type                   | 0-1     | Code         | NOT                                                      |
 | 15    | E05D12.2     | date-time                   | 0-1     | DateTime     |                                                          |
@@ -242,8 +242,8 @@ E06 RESERVATION
 | 10     | E06D09       | pickup-date                 | 0-1     | DateTime    |                                                                       |
 | 11     | E06D10       | end-date                    | 0-1     | DateTime    |                                                                       |
 | **12** | **E06D11**   | **reservation-status**      | **1**   | **Code**    | **RVS**                                                               |
-| 13     | E06D12       | loan-ref                    | 0-1     | String      |                                                                       |
-| 14     | E06D13       | charge-ref                  | 0-n     | String      |                                                                       |
+| 13     | E06D12       | loan-ref                    | 0-1R     | String      |                                                                       |
+| 14     | E06D13       | charge-ref                  | 0-nR     | String      |                                                                       |
 | 15     | E06C14       | note                        | 0-n     |             |                                                                       |
 | 16     | E06D14.1     | note-type                   | 0-1     | Code        | NOT                                                                   |
 | 17     | E06D14.2     | date-time                   | 0-1     | DateTime    |                                                                       |
@@ -269,7 +269,7 @@ E07 CHARGE
 | **13** | **E07D12**   | **charge-amount**           | **1**   | **Decimal** |                                                          |
 | 14     | E07D13       | currency                    | 0-1     | Code        | ISO currency code                                        |
 | 15     | E07D14       | paid-amount                 | 0-1     | Decimal     |                                                          |
-| 16     | E07D15       | due-amount                  | 0-1     | Decimal     |                                                          |
+| 16     | E07D15       | due-amount                  | 0-1R     | Decimal     |                                                          |
 | 17     | E07D16       | paid-date                   | 0-1     | DateTime    |                                                          |
 | 18     | E07D17       | payment-ref                 | 0-n     | String      |                                                          |
 | 19     | E07C18       | note                        | 0-n     |             |                                                          |
@@ -374,3 +374,7 @@ EXCEPTION CONDITIONS
 | 6     | R00C06       | message                     | 0-n     | Code        |                                                          |
 | 7     | R00D06.1     | message-type                | 1       | String      | MGT                                                      |
 | 8     | R00D06.2     | message-text                | 1-n     | String      |                                                          |
+
+-
+
+[1] Elements where the cardinality is followed by 'R' are "response-only" or "read-only". These elements should only occur in responses from an LMS to a terminal application/device and will be ignored when included in requests.
