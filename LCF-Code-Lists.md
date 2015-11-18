@@ -86,6 +86,7 @@ This document defines code lists for use with LCF version 1.0.
   CMT03       |03             |Business phone number             |
   CMT04       |04             |Mobile phone number               |
   CMT05       |05             |Email address                     |
+  CMT06       |06             |Postal address                    |*Added for use with LCF v1.0.1*
 
 ### CRT Check-out restriction type
 
