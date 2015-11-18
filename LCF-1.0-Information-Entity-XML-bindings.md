@@ -21,6 +21,8 @@ The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0".
 
 The datatypes 'string', 'int', 'decimal', 'anyURI', 'year' and 'dateTime' used in these XML bindings are specified in W3C XML Schema Part 2: Datatypes &ndash; see <a href="http://www.w3.org/TR/xmlschema-2/">http://www.w3.org/TR/xmlschema-2/</a>.
 
+Data elements must be non-empty when included, as well as conforming to the specified datatype.
+
 E01 MANIFESTATION
 -----------------
 
