@@ -44,7 +44,7 @@ In addition to terminal application authentication, an LMS will frequently requi
 
 #### 3. Secure communication
 
-Implementations of LCF, other than for testing purposes, should ensure that all communications are secure. When such implementations are connected to the public internet, suggested approaches include the use of a Virtual Private Network (VPN) service or the use of HTTPS, the secure form of HTTP.
+Connections should use HTTPS for all Live deployments.
 
 #### 4. Time-stamped requests and responses
 
