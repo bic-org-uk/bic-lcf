@@ -2,7 +2,7 @@
 
 **Library Interoperability Standards**
 
-**Library Data Communication Framework for Terminal Applications (LCF)**[1]
+**Library Data Communication Framework for Terminal Applications (LCF)**[[[1]|LCF-Version-1.0.1#Notes]]
 
 Version 1.0.1, 17 November 2015
 
@@ -36,7 +36,7 @@ The information that these functions retrieve or change related to a number of "
 
 -   contacts – contact details for persons or organizations represented by patrons.
 
-Each entity and each request and response message-pair is defined in terms of a data framework[2], or schema. A data framework specifies how to describe an entity in terms of a collection of properties (identifiers, name, etc.), and how to construct a message (request or response) in terms of entity descriptions and other parameters. Each data element and composite is defined in terms of what data it may contain and its meaning.
+Each entity and each request and response message-pair is defined in terms of a data framework[[[2]|LCF-Version-1.0.1#Notes]], or schema. A data framework specifies how to describe an entity in terms of a collection of properties (identifiers, name, etc.), and how to construct a message (request or response) in terms of entity descriptions and other parameters. Each data element and composite is defined in terms of what data it may contain and its meaning.
 
 This document is inevitably influenced by the widespread use of the 3M™ Standard Interchange Protocol Version 2.00 (SIP2) by library systems. Where appropriate, the relationship between an LCF function or data element and the corresponding SIP2 message type or field is indicated, to promote interoperability wherever possible between SIP2 and the LCF standard.
 
@@ -155,7 +155,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 | *Id*       | *Element*   | *SIP2 ID*    | *Card.*[[[3]|LCF-Version-1.0.1#Note3]] | *Format*   | *Description*                                    |
 |------------|-------------|--------------|------------|------------|--------------------------------------------------|
-| **E01D01** | **Identifier**                                  |       | **1**[4]   | **String** | **The primary LMS identifier normally used when referring to this manifestation.**  |
+| **E01D01** | **Identifier**                                  |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The primary LMS identifier normally used when referring to this manifestation.**  |
 | *E01C02*   | *Additional identifier*                         |       | 1-n        |            | Composite element containing details of an additional identifier for the manifestation.  |
 | E01D02.1   | Identifier type                                 |       | 1          | Code       | LCF code list **MNI** |
 | E01D02.2   | Identifier type name                            |       | 0-1        | String     | If the identification scheme is proprietary, the name of the scheme.                                                                                                                                                                                                                                     |
@@ -169,7 +169,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D04.2   | Title text                                      |       | 1          | String     |                                                                                                                                                                                                                                                                                                          |
 | E01D04.3   | Subtitle                                        |       | 0-1        | String     |                                                                                                                                                                                                                                                                                                          |
 | *E01C05*   | *Contributor*                                   |       | 0-n        |            | Composite element containing author or other contributor. Repeatable for multiple contributors.                                                                                                                                                                                                          |
-| E01D05.1   | Contributor role                                |       | 1          | Code       | Contributor role code from ONIX Code List 17[5].                                                                                                                                                                                                                                                         |
+| E01D05.1   | Contributor role                                |       | 1          | Code       | Contributor role code from ONIX Code List 17[[[5]|LCF-Version-1.0.1#Notes]].                                                                                                                                                                                                                                                         |
 | E01D05.2   | Contributor name                                |       | 0-1        | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                                                                                                                                                                            |
 | E01D05.3   | Unnamed contributor                             |       | 0-1        | Code       | LCF code list **UNC**                                                                                                                                                                                                                                                                                    |
 | *E01C06*   | *Series*                                        |       | 0-1        |            | Composite element containing information about a series of which this manifestation is a member.                                                                                                                                                                                                         |
@@ -196,7 +196,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D14.1   | Fee type                                        | BT    | 1          | Code       | LCF code list **CHT**                                                                                                                                                                                                                                                                                    |
 | E01D14.2   | Fee amount                                      | BV    | 1          | Value      | Currency value                                                                                                                                                                                                                                                                                           |
 | E01D14.3   | Fee currency                                    | BH    | 0-1        | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                                                                                                                                                                               |
-| E01D15     | Number of patrons in hold queue                 | CF    | 0-1R[6]        | Integer    |                                                                                                                                                                                                                                                                                                          |
+| E01D15     | Number of patrons in hold queue                 | CF    | 0-1R[[[6]|LCF-Version-1.0.1#Notes]]        | Integer    |                                                                                                                                                                                                                                                                                                          |
 | E01D16     | Manifestation record reference                  |       | 0-1        | String     | A reference (e.g. URI or query string) for retrieving a catalogue record for this manifestation from the LMS or online catalogue.                                                                                                                                                                        |
 | **E01D17** | **Manifestation status**                        |       | **1**      | **Code**   | LCF code list **MNS**                                                                                                                                                                                                                                                                                    |
 | E01D18     | Number of copies in stock / holding             |       | 0-1R       | Integer    |                                                                                                                                                                                                                                                                                                          |
@@ -900,11 +900,11 @@ This function is the same as the core function 02 for retrieving a list of entit
  
 -
 
-[1] The acronym "LCF" derives from an informal, abbreviated name for the standard, coined during its development: "Library Communication Framework".
+<a name="Notes"></a>[1] The acronym "LCF" derives from an informal, abbreviated name for the standard, coined during its development: "Library Communication Framework".
 
 [2] The term ‘data model’ is avoided here, because it could lead to confusion between this specification and specifications of other standard data models used in library applications, especially in RFID applications.
 
-<a name="Note3"></a>[3] The “cardinality” of an element is the number of times that an element is allowed to be included at that point in a message. The allowed values are ‘0-1’, ‘1’, ‘0-n’ and ‘1-n’. These are equivalent to ‘non-mandatory and non-repeatable’, ‘mandatory and non-repeatable’, ‘non-mandatory and repeatable’ and ‘mandatory and repeatable’.
+[3] The “cardinality” of an element is the number of times that an element is allowed to be included at that point in a message. The allowed values are ‘0-1’, ‘1’, ‘0-n’ and ‘1-n’. These are equivalent to ‘non-mandatory and non-repeatable’, ‘mandatory and non-repeatable’, ‘non-mandatory and repeatable’ and ‘mandatory and repeatable’.
 
 [4] Elements in responses that are specified to be mandatory, i.e. they have cardinality ‘1’ or ‘1-n’, are mandatory *unless there is an exception condition*, in which case none of the specific response elements is included. If appropriate, information from the request may be included in the exception description element to assist in determining the cause of the exception condition.
 
