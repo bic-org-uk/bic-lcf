@@ -897,8 +897,7 @@ This function combines the core functions for retrieval of a list of manifestati
 
 This function is the same as the core function 02 for retrieving a list of entities of type E12 Selection criterion.
 
- 
--
+___
 
 <a name="Notes"></a>[1] The acronym "LCF" derives from an informal, abbreviated name for the standard, coined during its development: "Library Communication Framework".
 
