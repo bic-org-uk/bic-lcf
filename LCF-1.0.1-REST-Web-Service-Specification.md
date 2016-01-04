@@ -173,7 +173,7 @@ If the request is unsuccessful, the HTTP response will include an appropriate st
 03 Create entity item
 ---------------------
 
-The request is formulated using the HTTP POST method. The payload is an XML document that must conform to one of the LCF information entity XML schemas.
+The request is formulated using the HTTP POST method. The payload is an XML document that conforms to one of the LCF information entity XML schemas.
 
 ### Format for request URI
 
