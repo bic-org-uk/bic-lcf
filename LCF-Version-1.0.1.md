@@ -153,7 +153,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 #### Properties
 
-| *Id*       | *Element*   | *SIP2 ID*    | *Card.*[3] | *Format*   | *Description*                                    |
+| *Id*       | *Element*   | *SIP2 ID*    | *Card.*[[[3]|#Note3]] | *Format*   | *Description*                                    |
 |------------|-------------|--------------|------------|------------|--------------------------------------------------|
 | **E01D01** | **Identifier**                                  |       | **1**[4]   | **String** | **The primary LMS identifier normally used when referring to this manifestation.**  |
 | *E01C02*   | *Additional identifier*                         |       | 1-n        |            | Composite element containing details of an additional identifier for the manifestation.  |
@@ -904,7 +904,7 @@ This function is the same as the core function 02 for retrieving a list of entit
 
 [2] The term ‘data model’ is avoided here, because it could lead to confusion between this specification and specifications of other standard data models used in library applications, especially in RFID applications.
 
-[3] The “cardinality” of an element is the number of times that an element is allowed to be included at that point in a message. The allowed values are ‘0-1’, ‘1’, ‘0-n’ and ‘1-n’. These are equivalent to ‘non-mandatory and non-repeatable’, ‘mandatory and non-repeatable’, ‘non-mandatory and repeatable’ and ‘mandatory and repeatable’.
+<a id="Note3"></a>[3] The “cardinality” of an element is the number of times that an element is allowed to be included at that point in a message. The allowed values are ‘0-1’, ‘1’, ‘0-n’ and ‘1-n’. These are equivalent to ‘non-mandatory and non-repeatable’, ‘mandatory and non-repeatable’, ‘non-mandatory and repeatable’ and ‘mandatory and repeatable’.
 
 [4] Elements in responses that are specified to be mandatory, i.e. they have cardinality ‘1’ or ‘1-n’, are mandatory *unless there is an exception condition*, in which case none of the specific response elements is included. If appropriate, information from the request may be included in the exception description element to assist in determining the cause of the exception condition.
 
