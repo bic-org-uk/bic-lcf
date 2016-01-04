@@ -187,7 +187,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                                                                                                          |
 | 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |                                                                                                                                                                                                                          |
 
-*Examples of a Request *
+*Examples of a Request*
 
     POST http://192.168.0.99:80/lcf/1.0/manifestations
 
