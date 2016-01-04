@@ -8,7 +8,7 @@
 
 Version 1.0.1, 18 November 2015
 
-This document defines a binding of the LCF data communication framework to the HTTP[1] protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[2]) design principles,
+This document defines a binding of the LCF data communication framework to the HTTP[[[1]|LCF-1.0.1-REST-Web-Service-Specification#Notes]] protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[[[2]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]) design principles,
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
@@ -20,7 +20,7 @@ All RESTful web service implementations of LCF should use standard HTTP features
 
 All web service implementations must identify the version of LCF that is implemented for each function.
 
-Where URIs are shown in examples, the path and query parts of the URI, as defined by IETF RFC 3986[3] (i.e. the sub-string of the URI that starts with ‘/lcf’) should be the same in all web service implementations. The authority part of the URI (i.e. the sub-string of the URL to the left of ‘/lcf’) is implementation-specific, but should not be obfuscatory.
+Where URIs are shown in examples, the path and query parts of the URI, as defined by IETF RFC 3986[[[3]|LCF-1.0.1-REST-Web-Service-Specification#Notes]] (i.e. the sub-string of the URI that starts with ‘/lcf’) should be the same in all web service implementations. The authority part of the URI (i.e. the sub-string of the URL to the left of ‘/lcf’) is implementation-specific, but should not be obfuscatory.
 
 The datatypes 'string', 'int', 'decimal', 'anyURI' and 'dateTime' used below are specified in W3C XML Schema Part 2: Datatypes – see http://www.w3.org/TR/xmlschema-2/.
 
@@ -517,7 +517,7 @@ The following selects all items that are copies of the same manifestation, for a
 
     GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
 
-[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
+<a name="Notes"></a>[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
 
 [2] The term Representational State Transfer (REST) was originally introduced by Roy Fielding in a doctoral dissertation in 2000, its key principles being scalability and generality in the design of web-based services. See [http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm](styles.xml).
 
