@@ -375,6 +375,6 @@ EXCEPTION CONDITIONS
 | 7     | R00D06.1     | message-type                | 1       | string      | MGT                                                      |
 | 8     | R00D06.2     | message-text                | 1-n     | string      |                                                          |
 
--
+_
 
 <a name="Notes"></a>[1] Elements where the cardinality is followed by 'R' are "response-only" or "read-only". These elements should only occur in responses from an LMS to a terminal application/device and will be ignored when included in requests.
