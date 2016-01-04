@@ -517,6 +517,8 @@ The following selects all items that are copies of the same manifestation, for a
 
     GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
 
+___
+
 <a name="Notes"></a>[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
 
 [2] The term Representational State Transfer (REST) was originally introduced by Roy Fielding in a doctoral dissertation in 2000, its key principles being scalability and generality in the design of web-based services. See [http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm](styles.xml).
