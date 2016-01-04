@@ -103,7 +103,7 @@ The request is formulated using the HTTP GET method.
 
 NOTE – LCF element Q01D03 is not implemented in this binding.
 
-*Example of a Request *
+*Example of a Request*
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
 
@@ -135,7 +135,7 @@ The request is formulated using the HTTP GET method.
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
-*Examples of a Request *
+*Examples of a Request*
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations
 
@@ -191,7 +191,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 
     POST http://192.168.0.99:80/lcf/1.0/manifestations
 
-    POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/item
+    POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
 
 ### XML payload format for response message
 
