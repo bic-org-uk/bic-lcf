@@ -239,7 +239,6 @@
                 <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; ?&gt;&#xd;
 &lt;contact xmlns:os=&quot;http://a9.com/-/spec/opensearch/1.1/&quot; &#xd;
          xmlns=&quot;http://ns.bic.org.uk/lcf/1.0&quot;&gt;&#xd;
-	&lt;identifier&gt;79813E7685&lt;/identifier&gt;&#xd;
 	&lt;patron-ref&gt;${patron.uri}&lt;/patron-ref&gt;&#xd;
 	&lt;communication-type&gt;05&lt;/communication-type&gt;&#xd;
 	&lt;locator&gt;anthony.whitford@capita.co.uk&lt;/locator&gt;&#xd;
@@ -293,7 +292,6 @@
                 <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; ?&gt;&#xd;
 &lt;contact xmlns:os=&quot;http://a9.com/-/spec/opensearch/1.1/&quot; &#xd;
          xmlns=&quot;http://ns.bic.org.uk/lcf/1.0&quot;&gt;&#xd;
-	&lt;identifier&gt;79813E7685&lt;/identifier&gt;&#xd;
 	&lt;patron-ref&gt;${patron.uri}&lt;/patron-ref&gt;&#xd;
 	&lt;communication-type&gt;04&lt;/communication-type&gt;&#xd;
 	&lt;locator&gt;Knight&apos;s Court&lt;/locator&gt;&#xd;
@@ -340,7 +338,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="List Patrons - Patron Present" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="List Patrons - Patron Present" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
