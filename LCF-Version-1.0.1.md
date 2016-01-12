@@ -101,15 +101,11 @@ Data frameworks are defined for the following terminal application functions:
 
     -   Make / confirm patron payment
 
-<!-- -->
-
--   Reserve title
+    -   Reserve title
 
     -   Block patron account
 
     -   Un-block patron account
-
-<!-- -->
 
 -   Applications of the core functions to stock management
 
