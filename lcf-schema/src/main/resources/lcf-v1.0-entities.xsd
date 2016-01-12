@@ -191,10 +191,7 @@
 			<xs:element ref="language" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:sequence minOccurs="0">
-				<xs:element ref="card-status"/>
-				<xs:element ref="blocked-card-message" minOccurs="0"/>
-			</xs:sequence>
+			<xs:element ref="card-status-info" minOccurs="0"/>
 			<xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="on-loan-items" minOccurs="0"/>
 			<xs:element ref="loan-items-limit" minOccurs="0"/>
@@ -212,6 +209,14 @@
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
+	<xs:element name="card-status-info">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="card-status"/>
+				<xs:element ref="blocked-card-message" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="payment">
 		<xs:complexType>
 			<xs:sequence>
