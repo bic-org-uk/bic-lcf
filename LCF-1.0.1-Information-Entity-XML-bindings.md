@@ -161,7 +161,7 @@ E03 PATRON
 | 8     | E03D03.2     | location-ref                | 1-n     | string      |                                                          |
 | 9     | E03D04       | patron-status               | 0-nR     | Code        | PNS                                                      |
 | 10    | E03C24       | card-status-info            | 0-nR     |             | *Added v1.0.1*                                                          |
-| 11    | E03D24.1     | card-status                 | 0-1R     | Code        | PCS                                                      |
+| 11    | E03D24.1     | card-status                 | 1R       | Code        | PCS                                                      |
 | 12    | E03D24.2     | blocked-card-message        | 0-1R     | string      |                                      |
 | 13    | E03D07       | loan-ref                    | 0-nR     | string      |                                                          |
 | 14    | E03D08       | on-loan-items               | 0-1R     | int    |                                                          |
