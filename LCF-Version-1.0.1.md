@@ -134,9 +134,9 @@ Version 1.0 of this standard has been prepared by BIC following pilot implementa
 
 This document should be read in conjunction with the latest issue of the LCF code lists.
 
-This document is subject to revision from time to time. The latest versions of this document, the LCF code lists and resources supporting specific implementations of this standard may be found at <http://www.bic.org/lcf>.
+This document is subject to revision from time to time. The latest versions of this document, the LCF code lists and resources supporting specific implementations of this standard may be found at <http://www.bic.org.uk/114/LCF/>.
 
-It is intended to maintain and develop further this standard. Future development will continue to be guided by the requirements of libraries and carried out in collaboration with device and system developers. Details of how to report errors, request changes and contribute to future developments of the standard are to be found at http://www.bic.org.uk/lcf.
+It is intended to maintain and develop further this standard. Future development will continue to be guided by the requirements of libraries and carried out in collaboration with device and system developers. Details of how to report errors, request changes and contribute to future developments of the standard are to be found at <http://www.bic.org.uk/114/LCF/>.
 
 Data frameworks for information entity types
 --------------------------------------------
