@@ -4,7 +4,7 @@
 
 **LCF Information Entities XML bindings**
 
-Version 1.0.1, 18 November 2015
+Version 1.0.1, 14 January 2016
 
 This document specifies XML bindings for the information entities defined in version 1.0 of the LCF data communication framework. It is intended to be used with any implementation of LCF in which the information entities are encoded in XML, and specifically with the standard web service implementations of LCF.
 
@@ -160,29 +160,30 @@ E03 PATRON
 | 7     | E03D03.1     | association-type            | 1       | Code        | LAT                                                      |
 | 8     | E03D03.2     | location-ref                | 1-n     | string      |                                                          |
 | 9     | E03D04       | patron-status               | 0-nR     | Code        | PNS                                                      |
-| 10    | E03D05       | card-status                 | 0-1R     | Code        | PCS                                                      |
-| 11    | E03D06       | blocked-card-message        | 0-1R     | string      | Only included if E03D05 is included.                     |
-| 12    | E03D07       | loan-ref                    | 0-nR     | string      |                                                          |
-| 13    | E03D08       | on-loan-items               | 0-1R     | int    |                                                          |
-| 14    | E03D09       | loan-items-limit            | 0-1     | int     |                                                          |
-| 15    | E03D10       | overdue-items               | 0-1R     | int     |                                                          |
-| 16    | E03D11       | overdue-items-limit         | 0-1     | int     |                                                          |
-| 17    | E03D12       | recalled-items              | 0-1R     | int     |                                                          |
-| 18    | E03D13       | fees-due-items              | 0-1R     | int     |                                                          |
-| 19    | E03D14       | fines-due-items             | 0-1R     | int     |                                                          |
-| 20    | E03D15       | reservation-ref             | 0-nR     | string      |                                                          |
-| 21    | E03D16       | available-hold-items        | 0-1R     | int     |                                                          |
-| 22    | E03D17       | unavailable-hold-items      | 0-1R     | int     |                                                          |
-| 23    | E03D18       | hold-items-limit            | 0-1     | int     |                                                          |
-| 24    | E03D19       | charge-ref                  | 0-nR     | string      |                                                          |
-| 25    | E03C20       | charge-limit                | 0-n     |             |                                                          |
-| 26    | E03D20.1     | charge-type                 | 0-1     | Code        | CHT                                                      |
-| 27    | E03D20.2     | amount                      | 1       | decimal     |                                                          |
-| 28    | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code                                        |
-| 29    | E03C21       | note                        | 0-n     |             |                                                          |
-| 30    | E03D21.1     | note-type                   | 0-1     | Code        | NOT                                                      |
-| 31    | E03D21.2     | date-time                   | 0-1     | dateTime    |                                                          |
-| 32    | E03D21.3     | note-text                   | 1       | string      |                                                          |
+| 10    | E03C24       | card-status-info            | 0-nR     |*Added v1.0.1*             |                                                          |
+| 11    | E03D24.1     | card-status                 | 0-1R     | Code        | PCS                                                      |
+| 12    | E03D24.2     | blocked-card-message        | 0-1R     | string      |                                      |
+| 13    | E03D07       | loan-ref                    | 0-nR     | string      |                                                          |
+| 14    | E03D08       | on-loan-items               | 0-1R     | int    |                                                          |
+| 15    | E03D09       | loan-items-limit            | 0-1     | int     |                                                          |
+| 16    | E03D10       | overdue-items               | 0-1R     | int     |                                                          |
+| 17    | E03D11       | overdue-items-limit         | 0-1     | int     |                                                          |
+| 18    | E03D12       | recalled-items              | 0-1R     | int     |                                                          |
+| 19    | E03D13       | fees-due-items              | 0-1R     | int     |                                                          |
+| 20    | E03D14       | fines-due-items             | 0-1R     | int     |                                                          |
+| 21    | E03D15       | reservation-ref             | 0-nR     | string      |                                                          |
+| 22    | E03D16       | available-hold-items        | 0-1R     | int     |                                                          |
+| 23    | E03D17       | unavailable-hold-items      | 0-1R     | int     |                                                          |
+| 24    | E03D18       | hold-items-limit            | 0-1     | int     |                                                          |
+| 25    | E03D19       | charge-ref                  | 0-nR     | string      |                                                          |
+| 26    | E03C20       | charge-limit                | 0-n     |             |                                                          |
+| 27    | E03D20.1     | charge-type                 | 0-1     | Code        | CHT                                                      |
+| 28    | E03D20.2     | amount                      | 1       | decimal     |                                                          |
+| 29    | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code                                        |
+| 30    | E03C21       | note                        | 0-n     |             |                                                          |
+| 31    | E03D21.1     | note-type                   | 0-1     | Code        | NOT                                                      |
+| 32    | E03D21.2     | date-time                   | 0-1     | dateTime    |                                                          |
+| 33    | E03D21.3     | note-text                   | 1       | string      |                                                          |
 
 E04 LOCATION
 ------------
