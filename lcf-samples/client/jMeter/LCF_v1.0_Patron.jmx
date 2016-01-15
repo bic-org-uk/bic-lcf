@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Borrower Update Tests" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="LCF Patron Tests" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
@@ -77,7 +77,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
@@ -113,7 +113,7 @@
         <stringProp name="TestPlan.comments">${__P(lds.host)}</stringProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
@@ -129,7 +129,7 @@
           </elementProp>
           <elementProp name="lcf.web.context" elementType="Argument">
             <stringProp name="Argument.name">lcf.web.context</stringProp>
-            <stringProp name="Argument.value">LCF/1.0</stringProp>
+            <stringProp name="Argument.value">lcf/1.0</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">The root of the LCF implementation</stringProp>
           </elementProp>
