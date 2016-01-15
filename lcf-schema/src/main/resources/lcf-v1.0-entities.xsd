@@ -207,6 +207,7 @@
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="date-of-birth" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="card-status-info">
@@ -546,6 +547,7 @@
 	<xs:element name="value-scheme-ref" type="nonEmptyString"/>
 	<xs:element name="volume-or-part" type="nonEmptyString"/>
 	<xs:element name="year-of-publication" type="xs:gYear"/>
+	<xs:element name="date-of-birth" type="xs:date"/>
 	<xs:simpleType name="cardStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
