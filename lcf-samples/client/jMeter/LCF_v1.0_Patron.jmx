@@ -77,7 +77,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
@@ -109,11 +109,16 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">password</stringProp>
           </elementProp>
+          <elementProp name="patron.location" elementType="Argument">
+            <stringProp name="Argument.name">patron.location</stringProp>
+            <stringProp name="Argument.value">GA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
         <stringProp name="TestPlan.comments">${__P(lds.host)}</stringProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
@@ -144,6 +149,11 @@
             <stringProp name="Argument.value">bic-lcf-2015</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">password</stringProp>
+          </elementProp>
+          <elementProp name="patron.location" elementType="Argument">
+            <stringProp name="Argument.name">patron.location</stringProp>
+            <stringProp name="Argument.value">GA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
         <stringProp name="TestPlan.comments">${__P(lds.host)}</stringProp>
@@ -204,9 +214,10 @@
   &lt;language&gt;eng&lt;/language&gt;&#xd;
   &lt;associated-location&gt;&#xd;
     &lt;association-type&gt;03&lt;/association-type&gt;&#xd;
-    &lt;location-ref&gt;http://${lcf.host}:${lcf.port}/${lcf.web.context}/locations/GA&lt;/location-ref&gt;&#xd;
+    &lt;location-ref&gt;http://${lcf.host}:${lcf.port}/${lcf.web.context}/locations/${patron.location}&lt;/location-ref&gt;&#xd;
   &lt;/associated-location&gt;&#xd;
   &lt;card-status&gt;01&lt;/card-status&gt;&#xd;
+  &lt;date-of-birth&gt;1969-11-05&lt;/date-of-birth&gt;&#xd;
 &lt;/patron&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -326,6 +337,15 @@
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="Assert Name matches expected" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
             <stringProp name="XPath.xpath">//patron[identifier=&quot;${patron.identifier}&quot;]/name = &quot;Anthony Whitford Esq&quot;</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="DoB" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//patron/date-of-birth = &apos;1969-11-05&apos;</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
