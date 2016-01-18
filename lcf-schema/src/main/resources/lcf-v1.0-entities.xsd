@@ -721,6 +721,7 @@
 			<xs:enumeration value="09"/>
 			<xs:enumeration value="10"/>
 			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="feeOrFineType">
