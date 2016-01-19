@@ -294,6 +294,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D21.1     | Note type                                               |        | 0-1     | Code                                               | LCF code list **NOT**                                                                                                                                                   |
 | E03D21.2     | Note date-time                                          |        | 0-1     | DateTime                                           |                                                                                                                                                                         |
 | E03D21.3     | Note text                                               |        | 1       | String                                             |                                                                                                                                                                         |
+| E03D25       | Date of birth                                           |        | 0-1     | Date                                             |                                                                                                                                                                         |
 
 ### E04 LOCATION
 
