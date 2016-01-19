@@ -67,7 +67,7 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="condition-type" type="exceptionConditionType"/>
-    <xs:element name="element-ref"/>
+    <xs:element name="element-ref" type="nonEmptyString"/>
     <xs:element name="entity">
         <xs:complexType>
             <xs:attribute name="href" type="xs:anyURI"/>
@@ -94,7 +94,7 @@
     <xs:element name="message-text" type="nonEmptyString"/>
     <xs:element name="message-type" type="messageType"/>
     <xs:element name="property-ref" type="nonEmptyString"/>
-    <xs:element name="reason-denied"/>
+    <xs:element name="reason-denied" type="reasonDeniedType"/>
     <xs:element name="selection-criterion">
         <xs:complexType>
             <xs:sequence>
@@ -124,6 +124,19 @@
             <xs:enumeration value="02"/>
             <xs:enumeration value="03"/>
         </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="reasonDeniedType">
+	    <xs:restriction base="xs:string">
+		    <xs:enumeration value="01" />
+		    <xs:enumeration value="02" />
+		    <xs:enumeration value="03" />
+		    <xs:enumeration value="04" />
+		    <xs:enumeration value="05" />
+		    <xs:enumeration value="06" />
+		    <xs:enumeration value="07" />
+		    <xs:enumeration value="08" />
+		    <xs:enumeration value="09" />
+	    </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="specialAttention">
         <xs:restriction base="xs:string">
