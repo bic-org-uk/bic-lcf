@@ -97,7 +97,7 @@ The request is formulated using the HTTP GET method.
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                             |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                              |
 | **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**        | **The alpha code value is used from code list ENT**                                 |
-| **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | string      |                                                                                 |
+| **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | **string**      |                                                                                 |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |                                                                                 |
 
@@ -157,7 +157,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 | 6     | R02D03       | os:totalResults                         | 0-1     | int     |                                                                                                                                        |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | int     |                                                                                                                                        |
 | 8     | R02D05       | os:startIndex                           | 0-1     | int     |                                                                                                                                        |
-| **9** | **R02C06**   | **entity<br>href="{instance-uri}"**                 | **1-n** | **anyURI**  | The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type                 |
+| **9** | **R02D06**   | **entity<br>href="{instance-uri}"**                 | **1-n** | **anyURI**  | **The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type**              |
 
 NOTE – LCF element R02C07 is not implemented.
 
