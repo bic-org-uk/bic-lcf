@@ -313,6 +313,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |-------------------------------------------- |---------
   MGT01       |01             |Whole message (e.g. for screen display)      |
   MGT02       |02             |Single line of message (e.g. for printing)   |
+  MGT03       |03             | System message (not normally for display)   |
 
 ### NOT Note type
 
