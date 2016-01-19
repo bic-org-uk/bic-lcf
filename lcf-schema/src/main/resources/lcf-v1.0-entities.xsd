@@ -710,18 +710,18 @@
 	</xs:simpleType>
 	<xs:simpleType name="entityType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-			<xs:enumeration value="07"/>
-			<xs:enumeration value="08"/>
-			<xs:enumeration value="09"/>
-			<xs:enumeration value="10"/>
-			<xs:enumeration value="11"/>
-			<xs:enumeration value="12"/>
+			<xs:enumeration value="manifestations"/>
+			<xs:enumeration value="items"/>
+			<xs:enumeration value="patrons"/>
+			<xs:enumeration value="locations"/>
+			<xs:enumeration value="loans"/>
+			<xs:enumeration value="reservations"/>
+			<xs:enumeration value="charges"/>
+			<xs:enumeration value="payments"/>
+			<xs:enumeration value="contacts"/>
+			<xs:enumeration value="class-schemes"/>
+			<xs:enumeration value="class-terms"/>
+			<xs:enumeration value="properties"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="feeOrFineType">
