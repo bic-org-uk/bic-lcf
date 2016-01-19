@@ -127,7 +127,7 @@ of a given type, and hence the use of the plural form.
   ENT08       |08             |payments        |Payment                       |LCF Entity E08
   ENT09       |09             |contacts        |Contact details               |LCF Entity E09
   ENT10       |10             |class-schemes   |Title classification scheme   |LCF Entity E10
-  ENT11       |11             |class-codes     |Title classification code     |LCF Entity E11
+  ENT11       |11             |class-terms     |Title classification code     |LCF Entity E11
   
 ### EXC Exception condition response
 
