@@ -482,20 +482,20 @@ An identified scheme for classification of titles.
 
 ### 
 
-### E11 TITLE CLASSIFICATION CODE
+### E11 TITLE CLASSIFICATION TERM
 
 #### Description
 
-An identified scheme for classification of titles.
+A classification term in an identified scheme for classification of titles.
 
 #### Properties
 
 | *Id*       | *Element*                           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|-------------------------------------|-------|---------|------------|----------------------|
-| **E11D01** | **Classification identifier**       |       | **1**   | **String** | **A system identifier for the classification**                                                 |
-| **E11D02** | **Classification code**             |       | **1**   | **String** | **A code or number used as a label for the classification.**                                   |
-| **E11D03** | **Classification scheme reference** |       | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification code belongs** |
-| E11D04     | Classification heading              |       | 0-1     | String     | A heading or name for the classification.                                                      |
+| **E11D01** | **Classification identifier**       |       | **1**   | **String** | **A system identifier for the classification term**                                                 |
+| **E11D02** | **Classification code**             |       | **1**   | **String** | **A code or number used as a label for the classification term.**                                   |
+| **E11D03** | **Classification scheme reference** |       | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification term belongs** |
+| E11D04     | Classification term heading         |       | 0-1     | String     | A heading or name for the classification term.                                                      |
 | *E11C05*   | *Classification description / note* |       | 0-1     |            |                                                                                                |
 | E11D05.1   | Note type                           |       | 0-1     | Code       | LCF code list **NOT**                                                                          |
 | E11D05.2   | Note date-time                      |       | 0-1     | DateTime   |                                                                                                |
