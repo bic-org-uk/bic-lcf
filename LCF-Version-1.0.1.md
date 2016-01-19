@@ -639,14 +639,14 @@ This function is used to create a new item of a specific entity type. In practic
 
 | *Id*       | *Element* | *SIP2 ID*    | *Card.* | *Format* | *Description* |
 |------------|-----------|-------|---------|----------|----------------------|
-| **Q03D01** | **Entity type**                                                                                                 |       | **1**   | **Code** | **LCF code list ENT<br/>The entity type of the item to be created. **  |
+| **Q03D01** | **Entity type**                                                                                                 |       | **1**   | **Code** | **LCF code list ENT<br/>The entity type of the item to be created.**  |
 |            | Other elements, excluding the LMS identifier, as determined by the specified entity type – see E01 to E112above |       |         |          |                                               |
 
 #### Response
 
 | *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|---------------------|-------|---------|------------|----------------------|
-| **R03D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request. **                                                   |
+| **R03D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request.**                                                   |
 | **R03D02** | **Item identifier** |       | **1**   | **String** | **The primary identifier for the inventory item, assigned by the LMS if a new item has been successfully created.** |
 
 ### 
@@ -668,7 +668,7 @@ This function is used to modify an existing item of a specific entity type.
 
 | *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|---------------------|-------|---------|------------|----------------------|
-| **R04D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request. **    |
+| **R04D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request.**    |
 | **R04D02** | **Item identifier** |       | **1**   | **String** | **The identifier for the item that has been successfully modified.** |
 
 ### 
@@ -688,7 +688,7 @@ This function is used to delete an item of a specific entity type. Since deletio
 
 | *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|---------------------|-------|---------|------------|----------------------|
-| **R05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request. **  |
+| **R05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request.**  |
 | **R05D02** | **Item identifier** |       | **1**   | **String** | **The identifier of the item that has been successfully deleted**  |
 
 Circulation management functions
@@ -716,7 +716,7 @@ The terminal application must provide all the information required for all the n
 
 | *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format* | *Description* |
 |------------|---------------------|-------|---------|-----------------|---------------|
-| **Q11D01** | **Request type**    |       | **1**   | **Code** | **LCF code list RQT<br/>Indicates type of check-out request. **                                                  |
+| **Q11D01** | **Request type**    |       | **1**   | **Code** | **LCF code list RQT<br/>Indicates type of check-out request.**                                                  |
 | Q11D02     | Renewal type        |       | 0-1     | Code                                                | LCF code list RNQ<br/>Indicates that the request is a renewal request and which type                           |
 | Q11D03     | Patron reference    | AA    | 0-1     | String                                              | Reference to the patron record. Mandatory in a new check-out.                           |
 | Q11D04     | Item reference      | AB    | 0-1     | String                                              | Reference to the item in question. Mandatory unless cancelling a check-out / renewal.   |
