@@ -16,7 +16,7 @@ This document is subject to revision from time to time. The latest versions of t
 
 The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0".
 
-The datatypes 'string', 'int', 'decimal', 'anyURI', 'year' and 'dateTime' used in these XML bindings are specified in W3C XML Schema Part 2: Datatypes &ndash; see <a href="http://www.w3.org/TR/xmlschema-2/">http://www.w3.org/TR/xmlschema-2/</a>.
+The datatypes 'string', 'int', 'decimal', 'anyURI', 'year', 'date' and 'dateTime' used in these XML bindings are specified in W3C XML Schema Part 2: Datatypes &ndash; see <a href="http://www.w3.org/TR/xmlschema-2/">http://www.w3.org/TR/xmlschema-2/</a>.
 
 Data elements must be non-empty when included, as well as conforming to the specified datatype.
 
@@ -184,6 +184,7 @@ E03 PATRON
 | 31    | E03D21.1     | note-type                   | 0-1     | Code        | NOT                                                      |
 | 32    | E03D21.2     | date-time                   | 0-1     | dateTime    |                                                          |
 | 33    | E03D21.3     | note-text                   | 1       | string      |                                                          |
+| 34    | E03D25       | date-of-birth               | 0-1     | date      | *Added v1.0.1*                                                         |
 
 E04 LOCATION
 ------------
