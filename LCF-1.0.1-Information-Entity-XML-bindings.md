@@ -339,7 +339,7 @@ E11 TITLE CLASSIFICATION TERM
 |-------|--------------|-----------------------------|---------|-------------|----------------------------------------------------------|
 | **1** |              | **class-term<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**              |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute** |
 | **2** | **E11D01**   | **identifier**              | **1**   | **string**  |                                                          |
-| **3** | **E11D02**   | **code**                    | **1**   | **string**  |                                                          |
+| **3** | **E11D02**   | **class-code**              | **1**   | **string**  |                                                          |
 | **4** | **E11D03**   | **class-scheme-ref**        | **1**   | **string**  |                                                          |
 | 5     | E11D04       | heading                     | 0-1     | string      |                                                          |
 | 6     | E11C05       | note                        | 0-n     | string      |                                                          |
