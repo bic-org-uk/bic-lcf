@@ -183,7 +183,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                                                                                                                       |
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT                                                                                                                                                                           |
 | 4     |              | /{key-id-value}       |                       | 0-1     | string      |                                                                                                                                                                                                                          |
-| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | Code        | The alpha code value is used from code list ENT                                                                                                                                                                          |
+| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**        | **The alpha code value is used from code list ENT**                                                                                                                                                                          |
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                                                                                                          |
 | 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |                                                                                                                                                                                                                          |
 
@@ -210,7 +210,7 @@ The request is formulated using the HTTP PUT method. The payload is an XML docum
 |-------|--------------|-----------------------|-----------------------|---------|-------------|---------------------------------------------------------------------------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                             |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                              |
-| **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   |             | The alpha code value is used from code list ENT                                 |
+| **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                 |
 | **4** | **Q04D02**   | **/{item-ref}**       |                       | **1**   |             |                                                                                 |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |                                                                                 |
@@ -236,7 +236,7 @@ The request is formulated using the HTTP DELETE method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|---------------------------------------------------------------------------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                             |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                              |
-| **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | Code        | The alpha code value is used from code list ENT                                 |
+| **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                 |
 | **4** | **Q05D02**   | **/{item-id}**        |                       | **1**   |             |                                                                                 |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |                                                                                 |
@@ -351,7 +351,7 @@ A check-in response may be the same response as for modifying any entity, or may
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*                                                          |
 |-------|--------------|-----------------------------------------|---------|-------------|------------------------------------------------------------------|
 | **1** |              | **lcf-check-in-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute** |
-| 2     | R12D01       | loan-ref                                | 1       | anyURI      |                                                                  |
+| **2** | **R12D01**   | **loan-ref**                            | **1**   | **anyURI**      |                                                                  |
 | 3     | R12D04       | return-location-ref                     | 0-1     | anyURI      |                                                                  |
 | 4     | R12D05       | media-warning                           | 0-1     | Code        | MEW                                                              |
 | 5     | R12D06       | special-attention                       | 0-1     | Code        | SPA                                                              |
