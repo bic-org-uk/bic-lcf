@@ -77,7 +77,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
@@ -118,7 +118,7 @@
         <stringProp name="TestPlan.comments">${__P(lds.host)}</stringProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
@@ -134,25 +134,25 @@
           </elementProp>
           <elementProp name="lcf.web.context" elementType="Argument">
             <stringProp name="Argument.name">lcf.web.context</stringProp>
-            <stringProp name="Argument.value">lcf/1.0</stringProp>
+            <stringProp name="Argument.value">lcfserver/lcf/1.0</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">The root of the LCF implementation</stringProp>
           </elementProp>
           <elementProp name="operator.username" elementType="Argument">
             <stringProp name="Argument.name">operator.username</stringProp>
-            <stringProp name="Argument.value">lcf@GA</stringProp>
+            <stringProp name="Argument.value"></stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">username@location</stringProp>
           </elementProp>
           <elementProp name="operator.password" elementType="Argument">
             <stringProp name="Argument.name">operator.password</stringProp>
-            <stringProp name="Argument.value">bic-lcf-2015</stringProp>
+            <stringProp name="Argument.value"></stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">password</stringProp>
           </elementProp>
           <elementProp name="patron.location" elementType="Argument">
             <stringProp name="Argument.name">patron.location</stringProp>
-            <stringProp name="Argument.value">GA</stringProp>
+            <stringProp name="Argument.value">general</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -216,7 +216,9 @@
     &lt;association-type&gt;03&lt;/association-type&gt;&#xd;
     &lt;location-ref&gt;http://${lcf.host}:${lcf.port}/${lcf.web.context}/locations/${patron.location}&lt;/location-ref&gt;&#xd;
   &lt;/associated-location&gt;&#xd;
-  &lt;card-status&gt;01&lt;/card-status&gt;&#xd;
+  &lt;card-status-info&gt;&#xd;
+  	&lt;card-status&gt;01&lt;/card-status&gt;&#xd;
+  &lt;/card-status-info&gt;&#xd;
   &lt;date-of-birth&gt;1969-11-05&lt;/date-of-birth&gt;&#xd;
 &lt;/patron&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -638,7 +640,9 @@
     &lt;association-type&gt;03&lt;/association-type&gt;&#xd;
     &lt;location-ref&gt;http://${lcf.host}:${lcf.port}/${lcf.web.context}/locations/GA&lt;/location-ref&gt;&#xd;
   &lt;/associated-location&gt;&#xd;
-  &lt;card-status&gt;01&lt;/card-status&gt;&#xd;
+  &lt;card-status-info&gt;&#xd;
+  	&lt;card-status&gt;01&lt;/card-status&gt;&#xd;
+  &lt;/card-status-info&gt;&#xd;
 &lt;/patron&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
