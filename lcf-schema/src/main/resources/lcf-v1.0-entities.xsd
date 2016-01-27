@@ -317,7 +317,7 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="association-type"/>
-				<xs:element ref="location-ref" maxOccurs="unbounded"/>
+				<xs:element ref="location-ref" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
