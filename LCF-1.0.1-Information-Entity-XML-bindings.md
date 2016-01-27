@@ -114,7 +114,7 @@ E02 ITEM
 | 9      | E02D05       | owner                       | 0-1     | string      |                                                          |
 | 10     | E02C06       | associated-location         | 0-n     |             |                                                          |
 | 11     | E02D06.1     | association-type            | 1       | Code        | LAT                                                      |
-| 12     | E02D06.2     | location-ref                | 1-n     | string      |                                                          |
+| 12     | E02D06.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1*                                                         |
 | **13** | **E02D07**   | **media-warning**           | **1**   | **Code**    | **MEW**                                                  |
 | **14** | **E02D08**   | **security-desensitize**    | **1**   | **Code**    | **SCD**                                                  |
 | 15     | E02C09       | loan-restriction            | 0-n     |             |                                                          |
@@ -158,7 +158,7 @@ E03 PATRON
 | 5     | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added v1.0.1*                                                    |
 | 6     | E03C03       | associated-location         | 0-n     |             |                                                          |
 | 7     | E03D03.1     | association-type            | 1       | Code        | LAT                                                      |
-| 8     | E03D03.2     | location-ref                | 1-n     | string      |                                                          |
+| 8     | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1*                                                         |
 | 9     | E03D04       | patron-status               | 0-nR     | Code        | PNS                                                      |
 | 10    | E03C24       | card-status-info            | 0-nR     |             | *Added v1.0.1*                                                          |
 | 11    | E03D24.1     | card-status                 | 1R       | Code        | PCS                                                      |
