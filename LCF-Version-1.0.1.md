@@ -215,7 +215,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 | *Id*       | *Element*                    | *SIP2 ID* | *Card.* | *Format* | *Description*  |
 |------------|------------------------------|-----------|---------|----------|----------------|
-| **E02D01** | **Identifier**               | **AB** | **1**   | **String**                                          | **The primary LMS identifier normally used when referring to this item.**                                                                                                                                                                                                                                                                     |
+| **E02D01** | **Identifier**               | **AB** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**                                          | **The primary LMS identifier normally used when referring to this item.**                                                                                                                                                                                                                                                                     |
 | *E02C02*   | *Additional identifier*      |        | 0-n     |                                                     | Composite element containing details of an additional identifier for this item.                                                                                                                                                                                                                                                               |
 | E02D02.1   | Identifier type              |        | 1       | Code                                                | LCF code list **IMI**<br/>The identification scheme.                                                                                                                                                                                                                                                                                                                     |
 | E02D02.2   | Identifier type name         |        | 0-1     | String                                              | If the identification scheme is proprietary, the name of the scheme.                                                                                                                                                                                                                                                                          |
@@ -261,7 +261,7 @@ NOTE – Contact information is held in separate contact records for security an
 
 | *Id*         | *Element* | *SIP2 ID*     | *Card.* | *Format* | *Description* |
 |--------------|-----------|---------------|---------|----------|---------------|
-| **E03D01**   | **Identifier**                                          | **AA** | **1**   | **String**                                         | **The primary LMS identifier normally used when referring to this patron.**                                                                                             |
+| **E03D01**   | **Identifier**                                          | **AA** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**                                         | **The primary LMS identifier normally used when referring to this patron.**                                                                                             |
 | E03D26       | Barcode identifier                                      |        | 0-1     | String                                             | The identifier on the patron's library card. Mandatory unless the primary LMS identifier is the same identifier.<br/>*Added v1.0.1*                                                                                             |
 | *E03D27*     | *Additional identifier*                                 |        | 0-n   |                                                  | Composite element containing details of an additional identifier for this patron.<br/>*Added v1.0.1*                               |
 | E03D27.1   | Identifier type              |        | 1       | Code                                                | LCF code list **IMI**<br/>The identification scheme.                                                                                                                                                                                                                                                                                                                     |
@@ -311,7 +311,7 @@ An identified place where an item may be located, either inside or outside a lib
 
 | *Id*       | *Element*               | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|-------------------------|-------|---------|------------|----------------------|
-| **E04D01** | **Identifier**          |       | **1**   | **String** | **The primary LMS identifier normally used when referring to this location.**       |
+| **E04D01** | **Identifier**          |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The primary LMS identifier normally used when referring to this location.**       |
 | *E04C02*   | *Additional identifier* |       | 0-n     |            | Composite element containing details of an additional identifier for this location. |
 | E04D02.1   | Identifier type         |       | 1       | Code       | LCF code list **LOI**<br/>The identification scheme                                                            |
 | E04D02.2   | Identifier type name    |       | 0-1     | String     | If the identification scheme is proprietary, the name of the scheme.                |
@@ -336,7 +336,7 @@ An identified event in which one or more items have been loaned to a patron.
 
 | *Id*       | *Element*                | *SIP2 ID*     | *Card.* | *Format*     | *Description* |
 |------------|--------------------------|--------|---------|--------------|----------------------|
-| **E05D01** | **Loan identifier**      |        | **1**   | **String**   | **The LMS identifier used when referring to this loan.**                        |
+| **E05D01** | **Loan identifier**      |        | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**   | **The LMS identifier used when referring to this loan.**                        |
 | **E05D02** | **Patron reference**     | **AA** | **1**   | **String**   |                                                                                 |
 | **E05D03** | **Item reference**       | **AB** | **1**   | **String**   | **A loan applies to a single item**                                             |
 | **E05D04** | **Loan start date-time** |        | **1**   | **DateTime** |                                                                                 |
@@ -364,7 +364,7 @@ An identified event in which one or more titles have been reserved for a patron.
 
 | *Id*       | *Element*                   | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
 |------------|-----------------------------|--------|---------|------------|----------------------|
-| **E06D01** | **Reservation identifier**  |        | **1**   | **String** | **The LMS identifier used when referring to this reservation.**                                                                                                                                          |
+| **E06D01** | **Reservation identifier**  |        | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The LMS identifier used when referring to this reservation.**                                                                                                                                          |
 | **E06D02** | **Reservation type**        |        | **1**   | **Code**   | **LCF code list RVT**                                                                                                                                                                                    |
 | **E06D03** | **Patron reference**        | **AA** | **1**   | **String** |                                                                                                                                                                                                          |
 | E06D04     | Manifestation reference     |        | 0-1     | String     | A reservation applies to either a single manifestation or a single item. Each reservation must have one or the other but not both.                                                                       |
@@ -394,7 +394,7 @@ An identified charge made to a patron. May be a fee or a fine.
 
 | *Id*       | *Element*                 | *SIP2 ID*     | *Card.* | *Format* | *Description* |
 |------------|---------------------------|--------|---------|-----------------|---------------|
-| **E07D01** | **Charge identifier**     | **CG** | **1**   | **String**                                          | **The LMS identifier used when referring to this charge.**                                                               |
+| **E07D01** | **Charge identifier**     | **CG** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**                                          | **The LMS identifier used when referring to this charge.**                                                               |
 | **E07D02** | **Patron reference**      | **AA** | **1**   | **String**                                          |                                                                                                                          |
 | **E07D03** | **Charge type**           | **BT** | **1**   | **Code** | **LCF code list CHT<br/>The type or category of charge.**                                                                                         |
 | **E07D04** | **Charge status**         |        | **1**   | **Code**                                            | **LCF code list CHS**                                                                                                    |
@@ -428,7 +428,7 @@ An identified payment made by a patron to settle one or more charges.
 
 | *Id*       | *Element*              | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
 |------------|------------------------|--------|---------|------------|----------------------|
-| **E08D01** | **Payment identifier** | **AA** | **1**   | **String** | **The LMS identifier used when referring to this payment.**       |
+| **E08D01** | **Payment identifier** | **AA** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The LMS identifier used when referring to this payment.**       |
 | **E08D02** | **Patron reference**   |        | **1**   | **String** |                                                                   |
 | **E08D03** | **Payment type**       |        | **1**   | **Code**   | **LCF code list PYT<br/>The type or method of payment.**                                   |
 | E08D04     | Payment description    |        | 0-1     | String     | Further information on type or method of payment.                 |
@@ -455,7 +455,7 @@ Contact details for the primary contact person or organization for a patron.
 
 | *Id*       | *Element*               | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
 |------------|-------------------------|--------|---------|------------|----------------------|
-| **E09D01** | **Contact identifier**  |        | **1**   | **String** |                                                                                                                                              |
+| **E09D01** | **Contact identifier**  |        | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** |                                                                                                                                              |
 | **<strike>E09D02</strike>** | **<strike>Name</strike>**                | **<strike>AE</strike>** | **<strike>1</strike>**   | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>*Removed v1.0.1*                                                                                                          |
 | **E09D03** | **Patron ref**          |        | **1-n** | **String** |                                                                                                                                              |
 | <strike>E09D04</strike>     | <strike>Address</strike>                 | <strike>BD</strike>     | <strike>0-n</strike>     | <strike>String</strike>     | <strike>Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.</strike><br/>*Removed v1.0.1*                             |
@@ -478,7 +478,7 @@ An identified scheme for classification of titles.
 
 | *Id*       | *Element*                            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|--------------------------------------|-------|---------|------------|----------------------|
-| **E10D01** | **Classification scheme identifier** |       | **1**   | **String** | **The LMS identifier used when referring to this scheme.** |
+| **E10D01** | **Classification scheme identifier** |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The LMS identifier used when referring to this scheme.** |
 | **E10D02** | **Scheme name**                      |       | **1**   | **String** | **A name or short description of the scheme**              |
 | *E10C03*   | *Scheme description / note*          |       | 0-1     |            | Further, more extensive description of the scheme          |
 | E10D03.1   | Note type                            |       | 0-1     | Code       | LCF code list **NOT**                                      |
@@ -497,7 +497,7 @@ A classification term in an identified scheme for classification of titles.
 
 | *Id*       | *Element*                           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|-------------------------------------|-------|---------|------------|----------------------|
-| **E11D01** | **Classification identifier**       |       | **1**   | **String** | **A system identifier for the classification term**                                                 |
+| **E11D01** | **Classification identifier**       |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **A system identifier for the classification term**                                                 |
 | **E11D02** | **Classification code**             |       | **1**   | **String** | **A code or number used as a label for the classification term.**                                   |
 | **E11D03** | **Classification scheme reference** |       | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification term belongs** |
 | E11D04     | Classification term heading         |       | 0-1     | String     | A heading or name for the classification term.                                                      |
@@ -518,7 +518,7 @@ An identified property of an entity that can be used as a selection criterion wh
 
 | *Id*       | *Element*                  | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
 |------------|----------------------------|-------|---------|------------|----------------------|
-| **E12D01** | **Identifier**             |       | **1**   | **String** | **System identifier of the selection criterion type**                                                          |
+| **E12D01** | **Identifier**             |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **System identifier of the selection criterion type**                                                          |
 | **E12D02** | **Criterion type name**    |       | **1**   | **String** | **Name of the selection criterion type, to be used in item list requests.**                                    |
 | E12D03     | Entity type                |       | 0-n     | Code       | ONIX code list **ENT**<br/>If applicable, the types of entity for which this is a valid selection criterion.                               |
 | E12D04     | Criterion type description |       | 0-1     | String     | A description of the criterion type and the domain and range of its values.                                    |
@@ -908,7 +908,9 @@ ___
 
 [3] The “cardinality” of an element is the number of times that an element is allowed to be included at that point in a message. The allowed values are ‘0-1’, ‘1’, ‘0-n’ and ‘1-n’. These are equivalent to ‘non-mandatory and non-repeatable’, ‘mandatory and non-repeatable’, ‘non-mandatory and repeatable’ and ‘mandatory and repeatable’.
 
-[4] Elements in responses that are specified to be mandatory, i.e. they have cardinality ‘1’ or ‘1-n’, are mandatory *unless there is an exception condition*, in which case none of the specific response elements is included. If appropriate, information from the request may be included in the exception description element to assist in determining the cause of the exception condition.
+[4] Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item and Patron entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal. 
+
+In general, elements in responses that are specified to be mandatory, i.e. they have cardinality ‘1’ or ‘1-n’, are mandatory *unless there is an exception condition*, in which case none of the specific response elements is included. If appropriate, information from the request may be included in the exception description element to assist in determining the cause of the exception condition.
 
 [5] The ONIX code lists are maintained by EDItEUR. For the latest issue of the ONIX code lists see [*http://www.editeur.org/14/Code-Lists/*](numbering.xml).
 
