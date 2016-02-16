@@ -377,7 +377,7 @@ An identified event in which one or more titles have been reserved for a patron.
 | **E06D11** | **Reservation status**      |           | **1**   | **Code**   | **LCF code list RVS**          |
 | E06D12     | Loan reference              |           | 0-1R    | String     | Only included if maintaining records of reservations that have ended with the item being loaned to the patron.                                      |
 | E06D13     | Charge reference            |           | 0-nR      String     | Reference to a charge incurred by this reservation.                                                                                              |
-| *E06C14*   | *Reservation note*          |           | 0-n     | String     | A note attached to this reservation.|
+| *E06C14*   | *Reservation note*          |           | 0-n     |            | A note attached to this reservation.|
 | E06D14.1   | Note type                   |           | 0-1     | Code       | LCF code list **NOT**          |
 | E06D14.2   | Note date-time              |           | 0-1     | DateTime   |                                |
 | E06D14.3   | Note text                   |           | 1       | String     |                                |
