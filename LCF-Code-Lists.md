@@ -466,6 +466,13 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SCD02       |01             |Item security should normally be desensitized / removed on check-out       |
   SCD03       |02             |Item security should not normally be desensitized / removed on check-out   |
 
+### SEL Selection criterion - *Added in LCF v1.0.1*
+
+  *Code ID*   |*Code value*   |*Definition*                                                               |*Notes*
+  ----------- |-------------- |-------------------------------------------------------------------------- |---------
+  SEL01       |01             |Code list to be defined       |
+  SEL02       |02             |...   |
+
 ### SPA Special attention required flag
 
   *Code ID*   |*Code value*   |*Definition*                                    |*Notes*
