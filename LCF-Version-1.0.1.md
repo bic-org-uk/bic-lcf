@@ -259,47 +259,47 @@ NOTE – Contact information is held in separate contact records for security an
 
 #### Properties
 
-| *Id*         | *Element* | *SIP2 ID*     | *Card.* | *Format* | *Description* |
-|--------------|-----------|---------------|---------|----------|---------------|
-| **E03D01**   | **Identifier**                                          | **AA** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**                                         | **The primary LMS identifier normally used when referring to this patron.**                                                                                             |
-| E03D26       | Barcode identifier                                      |        | 0-1     | String                                             | The identifier on the patron's library card. Mandatory unless the primary LMS identifier is the same identifier.<br/>*Added v1.0.1*                                                                                             |
-| *E03D27*     | *Additional identifier*                                 |        | 0-n   |                                                  | Composite element containing details of an additional identifier for this patron.<br/>*Added v1.0.1*                               |
-| E03D27.1   | Identifier type              |        | 1       | Code                                                | LCF code list **IMI**<br/>The identification scheme.                                                                                                                                                                                                                                                                                                                     |
-| E02D27.2   | Identifier type name         |        | 0-1     | String                                              | If the identification scheme is proprietary, the name of the scheme.                                                                                                                                                                                                                                                                          |
-| E02D27.3   | Identifier value             |        | 1       | String                                              | The identifier string.                                                                                                                                                                                                                                                                                                                        |
-| **E03D22**   | **Name**                                          | **AE** | **1**   | **String**                                         | **Name of primary contact for this patron.**<br/>*Added v1.0.1*                                                                                             |
-| E03D02       | Contact reference                                       |        | 0-n     | String                                             |Contact details for this patron<br/>*Repeatable v1.0.1*                                                                                                             |
-| E03D23   | Language                                      |        | 1   | Code   | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1* |
-| *E03C03*     | *Associated location*                                  |        | 0-n     |                                                    | A location associated with this patron.                                                                                                                                 |
-| E03D03.1     | Location association type                               |        | 1       | Code                                               | LCF code list **LAT**                                                                                                                                                   |
-| E03D03.2     | Location reference                                      |        | 1     | String                                             | *Cardinality corrected in v1.0.1*                                                                                                                                                   |
-| E03D04 | Patron status                                                 |        | 0-nR   | Code                                               | LCF code list PNS                                                                                              |
-| **<strike>E03D04.1</strike>** | **<strike>Condition</strike>**                                           |        | **<strike>1-n</strike>** | **<strike>Code</strike>** | *Removed v1.0.1*                                                                       |
-| *E03C24*     | *Library card status information*   |        | 0-1R     |                                                    | Status information on the patron's library card.<br/>*Added v1.0.1*                                                                                                                                 |
-| E03D24.1       | Library card status                                     |        | 1R     | Code                                               | LCF code list **PCS**<br/>*ID changed from E03C05 in v1.0.1*   |
-| E03D24.2       | Blocked card message                                    | AL     | 0-1R     | String                                             |*ID changed from E03D06 in v1.0.1*                                                                                                                                 |
-| E03D07       | Loan reference                                          |        | 0-nR     | String                                             | A loan made to this patron. May include references to past as well as current (active) loans until the loan records are deleted.                                        |
-| E03D08       | Number of items on loan                                 |        | 0-1R     | Integer                                            | Only applies to active loans.                                                                                                                                           |
-| E03D09       | Loan items limit                                        | CB     | 0-1     | Integer                                            |                                                                                                                                                                         |
-| E03D10       | Number of overdue items                                 |        | 0-1R     | Integer                                            |                                                                                                                                                                         |
-| E03D11       | Overdue items limit                                     | CA     | 0-1     | Integer                                            |                                                                                                                                                                         |
-| E03D12       | Number of recalled items                                |        | 0-1R     | Integer                                            |                                                                                                                                                                         |
-| E03D13       | Number of items for which fees other than fines are due |        | 0-1R     | Integer                                            |                                                                                                                                                                         |
-| E03D14       | Number of items for which fines are due                 |        | 0-1R     | Integer                                            |                                                                                                                                                                         |
-| E03D15       | Reservation reference                                   |        | 0-nR     | String                                             | A reservation associated with this patron                                                                                                                               |
-| E03D16       | Number of available hold items                          |        | 0-1R     | Integer                                            |                                                                                                                                                                         |
-| E03D17       | Number of unavailable hold items                        |        | 0-1R     | Integer                                            |                                                                                                                                                                         |
-| E03D18       | Hold items limit                                        | BZ     | 0-1     | Integer                                            |                                                                                                                                                                         |
-| E03D19       | Charge reference                                        |        | 0-nR     | String                                             | A charge associated with this patron. It is recommended that a patron record should include references to all unpaid charges.                                           |
-| *E03C20*     | *Charge limit*                                          | CC     | 0-n     |                                                    | Composite element. The limit on charges (fees or fines) that this patron is allowed to owe. Repeatable if separate limits are specified for charges of different types. |
-| E03D20.1     | Charge type                                             | BT     | 0-1     | Code    | LCF code list **CHT**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.       |
-| E03D20.2     | Charge amount                                           | BV     | 1       | Value                                              | Currency value                                                                                                                                                          |
-| E03D20.3     | Charge currency                                         | BH     | 0-1     | Code                                               | ISO three-letter currency code, e.g. ‘GBP’                                                                                                                              |
-| *E03C21*     | *Patron note*                                           |        | 0-n     |                                                    | A note attached to the LMS record for this patron.                                                                                                                      |
-| E03D21.1     | Note type                                               |        | 0-1     | Code                                               | LCF code list **NOT**                                                                                                                                                   |
-| E03D21.2     | Note date-time                                          |        | 0-1     | DateTime                                           |                                                                                                                                                                         |
-| E03D21.3     | Note text                                               |        | 1       | String                                             |                                                                                                                                                                         |
-| E03D25       | Date of birth                                           |        | 0-1     | Date                                             |  Date of birth of the primary contact for this patron.<br/>*Added v1.0.1*                                                                                                                                                                        |
+| *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
+|------------|----------------------------|-----------|----------|------------|--------------------------------|
+| **E03D01** | **Identifier**             | **AA**    | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The primary LMS identifier normally used when referring to this patron.**                                                                 |
+| E03D26     | Barcode identifier         |           | 0-1      | String     | The identifier on the patron's library card. Mandatory unless the primary LMS identifier is the same identifier.<br/>*Added v1.0.1*           |
+| *E03D27*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this patron.<br/>*Added v1.0.1*                                                |
+| E03D27.1   | Identifier type            |           | 1        | Code       | LCF code list **IMI**<br/>The identification scheme.                                                                                         |
+| E02D27.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| E02D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| **E03D22** | **Name**                   | **AE**    | **1**    | **String** | **Name of primary contact for this patron.**<br/>*Added v1.0.1*                                                                                   |
+| E03D02     | Contact reference          |           | 0-n      | String     | Contact details for this patron<br/>*Repeatable v1.0.1*                                                                                 |
+| E03D23     | Language                   |           | 1        | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1*                              |
+| *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
+| E03D03.1   | Location association type  |           | 1        | Code       | LCF code list **LAT**          |
+| E03D03.2   | Location reference         |           | 1        | String     | *Cardinality corrected in v1.0.1* |
+| E03D04     | Patron status              |           | 0-nR     | Code       | LCF code list PNS              |
+| **<strike>E03D04.1</strike>** | **<strike>Condition</strike>** |            | **<strike>1-n</strike>** | **<strike>Code</strike>** |                                                                   *Removed v1.0.1* |
+| *E03C24*   | *Library card status information* |    | 0-1R     |            | Status information on the patron's library card.<br/>*Added v1.0.1*                                                                               |
+| E03D24.1   | Library card status        |           | 1R       | Code       | LCF code list **PCS**<br/>*ID changed from E03C05 in v1.0.1*                                                                                 |
+| E03D24.2   | Blocked card message       | AL        | 0-1R     | String     |*ID changed from E03D06 in v1.0.1* |
+| E03D07     | Loan reference             |           | 0-nR     | String     | A loan made to this patron. May include references to past as well as current (active) loans until the loan records are deleted.               |
+| E03D08     | Number of items on loan    |           | 0-1R     | Integer    | Only applies to active loans.  |
+| E03D09     | Loan items limit           | CB        | 0-1      | Integer    |                                |
+| E03D10     | Number of overdue items    |           | 0-1R     | Integer    |                                |
+| E03D11     | Overdue items limit        | CA        | 0-1      | Integer    |                                |
+| E03D12     | Number of recalled items   |           | 0-1R     | Integer    |                                |
+| E03D13     | Number of items for which                                                                          fees other than fines are due             |           | 0-1R     | Integer    |                                |
+| E03D14     | Number of items for which                                                                        fines are due                             |           | 0-1R     | Integer    |                                |
+| E03D15     | Reservation reference      |           | 0-nR     | String     | A reservation associated with this patron                                                                                                         |
+| E03D16     | Number of available hold items |       | 0-1R     | Integer    |                                |
+| E03D17     | Number of unavailable hold items |     | 0-1R     | Integer    |                                |
+| E03D18     | Hold items limit           | BZ        | 0-1      | Integer    |                                |
+| E03D19     | Charge reference           |           | 0-nR     | String     | A charge associated with this patron. It is recommended that a patron record should include references to all unpaid charges.                |
+| *E03C20*   | *Charge limit*             | CC        | 0-n      |            | Composite element. The limit on charges (fees or fines) that this patron is allowed to owe. Repeatable if separate limits are specified for charges of different types.                                                                                            |
+| E03D20.1   | Charge type                | BT        | 0-1      | Code       | LCF code list **CHT**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.                                                                         |
+| E03D20.2   | Charge amount              | BV        | 1        | Value      | Currency value                 |
+| E03D20.3   | Charge currency            | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                               |
+| E03D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **NOT**          |
+| E03D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
+| E03D21.3   | Note text                  |           | 1        | String     |                                |
+| E03D25     | Date of birth              |           | 0-1      | Date       |  Date of birth of the primary contact for this patron.<br/>*Added v1.0.1*                                                                    |
 
 ### E04 LOCATION
 
@@ -309,20 +309,20 @@ An identified place where an item may be located, either inside or outside a lib
 
 #### Properties
 
-| *Id*       | *Element*               | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|-------------------------|-------|---------|------------|----------------------|
-| **E04D01** | **Identifier**          |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The primary LMS identifier normally used when referring to this location.**       |
-| *E04C02*   | *Additional identifier* |       | 0-n     |            | Composite element containing details of an additional identifier for this location. |
-| E04D02.1   | Identifier type         |       | 1       | Code       | LCF code list **LOI**<br/>The identification scheme                                                            |
-| E04D02.2   | Identifier type name    |       | 0-1     | String     | If the identification scheme is proprietary, the name of the scheme.                |
-| E04D02.3   | Identifier value        |       | 1       | String     | The identifier string.                                                              |
-| E04D03     | Location name           |       | 0-1     | String     |                                                                                     |
-| E04D04     | Location type           |       | 0-1     | Code       | LCF code list LOT                                                                   |
-| E04D05     | Location description    |       | 0-1     | String     |                                                                                     |
-| *E04C06*   | *Location note*         |       | 0-n     |            | A note attached to the LMS record for this location.                                |
-| E04D06.1   | Note type               |       | 0-1     | Code       | LCF code list **NOT**                                                               |
-| E04D06.2   | Note date-time          |       | 0-1     | DateTime   |                                                                                     |
-| E04D06.3   | Note text               |       | 1       | String     |                                                                                     |
+| *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
+|------------|----------------------------|-----------|----------|------------|--------------------------------|
+| **E04D01** | **Identifier**             |           | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The primary LMS identifier normally used when referring to this location.**                                                               |
+| *E04C02*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this location.                                                                 |
+| E04D02.1   | Identifier type            |           | 1        | Code       | LCF code list **LOI**<br/>The identification scheme                                                                                          |
+| E04D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| E04D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| E04D03     | Location name              |           | 0-1      | String     |                                |
+| E04D04     | Location type              |           | 0-1      | Code       | LCF code list LOT              |
+| E04D05     | Location description       |           | 0-1      | String     |                                |
+| *E04C06*   | *Location note*            |           | 0-n      |            | A note attached to the LMS record for this location.                                                                                             |
+| E04D06.1   | Note type                  |           | 0-1      | Code       | LCF code list **NOT**          |
+| E04D06.2   | Note date-time             |           | 0-1      | DateTime   |                                |
+| E04D06.3   | Note text                  |           | 1        | String     |                                |
 
 ### 
 
@@ -334,23 +334,23 @@ An identified event in which one or more items have been loaned to a patron.
 
 #### Properties
 
-| *Id*       | *Element*                | *SIP2 ID*     | *Card.* | *Format*     | *Description* |
-|------------|--------------------------|--------|---------|--------------|----------------------|
-| **E05D01** | **Loan identifier**      |        | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**   | **The LMS identifier used when referring to this loan.**                        |
-| **E05D02** | **Patron reference**     | **AA** | **1**   | **String**   |                                                                                 |
-| **E05D03** | **Item reference**       | **AB** | **1**   | **String**   | **A loan applies to a single item**                                             |
-| **E05D04** | **Loan start date-time** |        | **1**   | **DateTime** |                                                                                 |
-| E05D05     | Loan end due date-time   |        | 0-1     | DateTime     | Omitted only if the loan is permanent or doesn't have a specific end date-time. |
-| E05D06     | Loan end date-time       |        | 0-1     | DateTime     | Actual end date-time. Used when recording past loans.                           |
-| **E05D07** | **Loan status**          |        | **1-n** | **Code**     | **LCF code list LOS**                                                           |
-| E05D08     | Previous loan reference  |        | 0-1     | String       | Used when loan is a renewal                                                     |
-| E05D09     | Renewal loan reference   |        | 0-1R     | String       | Used when loan is superceded by a renewal loan                                  |
-| E05D10     | Recall notice date-time  | CJ     | 0-nR     | DateTime     | The date on which a recall notice for the item on loan was issued.              |
-| E05D11     | Charge reference         |        | 0-nR     | String       |                                                                                 |
-| *E05C12*   | *Loan note*              |        | 0-n     | String       | A note attached to the LMS record for this loan.                                |
-| E05D12.1   | Note type                |        | 0-1     | Code         | LCF code list **NOT**                                                           |
-| E05D12.2   | Note date-time           |        | 0-1     | DateTime     |                                                                                 |
-| E05D12.3   | Note text                |        | 1       | String       |                                                                                 |
+| *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
+|------------|----------------------------|-----------|----------|------------|--------------------------------|
+| **E05D01** | **Loan identifier**        |           | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LMS identifier used when referring to this loan.**                                                                                      |
+| **E05D02** | **Patron reference**       | **AA**    | **1**    | **String** |                                |
+| **E05D03** | **Item reference**         | **AB**    | **1**    | **String** | **A loan applies to a single item** |
+| **E05D04** | **Loan start date-time**   |           | **1**    |**DateTime**|                                |
+| E05D05     | Loan end due date-time     |           | 0-1      | DateTime   | Omitted only if the loan is permanent or doesn't have a specific end date-time.                                                            |
+| E05D06     | Loan end date-time         |           | 0-1      | DateTime   | Actual end date-time. Used when recording past loans.                                                                                          |
+| **E05D07** | **Loan status**            |           | **1-n**  | **Code**   | **LCF code list LOS**          |
+| E05D08     | Previous loan reference    |           | 0-1      | String     | Used when loan is a renewal                                                                                                        |
+| E05D09     | Renewal loan reference     |           | 0-1R     | String     | Used when loan is superceded by a renewal loan                                                                                                   |
+| E05D10     | Recall notice date-time    | CJ        | 0-nR     | DateTime   | The date on which a recall notice for the item on loan was issued.                                                                               |
+| E05D11     | Charge reference           |           | 0-nR     | String     |                                |
+| *E05C12*   | *Loan note*                |           | 0-n      |            | A note attached to the LMS record for this loan.                                                                                                 |
+| E05D12.1   | Note type                  |           | 0-1      | Code       | LCF code list **NOT**          |
+| E05D12.2   | Note date-time             |           | 0-1      | DateTime   |                                |
+| E05D12.3   | Note text                  |           | 1        | String     |                                |
 
 ### 
 
@@ -362,25 +362,25 @@ An identified event in which one or more titles have been reserved for a patron.
 
 #### Properties
 
-| *Id*       | *Element*                   | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
-|------------|-----------------------------|--------|---------|------------|----------------------|
-| **E06D01** | **Reservation identifier**  |        | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The LMS identifier used when referring to this reservation.**                                                                                                                                          |
-| **E06D02** | **Reservation type**        |        | **1**   | **Code**   | **LCF code list RVT**                                                                                                                                                                                    |
-| **E06D03** | **Patron reference**        | **AA** | **1**   | **String** |                                                                                                                                                                                                          |
-| E06D04     | Manifestation reference     |        | 0-1     | String     | A reservation applies to either a single manifestation or a single item. Each reservation must have one or the other but not both.                                                                       |
-| E06D05     | Item reference              |        | 0-1     | String     |                                                                                                                                                                                                          |
-| E06D06     | Reservation start date-time |        | 0-1     | DateTime   |                                                                                                                                                                                                          |
-| E06D07     | Pick-up site reference      | AO     | 0-1     | String     | The LMS identifier of the branch library or other site where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                        |
-| E06D08     | Pick-up location reference  |        | 0-1     | String     | The LMS identifier of the location within the site where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to E06D07. |
-| E06D09     | Pickup by date-time         | CM     | 0-1     | DateTime   | The date and optionally time by which the reserved item must be collected by the patron.                                                                                                                 |
-| E06D10     | End date-time               |        | 0-1     | DateTime   | The date-time when the reservation ended, when the item was checked-out to the patron who had reserved it. Used when recording past reservations.                                                        |
-| **E06D11** | **Reservation status**      |        | **1**   | **Code**   | **LCF code list RVS**                                                                                                                                                                                    |
-| E06D12     | Loan reference              |        | 0-1R     | String     | Only included if maintaining records of reservations that have ended with the item being loaned to the patron.                                                                                           |
-| E06D13     | Charge reference            |        | 0-nR     | String     | Reference to a charge incurred by this reservation.                                                                                                                                                      |
-| *E06C14*   | *Reservation note*          |        | 0-n     | String     | A note attached to this reservation.                                                                                                                                                                     |
-| E06D14.1   | Note type                   |        | 0-1     | Code       | LCF code list **NOT**                                                                                                                                                                                    |
-| E06D14.2   | Note date-time              |        | 0-1     | DateTime   |                                                                                                                                                                                                          |
-| E06D14.3   | Note text                   |        | 1       | String     |                                                                                                                                                                                                          |
+| *Id*       | *Element*                   | *SIP2 ID* | *Card.* | *Format*   | *Description*                  |
+|------------|-----------------------------|-----------|---------|------------|--------------------------------|
+| **E06D01** | **Reservation identifier**  |           | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LMS identifier used when referring to this reservation.**                                                                               |
+| **E06D02** | **Reservation type**        |           | **1**   | **Code**   | **LCF code list RVT**          |
+| **E06D03** | **Patron reference**        | **AA**    | **1**   | **String** |                                |
+| E06D04     | Manifestation reference     |           | 0-1     | String     | A reservation applies to either a single manifestation or a single item. Each reservation must have one or the other but not both.               |
+| E06D05     | Item reference              |           | 0-1     | String     |                                |
+| E06D06     | Reservation start date-time |           | 0-1     | DateTime   |                                |
+| E06D07     | Pick-up site reference      | AO        | 0-1     | String     | The LMS identifier of the branch library or other site where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                                                                                  |
+| E06D08     | Pick-up location reference  |           | 0-1     | String     | The LMS identifier of the location within the site where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to E06D07.                                                               |
+| E06D09     | Pickup by date-time         | CM        | 0-1     | DateTime   | The date and optionally time by which the reserved item must be collected by the patron.                                                       |
+| E06D10     | End date-time               |           | 0-1     | DateTime   | The date-time when the reservation ended, when the item was checked-out to the patron who had reserved it. Used when recording past reservations. |
+| **E06D11** | **Reservation status**      |           | **1**   | **Code**   | **LCF code list RVS**          |
+| E06D12     | Loan reference              |           | 0-1R    | String     | Only included if maintaining records of reservations that have ended with the item being loaned to the patron.                                      |
+| E06D13     | Charge reference            |           | 0-nR      String     | Reference to a charge incurred by this reservation.                                                                                              |
+| *E06C14*   | *Reservation note*          |           | 0-n     | String     | A note attached to this reservation.|
+| E06D14.1   | Note type                   |           | 0-1     | Code       | LCF code list **NOT**          |
+| E06D14.2   | Note date-time              |           | 0-1     | DateTime   |                                |
+| E06D14.3   | Note text                   |           | 1       | String     |                                |
 
 ### 
 
@@ -392,29 +392,29 @@ An identified charge made to a patron. May be a fee or a fine.
 
 #### Properties
 
-| *Id*       | *Element*                 | *SIP2 ID*     | *Card.* | *Format* | *Description* |
-|------------|---------------------------|--------|---------|-----------------|---------------|
-| **E07D01** | **Charge identifier**     | **CG** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String**                                          | **The LMS identifier used when referring to this charge.**                                                               |
-| **E07D02** | **Patron reference**      | **AA** | **1**   | **String**                                          |                                                                                                                          |
-| **E07D03** | **Charge type**           | **BT** | **1**   | **Code** | **LCF code list CHT<br/>The type or category of charge.**                                                                                         |
-| **E07D04** | **Charge status**         |        | **1**   | **Code**                                            | **LCF code list CHS**                                                                                                    |
-| E07D05     | Charge description        |        | 0-1     | String                                              | Free-text description of charge.                                                                                         |
-| E07D06     | item reference            | AB     | 0-1     | String                                              | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.         |
-| E07D07     | Manifestation reference   |        | 0-1     | String                                              | A manifestation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient. |
-| E07D08     | Loan reference            |        | 0-1     | String                                              | A loan to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.          |
-| E07D09     | Reservation reference     |        | 0-1     | String                                              | A reservation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.   |
-| E07D10     | Charge creation date-time |        | 0-1     | DateTime                                            | The date and optionally time on which the charge was created / recorded.                                                 |
-| E07D11     | Payment due date-time     |        | 0-1     | DateTime                                            | The date and optionally time on which the charge becomes due for payment.                                                |
-| **E07D12** | **Gross charge amount**   | **BV** | **1**   | **Value**                                           | **Currency value of original charge**                                                                                    |
-| E07D13     | Charge currency           | BH     | 0-1     | Code                                                | ISO three-letter currency code, e.g. ‘GBP’                                                                               |
-| E07D14     | Charge amount paid        |        | 0-1     | Value                                               | Used if charge has been paid in part or in full                                                                          |
-| E07D15     | Net charge amount due     |        | 0-1R     | Value                                               | Charge remaining                                                                                                         |
-| E07D16     | Payment date-time         |        | 0-1     | DateTime                                            | The date on which the charge was paid in full. Used when recording past charges.                                         |
-| E07D17     | Payment reference         |        | 0-n     | String                                              | Reference to a payment that wholly or partly clears this charge.                                                         |
-| *E07C18*   | *Charge note*             |        | 0-n     | String                                              | A note attached to this charge.                                                                                          |
-| E07D18.1   | Note type                 |        | 0-1     | Code                                                | LCF code list **NOT**                                                                                                    |
-| E07D18.2   | Note date-time            |        | 0-1     | DateTime                                            |                                                                                                                          |
-| E07D18.3   | Note text                 |        | 1       | String                                              |                                                                                                                          |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E07D01** | **Charge identifier**      | **CG**     | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LMS identifier used when referring to this charge.**                                                                                    |
+| **E07D02** | **Patron reference**       | **AA**     | **1**   | **String** |                                |
+| **E07D03** | **Charge type**            | **BT**     | **1**   | **Code**   | **LCF code list CHT<br/>The type or category of charge.**                                                                                          |
+| **E07D04** | **Charge status**          |            | **1**   | **Code**   | **LCF code list CHS**          |
+| E07D05     | Charge description         |            | 0-1     | String     | Free-text description of charge. |
+| E07D06     | item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D07     | Manifestation reference    |            | 0-1     | String     | A manifestation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D08     | Loan reference             |            | 0-1     | String     | A loan to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                                     |
+| E07D09     | Reservation reference      |            | 0-1     | String     | A reservation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D10     | Charge creation date-time  |            | 0-1     | DateTime   | The date and optionally time on which the charge was created / recorded.                                                                       |
+| E07D11     | Payment due date-time      |            | 0-1     | DateTime   | The date and optionally time on which the charge becomes due for payment.                                                                      |
+| **E07D12** | **Gross charge amount**    | **BV**     | **1**   | **Value**  | **Currency value of original charge**                                                                                                       |
+| E07D13     | Charge currency            | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| E07D14     | Charge amount paid         |            | 0-1     | Value      | Used if charge has been paid in part or in full                                                                                                     |
+| E07D15     | Net charge amount due      |            | 0-1R    | Value      | Charge remaining               |
+| E07D16     | Payment date-time          |            | 0-1     | DateTime   | The date on which the charge was paid in full. Used when recording past charges.                                                                |
+| E07D17     | Payment reference          |            | 0-n     | String     | Reference to a payment that wholly or partly clears this charge.                                                                                  |
+| *E07C18*   | *Charge note*              |            | 0-n     |            | A note attached to this charge.|
+| E07D18.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E07D18.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E07D18.3   | Note text                  |            | 1       | String     |                                |
 
 ### 
 
@@ -426,22 +426,22 @@ An identified payment made by a patron to settle one or more charges.
 
 #### Properties
 
-| *Id*       | *Element*              | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
-|------------|------------------------|--------|---------|------------|----------------------|
-| **E08D01** | **Payment identifier** | **AA** | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The LMS identifier used when referring to this payment.**       |
-| **E08D02** | **Patron reference**   |        | **1**   | **String** |                                                                   |
-| **E08D03** | **Payment type**       |        | **1**   | **Code**   | **LCF code list PYT<br/>The type or method of payment.**                                   |
-| E08D04     | Payment description    |        | 0-1     | String     | Further information on type or method of payment.                 |
-| **E08D05** | **Charge reference**   |        | **1-n** | **String** | **One or more charges to which this payment relates.**            |
-| E08D06     | Payment date-time      |        | 0-1     |            | The date and optionally time at which the payment was made.       |
-| **E08D07** | **Payment amount**     | **BV** | **1**   | **Value**  | **Currency value**                                                |
-| E08D08     | Payment currency       | BH     | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                        |
-| E08D09     | Payment status         |        | 0-1     | Code       | LCF code list **PYS**                                             |
-| E08D10     | Transaction reference  |        | 0-1     | String     |                          |
-| *E08C11*   | *Payment note*         |        | 0-n     | String     | A note attached to this payment.                                  |
-| E08D11.1   | Note type              |        | 0-1     | Code       | LCF code list **NOT**                                             |
-| E08D11.2   | Note date-time         |        | 0-1     | DateTime   |                                                                   |
-| E08D11.3   | Note text              |        | 1       | String     |                                                                   |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E08D01** | **Payment identifier**     | **AA**     | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LMS identifier used when referring to this payment.**                                                                                   |
+| **E08D02** | **Patron reference**       |            | **1**   | **String** |                                |
+| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list PYT<br/>The type or method of payment.**                                                                                           |
+| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                             |
+| **E08D05** | **Charge reference**       |            | **1-n** | **String** | **One or more charges to which this payment relates.**                                                                                             |
+| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                    |
+| **E08D07** | **Payment amount**         | **BV**     | **1**   | **Value**  | **Currency value**             |
+| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **PYS**          |
+| E08D10     | Transaction reference      |            | 0-1     | String     |                                |
+| *E08C11*   | *Payment note*             |            | 0-n     | String     |A note attached to this payment.|
+| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E08D11.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E08D11.3   | Note text                  |            | 1       | String     |                                |
 
 ### 
 
@@ -453,20 +453,20 @@ Contact details for the primary contact person or organization for a patron.
 
 #### Properties
 
-| *Id*       | *Element*               | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
-|------------|-------------------------|--------|---------|------------|----------------------|
-| **E09D01** | **Contact identifier**  |        | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** |                                                                                                                                              |
-| **<strike>E09D02</strike>** | **<strike>Name</strike>**                | **<strike>AE</strike>** | **<strike>1</strike>**   | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>*Removed v1.0.1*                                                                                                          |
-| **E09D03** | **Patron ref**          |        | **1-n** | **String** |                                                                                                                                              |
-| <strike>E09D04</strike>     | <strike>Address</strike>                 | <strike>BD</strike>     | <strike>0-n</strike>     | <strike>String</strike>     | <strike>Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.</strike><br/>*Removed v1.0.1*                             |
-| *<strike>E09C05</strike>*     | *<strike>Communication details</strike>* |        | <strike>0-n</strike>     |            | <strike>Composite element containing a single communication number, address or locator for the patron. Repeatable for different communication types.</strike><br/>*Removed v1.0.1* |
-| **E09D05**   | **Communication type**      |        | **1**       | **Code**       | **LCF code list CMT**<br/>*Changed v1.0.1*                                                                                                                        |
-| **E09D06**   | **Communication locator**   |        | **1-n**       | **String**     | The number, address or locator<br/>*Changed v1.0.1*                                                                                                               |
-| **<strike>E09D06</strike>** | **<strike>Language</strike>**            |        | **<strike>1</strike>**   | **<strike>Code</strike>**   | **<strike>Language for communication with contact<br/>ISO three-letter language code, e.g. ‘eng’</strike>**<br/>*Removed v1.0.1* |
-| *E09C07*   | *Contact note*          |        | 0-n     |            | A note attached to the LMS record for this contact.                                                                                          |
-| E09D07.1   | Note type               |        | 0-1     | Code       | LCF code list **NOT**                                                                                                                        |
-| E09D07.2   | Note date-time          |        | 0-1     | DateTime   |                                                                                                                                              |
-| E09D07.3   | Note text               |        | 1       | String     |                                                                                                                                              |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E09D01** | **Contact identifier**     |            | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** |                                |
+| **<strike>E09D02</strike>** | **<strike>Name</strike>** | **<strike>AE</strike>** | **<strike>1</strike>** | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>       *Removed v1.0.1* |
+| **E09D03** | **Patron ref**             |            | **1-n** | **String** |                                |
+| <strike>E09D04</strike> | <strike>Address</strike> | <strike>BD</strike> | <strike>0-n</strike> | <strike>String</strike> | <strike>Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.</strike><br/>                                                 *Removed v1.0.1* |
+| *<strike>E09C05</strike>* | *<strike>Communication details</strike>* |        | <strike>0-n</strike> |      | <strike>Composite element containing a single communication number, address or locator for the patron. Repeatable for different communication types.</strike><br/>                                              *Removed v1.0.1* |
+| **E09D05** | **Communication type**     |            | **1**   | **Code**   | **LCF code list CMT**<br/>*Changed v1.0.1*                                                                                                        |
+| **E09D06** | **Communication locator**  |            | **1-n** | **String** | The number, address or locator<br/>*Changed v1.0.1*                                                                                   |
+| **<strike>E09D06</strike>** | **<strike>Language</strike>** |        | **<strike>1</strike>** | **<strike>Code</strike>** | **<strike>Language for communication with contact<br/>ISO three-letter language code, e.g. ‘eng’</strike>**<br/>                                                                    *Removed v1.0.1* |
+| *E09C07*   | *Contact note*             |            | 0-n     |            | A note attached to the LMS record for this contact.                                                                                              |
+| E09D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E09D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E09D07.3   | Note text                  |            | 1       | String     |                                |
 
 ### E10 TITLE CLASSIFICATION SCHEME
 
@@ -476,14 +476,14 @@ An identified scheme for classification of titles.
 
 #### Properties
 
-| *Id*       | *Element*                            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|--------------------------------------|-------|---------|------------|----------------------|
-| **E10D01** | **Classification scheme identifier** |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **The LMS identifier used when referring to this scheme.** |
-| **E10D02** | **Scheme name**                      |       | **1**   | **String** | **A name or short description of the scheme**              |
-| *E10C03*   | *Scheme description / note*          |       | 0-1     |            | Further, more extensive description of the scheme          |
-| E10D03.1   | Note type                            |       | 0-1     | Code       | LCF code list **NOT**                                      |
-| E10D03.2   | Note date-time                       |       | 0-1     | DateTime   |                                                            |
-| E10D03.3   | Note text                            |       | 1       | String     |                                                            |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E10D01** | **Classification scheme identifier** |  | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LMS identifier used when referring to this scheme.**                                                                                    |
+| **E10D02** | **Scheme name**            |            | **1**   | **String** | **A name or short description of the scheme**                                                                                                       |
+| *E10C03*   | *Scheme description / note*|            | 0-1     |            | Further, more extensive description of the scheme                                                                                                  |
+| E10D03.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E10D03.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E10D03.3   | Note text                  |            | 1       | String     |                                |
 
 ### 
 
@@ -495,16 +495,16 @@ A classification term in an identified scheme for classification of titles.
 
 #### Properties
 
-| *Id*       | *Element*                           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|-------------------------------------|-------|---------|------------|----------------------|
-| **E11D01** | **Classification identifier**       |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **A system identifier for the classification term**                                                 |
-| **E11D02** | **Classification code**             |       | **1**   | **String** | **A code or number used as a label for the classification term.**                                   |
-| **E11D03** | **Classification scheme reference** |       | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification term belongs** |
-| E11D04     | Classification term heading         |       | 0-1     | String     | A heading or name for the classification term.                                                      |
-| *E11C05*   | *Classification description / note* |       | 0-1     |            |                                                                                                |
-| E11D05.1   | Note type                           |       | 0-1     | Code       | LCF code list **NOT**                                                                          |
-| E11D05.2   | Note date-time                      |       | 0-1     | DateTime   |                                                                                                |
-| E11D05.3   | Note text                           |       | 1       | String     |                                                                                                |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E11D01** | **Classification identifier** |         | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **A system identifier for the classification term**                                                                                          |
+| **E11D02** | **Classification code**    |            | **1**   | **String** | **A code or number used as a label for the classification term.**                                                                                 |
+| **E11D03** | **Classification scheme reference** |   | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification term belongs**                                              |
+| E11D04     | Classification term heading|            | 0-1     | String     | A heading or name for the classification term.                                                                                           |
+| *E11C05*   | *Classification description / note* |   | 0-1     |            |                                |
+| E11D05.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E11D05.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E11D05.3   | Note text                  |            | 1       | String     |                                |
 
 NOTE – If the scheme is appropriate, the classification identifier may the chosen to be the same as the classification code.
 
@@ -516,17 +516,17 @@ An identified property of an entity that can be used as a selection criterion wh
 
 #### Properties
 
-| *Id*       | *Element*                  | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|----------------------------|-------|---------|------------|----------------------|
-| **E12D01** | **Identifier**             |       | **1**[[[4]|LCF-Version-1.0.1#Notes]]   | **String** | **System identifier of the selection criterion type**                                                          |
-| **E12D02** | **Criterion type name**    |       | **1**   | **String** | **Name of the selection criterion type, to be used in item list requests.**                                    |
-| E12D03     | Entity type                |       | 0-n     | Code       | ONIX code list **ENT**<br/>If applicable, the types of entity for which this is a valid selection criterion.                               |
-| E12D04     | Criterion type description |       | 0-1     | String     | A description of the criterion type and the domain and range of its values.                                    |
-| E12D05     | Criterion value scheme     |       | 0-1     | String     | Identifier of the scheme from which values of this criterion type are drawn, to be used in item list requests. |
-| *E12C06*   | *Criterion note*           |       | 0-n     |            |                                                                                                                |
-| E12D06.1   | Note type                  |       | 0-1     | Code       | LCF code list **NOT**                                                                                          |
-| E12D06.2   | Note date-time             |       | 0-1     | DateTime   |                                                                                                                |
-| E12D06.3   | Note text                  |       | 1       | String     |                                                                                                                |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E12D01** | **Identifier**             |            | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **System identifier of the selection criterion type**                                                                                               |
+| **E12D02** | **Criterion type name**    |            | **1**   | **String** | **Name of the selection criterion type, to be used in item list requests.**                                                                      |
+| E12D03     | Entity type                |            | 0-n     | Code       | ONIX code list **ENT**<br/>If applicable, the types of entity for which this is a valid selection criterion.                                 |
+| E12D04     | Criterion type description |            | 0-1     | String     | A description of the criterion type and the domain and range of its values.                                                                        |
+| E12D05     | Criterion value scheme     |            | 0-1     | String     | Identifier of the scheme from which values of this criterion type are drawn, to be used in item list requests.                                     |
+| *E12C06*   | *Criterion note*           |            | 0-n     |            |                                |
+| E12D06.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E12D06.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E12D06.3   | Note text                  |            | 1       | String     |                                |
 
 NOTE – The selection criterion identifier may be the same as the name. In any case, the name must be unique.
 
@@ -537,25 +537,25 @@ The following data elements and composites are typically used for control of mes
 
 ### Q00 Elements common to requests
 
-| *Id*     | *Element*                   | *SIP2 ID*    | *Card.* | *Format* | *Description* |
-|----------|-----------------------------|-------|---------|-----------------|---------------|
-| *Q00C01* | *User ID *                  | CN    | 0-1     |                                                 | Composite element.                                                                                                                                                        |
-| Q00D01.1 | Encryption algorithm        |       | 0-1     | Code | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the user ID. If omitted, the string value may or may not be encrypted.      |
-| Q00D01.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string. Element Q00D01.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.                                |
-| *Q00C02* | *Password*                  | CO    | 0-1     |                                                 | Composite element. It would be unusual for the password not to be encrypted.                                                                                              |
-| Q00D02.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the password. If omitted, the string value may or may not be encrypted.     |
-| Q00D02.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string. Element Q00D02.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.                                |
-| Q00D03   | Institution identifier      | AO    | 0-1     | String                                          | LMS identifier for the institution, if terminals may be in one of several institutions.                                                                                   |
-| *Q00C04* | *Terminal ID*               |       | 0-1     | String                                          | LMS identifier for the device or terminal on which the terminal application is running.                                                                                   |
-| Q00D04.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the terminal ID. If omitted, the string value may or may not be encrypted.  |
-| Q00D04.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string. Element Q00D04.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.                                |
-| *Q00C05* | *Terminal password*         |       | 0-1     |                                                 |                                                                                                                                                                           |
-| Q00D05.1 | Encryption algorithm        |       | 0-1     | Code                                            | LCF code list **ECR**                                                                                                                                                     |
-| Q00D05.2 | String value                |       | 1       | String                                          | The encrypted or unencrypted string.                                                                                                                                      |
-| Q00D06   | Terminal location reference | CP    | 0-1     | String                                          | The identifier for the location of the device or terminal on which the terminal application is running.                                                                   |
-| Q00D07   | Request ID                  |       | 0-1     | String                                          | An ID of a request. If included in a request, it must also be included in the LMS response.                                                                               |
-| Q00D08   | Request date-time           |       | 0-1     | DateTime                                        | ISO date-time<br/>The date-time at which the terminal application user submitted the request. Normally generated by the application.                                                         |
-| Q00D09   | Previous request ID         |       | 0-1     | String                                          | Used when cancelling a previous request, in which case this element contains the identifier of the previous request (see element Q00D07).                                 |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| *Q00C01*   | *User ID *                 | CN         | 0-1     |           | Composite element.              |
+| Q00D01.1   | Encryption algorithm       |            | 0-1     | Code      | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the user ID. If omitted, the string value may or may not be encrypted.                                                                  |
+| Q00D01.2   | String value               |            | 1       | String    | The encrypted or unencrypted string. Element Q00D01.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.          |
+| *Q00C02*   | *Password*                 | CO         | 0-1     |           | Composite element. It would be unusual for the password not to be encrypted.                                                                  |
+| Q00D02.1   | Encryption algorithm       |            | 0-1     | Code      | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the password. If omitted, the string value may or may not be encrypted.                                                                  |
+| Q00D02.2   | String value               |            | 1       | String    | The encrypted or unencrypted string. Element Q00D02.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.          |
+| Q00D03     | Institution identifier     | AO         | 0-1     | String    | LMS identifier for the institution, if terminals may be in one of several institutions.                                                            |
+| *Q00C04*   | *Terminal ID*              |            | 0-1     | String    | LMS identifier for the device or terminal on which the terminal application is running.                                                         |
+| Q00D04.1   | Encryption algorithm       |            | 0-1     | Code      | LCF code list **ECR**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the terminal ID. If omitted, the string value may or may not be encrypted.                                                         |
+| Q00D04.2   | String value               |            | 1       | String    | The encrypted or unencrypted string. Element Q00D04.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.          |
+| *Q00C05*   | *Terminal password*        |            | 0-1     |           |                                 |
+| Q00D05.1   | Encryption algorithm       |            | 0-1     | Code      | LCF code list **ECR**           |
+| Q00D05.2   | String value               |            | 1       | String    | The encrypted or unencrypted string.|
+| Q00D06     | Terminal location reference| CP         | 0-1     | String    | The identifier for the location of the device or terminal on which the terminal application is running.                                           |
+| Q00D07     | Request ID                 |            | 0-1     | String    | An ID of a request. If included in a request, it must also be included in the LMS response.                                                         |
+| Q00D08     | Request date-time          |            | 0-1     | DateTime  | ISO date-time<br/>The date-time at which the terminal application user submitted the request. Normally generated by the application.              |
+| Q00D09     | Previous request ID        |            | 0-1     | String    | Used when cancelling a previous request, in which case this element contains the identifier of the previous request (see element Q00D07).      |
 
 ### 
 
