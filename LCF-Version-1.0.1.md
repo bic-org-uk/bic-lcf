@@ -561,19 +561,19 @@ The following data elements and composites are typically used for control of mes
 
 ### R00 Elements common to responses
 
-| *Id*     | *Element*             | *SIP2 ID*      | *Card.* | *Format* | *Description* |
-|----------|-----------------------|---------|---------|-----------------|---------------|
-| R00D01   | Response ID           |         | 0-1     | String                                          | An ID of a response.                                                                                                                                   |
-| R00D02   | Response type         |         | 0-1     | Code                                            | LCF code list RST                                                                                                                                      |
-| R00D03   | Request reference     |         | 0-1     | String                                          | The ID of the request to which this is the response. Mandatory if the request included a request ID.                                                   |
-| R00D04   | Response date-time    |         | 0-1     | DateTime                                        | The date and time of the response.                                                                                                                     |
-| *R00C05* | *Exception condition* |         | 0-n     |      | Response if there is an exception condition, in which case this and, optionally, one or more of the following message elements terminate the response. |
-| R00D05.1 | Condition type        |         | 1       | Code                                            | LCF code list **EXC**<br/>Response code will often be specific to the function requested.                                                                                       |
-| R00D05.2 | Reason request denied |         | 0-1     | Code                                            | LCF code list **RDN**<br/>Used if R00D05.1 contains ''08' (request denied)                                                                                                      |
-| R00D05.3 | Element reference     |         | 0-1     | String                                          | A reference (e.g. the LCF element ID) that uniquely identifies the element in the request payload that generated the exception condition.              |
-| *R00C06* | *Response message*    | AF / AG | 0-n     |                                                 | Composite element containing text to display or print on terminal.                                                                                     |
-| R00D06.1 | Message display type  |         | 1       | Code | LCF code list **MGT**                                                                                                                                  |
-| R00D06.2 | Message to display    |         | 1-n     | String                                          | Repeatable if display type is ‘single line’                                                                                                            |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| R00D01     | Response ID                |            | 0-1     | String    | An ID of a response.            |
+| R00D02     | Response type              |            | 0-1     | Code      | LCF code list RST               |
+| R00D03     | Request reference          |            | 0-1     | String    | The ID of the request to which this is the response. Mandatory if the request included a request ID.                                               |
+| R00D04     | Response date-time         |            | 0-1     | DateTime  | The date and time of the response.|
+| *R00C05*   | *Exception condition*      |            | 0-n     |           | Response if there is an exception condition, in which case this and, optionally, one or more of the following message elements terminate the response.|
+| R00D05.1   | Condition type             |            | 1       | Code      | LCF code list **EXC**<br/>Response code will often be specific to the function requested.                                                         |
+| R00D05.2   | Reason request denied      |            | 0-1     | Code      | LCF code list **RDN**<br/>Used if R00D05.1 contains ''08' (request denied)                                                                       |
+| R00D05.3   | Element reference          |            | 0-1     | String    | A reference (e.g. the LCF element ID) that uniquely identifies the element in the request payload that generated the exception condition.            |
+| *R00C06*   | *Response message*         | AF / AG    | 0-n     |           | Composite element containing text to display or print on terminal.                                                                                  |
+| R00D06.1   | Message display type       |            | 1       | Code      | LCF code list **MGT**           |
+| R00D06.2   | Message to display         |            | 1-n     | String    | Repeatable if display type is ‘single line’                                                                                                          |
 
 Core functions
 --------------
@@ -586,11 +586,11 @@ This function may be used to retrieve information about an instance of an entity
 
 #### Request
 
-| *Id*       | *Element*                           | *SIP2 ID*     | *Card.* | *Format*   | *Description* |
-|------------|-------------------------------------|--------|---------|------------|----------------------|
-| **Q01D01** | **Entity type**                     |        | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                                             |
-| **Q01D02** | **Entity instance identifier**      | **\*** | **1**   | **String** | **The primary (LMS) identifier for the entity instance.**                                                                                                                                                                                                         |
-| Q01D03     | Requested item detailed information |        | 0-n     | Code       | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q01D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, the details to be included are determined by the LMS.  |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q01D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list ENT<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                        |
+| **Q01D02** | **Entity instance identifier** | **\*** | **1**   | **String**| **The primary (LMS) identifier for the entity instance.**                                                                                         |
+| Q01D03     | Requested item detailed information |   | 0-n     | Code      | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q01D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, the details to be included are determined by the LMS.                          |
 
 \* The correspondence with a SIP2 element depends upon the entity type. For entity types 'patron' and 'item' the correspondence is with SIP2 elements AA and AB respectively. The only other entity type that is likely to be specified with any frequency is ‘manifestation’.
 
@@ -598,9 +598,9 @@ This function may be used to retrieve information about an instance of an entity
 
 NOTE – The elements included in the response will depend upon both the entity type and whether a specific level of detail has been requested, by the inclusion of one or more elements Q01D03 in the request. Elements marked as mandatory may only be omitted if there has been an exception condition and the response is in effect empty.
 
-| *Id*     | *Element* | *SIP2 ID*    | *Card.* | *Format* | *Description* |
-|----------|-----------|-------|---------|----------|---------------|
-| *R01C01* | Entity element as determined by the specified entity type – see E01 to E12 above – taking into account any instances of element Q01D03 in the request. |       | 0-n     |          |               |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| *R01C01*   | Entity element as determined by the specified entity type – see E01 to E12 above – taking into account any instances of element Q01D03 in the request.|  | 0-n  |           |                                 |
 
 ### 02 Retrieve entity instance list
 
@@ -608,16 +608,16 @@ This function may be used to retrieve a list of entity instances, with or withou
 
 #### Request
 
-| *Id*       | *Element* | *SIP2 ID*    | *Card.* | *Format*                 | *Description* |
-|------------|-----------|-------|---------|--------------------------|----------------------|
-| **Q02D01** | **Entity type**                                                                   |       | **1**   | **Code**                 | **LCF code list ENT<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                                                                                                                               |
-| *Q02C02*   | *Selection criterion*                                                             |       | 0-n     |                          | A criterion for selecting instances to be retrieved. If multiple selection criteria are specified, all must apply to all items retrieved. If no selection criteria are specified, all items of the specified entity type are to be included in the list.                                                                                            |
-| Q02D02.1 | Selection criterion entity reference                                                                                                                               |       | 0-1     | String                   | A reference to an identified selection criterion entity (see E12 above). If Q02C02 is included, either this element or Q02D02.3 must be included.<br/>*Revised v1.0.1*                                                                                                                                                                                                                                                                                      |
-| Q02D02.3 | Selection criterion code                                                                                                                               |       | 0-1     | String                   | LCF Code list **SEL**<br/>*Added v1.0.1*                                                                                                                                                                                                                                                                                      |
-| Q02D02.2   | Criterion value                                                                   |       | 1       | String                   |                                                                                                                                                                                                                                                                                                                                                     |
-| Q02D03     | Requested instance detailed information                                           |       | 0-n     | Code                     | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q02D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, minimal details are included as determined by the LMS.                                                                                   |
-| Q02D04     | Requested maximum number of instances in response                                 |       | 0-1     | Positive integer         | If present, the maximum number of instances from the list matching the specified selection criteria that are desired in the response. If not present, the entire list of instances matching the specified selection criteria should be included in the response. Responses should, wherever possible, honour this maximum when requested.           |
-| Q02D05     | Index, in the complete list of instances found, of first instance in the response |       | 0-1     | Positive integer or zero | If present, the desired index of the first instance in the response in the list of instances that match the specified selection criteria. For example, an offset value ‘10’ would imply that the first instance in the response should be the eleventh instance in the list. Responses should, wherever possible, honour this index when requested. |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q02D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list ENT<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                        |
+| *Q02C02*   | *Selection criterion*      |            | 0-n     |           | A criterion for selecting instances to be retrieved. If multiple selection criteria are specified, all must apply to all items retrieved. If no selection criteria are specified, all items of the specified entity type are to be included in the list.       |
+| Q02D02.1   | Selection criterion entity reference |  | 0-1     | String    | A reference to an identified selection criterion entity (see E12 above). If Q02C02 is included, either this element or Q02D02.3 must be included.<br/>*Revised v1.0.1*                                                                                          |
+| Q02D02.3   | Selection criterion code   |            | 0-1     | String    | LCF Code list **SEL**<br/>*Added v1.0.1*                                                                                                        |
+| Q02D02.2   | Criterion value            |            | 1       | String    |                                 |
+| Q02D03     | Requested instance detailed information | | 0-n   | Code      | LCF code list **MND**, **IMD** or **PNT**, depending upon entity type specified in Q02D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, minimal details are included as determined by the LMS.                         |
+| Q02D04     | Requested maximum number of instances in response | | 0-1 | Positive integer | If present, the maximum number of instances from the list matching the specified selection criteria that are desired in the response. If not present, the entire list of instances matching the specified selection criteria should be included in the response. Responses should, wherever possible, honour this maximum when requested.                      |
+| Q02D05     | Index, in the complete list of instances found, of first instance in the response                                  |            | 0-1     | Positive integer or zero | If present, the desired index of the first instance in the response in the list of instances that match the specified selection criteria. For example, an offset value ‘10’ would imply that the first instance in the response should be the eleventh instance in the list. Responses should, wherever possible, honour this index when requested.          |
 
 \* The correspondence with a SIP2 element depends upon the entity type. For entity types 'patron' and 'item' the correspondence is with SIP2 elements AA and AB respectively. The only other entity type that is likely to be specified with any frequency is 'title'.
 
