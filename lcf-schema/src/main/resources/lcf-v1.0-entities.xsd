@@ -560,12 +560,10 @@
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="chargeType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="00"/>
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
@@ -575,6 +573,10 @@
 			<xs:enumeration value="07"/>
 			<xs:enumeration value="08"/>
 			<xs:enumeration value="09"/>
+			<xs:enumeration value="00"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="circulationStatusCode">
@@ -592,6 +594,9 @@
 			<xs:enumeration value="11"/>
 			<xs:enumeration value="12"/>
 			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="communicationType">
