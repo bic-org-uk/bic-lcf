@@ -329,6 +329,16 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PCS02       |02             |Card retained by library staff   |
   PCS03       |03             |Card location unknown            |Card lost or stolen
 
+### PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in LCF v1.0.1*
+
+  *Code ID*   |*Code value*   |*Definition*           |*Notes*
+  ----------- |-------------- |---------------------- |--------------------------------------------------
+  PNI01       |01             |Proprietary            |ONIX code ‘01’
+  PNI02       |16             |ISNI                   |ONIX code ‘16’
+  PNI03       |18             |LCCN                   |ONIX code ‘17’
+  PNI04       |21             |ORCID                  |ONIX code ‘21’
+  PNI05       |31             |VIAF ID                |ONIX code ‘31’
+
 ### PNS Patron status condition type (based upon ANSI/NISO Z39.70)
 
   *Code ID*   |*Code value*   |*Definition*                                  |*Notes*
@@ -470,8 +480,12 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
   *Code ID*   |*Code value*   |*Definition*                                                               |*Notes*
   ----------- |-------------- |-------------------------------------------------------------------------- |---------
-  SEL01       |01             |Code list to be defined       |
-  SEL02       |02             |...   |
+  SEL01       |01             |manifestation-id                                                           |
+  SEL02       |02             |item-id                                                                    |
+  SEL03       |03             |patron-id                                                                  |
+  SEL04       |04             |location-id                                                                |
+  SEL05       |11             |circulation-status                                                         |
+  SEL06       |12             |loan-status                                                                |
 
 ### SPA Special attention required flag
 
