@@ -155,7 +155,7 @@ E03 PATRON
 | **2** | **E03D01**   | **identifier**              | **1**   | **string**  |         |
 |   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added v1.0.1*                                                                                |
 |   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added v1.0.1*                                                                                |
-|   5   | E03D27.1     | patron-id-type              | 1       | Code        | **IMI** |
+|   5   | E03D27.1     | patron-id-type              | 1       | Code        | **PNI** |
 |   6   | E02D27.2     | type-name                   | 0-1     | String      |         |
 |   7   | E02D27.3     | value                       | 1       | String      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added v1.0.1*                                                                                |
