@@ -79,6 +79,12 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - Capita" enabled="false">
         <collectionProp name="Arguments.arguments">
+          <elementProp name="lcf.protocol" elementType="Argument">
+            <stringProp name="Argument.name">lcf.protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The protocol: http or https</stringProp>
+          </elementProp>
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
             <stringProp name="Argument.value">integration.capita-libraries.co.uk</stringProp>
@@ -118,8 +124,14 @@
         <stringProp name="TestPlan.comments">${__P(lds.host)}</stringProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - lcf.ceridwen.com" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - http://lcf.ceridwen.com" enabled="false">
         <collectionProp name="Arguments.arguments">
+          <elementProp name="lcf.protocol" elementType="Argument">
+            <stringProp name="Argument.name">lcf.protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The protocol: http or https</stringProp>
+          </elementProp>
           <elementProp name="lcf.host" elementType="Argument">
             <stringProp name="Argument.name">lcf.host</stringProp>
             <stringProp name="Argument.value">lcf.ceridwen.com</stringProp>
@@ -129,6 +141,53 @@
           <elementProp name="lcf.port" elementType="Argument">
             <stringProp name="Argument.name">lcf.port</stringProp>
             <stringProp name="Argument.value">80</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The port number to connect on</stringProp>
+          </elementProp>
+          <elementProp name="lcf.web.context" elementType="Argument">
+            <stringProp name="Argument.name">lcf.web.context</stringProp>
+            <stringProp name="Argument.value">lcfserver/lcf/1.0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The root of the LCF implementation</stringProp>
+          </elementProp>
+          <elementProp name="operator.username" elementType="Argument">
+            <stringProp name="Argument.name">operator.username</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">username@location</stringProp>
+          </elementProp>
+          <elementProp name="operator.password" elementType="Argument">
+            <stringProp name="Argument.name">operator.password</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">password</stringProp>
+          </elementProp>
+          <elementProp name="patron.location" elementType="Argument">
+            <stringProp name="Argument.name">patron.location</stringProp>
+            <stringProp name="Argument.value">general</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">${__P(lds.host)}</stringProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration - https://lcf.ceridwen.com" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="lcf.protocol" elementType="Argument">
+            <stringProp name="Argument.name">lcf.protocol</stringProp>
+            <stringProp name="Argument.value">https</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The protocol: http or https</stringProp>
+          </elementProp>
+          <elementProp name="lcf.host" elementType="Argument">
+            <stringProp name="Argument.name">lcf.host</stringProp>
+            <stringProp name="Argument.value">lcf.ceridwen.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">The server / IP to target</stringProp>
+          </elementProp>
+          <elementProp name="lcf.port" elementType="Argument">
+            <stringProp name="Argument.name">lcf.port</stringProp>
+            <stringProp name="Argument.value">443</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">The port number to connect on</stringProp>
           </elementProp>
@@ -182,7 +241,7 @@
           <stringProp name="HTTPSampler.port">${lcf.port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path"></stringProp>
           <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
@@ -191,7 +250,7 @@
         <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="Operator Credentials" enabled="true">
           <collectionProp name="AuthManager.auth_list">
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://${lcf.host}:${lcf.port}/${lcf.web.context}</stringProp>
+              <stringProp name="Authorization.url">${lcf.protocol}://${lcf.host}:${lcf.port}/${lcf.web.context}</stringProp>
               <stringProp name="Authorization.username">${operator.username}</stringProp>
               <stringProp name="Authorization.password">${operator.password}</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
@@ -229,7 +288,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/${lcf.web.context}/patrons</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -287,7 +346,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -376,7 +435,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/${lcf.web.context}/contacts</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -425,7 +484,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -507,7 +566,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/${lcf.web.context}/contacts</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -556,7 +615,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -652,7 +711,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
@@ -692,7 +751,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -741,7 +800,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
@@ -781,7 +840,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${patron.uri}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -837,7 +896,7 @@
           <stringProp name="HTTPSampler.port">${lcf.port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path"></stringProp>
           <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
@@ -846,7 +905,7 @@
         <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="Operator Credentials" enabled="true">
           <collectionProp name="AuthManager.auth_list">
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://${lcf.host}:${lcf.port}/${lcf.web.context}</stringProp>
+              <stringProp name="Authorization.url">${lcf.protocol}://${lcf.host}:${lcf.port}/${lcf.web.context}</stringProp>
               <stringProp name="Authorization.username">${operator.username}</stringProp>
               <stringProp name="Authorization.password">${operator.password}</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
@@ -863,7 +922,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${lcf.protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/${lcf.web.context}/patrons</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
