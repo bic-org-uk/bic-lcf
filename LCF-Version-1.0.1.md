@@ -684,17 +684,17 @@ This function is used to delete an item of a specific entity type. Since deletio
 
 #### Request
 
-| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|---------------------|-------|---------|------------|----------------------|
-| **Q05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT**                         |
-| **Q05D02** | **Item identifier** |       | **1**   | **String** | **The identifier of the item to be deleted.** |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q05D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list ENT**           |
+| **Q05D02** | **Item identifier**        |            | **1**   | **String**| **The identifier of the item to be deleted.**                                                                                                     |
 
 #### Response
 
-| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|---------------------|-------|---------|------------|----------------------|
-| **R05D01** | **Entity type**     |       | **1**   | **Code**   | **LCF code list ENT<br/>The entity type of the item created in response to the request.**  |
-| **R05D02** | **Item identifier** |       | **1**   | **String** | **The identifier of the item that has been successfully deleted**  |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **R05D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list ENT<br/>The entity type of the item created in response to the request.**                                                         |
+| **R05D02** | **Item identifier**        |            | **1**   | **String**| **The identifier of the item that has been successfully deleted**                                                                                    |
 
 Circulation management functions
 --------------------------------
@@ -719,25 +719,25 @@ The terminal application must provide all the information required for all the n
 
 #### Request
 
-| *Id*       | *Element*           | *SIP2 ID*    | *Card.* | *Format* | *Description* |
-|------------|---------------------|-------|---------|-----------------|---------------|
-| **Q11D01** | **Request type**    |       | **1**   | **Code** | **LCF code list RQT<br/>Indicates type of check-out request.**                                                  |
-| Q11D02     | Renewal type        |       | 0-1     | Code                                                | LCF code list RNQ<br/>Indicates that the request is a renewal request and which type                           |
-| Q11D03     | Patron reference    | AA    | 0-1     | String                                              | Reference to the patron record. Mandatory in a new check-out.                           |
-| Q11D04     | Item reference      | AB    | 0-1     | String                                              | Reference to the item in question. Mandatory unless cancelling a check-out / renewal.   |
-| Q11D05     | Loan reference      |       | 0-1     | String                                              | Mandatory when renewing or cancelling a check-out or renewal.                           |
-| Q11D06     | Loan end date       |       | 0-1     | DateTime                                            | If confirming check-out / renewal, the due date-time given to the patron for this item. |
-| Q11D07     | Charge acknowledged | BO    | 0-1     | Flag                                                | Empty element indicating that a charge may be created.                                  |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q11D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list RQT<br/>Indicates type of check-out request.**                                                                                   |
+| Q11D02     | Renewal type               |            | 0-1     | Code      | LCF code list RNQ<br/>Indicates that the request is a renewal request and which type                                                                |
+| Q11D03     | Patron reference           | AA         | 0-1     | String    | Reference to the patron record. Mandatory in a new check-out.                                                                                  |
+| Q11D04     | Item reference             | AB         | 0-1     | String    | Reference to the item in question. Mandatory unless cancelling a check-out / renewal.                                                             |
+| Q11D05     | Loan reference             |            | 0-1     | String    | Mandatory when renewing or cancelling a check-out or renewal.                                                                                        |
+| Q11D06     | Loan end date              |            | 0-1     | DateTime  | If confirming check-out / renewal, the due date-time given to the patron for this item.                                                           |
+| Q11D07     | Charge acknowledged        | BO         | 0-1     | Flag      | Empty element indicating that a charge may be created.                                                                                         |
 
 #### Response
 
-| *Id*   | *Element*                    | *SIP2 ID* | *Card.* | *Format* | *Description* |
-|--------|------------------------------|-----------|---------|----------|---------------|
-| R11D01 | Loan reference               |           | 0-1     | String   | LMS identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                                                                                                     |
-| R11C02 | Loan entity record           |           | 0-1     |          | See E05                                                                                                                                                                                                              |
-| R11D03 | Item sensitive media warning |           | 0-1     | Code     | LCF code list **MEW**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.  |
-| R11D04 | Desensitize item security    |           | 0-1     | Code     | LCF code list **SCD**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.             |
-| R11D05 | Charge reference             |           | 0-1     | String   | Reference to charge created with this loan.                                                                                                                                                                          |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| R11D01     | Loan reference             |            | 0-1     | String    | LMS identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                                 |
+| R11C02     | Loan entity record         |            | 0-1     |           | See E05                         |
+| R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **MEW**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
+| R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **SCD**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
+| R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan.                                                                                                          |
 
 ### 
 
@@ -753,26 +753,26 @@ The check-in function combines the following core functions:
 
 #### Request
 
-| *Id*       | *Element*          | *SIP2 ID* | *Card.* | *Format* | *Description* |
-|------------|--------------------|-----------|---------|----------|---------------|
-| **Q12D01** | **Request type**   |           | **1**   | **Code** | **LCF code list RQT**                                                   |
-| Q12D02     | Patron reference   | AA        | 0-1     | String                                             |                                                                         |
-| **Q12D03** | **Item reference** | **AB**    | **0-1** | **String**                                         |                                                                         |
-| Q12D04     | Loan reference     |           | 0-1     | String                                             |                                                                         |
-| Q12D05     | Item return date   |           | 0-1     | DateTime                                           | In confirmation requests, the date the item was returned by the patron. |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q12D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list RQT**           |
+| Q12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
+| **Q12D03** | **Item reference**         | **AB**     | **0-1** | **String**|                                 |
+| Q12D04     | Loan reference             |            | 0-1     | String    |                                 |
+| Q12D05     | Item return date           |            | 0-1     | DateTime  | In confirmation requests, the date the item was returned by the patron.                                                                           |
 
 #### Response
 
-| Id     | *Element*                       | *SIP2 ID* | *Card.* | *Format* | *Description* |
-|--------|---------------------------------|-----------|---------|----------|---------------|
-| R12D01 | Loan reference                  |           | 0-1     | String                                            |                                                                                                                            |
-| R12D02 | Patron reference                | AA        | 0-1     | String                                            |                                                                                                                            |
-| R12D03 | Item reference                  | AB        | 0-1     | String                                            |                                                                                                                            |
-| R12D04 | Item return location reference  | CL        | 0-1     | String                                            | LMS identifier for return location, e.g. sort bin.                                                                         |
-| R12D05 | Item sensitive media warning    |           | 0-1     | Code   | LCF code list **MEW**<br/>Flag indicating that the item contains a media component that is sensitive to some security setting devices.                |
-| R12D06 | Item requires special attention |           | 0-1     | Code                                              | LCF code list **SPA**<br/>Flag indicating that this item requires special attention before it is returned to its shelf location.                      |
-| R12D07 | Special attention description   |           | 0-1     | String | Description of special attention required, if any.                                                                         |
-| R12D08 | Charge reference                |           | 0-n     | String                                            | LMS identifier of any charge due on this item. Repeatable if more than one charge is due (e.g. loan fee and overdue fine). |
+| Id         | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| R12D01     | Loan reference             |            | 0-1     | String    |                                 |
+| R12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
+| R12D03     | Item reference             | AB         | 0-1     | String    |                                 |
+| R12D04     | Item return location reference| CL      | 0-1     | String    | LMS identifier for return location, e.g. sort bin.                                                                                                 |
+| R12D05     | Item sensitive media warning|           | 0-1     | Code      | LCF code list **MEW**<br/>Flag indicating that the item contains a media component that is sensitive to some security setting devices.        |
+| R12D06     | Item requires special attention|        | 0-1     | Code      | LCF code list **SPA**<br/>Flag indicating that this item requires special attention before it is returned to its shelf location.              |
+| R12D07     | Special attention description|          | 0-1     | String    | Description of special attention required, if any.                                                                                              |
+| R12D08     | Charge reference           |            | 0-n     | String    | LMS identifier of any charge due on this item. Repeatable if more than one charge is due (e.g. loan fee and overdue fine).                         |
 
 ### 13 Patron payment
 
@@ -784,23 +784,23 @@ The patron payment function combines the following core functions:
 
 #### Request
 
-| *Id*       | *Element*                | *SIP2 ID* | *Card.* | *Format* | *Description* |
-|------------|--------------------------|-----------|---------|----------|---------------|
-| **Q13D01** | **Request type**         |           | **1**   | **Code**                                           | **LCF code list RQT**                                                                                                     |
-| **Q13D02** | **Patron reference**     | **AA**    | **1**   | **String**                                         |                                                                                                                           |
-| Q13D03     | Charge reference         |           | 0-n     | String                                             | Charge(s) against which to set this payment. If omitted, the LMS determines the charges against which to set the payment. |
-| **Q13D04** | **Payment type**         |           | **1**   | **Code** | **LCF code list PYT**                                                                                                     |
-| Q13D05     | Payment type description |           | 0-1     | String                                             | Further information on method of payment                                                                                  |
-| **Q13D06** | **Payment amount**       |           | **1**   | **Value**                                          | **Currency value.**                                                                                                       |
-| Q13D07     | Payment currency         |           | 0-1     | Code                                               | ISO three-letter currency code, e.g. ‘GBP’                                                                                |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q13D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list RQT**           |
+| **Q13D02** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| Q13D03     | Charge reference           |            | 0-n     | String    | Charge(s) against which to set this payment. If omitted, the LMS determines the charges against which to set the payment.                          |
+| **Q13D04** | **Payment type**           |            | **1**   | **Code**  | **LCF code list PYT**           |
+| Q13D05     | Payment type description   |            | 0-1     | String    | Further information on method of payment                                                                                                        |
+| **Q13D06** | **Payment amount**         |            | **1**   | **Value** | **Currency value.**             |
+| Q13D07     | Payment currency           |            | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
 
 #### Response
 
-| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format*   | *Description* |
-|------------|----------------------|-----------|---------|------------|---------------|
-| **R13D01** | **Patron reference** | **AA**    | **1**   | **String** |                                                                   |
-| R13D02     | Payment Identifier   |           | 0-1     | String     | Included if attempt to make the payment is successful.            |
-| R13D03     | Charge reference     |           | 0-n     |            | Mandatory if payment of any charge item is accepted or confirmed. |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **R13D01** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                         |
+| R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                 |
 
 ### 14 Block patron account
 
@@ -808,17 +808,17 @@ Used to prevent unauthorised use of a patron account, such as when the patron’
 
 #### Request
 
-| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format* | *Description*         |
-|------------|----------------------|-----------|---------|----------|-----------------------|
-| **Q14D01** | **Patron reference** | **AA**    | **1**   | **String**                                      |                       |
-| Q14D02     | Library card status  |           | 0-1     | Code | LCF code list **PCS** |
-| Q14D03     | Blocked card message | AL        | 0-1     | String                                          |                       |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q14D01** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| Q14D02     | Library card status        |            | 0-1     | Code      | LCF code list **PCS**           |
+| Q14D03     | Blocked card message       | AL         | 0-1     | String    |                                 |
 
 #### Response
 
-| *Id*       | *Element*            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|----------------------|-------|---------|------------|----------------------|
-| **R14D01** | **Patron reference** |       | **1**   | **String** | **The identifier for the Patron record that has been successfully modified.** |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **R14D01** | **Patron reference**       |            | **1**   | **String**| **The identifier for the Patron record that has been successfully modified.**                                                                  |
 
 ### 
 
@@ -828,15 +828,15 @@ This function is very similar to function 14 Block patron. A patron record is re
 
 #### Request
 
-| *Id*       | *Element*            | *SIP2 ID* | *Card.* | *Format*   | *Description* |
-|------------|----------------------|-----------|---------|------------|---------------|
-| **Q15D01** | **Patron reference** | **AA**    | **1**   | **String** |               |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q15D01** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
 
 #### Response
 
-| *Id*       | *Element*            | *SIP2 ID*    | *Card.* | *Format*   | *Description* |
-|------------|----------------------|-------|---------|------------|---------------|
-| **R15D01** | **Patron reference** |       | **1**   | **String** | **The identifier for the Patron record that has been successfully modified.** |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **R15D01** | **Patron reference**       |            | **1**   | **String**| **The identifier for the Patron record that has been successfully modified.**                                                                  |
 
 ### 
 
@@ -856,26 +856,26 @@ The reserve function combines the following core functions:
 
 #### Request
 
-| *Id*       | *Element*                     | *SIP2 ID*   | *Card.* | *Format* | *Description* |
-|------------|-------------------------------|-------------|---------|----------|---------------|
-| **Q16D01** | **Request type**              | **BX / BI** | **1**   | **Code** | **LCF code list RQT**                                                                                                                                                                    |
-| **Q16D02** | **Patron identifier**         | **AA**      | **1**   | **String**                                          |                                                                                                                                                                                          |
-| **Q16D03** | **Item entity type**          |             | **1**   | **Code**                                            | **LCF code list ENT – only code values '01' and '02' are valid**                                                                                                                         |
-| **Q16D04** | **Item identifier**           | **AB**      | **1**   | **String**                                          |                                                                                                                                                                                          |
-| Q16D05     | Reservation type              | BY          | 0-1     | Code     | LCF code list **RVT**                                                                                                                                                                    |
-| Q16D06     | Pick-up institution reference | AO          | 0-1     | String                                              | The LMS identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                 |
-| Q16D07     | Pick-up location reference    | BS          | 0-1     | String                                              | The LMS identifier of the location where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to Q16D06. |
-| Q16D08     | Reservation start date        |             | 0-1     | DateTime                                            | Only used in confirmations.                                                                                                                                                              |
-| Q16D09     | Reservation expiry date       | AH          | 0-1     | DateTime                                            | The date by which a reserved item will be picked up by the patron.                                                                                                                       |
-| Q16D10     | Charge acknowledged           | BO          | 0-1     | Flag                                                | Empty element indicating that a charge may be created.                                                                                                                                   |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q16D01** | **Request type**           | **BX / BI**| **1**   | **Code**  | **LCF code list RQT**           |
+| **Q16D02** | **Patron identifier**      | **AA**     | **1**   | **String**|                                 |
+| **Q16D03** | **Item entity type**       |            | **1**   | **Code**  | **LCF code list ENT – only code values '01' and '02' are valid**                                                                               |
+| **Q16D04** | **Item identifier**        | **AB**     | **1**   | **String**|                                 |
+| Q16D05     | Reservation type           | BY         | 0-1     | Code      | LCF code list **RVT**           |
+| Q16D06     | Pick-up institution reference| AO       | 0-1     | String    | The LMS identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                                                                      |
+| Q16D07     | Pick-up location reference | BS         | 0-1     | String    | The LMS identifier of the location where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to Q16D06.                                                                            |
+| Q16D08     | Reservation start date     |            | 0-1     | DateTime  | Only used in confirmations.     |
+| Q16D09     | Reservation expiry date    | AH         | 0-1     | DateTime  | The date by which a reserved item will be picked up by the patron.                                                                               |
+| Q16D10     | Charge acknowledged        | BO         | 0-1     | Flag      | Empty element indicating that a charge may be created.                                                                                         |
 
 #### Response
 
-| *Id*   | *Element*                 | *SIP2 ID* | *Card.* | *Format* | *Description* |
-|--------|---------------------------|-----------|---------|----------|---------------|
-| R16D01 | Reservation reference     |           | 0-1     | String   | Either a reservation reference or a copy of the reservation record must be included in the response. |
-| R16D02 | Reservation entity record |           | 0-1     |          | See E06.                                                                                             |
-| R16D03 | Charge reference          | BT / BV   | 0-1     | String   | LMS identifier for the charge associated with reservation of this manifestation or item.             |
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| R16D01     | Reservation reference      |            | 0-1     | String    | Either a reservation reference or a copy of the reservation record must be included in the response.                                               |
+| R16D02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
+| R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LMS identifier for the charge associated with reservation of this manifestation or item.                                                     |
 
 Stock management functions
 --------------------------
