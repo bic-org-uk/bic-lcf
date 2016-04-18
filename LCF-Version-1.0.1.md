@@ -499,7 +499,7 @@ A classification term in an identified scheme for classification of titles.
 |------------|----------------------------|------------|---------|------------|--------------------------------|
 | **E11D01** | **Classification identifier** |         | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this classification term.**                                                                  |
 | **E11D02** | **Classification code**    |            | **1**   | **String** | **A code or number used as a label for the classification term.**                                                                                 |
-| **E11D03** | **Classification scheme reference** |   | **1**   | **String** | **The LMS identifier for the classification scheme to which this classification term belongs**                                              |
+| **E11D03** | **Classification scheme reference** |   | **1**   | **String** | **The LCF entity identifier for the classification scheme to which this classification term belongs**                                              |
 | E11D04     | Classification term heading|            | 0-1     | String     | A heading or name for the classification term.                                                                                           |
 | *E11C05*   | *Classification description / note* |   | 0-1     |            |                                |
 | E11D05.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
@@ -733,7 +733,7 @@ The terminal application must provide all the information required for all the n
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| R11D01     | Loan reference             |            | 0-1     | String    | LMS identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                                 |
+| R11D01     | Loan reference             |            | 0-1     | String    | LCF entity identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                        |
 | R11C02     | Loan entity record         |            | 0-1     |           | See E05                         |
 | R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **MEW**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
 | R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **SCD**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
@@ -768,11 +768,11 @@ The check-in function combines the following core functions:
 | R12D01     | Loan reference             |            | 0-1     | String    |                                 |
 | R12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
 | R12D03     | Item reference             | AB         | 0-1     | String    |                                 |
-| R12D04     | Item return location reference| CL      | 0-1     | String    | LMS identifier for return location, e.g. sort bin.                                                                                                 |
+| R12D04     | Item return location reference| CL      | 0-1     | String    | LCF entity identifier for return location, e.g. sort bin.                                                                                       |
 | R12D05     | Item sensitive media warning|           | 0-1     | Code      | LCF code list **MEW**<br/>Flag indicating that the item contains a media component that is sensitive to some security setting devices.        |
 | R12D06     | Item requires special attention|        | 0-1     | Code      | LCF code list **SPA**<br/>Flag indicating that this item requires special attention before it is returned to its shelf location.              |
 | R12D07     | Special attention description|          | 0-1     | String    | Description of special attention required, if any.                                                                                              |
-| R12D08     | Charge reference           |            | 0-n     | String    | LMS identifier of any charge due on this item. Repeatable if more than one charge is due (e.g. loan fee and overdue fine).                         |
+| R12D08     | Charge reference           |            | 0-n     | String    | LCF entity identifier of any charge due on this item. Repeatable if more than one charge is due (e.g. loan fee and overdue fine).                  |
 
 ### 13 Patron payment
 
@@ -863,8 +863,8 @@ The reserve function combines the following core functions:
 | **Q16D03** | **Item entity type**       |            | **1**   | **Code**  | **LCF code list ENT – only code values '01' and '02' are valid**                                                                               |
 | **Q16D04** | **Item identifier**        | **AB**     | **1**   | **String**|                                 |
 | Q16D05     | Reservation type           | BY         | 0-1     | Code      | LCF code list **RVT**           |
-| Q16D06     | Pick-up institution reference| AO       | 0-1     | String    | The LMS identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                                                                      |
-| Q16D07     | Pick-up location reference | BS         | 0-1     | String    | The LMS identifier of the location where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to Q16D06.                                                                            |
+| Q16D06     | Pick-up institution reference| AO       | 0-1     | String    | The LCF entity identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                                                                      |
+| Q16D07     | Pick-up location reference | BS         | 0-1     | String    | The LCF entity identifier of the location where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to Q16D06.                                                                     |
 | Q16D08     | Reservation start date     |            | 0-1     | DateTime  | Only used in confirmations.     |
 | Q16D09     | Reservation expiry date    | AH         | 0-1     | DateTime  | The date by which a reserved item will be picked up by the patron.                                                                               |
 | Q16D10     | Charge acknowledged        | BO         | 0-1     | Flag      | Empty element indicating that a charge may be created.                                                                                         |
@@ -875,7 +875,7 @@ The reserve function combines the following core functions:
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R16D01     | Reservation reference      |            | 0-1     | String    | Either a reservation reference or a copy of the reservation record must be included in the response.                                               |
 | R16D02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
-| R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LMS identifier for the charge associated with reservation of this manifestation or item.                                                     |
+| R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LCF entity identifier for the charge associated with reservation of this manifestation or item.                                                     |
 
 Stock management functions
 --------------------------
