@@ -51,7 +51,7 @@ E01 MANIFESTATION
 |  22    | E01D06.1.2   | title-text                       | 1       | string      |         |
 |  23    | E01D06.1.3   | subtitle                         | 0-1     | string      |         |
 |  24    | E01D06.2     | volume-or-part                   | 0-1     | string      |         |
-|  25    | E01D06.3     | other-manifestation-in-series-ref| 0-n     | string      |         |
+|  25    | E01D06.3     | other-manifestation-in-series-ref| 0-n     | string      | *Renamed in v1.0.1* |
 |  26    | E01D07       | edition-statement                | 0-1     | string      |         |
 |  27    | E01D08       | publisher-name                   | 0-1     | string      |         |
 |  28    | E01D09       | year-of-publication              | 0-1     | year        |         |
