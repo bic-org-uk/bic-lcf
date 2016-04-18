@@ -645,14 +645,14 @@ This function is used to create a new item of a specific entity type. In practic
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **Q03D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list ENT<br/>The entity type of the item to be created.**                                                                              |
-|            | Other elements, excluding the LMS identifier, as determined by the specified entity type – see E01 to E12 above                                 |            |         |           |                                 |
+|            | Other elements, excluding the LCF entity identifier, as determined by the specified entity type – see E01 to E12 above                                 |            |         |           |                                 |
 
 #### Response
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **R03D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list ENT<br/>The entity type of the item created in response to the request.**                                                         |
-| **R03D02** | **Item identifier**        |            | **1**   | **String**| **The primary identifier for the inventory item, assigned by the LMS if a new item has been successfully created.**                             |
+| **R03D02** | **Item identifier**        |            | **1**   | **String**| **The LCF entity identifier for the inventory item, assigned by the LMS if a new item has been successfully created.**                             |
 
 ### 
 
