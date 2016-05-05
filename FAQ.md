@@ -9,3 +9,7 @@ Anyone can ask a question about the BIC Library Communication Framework. Just ad
 # How do I request a change?
 
 Anyone can make suggestions for improvement or clarification of the BIC Library Communication Framework. All requests will be considered and reviewed through the governance processes, which include review through the LCF Technical Panel and the LCR Review Panel. Should the improvment gain backing, it will be included within the next revision of the BIC Library Communication Framework standard. If you would like to request an improvement or a clarification, please raise an issue in the [issue tracker](https://github.com/anthonywhitford/bic-lcf/issues). 
+
+# What Authentication Schemes are available?
+
+Within the LCF 1.0 specification, HTTP BASIC authentication is supported. We are currently reviewing whether OpenID Connect is a suitable and viable addition to the authentication schemes, which is being investigated by Bibliotheca and Capita under [Issue 24](https://github.com/anthonywhitford/bic-lcf/issues/24).
