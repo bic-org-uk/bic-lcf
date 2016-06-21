@@ -20,6 +20,8 @@ The datatypes 'string', 'int', 'decimal', 'anyURI', 'year', 'date' and 'dateTime
 
 Data elements must be non-empty when included, as well as conforming to the specified datatype.
 
+Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item and Patron entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal.
+
 An XML schema is available that corresponds to this specification.
 
 E01 MANIFESTATION
@@ -28,7 +30,7 @@ E01 MANIFESTATION
 |        | *Element ID* | *XML structure*                  | *Card.* | *Data type* | *Notes* |
 |--------|--------------|----------------------------------|---------|-------------|---------|
 | **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**                                       |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                 |
-| **2**  | **E01D01**   | **identifier**                   | **1**   | **string**  |         |
+|   2    | E01D01       | identifier                       | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
 |   3    | E01C02       | additional-manifestation-id      | 0-n     |             |         |
 |   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | MNI     |
 |   5    | E01D02.2     | type-name                        | 0-1     | string      |         |
@@ -104,7 +106,7 @@ E02 ITEM
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |--------|--------------|-----------------------------|---------|-------------|---------|
 | **1**  |              | **item<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version="1.0"**                                  |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                         |
-| **2**  | **E02D01**   | **identifier**              | **1**   | **string**  |         |
+|   2    | E02D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                         |
 |   3    | E02C02       | additional-item-id          | 0-n     |             |         |
 |   4    | E02D02.1     | item-id-type                | 1       | Code        | IMI     |
 |   5    | E02D02.2     | type-name                   | 0-1     | string      |         |
@@ -152,7 +154,7 @@ E03 PATRON
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **patron<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                        |
-| **2** | **E03D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E03D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
 |   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added v1.0.1*                                                                                |
 |   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added v1.0.1*                                                                                |
 |   5   | E03D27.1     | patron-id-type              | 1       | Code        | **PNI** |
@@ -197,7 +199,7 @@ E04 LOCATION
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **location<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                        |
-| **2** | **E04D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E04D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 |   3   | E04C02       | additional-location-id      | 0-n     |             |         |
 |   4   | E04D02.1     | location-id-type            | 1       | Code        | LOI     |
 |   5   | E04D02.2     | type-name                   | 0-1     | string      |         |
@@ -216,7 +218,7 @@ E05 LOAN
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type*  | *Notes* |
 |-------|--------------|-----------------------------|---------|--------------|---------|
 | **1** |              | **loan<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |              | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                         |
-| **2** | **E05D01**   | **identifier**              | **1**   | **string**   |         |
+|   2   | E05D01       | identifier                  | 0-1     | string       | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                        |
 | **3** | **E05D02**   | **patron-ref**              | **1**   | **string**   |         |
 | **4** | **E05D03**   | **item-ref**                | **1**   | **string**   |         |
 | **5** | **E05D04**   | **start-date**              | **1**   | **dateTime** |         |
@@ -238,7 +240,7 @@ E06 RESERVATION
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |--------|--------------|-----------------------------|---------|-------------|---------|
 | **1**  |              | **reservation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                  |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                         |
-| **2**  | **E06D01**   | **identifier**              | **1**   | **string**  |         |
+|   2    | E06D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                        |
 | **3**  | **E06D02**   | **reservation-type**        | **1**   | **Code**    | **RVT** |
 | **4**  | **E06D03**   | **patron-ref**              | **1**   | **string**  |         |
 |   5    | E06D04       | manifestation-ref           | 0-1     | string      | Either E06D04 or E06D05 must be included in each reservation instance                                                   |
@@ -262,7 +264,7 @@ E07 CHARGE
 |        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |--------|--------------|-----------------------------|---------|-------------|---------|
 | **1**  |              | **charge<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                  |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                         |
-| **2**  | **E07D01**   | **identifier**              | **1**   | **string**  |         |
+|   2    | E07D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                        |
 | **3**  | **E07D02**   | **patron-ref**              | **1**   | **string**  |         |
 | **4**  | **E07D03**   | **charge-type**             | **1**   | **Code**    | **CHT** |
 | **5**  | **E07D04**   | **charge-status**           | **1**   | **Code**    | **CHS** |
@@ -290,7 +292,7 @@ E08 PAYMENT
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                        |
-| **2** | **E08D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E08D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 | **3** | **E08D02**   | **patron-ref**              | **1**   | **string**  |         |
 | **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **PYT** |
 |   5   | E08D04       | description                 | 0-1     | string      |         |
@@ -330,7 +332,7 @@ E10 TITLE CLASSIFICATION SCHEME
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **class-scheme<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                        |
-| **2** | **E10D01**   | **identifier**              | **1**   | **string**  | Mandatory except when creating a new entity record                                                                          |
+|   2   | E10D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 | **3** | **E10D02**   | **name**                    | **1**   | **string**  |         |
 |   4   | E10C03       | note                        | 0-n     |             |         |
 |   5   | E10D03.1     | note-type                   | 0-1     | Code        | NOT     |
@@ -343,7 +345,7 @@ E11 TITLE CLASSIFICATION TERM
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **class-term<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                        |
-| **2** | **E11D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E11D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 | **3** | **E11D02**   | **class-code**              | **1**   | **string**  |         |
 | **4** | **E11D03**   | **class-scheme-ref**        | **1**   | **string**  |         |
 |   5   | E11D04       | heading                     | 0-1     | string      |         |
@@ -358,7 +360,7 @@ E12 SELECTION CRITERION
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **property<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"<br/>version=”1.0”**                                 |         |             | **Top-level&nbsp;element&nbsp;with mandatory ‘version’ attribute**                                                        |
-| **2** | **E12D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E12D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 | <span id="h.gjdgxs" class="anchor"></span>**3** 
         | **E12D02**   | **name**                    | **1**   | **string**  |         |
 |   4   | E12D03       | entity-type                 | 0-n     | Code        | ENT     |
