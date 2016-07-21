@@ -4,7 +4,7 @@
 	<xs:element name="charge">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="charge-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -33,7 +33,7 @@
 	<xs:element name="class-scheme">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="class-scheme-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -47,7 +47,7 @@
 	<xs:element name="class-term">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="class-term-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -66,7 +66,7 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="contact-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -81,7 +81,7 @@
 	<xs:element name="item">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="item-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -109,7 +109,7 @@
 	<xs:element name="loan">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="loan-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -130,7 +130,7 @@
 	<xs:element name="location">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="location-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -147,7 +147,7 @@
 	<xs:element name="manifestation">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="manifestation-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -179,7 +179,7 @@
 	<xs:element name="patron">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="patron-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -207,7 +207,7 @@
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="date-of-birth" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="date-of-birth" minOccurs="0"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="card-status-info">
@@ -221,7 +221,7 @@
 	<xs:element name="payment">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="payment-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -243,7 +243,7 @@
 	<xs:element name="property">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="property-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -260,7 +260,7 @@
 	<xs:element name="reservation">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="identifier"/>
+				<xs:element ref="identifier" minOccurs="0"/>
 				<xs:group ref="reservation-props"/>
 			</xs:sequence>
 		</xs:complexType>
@@ -317,7 +317,7 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="association-type"/>
-				<xs:element ref="location-ref" maxOccurs="1"/>
+				<xs:element ref="location-ref"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -402,7 +402,7 @@
 	<xs:element name="hold-items-limit" type="xs:int"/>
 	<xs:element name="identifier" type="nonEmptyString">
 		<xs:annotation>
-			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record.</xs:documentation>
+			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="item-id-type" type="copyIDType"/>
