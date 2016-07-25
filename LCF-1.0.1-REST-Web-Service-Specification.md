@@ -129,7 +129,7 @@ The request is formulated using the HTTP GET method.
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
-| 8     | Q02D02.1     |                       | {property-ref}        | 0-n     | Variable    | Each instance must be a selection criterion identifier. The parameter value in each case corresponds to Q02D02.2.                |
+| 8     | Q02D02.1     |                       | {property-ref}        | 0-n     | Variable    | Each query parameter name must be a selection criterion identifier as specified in code list SEL. The parameter value in each case corresponds to Q02D02.2.                |
 | 9     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                              |
 | 10    | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                         |
 
