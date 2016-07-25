@@ -122,7 +122,7 @@ The request is formulated using the HTTP GET method.
 
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF&nbsp;initial&nbsp;segment                                                                                                       |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT                             |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
