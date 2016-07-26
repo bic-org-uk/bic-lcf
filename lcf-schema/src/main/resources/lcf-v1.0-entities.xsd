@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 rel. 2 sp1 (x64) (http://www.altova.com) by Matthew J. Dovey (Ceridwen.com) -->
 <!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by XMLSPY 5 Enterprise Ed. (Talis Information Ltd) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<xs:element name="charge">
@@ -467,7 +468,7 @@
 	<xs:element name="on-loan-items" type="xs:int"/>
 	<xs:element name="on-loan-ref" type="nonEmptyString"/>
 	<xs:element name="other-description" type="nonEmptyString"/>
-	<xs:element name="other-manifestation-in-series-id" type="nonEmptyString"/>
+	<xs:element name="other-manifestation-in-series-ref" type="nonEmptyString"/>
 	<xs:element name="overdue-items" type="xs:int"/>
 	<xs:element name="overdue-items-limit" type="xs:int"/>
 	<xs:element name="owner" type="nonEmptyString"/>
@@ -503,7 +504,7 @@
 			<xs:sequence>
 				<xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="volume-or-part" minOccurs="0"/>
-				<xs:element ref="other-manifestation-in-series-id" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="other-manifestation-in-series-ref" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
