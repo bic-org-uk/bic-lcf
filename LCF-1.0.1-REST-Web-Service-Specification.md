@@ -263,7 +263,7 @@ The request is formulated using the HTTP POST method.
 
 ### Format for request URI 
 
-|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
