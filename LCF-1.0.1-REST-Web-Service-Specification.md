@@ -92,7 +92,7 @@ The request is formulated using the HTTP GET method.
 
 ### Format for request URI
 
-|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
@@ -120,18 +120,18 @@ The request is formulated using the HTTP GET method.
 
 ### Format for request URI
 
-|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF&nbsp;initial&nbsp;segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
-| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT                             |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number |
+| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT                                                  |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
-| 8     | Q02D02.1     |                       | {property-ref}        | 0-n     | Variable    | Each query parameter name must be a selection criterion identifier as specified in code list SEL. The parameter value in each case corresponds to Q02D02.2.                |
-| 9     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                              |
-| 10    | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                         |
+| 8     | Q02D02.1     |                       | {property-ref}        | 0-n     | Variable    | Each query parameter name must be a selection criterion identifier as specified in code list SEL *[v1.0.1]*. The parameter value in each case corresponds to Q02D02.2.                                                                                      |
+| 9     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
+| 10    | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
@@ -150,14 +150,14 @@ If the request is successful, the HTTP response will contain an XML payload that
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
 |-------|--------------|-----------------------------------------|---------|-------------|--------------------|
 | **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"<br>version=”1.0”**              | **1**   |             | **Top-level message element with namespace declarations and mandatory ‘version’ attribute**                                       |
-| **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
-| 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity.  |
-| 4     | R02D02.1     | property-ref                            | 1       | anyURI      | Reference to an instance of the selection criterion entity (E11).                                                                      |
+| **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                          |
+| 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity.      |
+| 4     | R02D02.1     | property-ref                            | 1       | anyURI      | Reference to an instance of the selection criterion entity (E11).                                                                             |
 | 5     | R02D02.2     | value                                   | 1       | string      |                    |
 | 6     | R02D03       | os:totalResults                         | 0-1     | int         |                    |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | int         |                    |
 | 8     | R02D05       | os:startIndex                           | 0-1     | int         |                    |
-| **9** | **R02D06**   | **entity<br>href="{instance-uri}"**     | **1-n** | **anyURI**  | **The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type**              |
+| **9** | **R02D06**   | **entity<br>href="{instance-uri}"**     | **1-n** | **anyURI**  | **The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type**                  |
 
 NOTE – LCF element R02C07 is not implemented.
 
@@ -177,13 +177,13 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 
 ### Format for request URI
 
-|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
-| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT                                                                                            |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT |
 | 4     |              | /{key-id-value}       |                       | 0-1     | string      |              |
-| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
+| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 
@@ -206,11 +206,11 @@ The request is formulated using the HTTP PUT method. The payload is an XML docum
 
 ### Format for request URI
 
-|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
-| **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
 | **4** | **Q04D02**   | **/{item-ref}**       |                       | **1**   |             |              |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
@@ -234,9 +234,9 @@ The request is formulated using the HTTP DELETE method.
 
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
-| **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
 | **4** | **Q05D02**   | **/{item-id}**        |                       | **1**   |             |              |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
@@ -265,13 +265,13 @@ The request is formulated using the HTTP POST method.
 
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | **3** |              | **/loan**             |                       | **1**   |             |              |
 | 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 | 6     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
-| 7     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                        |
+| 7     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
@@ -297,11 +297,11 @@ The response to a check-out or renewal may be the same response as for creating 
 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
-| **1** |              | **lcf-check-out-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                  |
-| 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                      |
+| **1** |              | **lcf-check-out-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                               |
+| 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                             |
 | 3     | R11C02       | loan                                     | 0-1     |             | See E05           |
-| 4     | R11D03       | media-warning                            | 0-1     | Code        | MEW – Omitted if responding to a renewal                                                                                       |
-| 5     | R11D04       | security-desensitize                     | 0-1     | Code        | SCD – Omitted if responding to a renewal                                                                                       |
+| 4     | R11D03       | media-warning                            | 0-1     | Code        | MEW – Omitted if responding to a renewal                                                                                                       |
+| 5     | R11D04       | security-desensitize                     | 0-1     | Code        | SCD – Omitted if responding to a renewal                                                                                                       |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
 
 *Example of a Response XML payload:*
@@ -350,7 +350,7 @@ A check-in response may be the same response as for modifying any entity, or may
 
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
 |-------|--------------|-----------------------------------------|---------|-------------|--------------------|
-| **1** |              | **lcf-check-in-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                  |
+| **1** |              | **lcf-check-in-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                               |
 | **2** | **R12D01**   | **loan-ref**                            | **1**   | **anyURI**  |                    |
 | 3     | R12D04       | return-location-ref                     | 0-1     | anyURI      |                    |
 | 4     | R12D05       | media-warning                           | 0-1     | Code        | MEW                |
@@ -431,13 +431,13 @@ The request is formulated using the HTTP POST method.
 
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes *     |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | **3** |              | **/reservation**      |                       | **1**   |             |              |
 | 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 | 6     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
-| 7     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                        |
+| 7     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
@@ -459,8 +459,8 @@ A reservation response may be the same response as for creating any entity, i.e.
 
 |       | *Element ID* | *XML structure*                            | *Card.* | *Data type* | *Notes*         |
 |-------|--------------|--------------------------------------------|---------|-------------|-----------------|
-| **1** |              | **lcf-reservation-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                  |
-| 2     | R16D01       | reservation-ref                            | 0-1     | anyURI      | Either R16D01 or R16D02 must be included in the response.                                                                      |
+| **1** |              | **lcf-reservation-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                          |
+| 2     | R16D01       | reservation-ref                            | 0-1     | anyURI      | Either R16D01 or R16D02 must be included in the response.                                                                                  |
 | 3     | R16C02       | reservation                                | 0-1     |             | See E06         |
 | 7     | R16D03       | charge-ref                                 | 0-1     | anyURI      |                 |
 
