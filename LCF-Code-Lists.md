@@ -86,7 +86,10 @@ This document defines code lists for use with LCF version 1.0.1.
   CMT03       |03             |Business phone number             |
   CMT04       |04             |Mobile phone number               |
   CMT05       |05             |Email address                     |
-  CMT06       |06             |Postal address                    |*Added for use with LCF&nbsp;v1.0.1*
+  CMT06       |06             |Postal address                    |*Added for use with LCF&nbsp;v1.0.1*              |
+  CMT07       |11             |Primary phone number              |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
+  CMT08       |15             |Primary email address             |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
+  CMT09       |16             |Primary postal address            |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
 
 ### CRT Check-out restriction type
 
@@ -512,5 +515,4 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   UNC01       |01             |Unknown        |ONIX code ‘01’
   UNC02       |02             |Anonymous      |ONIX code ‘02’
   UNC03       |03             |et al.         |ONIX code ‘03’
-
 
