@@ -455,21 +455,7 @@ An XML document that conforms to the XML schema for a reservation entity (E06) m
 
 #### Response
 
-A reservation response may be the same response as for creating any entity, i.e. status code 201 (Created) and a Location field in the HTTP header, or it may contain an XML message that conforms to the following schema. The advantage of including the XML payload in the response is that the terminal application will thereby be alerted by the inclusion of R16D03 in the response, rather than having to retrieve the newly-created reservation in order to determine what charge has been made for the reservation.
-
-|       | *Element ID* | *XML structure*                            | *Card.* | *Data type* | *Notes*         |
-|-------|--------------|--------------------------------------------|---------|-------------|-----------------|
-| **1** |              | **lcf-reservation-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                          |
-| 2     | R16D01       | reservation-ref                            | 0-1     | anyURI      | Either R16D01 or R16D02 must be included in the response.                                                                                  |
-| 3     | R16C02       | reservation                                | 0-1     |             | See E06         |
-| 7     | R16D03       | charge-ref                                 | 0-1     | anyURI      |                 |
-
-*Example of a Response XML payload:*
-
-    <lcf-reservation-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
-     <reservation-ref>http://192.168.0.99:80/lcf/1.0/reservations/R1234</reservation-ref>
-     <charge-ref>http://192.168.0.99:80/lcf/1.0/charges/C12345</charge-ref>
-    </lcf-reservation-response>
+The response is the same as for creating any entity – see function 03 above. *[Changed in LCF&nbsp;v1.0.1.]*
 
 Stock management functions
 ==========================
