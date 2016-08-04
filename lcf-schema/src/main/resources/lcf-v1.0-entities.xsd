@@ -607,6 +607,9 @@
 			<xs:enumeration value="04"/>
 			<xs:enumeration value="05"/>
 			<xs:enumeration value="06"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="conditionCode">
