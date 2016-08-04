@@ -237,7 +237,7 @@
 			<xs:element ref="amount"/>
 			<xs:element ref="currency" minOccurs="0"/>
 			<xs:element ref="payment-status" minOccurs="0"/>
-			<xs:element ref="transaction-ref" minOccurs="0"/>
+			<xs:element ref="transaction-reference" minOccurs="0"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
@@ -540,7 +540,7 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="transaction-ref" type="nonEmptyString"/>
+	<xs:element name="transaction-reference" type="nonEmptyString"/>
 	<xs:element name="type-name" type="nonEmptyString"/>
 	<xs:element name="unavailable-hold-items" type="xs:int"/>
 	<xs:element name="unnamed-contributor" type="unnamedContributorType"/>
