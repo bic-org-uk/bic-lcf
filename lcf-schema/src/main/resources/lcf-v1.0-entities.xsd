@@ -169,7 +169,7 @@
 			<xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
-			<xs:element ref="manifestation-record-ref" minOccurs="0"/>
+			<xs:element ref="manifestation-record" minOccurs="0"/>
 			<xs:element ref="manifestation-status"/>
 			<xs:element ref="items-in-stock" minOccurs="0"/>
 			<xs:element ref="item-ref" minOccurs="0" maxOccurs="unbounded"/>
@@ -436,7 +436,7 @@
 	<xs:element name="location-ref" type="nonEmptyString"/>
 	<xs:element name="locator" type="nonEmptyString"/>
 	<xs:element name="manifestation-id-type" type="manifestationIDType"/>
-	<xs:element name="manifestation-record-ref" type="nonEmptyString"/>
+	<xs:element name="manifestation-record" type="nonEmptyString"/>
 	<xs:element name="manifestation-ref" type="nonEmptyString"/>
 	<xs:element name="manifestation-status" type="manifestationStatus"/>
 	<xs:element name="media-type">
