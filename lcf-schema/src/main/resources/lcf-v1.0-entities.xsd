@@ -556,7 +556,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="chargeStatus">
-		<xs:restriction base="xs:token">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
