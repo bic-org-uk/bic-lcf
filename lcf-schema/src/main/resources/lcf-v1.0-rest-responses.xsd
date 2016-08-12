@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ns.bic.org.uk/lcf/1.0"
-    targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified"
-    xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
-
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
     <xs:include schemaLocation="lcf-v1.0-entities.xsd"/>
-    <xs:import namespace="http://a9.com/-/spec/opensearch/1.1/"
-        schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd"/>
+    <xs:import namespace="http://a9.com/-/spec/opensearch/1.1/" schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd"/>
     <xs:element name="lcf-entity-list-response">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="entity-type"/>
-                <xs:element maxOccurs="unbounded" minOccurs="0" ref="selection-criterion"/>
-                <xs:element minOccurs="0" ref="os:totalResults"/>
-                <xs:element minOccurs="0" ref="os:itemsPerPage"/>
-                <xs:element minOccurs="0" ref="os:startIndex"/>
-                <xs:element maxOccurs="unbounded" ref="entity"/>
+                <xs:element ref="selection-criterion" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="os:totalResults" minOccurs="0"/>
+                <xs:element ref="os:itemsPerPage" minOccurs="0"/>
+                <xs:element ref="os:startIndex" minOccurs="0"/>
+                <xs:element ref="entity" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute fixed="1.0" name="version"/>
+            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="lcf-check-out-response">
@@ -26,44 +22,32 @@
                     <xs:element ref="loan-ref"/>
                     <xs:element ref="loan"/>
                 </xs:choice>
-                <xs:element minOccurs="0" ref="media-warning"/>
-                <xs:element minOccurs="0" ref="security-desensitize"/>
+                <xs:element ref="media-warning" minOccurs="0"/>
+                <xs:element ref="security-desensitize" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute fixed="1.0" name="version"/>
+            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="lcf-check-in-response">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="loan-ref" minOccurs="0"/>
-                <xs:element minOccurs="0" name="return-location-ref"/>
-                <xs:element minOccurs="0" ref="media-warning"/>
-                <xs:element minOccurs="0" ref="special-attention"/>
-                <xs:element minOccurs="0" ref="special-attention-note"/>
-                <xs:element maxOccurs="unbounded" minOccurs="0" ref="charge-ref"/>
+                <xs:element name="return-location-ref" minOccurs="0"/>
+                <xs:element ref="media-warning" minOccurs="0"/>
+                <xs:element ref="special-attention" minOccurs="0"/>
+                <xs:element ref="special-attention-note" minOccurs="0"/>
+                <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute fixed="1.0" name="version"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="lcf-reservation-response">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:choice>
-                    <xs:element ref="reservation-ref"/>
-                    <xs:element ref="reservation"/>
-                </xs:choice>
-                <xs:element minOccurs="0" ref="charge-ref"/>
-            </xs:sequence>
-            <xs:attribute fixed="1.0" name="version"/>
+            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="lcf-exception">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="exception-condition"/>
-                <xs:element maxOccurs="unbounded" minOccurs="0" ref="message"/>
+                <xs:element ref="exception-condition" maxOccurs="unbounded"/>
+                <xs:element ref="message" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute fixed="1.0" name="version"/>
+            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="condition-type" type="exceptionConditionType"/>
@@ -78,8 +62,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="condition-type"/>
-                <xs:element minOccurs="0" ref="reason-denied"/>
-                <xs:element minOccurs="0" ref="element-ref"/>
+                <xs:element ref="reason-denied" minOccurs="0"/>
+                <xs:element ref="element-ref" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -87,7 +71,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="message-type"/>
-                <xs:element maxOccurs="unbounded" ref="message-text"/>
+                <xs:element ref="message-text" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -126,17 +110,17 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="reasonDeniedType">
-	    <xs:restriction base="xs:string">
-		    <xs:enumeration value="01" />
-		    <xs:enumeration value="02" />
-		    <xs:enumeration value="03" />
-		    <xs:enumeration value="04" />
-		    <xs:enumeration value="05" />
-		    <xs:enumeration value="06" />
-		    <xs:enumeration value="07" />
-		    <xs:enumeration value="08" />
-		    <xs:enumeration value="09" />
-	    </xs:restriction>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="05"/>
+            <xs:enumeration value="06"/>
+            <xs:enumeration value="07"/>
+            <xs:enumeration value="08"/>
+            <xs:enumeration value="09"/>
+        </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="specialAttention">
         <xs:restriction base="xs:string">
