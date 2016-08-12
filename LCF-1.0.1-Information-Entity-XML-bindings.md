@@ -71,7 +71,7 @@ E01 MANIFESTATION
 |  40    | E01D14.2     | amount                           | 1       | decimal     |         |
 |  41    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
 |  42    | E01D15       | patrons-in-hold-queue            |0-1R[[[1]|LCF-1.0.1-Information-Entity-XML-bindings#Notes]]                                                 | int         |         |
-|  43    | E01D16       | manifestation-record-ref         | 0-1     | string      |         |
+|  43    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
 | **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **MNS** |
 |  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
 |  46    | E01D19       | item-ref                         | 0-nR    | string      |         |
@@ -301,7 +301,7 @@ E08 PAYMENT
 | **8** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
 |   9   | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                                                                   |
 |  10   | E08D09       | payment-status              | 0-1     | Code        | PYS     |
-|  11   | E08D10       | transaction-ref             | 0-1     | string      |         |
+|  11   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
 |  12   | E08C11       | note                        | 0-n     |             |         |
 |  13   | E08D11.1     | note-type                   | 0-1     | Code        | NOT     |
 |  14   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
