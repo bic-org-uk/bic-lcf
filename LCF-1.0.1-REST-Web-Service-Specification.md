@@ -503,6 +503,13 @@ The following selects all items that are copies of the same manifestation, for a
 
     GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
 
+26 Retrieve list of available items at a specific location
+----------------------------------------------------------
+
+The following selects all items that are available to be borrowed (circulation-status = '03') and are at a specific location 'shelf1':
+
+    GET http://192.168.0.99:80/lcf/1.0/items?current-location=shelf1&circulation-status=03
+
 ___
 
 <a name="Notes"></a>[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
