@@ -298,7 +298,9 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D20.1   | Charge type                | BT        | 0-1      | Code       | LCF code list **CHT**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.                                                                         |
 | E03D20.2   | Charge amount              | BV        | 1        | Value      | Currency value                 |
 | E03D20.3   | Charge currency            | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E03D31     | Deposit balance            |           | 0-1      | Value      | Balance of funds deposited, if the Patron maintains a balance available for settling future charges or fines<br/>*Added v1.0.1*                   |
+| *E03C31*   | *Deposit balance*          |           | 0-1      |            | Balance of funds deposited, if the Patron maintains a balance available for settling future charges or fines<br/>*Added v1.0.1*                   |
+| E03D31.1   | Deposit amount             |           | 1        | Value      | Currency value                 |
+| E03D31.2   | Deposit currency           |           | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
 | *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                               |
 | E03D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **NOT**          |
 | E03D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
