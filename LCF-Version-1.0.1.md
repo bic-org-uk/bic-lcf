@@ -908,7 +908,7 @@ This function is the same as the core function 02 for retrieving a list of entit
 
 ### 26 Retrieve list of available items at a specific location
 
-This function selects all items that are available to be borrowed at a specific location and is the same as function 25 with specific Selection criteria.
+This function selects all items that are available to be borrowed at a specific location and is the same as function 25 with specific Selection criteria: a specific location and a specific circulation status (CIS03 = 'Available').
 
 ___
 
