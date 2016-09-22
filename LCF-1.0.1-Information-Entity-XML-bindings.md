@@ -170,10 +170,8 @@ E03 PATRON
 |  15   | E03C24       | card-status-info            | 0-nR     |             | *Added v1.0.1*                                                                                |
 |  16   | E03D24.1     | card-status                 | 1R       | Code        | PCS    |
 |  17   | E03D24.2     | blocked-card-message        | 0-1R     | string      |        |
-|  18   | E03D28       | patron-category             | 0-1      | string      | *Added 
-v1.0.1*                                                                                |
-|  19   | E03D29       | patron-tag                  | 0-n      | string      | *Added 
-v1.0.1*                                                                                |
+|  18   | E03D28       | patron-category             | 0-1      | string      | *Added v1.0.1*                                                                                |
+|  19   | E03D29       | patron-tag                  | 0-n      | string      | *Added v1.0.1*                                                                                |
 |  20   | E03D30       | patron-expiration-date      | 0-1      | date        | *Added v1.0.1*                                                                                |
 |  21   | E03D07       | loan-ref                    | 0-nR     | string      |        |
 |  22   | E03D08       | on-loan-items               | 0-1R     | int         |        |
@@ -192,8 +190,7 @@ v1.0.1*                                                                         
 |  35   | E03D20.1     | charge-type                 | 0-1      | Code        | CHT    |
 |  36   | E03D20.2     | amount                      | 1        | decimal     |        |
 |  37   | E03D20.3     | currency                    | 0-1      | Code        | ISO currency code                                                                                   |
-|  38   | E03C31       | deposit-balance             | 0-1      | decimal     | *Added 
-v1.0.1*                                                                                |
+|  38   | E03C31       | deposit-balance             | 0-1      | decimal     | *Added v1.0.1*                                                                                |
 |  39   | E03D31.1     | amount                      | 1        | decimal     |        |
 |  40   | E03D31.2     | currency                    | 0-1      | Code        | ISO currency code                                                                                   |
 |  41   | E03C21       | note                        | 0-n      |             |        |
