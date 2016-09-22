@@ -278,6 +278,9 @@ NOTE – Contact information is held in separate contact records for security an
 | *E03C24*   | *Library card status information* |    | 0-1R     |            | Status information on the patron's library card.<br/>*Added v1.0.1*                                                                               |
 | E03D24.1   | Library card status        |           | 1R       | Code       | LCF code list **PCS**<br/>*ID changed from E03C05 in v1.0.1*                                                                                 |
 | E03D24.2   | Blocked card message       | AL        | 0-1R     | String     |*ID changed from E03D06 in v1.0.1* |
+| E03D28     | Patron category            |           | 0-1      | String     | Library-specific code<br/>Added in v1.0.1                                                                                                         |
+| E03D29     | Patron tag                 |           | 0-n      | String     | Library-specific tag<br/>Added in v1.0.1                                                                                                         |
+| E03D30     | Patron expiration date     |           | 0-1      | Date       | Date upon which this Patron account expired or is due to expire<br/>Added in v1.0.1                                                                |
 | E03D07     | Loan reference             |           | 0-nR     | String     | A loan made to this patron. May include references to past as well as current (active) loans until the loan records are deleted.               |
 | E03D08     | Number of items on loan    |           | 0-1R     | Integer    | Only applies to active loans.  |
 | E03D09     | Loan items limit           | CB        | 0-1      | Integer    |                                |
@@ -295,11 +298,12 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D20.1   | Charge type                | BT        | 0-1      | Code       | LCF code list **CHT**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.                                                                         |
 | E03D20.2   | Charge amount              | BV        | 1        | Value      | Currency value                 |
 | E03D20.3   | Charge currency            | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| E03D31     | Deposit balance            |           | 0-1      | Value      | Balance of funds deposited, if the Patron maintains a balance available for settling future charges or fines<br/>ADded in v1.0.1                  |
 | *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                               |
 | E03D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **NOT**          |
 | E03D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
 | E03D21.3   | Note text                  |           | 1        | String     |                                |
-| E03D25     | Date of birth              |           | 0-1      | Date       |  Date of birth of the primary contact for this patron.<br/>*Added v1.0.1*                                                                    |
+| E03D25     | Date of birth              |           | 0-1      | Date       | Date of birth of the primary contact for this patron.<br/>*Added v1.0.1*                                                                            |
 
 ### E04 LOCATION
 
