@@ -906,6 +906,10 @@ This function combines the core functions for retrieval of a list of manifestati
 
 This function is the same as the core function 02 for retrieving a list of entities of type E12 Selection criterion.
 
+### 26 Retrieve list of available items at a specific location
+
+This function selects all items that are available to be borrowed at a specific location and is the same as function 25 with specific Selection criteria.
+
 ___
 
 <a name="Notes"></a>[1] The acronym "LCF" derives from an informal, abbreviated name for the standard, coined during its development: "Library Communication Framework".
