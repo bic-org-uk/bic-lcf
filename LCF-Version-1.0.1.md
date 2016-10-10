@@ -865,9 +865,9 @@ The reserve function combines the following core functions:
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **Q16D01** | **Request type**           | **BX / BI**| **1**   | **Code**  | **LCF code list RQT**           |
-| **Q16D02** | **Patron identifier**      | **AA**     | **1**   | **String**|                                 |
+| **Q16D02** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
 | **Q16D03** | **Item entity type**       |            | **1**   | **Code**  | **LCF code list ENT – only code values '01' and '02' are valid**                                                                               |
-| **Q16D04** | **Item identifier**        | **AB**     | **1**   | **String**|                                 |
+| **Q16D04** | **Item reference**         | **AB**     | **1**   | **String**|                                 |
 | Q16D05     | Reservation type           | BY         | 0-1     | Code      | LCF code list **RVT**           |
 | Q16D06     | Pick-up institution reference| AO       | 0-1     | String    | The LCF entity identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                                                                      |
 | Q16D07     | Pick-up location reference | BS         | 0-1     | String    | The LCF entity identifier of the location where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’, either instead of or additional to Q16D06.                                                                     |
@@ -882,6 +882,23 @@ The reserve function combines the following core functions:
 | R16D01     | Reservation reference      |            | 0-1     | String    | Either a reservation reference or a copy of the reservation record must be included in the response.                                               |
 | R16D02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
 | R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LCF entity identifier for the charge associated with reservation of this manifestation or item.                                                     |
+
+### 17 Set/reset patron password
+
+This function sets the password associated with a Patron entity. Since, for security reasons, this password is not held as a property of the Patron entity, it cannot be set or retrieved using any of the core functions.
+
+#### Request
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q17D01** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| **Q17D02** | **Patron password**        |            | **1**   | **String**| Encrypted password              |
+
+#### Response
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **R17D01** | **Patron reference**       |            | **1**   | **String**| **The identifier for the Patron record for which the password has been successfully set/reset.**                                               |
 
 Stock management functions
 --------------------------
