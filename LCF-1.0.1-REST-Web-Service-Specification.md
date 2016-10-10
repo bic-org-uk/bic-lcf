@@ -267,7 +267,7 @@ The request is formulated using the HTTP POST method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
-| **3** |              | **/loan**             |                       | **1**   |             |              |
+| **3** |              | **/loans**            |                       | **1**   |             |              |
 | 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 | 6     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
@@ -433,7 +433,7 @@ The request is formulated using the HTTP POST method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
-| **3** |              | **/reservation**      |                       | **1**   |             |              |
+| **3** |              | **/reservations**     |                       | **1**   |             |              |
 | 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 | 6     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
@@ -456,6 +456,20 @@ An XML document that conforms to the XML schema for a reservation entity (E06) m
 #### Response
 
 The response is the same as for creating any entity – see function 03 above. *[Changed in LCF&nbsp;v1.0.1.]*
+
+17 Set/reset patron password
+----------------------------
+
+#### Request
+
+Setting or resetting a patron password involves modification of a property of a patron that is not stored as part of the corresponding patron entity. No other functions are involved.
+
+    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890/password
+
+The payload of the PUT request is an XML document containing the new password. The format of this XML document is not currently specified by LCF, but it is recommended that the XML document contain an element in which the password is represented by an encrypted string, e.g.
+
+    <payload>xxxxxxxxx</payload>
+
 
 Stock management functions
 ==========================
