@@ -459,6 +459,7 @@ The response is the same as for creating any entity – see function 03 above. *
 
 17 Set/reset patron password
 ----------------------------
+*[Added in LCF v1.0.1]*
 
 #### Request
 
@@ -466,10 +467,11 @@ Setting or resetting a patron password involves modification of a property of a 
 
     PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890/password
 
-The payload of the PUT request is an XML document containing the new password. The format of this XML document is not currently specified by LCF, but it is recommended that the XML document contain an element in which the password is represented by an encrypted string, e.g.
+The payload of the PUT request is a plain text string containing the encrypted password.
 
-    <payload>xxxxxxxxx</payload>
+#### Response
 
+If the request is successful, the HTTP response should include status code 200 (OK).
 
 Stock management functions
 ==========================
