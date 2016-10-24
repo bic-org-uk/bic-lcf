@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 sp1 (x64) (http://www.altova.com) by Matthew J. Dovey (Ceridwen.com) -->
-<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by XMLSPY 5 Enterprise Ed. (Talis Information Ltd) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<xs:element name="charge">
 		<xs:complexType>
@@ -187,12 +185,17 @@
 	</xs:element>
 	<xs:group name="patron-props">
 		<xs:sequence>
+			<xs:element ref="barcode-id" minOccurs="0"/>
+			<xs:element ref="additional-patron-id" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="name"/>
 			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="language" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="card-status-info" minOccurs="0"/>
+			<xs:element ref="patron-category" minOccurs="0"/>
+			<xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="patron-expiration-date" minOccurs="0"/>
 			<xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="on-loan-items" minOccurs="0"/>
 			<xs:element ref="loan-items-limit" minOccurs="0"/>
@@ -207,6 +210,7 @@
 			<xs:element ref="hold-items-limit" minOccurs="0"/>
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="deposit-balance" minOccurs="0"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="date-of-birth" minOccurs="0"/>
 		</xs:sequence>
@@ -312,6 +316,15 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="additional-patron-id">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="patron-id-type"/>
+				<xs:element ref="type-name" minOccurs="0"/>
+				<xs:element ref="value"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="address-line" type="nonEmptyString"/>
 	<xs:element name="amount" type="xs:decimal"/>
 	<xs:element name="associated-location">
@@ -324,6 +337,7 @@
 	</xs:element>
 	<xs:element name="association-type" type="locationAssociationType"/>
 	<xs:element name="available-hold-items" type="xs:int"/>
+	<xs:element name="barcode-id" type="nonEmptyString"/>
 	<xs:element name="blocked-card-message" type="nonEmptyString"/>
 	<xs:element name="card-status" type="cardStatus"/>
 	<xs:element name="characteristic-type" type="loanCharacteristicType"/>
@@ -380,6 +394,7 @@
 	<xs:element name="cover-art" type="xs:anyURI"/>
 	<xs:element name="creation-date" type="xs:dateTime"/>
 	<xs:element name="currency" type="iso4217CurrencyCode"/>
+	<xs:element name="deposit-balance" type="xs:decimal"/>
 	<xs:element name="description" type="nonEmptyString"/>
 	<xs:element name="due-amount" type="xs:decimal"/>
 	<xs:element name="due-date-time" type="xs:dateTime"/>
@@ -474,12 +489,16 @@
 	<xs:element name="owner" type="nonEmptyString"/>
 	<xs:element name="paid-amount" type="xs:decimal"/>
 	<xs:element name="paid-date" type="xs:dateTime"/>
-	<xs:element name="patron-status" type="patronStatusCode"/>
+	<xs:element name="patron-category" type="nonEmptyString"/>
+	<xs:element name="patron-expiration-date" type="xs:dateTime"/>
+	<xs:element name="patron-id-type" type="patronIdentificationScheme"/>
 	<xs:element name="patron-ref" type="nonEmptyString">
 		<xs:annotation>
 			<xs:documentation>A 'contact' must be associated with a pre-existing 'patron'.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="patron-status" type="patronStatusCode"/>
+	<xs:element name="patron-tag" type="nonEmptyString"/>
 	<xs:element name="patrons-in-hold-queue" type="xs:int"/>
 	<xs:element name="payment-date" type="xs:dateTime"/>
 	<xs:element name="payment-due-date" type="xs:dateTime"/>
@@ -1519,6 +1538,15 @@
 	<xs:simpleType name="noteType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="00"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="patronIdentificationScheme">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="21"/>
+			<xs:enumeration value="31"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="patronStatusCode">
