@@ -143,7 +143,7 @@ It is intended to maintain and develop further this standard. Future development
 Data frameworks for information entity types
 --------------------------------------------
 
-###<a id="e01"></a> E01 MANIFESTATION
+###<a name="e01"></a> E01 MANIFESTATION
 
 #### Description
 
