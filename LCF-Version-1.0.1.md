@@ -50,21 +50,21 @@ Data frameworks are defined for the following principal types of information ent
 
 -   [Manifestations](#e01)
 
--   Items (individual copies of manifestations)
+-   [Items (individual copies of manifestations)](#e02)
 
--   Patrons (identified library users)
+-   [Patrons (identified library users)](#e03)
 
--   Locations
+-   [Locations](#e04)
 
--   Loans
+-   [Loans](#e05)
 
--   Reservations
+-   [Reservations](#e06)
 
--   Charges
+-   [Charges](#e07)
 
--   Payments
+-   [Payments](#e08)
 
--   Contacts (contact details for persons or organisations represented by patrons)
+-   [Contacts (contact details for persons or organisations represented by patrons)](#e09)
 
 The data frameworks for the following other types of information entity are also defined:
 
@@ -207,7 +207,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 ### 
 
-### E02 ITEM
+###<a name="e02"></a> E02 ITEM
 
 #### Description
 
@@ -251,7 +251,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 ### 
 
-### E03 PATRON
+###<a name="e03"></a> E03 PATRON
 
 #### Description
 
@@ -309,7 +309,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D21.3   | Note text                  |           | 1        | String     |                                |
 | E03D25     | Date of birth              |           | 0-1      | Date       | Date of birth of the primary contact for this patron.<br/>*Added v1.0.1*                                                                            |
 
-### E04 LOCATION
+###<a name="e04"></a> E04 LOCATION
 
 #### Description
 
@@ -334,7 +334,7 @@ An identified place where an item may be located, either inside or outside a lib
 
 ### 
 
-### E05 LOAN
+###<a name="e05"></a> E05 LOAN
 
 #### Description
 
@@ -362,7 +362,7 @@ An identified event in which one or more items have been loaned to a patron.
 
 ### 
 
-### E06 RESERVATION
+###<a name="e06"></a> E06 RESERVATION
 
 #### Description
 
@@ -392,7 +392,7 @@ An identified event in which one or more titles have been reserved for a patron.
 
 ### 
 
-### E07 CHARGE
+###<a name="e07"></a> E07 CHARGE
 
 #### Description
 
@@ -426,7 +426,7 @@ An identified charge made to a patron. May be a fee or a fine.
 
 ### 
 
-### E08 PAYMENT
+###<a name="e08"></a> E08 PAYMENT
 
 #### Description
 
@@ -453,7 +453,7 @@ An identified payment made by a patron to settle one or more charges.
 
 ### 
 
-### E09 CONTACT
+###<a name="e09"></a> E09 CONTACT
 
 #### Description
 
