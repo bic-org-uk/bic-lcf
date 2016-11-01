@@ -91,35 +91,35 @@ Data frameworks are defined for the following terminal application functions:
 
     -   [Modify existing entity record](#f04)
 
-    -   [Terminate entity record](#f05)
+    -   [Delete/terminate entity record](#f05)
 
 -   Applications of the core functions to circulation management
 
-    -   Check-out / renewal of item to patron
+    -   [Check-out / renewal of item to patron](#f11)
 
-    -   Check-in item from patron
+    -   [Check-in item from patron](#f12)
 
-    -   Make / confirm patron payment
+    -   [Make / confirm patron payment](#f13)
 
-    -   Reserve title
+    -   [Block patron account](#f14)
 
-    -   Block patron account
+    -   [Un-block patron account](#f15)
 
-    -   Un-block patron account
+    -   [Reserve title](#f16)
 
 -   Applications of the core functions to stock management
 
-    -   Retrieve location list
+    -   [Retrieve location list](#f21)
 
-    -   Retrieve item classification scheme list
+    -   [Retrieve item classification scheme list](#f22)
 
-    -   Retrieve classification list
+    -   [Retrieve classification list](#f23)
 
-    -   Retrieve stock / holding list
+    -   [Retrieve stock / holding list](#f24)
 
-    -   Retrieve selection criterion type list
+    -   [Retrieve selection criterion type list](#f25)
 
-    -   Retrieve list of available items at a specific location
+    -   [Retrieve list of available items at a specific location](#f26)
 
 Each of the data frameworks for terminal application functions assumes that a function is implemented as a pair of messages exchanged between the terminal application and the LMS, connected over a network. The terminal application initiates the exchange by sending a request to the LMS to execute the function in question. The LMS then sends a response to the terminal application, indicating the outcome of the request.
 
