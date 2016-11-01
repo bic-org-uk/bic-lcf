@@ -48,7 +48,7 @@ Information entity types
 
 Data frameworks are defined for the following principal types of information entity:
 
--   Manifestations
+-   [Manifestations](#e01)
 
 -   Items (individual copies of manifestations)
 
@@ -119,6 +119,8 @@ Data frameworks are defined for the following terminal application functions:
 
     -   Retrieve selection criterion type list
 
+    -   Retrieve list of available items at a specific location
+
 Each of the data frameworks for terminal application functions assumes that a function is implemented as a pair of messages exchanged between the terminal application and the LMS, connected over a network. The terminal application initiates the exchange by sending a request to the LMS to execute the function in question. The LMS then sends a response to the terminal application, indicating the outcome of the request.
 
 Each entity and function is defined in terms of data elements. Data elements may be grouped into composites. Each element is identified by a number prefixed by ‘D’ for simple data elements and by ‘C’ for composite data elements.
@@ -141,7 +143,7 @@ It is intended to maintain and develop further this standard. Future development
 Data frameworks for information entity types
 --------------------------------------------
 
-### E01 MANIFESTATION
+###<a id="e01"></a> E01 MANIFESTATION
 
 #### Description
 
