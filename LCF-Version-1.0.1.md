@@ -83,11 +83,11 @@ Data frameworks are defined for the following terminal application functions:
 
 -   Core functions that can theoretically be applied to any type of information entity
 
-    -   [Create new entity record](#f01)
+    -   [Retrieve entity record](#f01)
 
     -   [Retrieve entity list](#f02)
 
-    -   [Retrieve entity record](#f03)
+    -   [Create new entity record](#f03)
 
     -   [Modify existing entity record](#f04)
 
