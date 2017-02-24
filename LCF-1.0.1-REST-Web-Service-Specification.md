@@ -465,9 +465,15 @@ The response is the same as for creating any entity – see function 03 above. *
 
 Setting or resetting a patron password involves modification of a property of a patron that is not stored as part of the corresponding patron entity. No other functions are involved.
 
+To set a patron password for the first time:
+
+    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/password
+
+To reset an existing patron password:
+
     PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890/password
 
-The payload of the PUT request is a plain text string containing the encrypted password.
+The payload of the POST or PUT request is a plain text string containing the encrypted password.
 
 #### Response
 
