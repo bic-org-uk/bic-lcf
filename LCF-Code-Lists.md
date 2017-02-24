@@ -361,6 +361,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNS13       |13             |Recall overdue                                |
   PNS14       |14             |Too many items billed                         |
   PNS15       |15             |Blocked from PC use only                      |Allowed to borrow items
+  PNS16       |16             |Account expired                               |*See Issue [#51](https://github.com/anthonywhitford/bic-lcf/issues/51)*
 
 ### PNT Patron detailed information type
 
