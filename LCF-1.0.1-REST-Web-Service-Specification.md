@@ -149,7 +149,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
 |-------|--------------|-----------------------------------------|---------|-------------|--------------------|
-| **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"<br>version=”1.0”**              | **1**   |             | **Top-level message element with namespace declarations and mandatory ‘version’ attribute**                                       |
+| **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"**              | **1**   |             | **Top-level message element with namespace declarations**<br/>*'version' attribute removed in v1.0.1*                                       |
 | **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                          |
 | 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity.      |
 | 4     | R02D02.1     | property-ref                            | 1       | anyURI      | Reference to an instance of the selection criterion entity (E11).                                                                             |
@@ -163,7 +163,7 @@ NOTE – LCF element R02C07 is not implemented.
 
 *Example of a Response XML payload*
 
-    <lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0"\>
+    <lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0"\>
      <entity-type>01</entity-type>
      <entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/>
     </lcf-entity-list-response>
@@ -297,7 +297,7 @@ The response to a check-out or renewal may be the same response as for creating 
 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
-| **1** |              | **lcf-check-out-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                               |
+| **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                            |
 | 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                             |
 | 3     | R11C02       | loan                                     | 0-1     |             | See E05           |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | MEW – Omitted if responding to a renewal                                                                                                       |
@@ -306,7 +306,7 @@ The response to a check-out or renewal may be the same response as for creating 
 
 *Example of a Response XML payload:*
 
-    <lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
+    <lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0">
      <loan-ref>http://192.168.0.99:80/lcf/1.0/loans/1234567890</loan-ref>
      <sensitive-media-warning>00</sensitive-media-warning>
     </lcf-check-out-response>
@@ -350,7 +350,7 @@ A check-in response may be the same response as for modifying any entity, or may
 
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
 |-------|--------------|-----------------------------------------|---------|-------------|--------------------|
-| **1** |              | **lcf-check-in-response version=”1.0”** | **1**   |             | **Top-level message element with mandatory ‘version’ attribute**                                                                               |
+| **1** |              | **lcf-check-in-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                               |
 | **2** | **R12D01**   | **loan-ref**                            | **1**   | **anyURI**  |                    |
 | 3     | R12D04       | return-location-ref                     | 0-1     | anyURI      |                    |
 | 4     | R12D05       | media-warning                           | 0-1     | Code        | MEW                |
@@ -360,7 +360,7 @@ A check-in response may be the same response as for modifying any entity, or may
 
 *Example of a Response XML payload:*
 
-    <lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0" version="1.0">
+    <lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0">
      <loan-ref>http://192.168.0.99:80/lcf/1.0/loans/1234567890</loan-ref>
      <return-location-ref>http://192.168.0.99:80/lcf/1.0/locations/repair-bin</return-location-ref>
      <sensitive-media-warning>00</sensitive-media-warning>
