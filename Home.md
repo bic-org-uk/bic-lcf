@@ -8,4 +8,4 @@ Please make sure that your GitHub profile says something about your interest in 
 
 **Is there anything you'd like to do using LCF?**
 
-If there are any business processes that you're looking to implement using LCF, but perhaps are unsure how to do so, please raise an issue. This allows us to review your needs and assist you with getting going.
+If there are any business processes that you're looking to implement using LCF, but perhaps are unsure how to do so, please [[raise an issue|issues]]. This allows us to review your needs and assist you with getting going.
