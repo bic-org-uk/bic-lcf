@@ -604,7 +604,7 @@ Core functions
 
 NOTE ON CARDINALITIES IN RESPONSE MESSAGES - The cardinalities for the elements of responses assume that there is no exception condition, which would be indicated by the inclusion of element R00D05 in a response. If there is an exception condition, only elements in table R00 above would be included in the response.
 
-###<a name="f01"></a> 01 Retrieve entity instance information
+### <a name="f01"></a> 01 Retrieve entity instance information
 [Back to functions list](#functions)
 
 This function may be used to retrieve information about an instance of an entity of any type. In practice the most likely uses of the function are to retrieve information about **titles**, **items** and **patrons**, but it could also be used to retrieve information about instances of any entity type, such as locations or charges.
@@ -627,7 +627,7 @@ NOTE – The elements included in the response will depend upon both the entity 
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | *R01C01*   | Entity element as determined by the specified entity type – see E01 to E12 above – taking into account any instances of element Q01D03 in the request.|  | 0-n  |           |                                 |
 
-###<a name="f02"></a> 02 Retrieve entity instance list
+### <a name="f02"></a> 02 Retrieve entity instance list
 [Back to functions list](#functions)
 
 This function may be used to retrieve a list of entity instances, with or without detailed information for each entity instance in the list. Normally the list would be retrieved with minimal information (mandatory elements only) or no detailed information apart from the identifier of the item.
@@ -662,7 +662,7 @@ This function may be used to retrieve a list of entity instances, with or withou
 
 ### 
 
-###<a name="f03"></a> 03 Create entity item
+### <a name="f03"></a> 03 Create entity item
 [Back to functions list](#functions)
 
 This function is used to create a new item of a specific entity type. In practice it is most often used to create a new reservation or a new loan.
@@ -683,7 +683,7 @@ This function is used to create a new item of a specific entity type. In practic
 
 ### 
 
-###<a name="f04"></a> 04 Modify entity item
+### <a name="f04"></a> 04 Modify entity item
 [Back to functions list](#functions)
 
 This function is used to modify an existing item of a specific entity type.
@@ -706,7 +706,7 @@ This function is used to modify an existing item of a specific entity type.
 
 ### 
 
-###<a name="f05"></a> 05 Delete entity item
+### <a name="f05"></a> 05 Delete entity item
 [Back to functions list](#functions)
 
 This function is used to delete an item of a specific entity type. Since deletion of an item involves removal of all references to this item, this function would not normally be implemented as a terminal application.
@@ -728,7 +728,7 @@ This function is used to delete an item of a specific entity type. Since deletio
 Circulation management functions
 --------------------------------
 
-###<a name="f11"></a> 11 Check-out / renewal (create loan)
+### <a name="f11"></a> 11 Check-out / renewal (create loan)
 [Back to functions list](#functions)
 
 The check-out / renewal function combines the following core functions:
@@ -771,7 +771,7 @@ The terminal application must provide all the information required for all the n
 
 ### 
 
-###<a name="f12"></a> 12 Check-in
+### <a name="f12"></a> 12 Check-in
 [Back to functions list](#functions)
 
 The check-in function combines the following core functions:
@@ -805,7 +805,7 @@ The check-in function combines the following core functions:
 | R12D07     | Special attention description|          | 0-1     | String    | Description of special attention required, if any.                                                                                              |
 | R12D08     | Charge reference           |            | 0-n     | String    | LCF entity identifier of any charge due on this item. Repeatable if more than one charge is due (e.g. loan fee and overdue fine).                  |
 
-###<a name="f13"></a> 13 Patron payment
+### <a name="f13"></a> 13 Patron payment
 [Back to functions list](#functions)
 
 The patron payment function combines the following core functions:
@@ -834,7 +834,7 @@ The patron payment function combines the following core functions:
 | R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                         |
 | R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                 |
 
-###<a name="f14"></a> 14 Block patron account
+### <a name="f14"></a> 14 Block patron account
 [Back to functions list](#functions)
 
 Used to prevent unauthorised use of a patron account, such as when the patron’s library card is stolen or mislaid. This function is simply an application of core functions to retrieve and modify a patron entity. The patron's current record is retrieved and the patron status and library card status updated as appropriate. If necessary a blocked card message is added.
@@ -855,7 +855,7 @@ Used to prevent unauthorised use of a patron account, such as when the patron’
 
 ### 
 
-###<a name="f15"></a> 15 Un-block patron account
+### <a name="f15"></a> 15 Un-block patron account
 [Back to functions list](#functions)
 
 This function is very similar to function 14 Block patron. A patron record is retrieved and the patron status and library card status are updated as appropriate. Any blocked card message is removed.
@@ -874,7 +874,7 @@ This function is very similar to function 14 Block patron. A patron record is re
 
 ### 
 
-###<a name="f16"></a> 16 Reserve manifestation / item
+### <a name="f16"></a> 16 Reserve manifestation / item
 [Back to functions list](#functions)
 
 The reserve function combines the following core functions:
@@ -912,7 +912,7 @@ The reserve function combines the following core functions:
 | R16D02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
 | R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LCF entity identifier for the charge associated with reservation of this manifestation or item.                                                     |
 
-###<a name="f17"></a> 17 Set/reset patron password
+### <a name="f17"></a> 17 Set/reset patron password
 [Back to functions list](#functions)
 
 This function sets the password associated with a Patron entity. Since, for security reasons, this password is not held as a property of the Patron entity, it cannot be set or retrieved using any of the core functions.
@@ -933,32 +933,32 @@ This function sets the password associated with a Patron entity. Since, for secu
 Stock management functions
 --------------------------
 
-###<a name="f21"></a> 21 Retrieve location list
+### <a name="f21"></a> 21 Retrieve location list
 [Back to functions list](#functions)
 
 This function is the same as core function 02 for retrieving a list of entities of type E04 Location.
 
-###<a name="f22"></a> 22 Retrieve title classification scheme list
+### <a name="f22"></a> 22 Retrieve title classification scheme list
 [Back to functions list](#functions)
 
 This function is the same as core function 02 for retrieving a list of entities of type E10 Title classification scheme.
 
-###<a name="f23"></a> 23 Retrieve title classification list
+### <a name="f23"></a> 23 Retrieve title classification list
 [Back to functions list](#functions)
 
 This function is the same as core function 02 for retrieving a list of entities of type E11 Title classification code.
 
-###<a name="f24"></a> 24 Retrieve (stock) item list
+### <a name="f24"></a> 24 Retrieve (stock) item list
 [Back to functions list](#functions)
 
 This function combines the core functions for retrieval of a list of manifestations (entity type E01) and list of stock items (entity type E02).
 
-###<a name="f25"></a> 25 Retrieve selection criterion type list
+### <a name="f25"></a> 25 Retrieve selection criterion type list
 [Back to functions list](#functions)
 
 This function is the same as the core function 02 for retrieving a list of entities of type E12 Selection criterion.
 
-###<a name="f26"></a> 26 Retrieve list of available items at a specific location
+### <a name="f26"></a> 26 Retrieve list of available items at a specific location
 [Back to functions list](#functions)
 
 This function selects all items that are available to be borrowed at a specific location and is the same as function 25 with specific Selection criteria: a specific location and a specific circulation status (CIS03 = 'Available').
