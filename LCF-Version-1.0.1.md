@@ -143,7 +143,7 @@ It is intended to maintain and develop further this standard. Future development
 Data frameworks for information entity types
 --------------------------------------------
 
-###<a name="e01"></a> E01 MANIFESTATION
+### <a name="e01"></a> E01 MANIFESTATION
 [Back to entity list](#entities)
 
 #### Description
@@ -208,7 +208,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 ### 
 
-###<a name="e02"></a> E02 ITEM
+### <a name="e02"></a> E02 ITEM
 [Back to entity list](#entities)
 
 #### Description
@@ -253,7 +253,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 ### 
 
-###<a name="e03"></a> E03 PATRON
+### <a name="e03"></a> E03 PATRON
 [Back to entity list](#entities)
 
 #### Description
@@ -312,7 +312,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D21.3   | Note text                  |           | 1        | String     |                                |
 | E03D25     | Date of birth              |           | 0-1      | Date       | Date of birth of the primary contact for this patron.<br/>*Added v1.0.1*                                                                            |
 
-###<a name="e04"></a> E04 LOCATION
+### <a name="e04"></a> E04 LOCATION
 [Back to entity list](#entities)
 
 #### Description
@@ -338,7 +338,7 @@ An identified place where an item may be located, either inside or outside a lib
 
 ### 
 
-###<a name="e05"></a> E05 LOAN
+### <a name="e05"></a> E05 LOAN
 [Back to entity list](#entities)
 
 #### Description
@@ -367,7 +367,7 @@ An identified event in which one or more items have been loaned to a patron.
 
 ### 
 
-###<a name="e06"></a> E06 RESERVATION
+### <a name="e06"></a> E06 RESERVATION
 [Back to entity list](#entities)
 
 #### Description
@@ -398,7 +398,7 @@ An identified event in which one or more titles have been reserved for a patron.
 
 ### 
 
-###<a name="e07"></a> E07 CHARGE
+### <a name="e07"></a> E07 CHARGE
 [Back to entity list](#entities)
 
 #### Description
@@ -433,7 +433,7 @@ An identified charge made to a patron. May be a fee or a fine.
 
 ### 
 
-###<a name="e08"></a> E08 PAYMENT
+### <a name="e08"></a> E08 PAYMENT
 [Back to entity list](#entities)
 
 #### Description
@@ -461,7 +461,7 @@ An identified payment made by a patron to settle one or more charges.
 
 ### 
 
-###<a name="e09"></a> E09 CONTACT
+### <a name="e09"></a> E09 CONTACT
 [Back to entity list](#entities)
 
 #### Description
@@ -485,7 +485,9 @@ Contact details for the primary contact person or organization for a patron.
 | E09D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E09D07.3   | Note text                  |            | 1       | String     |                                |
 
-###<a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME
+### 
+
+### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME
 [Back to entity list](#entities)
 
 #### Description
@@ -505,7 +507,7 @@ An identified scheme for classification of titles.
 
 ### 
 
-###<a name="e11"></a> E11 TITLE CLASSIFICATION TERM
+### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM
 [Back to entity list](#entities)
 
 #### Description
@@ -527,7 +529,7 @@ A classification term in an identified scheme for classification of titles.
 
 NOTE – If the scheme is appropriate, the classification identifier may the chosen to be the same as the classification code.
 
-###<a name="e12"></a> E12 SELECTION CRITERION
+### <a name="e12"></a> E12 SELECTION CRITERION
 [Back to entity list](#entities)
 
 #### Description
@@ -554,6 +556,8 @@ Common components
 -----------------
 
 The following data elements and composites are typically used for control of message handling and authentication between the terminal application and the LMS. In some implementations these may be used in message headers and trailers, but in many, if not most, implementations these will be handled at a different level in the messaging protocol stack (e.g. in HTTP or SSL) and not in the message payload. They are primarily included here because of their inclusion in SIP2.
+
+### 
 
 ### Q00 Elements common to requests
 
