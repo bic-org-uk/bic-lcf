@@ -1565,6 +1565,8 @@
 			<xs:enumeration value="12"/>
 			<xs:enumeration value="13"/>
 			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="paymentStatus">
