@@ -257,12 +257,13 @@ E06 RESERVATION
 |  10    | E06D09       | pickup-date                 | 0-1     | dateTime    |         |
 |  11    | E06D10       | end-date                    | 0-1     | dateTime    |         |
 |**12**  | **E06D11**   | **reservation-status**      | **1**   | **Code**    | **RVS** |
-|  13    | E06D12       | loan-ref                    | 0-1R    | string      |         |
-|  14    | E06D13       | charge-ref                  | 0-nR    | string      |         |
-|  15    | E06C14       | note                        | 0-n     |             |         |
-|  16    | E06D14.1     | note-type                   | 0-1     | Code        | NOT     |
-|  17    | E06D14.2     | date-time                   | 0-1     | dateTime    |         |
-|  18    | E06D14.3     | note-text                   | 1       | string      |         |
+|  13    | E06D15       | hold-queue-position         | 0-1     | int         | *Added in v1.0.1* |
+|  14    | E06D12       | loan-ref                    | 0-1R    | string      |         |
+|  15    | E06D13       | charge-ref                  | 0-nR    | string      |         |
+|  16    | E06C14       | note                        | 0-n     |             |         |
+|  17    | E06D14.1     | note-type                   | 0-1     | Code        | NOT     |
+|  18    | E06D14.2     | date-time                   | 0-1     | dateTime    |         |
+|  19    | E06D14.3     | note-text                   | 1       | string      |         |
 
 E07 CHARGE
 ----------
