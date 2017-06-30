@@ -303,7 +303,7 @@ E08 PAYMENT
 | **3** | **E08D02**   | **patron-ref**              | **1**   | **string**  |         |
 | **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **PYT** |
 |   5   | E08D04       | description                 | 0-1     | string      |         |
-| **6** | **E08D05**   | **charge-ref**              | **1-n** | **string**  |         |
+|   6   | E08D05       | charge-ref                  | 0-n     | string      | *Non-mandatory in v1.0.1* |
 |   7   | E08D06       | payment-date                | 0-1     | dateTime    |         |
 | **8** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
 |   9   | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                                                                   |
