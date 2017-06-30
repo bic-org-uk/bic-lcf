@@ -389,6 +389,7 @@ An identified event in which one or more titles have been reserved for a patron.
 | E06D09     | Pickup by date-time         | CM        | 0-1     | DateTime   | The date and optionally time by which the reserved item must be collected by the patron.                                                       |
 | E06D10     | End date-time               |           | 0-1     | DateTime   | The date-time when the reservation ended, when the item was checked-out to the patron who had reserved it. Used when recording past reservations. |
 | **E06D11** | **Reservation status**      |           | **1**   | **Code**   | **LCF code list RVS**          |
+| E06D15     | Position in hold queue      |           | 0-1     | Integer    | Position of the reserved item in the hold queue<br/>*Added in v1.0.1*                                                                               |
 | E06D12     | Loan reference              |           | 0-1R    | String     | Only included if maintaining records of reservations that have ended with the item being loaned to the patron.                                      |
 | E06D13     | Charge reference            |           | 0-nR      String     | Reference to a charge incurred by this reservation.                                                                                              |
 | *E06C14*   | *Reservation note*          |           | 0-n     |            | A note attached to this reservation.|
