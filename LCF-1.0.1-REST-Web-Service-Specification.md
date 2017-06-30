@@ -479,6 +479,29 @@ The payload of the POST or PUT request is a plain text string containing the enc
 
 If the request is successful, the HTTP response should include status code 200 (OK).
 
+
+18 Set/reset patron PIN
+----------------------------
+*[Added in LCF v1.0.1]*
+
+#### Request
+
+Setting or resetting a patron PIN involves modification of a property of a patron that may or may not be stored as part of the corresponding patron entity. No other functions are involved.
+
+To set a patron PIN for the first time:
+
+    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/pin
+
+To reset an existing patron password:
+
+    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890/pin
+
+The payload of the POST or PUT request is a plain text string containing the encrypted PIN.
+
+#### Response
+
+If the request is successful, the HTTP response should include status code 200 (OK).
+
 Stock management functions
 ==========================
 
