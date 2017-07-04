@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
+<xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
 	<xs:element name="charge">
 		<xs:complexType>
 			<xs:sequence>
@@ -284,6 +284,7 @@
 			<xs:element ref="pickup-date" minOccurs="0"/>
 			<xs:element ref="end-date" minOccurs="0"/>
 			<xs:element ref="reservation-status"/>
+            <xs:element ref="hold-queue-position" minOccurs="0"/>
 			<xs:element ref="loan-ref" minOccurs="0"/>
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
@@ -416,6 +417,7 @@
 	<xs:element name="fines-due-items" type="xs:int"/>
 	<xs:element name="heading" type="nonEmptyString"/>
 	<xs:element name="hold-items-limit" type="xs:int"/>
+	<xs:element name="hold-queue-position" type="xs:int"/>
 	<xs:element name="identifier" type="nonEmptyString">
 		<xs:annotation>
 			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
