@@ -436,7 +436,7 @@ The request is formulated using the HTTP POST method.
 | **3** |              | **/reservations**     |                       | **1**   |             |              |
 | 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
-| 6     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
+| 6     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
 | 7     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
