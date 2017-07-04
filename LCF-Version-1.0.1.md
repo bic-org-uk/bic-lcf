@@ -530,6 +530,8 @@ A classification term in an identified scheme for classification of titles.
 
 NOTE – If the scheme is appropriate, the classification identifier may the chosen to be the same as the classification code.
 
+###
+
 ### <a name="e12"></a> E12 SELECTION CRITERION
 [Back to entity list](#entities)
 
@@ -552,6 +554,26 @@ An identified property of an entity that can be used as a selection criterion wh
 | E12D06.3   | Note text                  |            | 1       | String     |                                |
 
 NOTE – The selection criterion identifier may be the same as the name. In any case, the name must be unique.
+
+### 
+
+### <a name="e11"></a> E13 AUTHORISATION *(added in v1.0.1)*
+[Back to entity list](#entities)
+
+#### Description
+
+A patron authorisation code.
+
+#### Properties
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E13D01** | **Authorisation identifier** |          | **1**[[[4]|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this authorisation. It may be a code value from list AUT**                                                                                                          |
+| E13D02     | Authorisation heading      |            | 0-1     | String     | A heading or name for the authorisation. Must be omitted if the authorisation is a code value from list AUT.                             |
+| *E13C03*   | *Authorisation description / note* |    | 0-1     |            |                                |
+| E13D03.1   | Note type                  |            | 0-1     | Code       | LCF code list **NOT**          |
+| E13D03.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E13D03.3   | Note text                  |            | 1       | String     |                                |
 
 Common components
 -----------------
@@ -972,7 +994,7 @@ ___
 
 [3] The “cardinality” of an element is the number of times that an element is allowed to be included at that point in a message. The allowed values are ‘0-1’, ‘1’, ‘0-n’ and ‘1-n’. These are equivalent to ‘non-mandatory and non-repeatable’, ‘mandatory and non-repeatable’, ‘non-mandatory and repeatable’ and ‘mandatory and repeatable’.
 
-[4] Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item and Patron entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal. 
+[4] Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item, Patron and Authorisation entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal. 
 
 In general, elements in responses that are specified to be mandatory, i.e. they have cardinality ‘1’ or ‘1-n’, are mandatory *unless there is an exception condition*, in which case none of the specific response elements is included. If appropriate, information from the request may be included in the exception description element to assist in determining the cause of the exception condition.
 
