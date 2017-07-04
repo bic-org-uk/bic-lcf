@@ -23,20 +23,20 @@ This document defines code lists for use with LCF version 1.0.1.
     in this document while other implementations may adopt more verbose
     alpha-numeric code values.
 
-### ALF Allow fees flag
+### <a id="ALF"></a>ALF Allow fees flag
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   ALF01          | Y                 | Allow fees on items for which loan or renewal fees are applicable   |  
   ALF02          | N                 | Do not allow fees                                                   |The item may not be checked out if fees apply.
 
-### AUT Authorisation code *(added in LCF v1.0.1)*
+### <a id="AUT"></a>AUT Authorisation code *(added in LCF v1.0.1)*
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   AUT01          | PCI               | Parental consent has been granted for a child patron to acccess the Internet from library premises                                                                                      |  
 
-### CHS Charge status
+### <a id="CHS"></a>CHS Charge status
 
   *Code ID*      |*Code value*      |*Definition*   |*Notes*
   -------------- |----------------- |-------------- |----------------------------------
@@ -44,7 +44,7 @@ This document defines code lists for use with LCF version 1.0.1.
   CHS02          |02                |Part paid      |
   CHS03          |03                |Fully paid     |Used when recording past charges
 
-### CHT Charge type (based upon SIP 2 fee type code list)
+### <a id="CHT"></a>CHT Charge type (based upon SIP 2 fee type code list)
 
   *Code ID*   |*Code value*   |*Definition*                      |*Notes*
   ----------- |-------------- |--------------------------------- |-------------------------------------
@@ -62,7 +62,7 @@ This document defines code lists for use with LCF version 1.0.1.
   CHT12       |11             |Notice fee                        |
   CHT13       |12             |Referral to debt collection fee   |
 
-### CIS Circulation status (based upon SIP2 circulation status code list)
+### <a id="CIS"></a>CIS Circulation status (based upon SIP2 circulation status code list)
 
   *Code ID*   |*Code value*   |*Definition*                                                        |*Notes*
   ----------- |-------------- |------------------------------------------------------------------- |-----------------
@@ -83,7 +83,7 @@ This document defines code lists for use with LCF version 1.0.1.
   CIS15       |15             |Withdrawn from circulation for repair                               |
   CIS16       |16             |Withdrawn from circulation – reason unspecified                     |
 
-### CMT Communication type
+### <a id="CMT"></a>CMT Communication type
 
   *Code ID*   |*Code value*   |*Definition*                      |*Notes*
   ----------- |-------------- |--------------------------------- |---------
@@ -97,13 +97,13 @@ This document defines code lists for use with LCF version 1.0.1.
   CMT08       |15             |Primary email address             |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
   CMT09       |16             |Primary postal address            |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
 
-### CRT Check-out restriction type
+### <a id="CRT"></a>CRT Check-out restriction type
 
   *Code ID*   |*Code value*   |*Definition*      |*Notes*
   ----------- |-------------- |----------------- |------------------------------------------------------------------------
   CRT01       |01             |Lower age limit   |Value is the lower age limit in years. Default value is ‘unspecified’.
 
-### DTM Date or Date-time format
+### <a id="DTM"></a>DTM Date or Date-time format
 
   *Code ID*   |*Code value*   |*Definition*          |*Notes*
   ----------- |-------------- |--------------------- |-----------------------------------------------------------------------------------------------
@@ -112,13 +112,13 @@ This document defines code lists for use with LCF version 1.0.1.
   DTM03       |11             |YYYYMMDD              |
   DTM04       |12             |YYYY-MM-DD            |
 
-### ECR Encryption algorithm
+### <a id="ECR"></a>ECR Encryption algorithm
 
   *Code ID*   |*Code value*   |*Definition*   |*Notes*
   ----------- |-------------- |-------------- |-------------------------
   ECR01       |               |               |Code list to be defined
 
-### ENT Entity type
+### <a id="ENT"></a>ENT Entity type
 
 NOTE - The column headed "Alpha value" is intended for use in RESTful web service 
 implementations of LCF. RESTful requests should always refer to the set of entities 
@@ -138,7 +138,7 @@ of a given type, and hence the use of the plural form.
   ENT10       |10             |class-schemes   |Title classification scheme   |LCF Entity E10
   ENT11       |11             |class-terms     |Title classification code     |LCF Entity E11
   
-### EXC Exception condition response
+### <a id="EXC"></a>EXC Exception condition response
 
 NOTE - In a web service implementation some of these responses may be
 carried by an HTTP response code rather than in the response payload. If
@@ -157,7 +157,7 @@ several exception conditions apply, the HTTP response code 207
   EXC08       |08             |No records match the selection criteria in the request         |Equivalent to HTTP response code 404. May be used in response to function 02 requests.
   EXC09       |09             |Too many records match the selection criteria in the request   |Further information may be provided in an exception description and/or response message. May be used in response to function 02 requests.
 
-### IMD Item detailed information type
+### <a id="IMD"></a>IMD Item detailed information type
 
   *Code ID*   |*Code value*   |*Definition*                           |*Notes*
   ----------- |-------------- |-------------------------------------- |-------------------
@@ -173,13 +173,13 @@ several exception conditions apply, the HTTP response code 207
   IMD10      |10             |Item check-out restrictions and fees   |Elements C01R18 and C01R19
   IMD11      |11             |Item circulation information           |Elements D01R21 – C01R23. NOTE – element D01R20 is mandatory in all responses.
 
-### IMI Item identification scheme
+### <a id="IMI"></a>IMI Item identification scheme
 
   *Code ID*   |*Code value*   |*Definition*   |*Notes*
   ----------- |-------------- |-------------- |---------
   IMI01       |01             |Proprietary    |
 
-### IMT Item media type / format (based upon SIP 2 media type code list)
+### <a id="IMT"></a>IMT Item media type / format (based upon SIP 2 media type code list)
 
   *Code ID*   |*Code value*   |*Definition*                   |*Notes*
   ----------- |-------------- |------------------------------ |--------------------------------------------------------------------
@@ -206,13 +206,13 @@ several exception conditions apply, the HTTP response code 207
 
 NOTE – This code list is to be revised in consultation with libraries. The existing codes are retained for reasons of backwards-compatibility.
 
-### INS Institution identification scheme
+### <a id="INS"></a>INS Institution identification scheme
 
   *Code ID*   |*Code value*   |*Definition*         |*Notes*
   ----------- |-------------- |-------------------- |---------------------------
   INS01       |01             |Proprietary scheme   |Other codes to be defined
 
-### LAT Location association type
+### <a id="LAT"></a>LAT Location association type
 
   *Code ID*   |*Code value*   |*Definition*                                               |*Notes*
   ----------- |-------------- |---------------------------------------------------------- |-----------------
@@ -220,14 +220,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LAT02       |02             |Current location of item                                   |SIP2 field 'AP'
   LAT03       |03             |Patron's "home" institution / branch / site / department   |
 
-### LCS Library classification scheme
+### <a id="LCS"></a>LCS Library classification scheme
 
   *Code ID*   |*Code value*   |*Definition*                         |*Notes*
   ----------- |-------------- |------------------------------------ |---------
   LCS01       |01             |Proprietary                          |
   LCS02       |02             |Dewey Decimal Classification (DDC)   |
 
-### LOI Location identification scheme
+### <a id="LOI"></a>LOI Location identification scheme
 
   *Code ID*   |*Code value*   |*Definition*   |*Notes*
   ----------- |-------------- |-------------- |---------
@@ -235,7 +235,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI02       |02             |GLN            
   LOI03       |03             |SAN            
 
-### LOT Location type
+### <a id="LOT"></a>LOT Location type
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   ------------ |-------------- |----------------------------------- |------------------------------
@@ -243,7 +243,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT02                                                  |02             |Site within library / institution   |e.g. branch or building
   LOT03                                                  |03             |Location with site                  |e.g. department, room, shelf
 
-### LOS Loan status
+### <a id="LOS"></a>LOS Loan status
 
  *Code ID*                                          |*Code value*   |*Definition*                           |*Notes*
   -------------------------------------------- |-------------- |-------------------------------------- |----------------
@@ -259,7 +259,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOS10                                              |10             |Cancelled                              |Used when recording past loans
   LOS11                                              |11             |Renewal loan                           |
   
-### MES Media type / format scheme
+### <a id="MES"></a>MES Media type / format scheme
 
   *Code ID*   |*Code value*   |*Definition*         |*Notes*
   ----------- |-------------- |-------------------- |---------
@@ -268,7 +268,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MES03       |03             |ONIX code list 150   |
   MES04       |04             |ONIX code list 175   |
 
-### MEW Media warning flag
+### <a id="MEW"></a>MEW Media warning flag
 
   *Code ID*   |*Code value*   |*Definition*                           |*Notes*
   ----------- |-------------- |-------------------------------------- |---------
@@ -276,7 +276,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MEW02       |01             |Item contains magnetic media           |
   MEW03       |02             |Item does not contain magnetic media   |
 
-### MND Manifestation detailed information type
+### <a id="MND"></a>MND Manifestation detailed information type
 
   *Code ID*   |*Code value*   |*Definition*                                  |*Notes*
   ----------- |-------------- |--------------------------------------------- |------------
@@ -289,7 +289,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MND07       |07             |Manifestation loan characteristics            |Element E01C13
   MND08       |08             |Item check-out restrictions and fees          |Elements E01C14 and E01C15
 
-### MNI Manifestation identification scheme (based upon ONIX Code List 5)
+### <a id="MNI"></a>MNI Manifestation identification scheme (based upon ONIX Code List 5)
 
   *Code ID*   |*Code value*   |*Definition*           |*Notes*
   ----------- |-------------- |---------------------- |--------------------------------------------------
@@ -300,7 +300,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MNI05       |14             |GTIN-14                |ONIX code ‘14’
   MNI06       |17             |Legal deposit number   |ONIX code ‘17’
 
-### MNS Manifestation status
+### <a id="MNS"></a>MNS Manifestation status
 
   *Code ID*   |*Code value*   |*Definition*                                    |*Notes*
   ----------- |-------------- |----------------------------------------------- |-----------------------------------------
@@ -309,14 +309,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MNS03       |03             |In stock / holding and not available for loan   |e.g. Reading Room only
   MNS04       |04             |Withdrawn from stock / holding                  |
 
-### MOT Entity modification type
+### <a id="MOT"></a>MOT Entity modification type
 
   *Code ID*   |*Code value*   |*Alpha value*   |*Definition*    |*Notes*
   ----------- |-------------- |--------------- |----------------- |-----------------
   MOT01       |01             |replace         |Delete all elements of the entity and replace with those included in the request                                    |This is the only way to remove elements entirely from the entity record.
   MOT02       |02             |update          |Delete all elements of the types that are included in the request and replace with those included in the request.   |For repeatable elements all instances of the element are first removed from the entity record.
 
-### MGT Message display type
+### <a id="MGT"></a>MGT Message display type
 
   *Code ID*   |*Code value*   |*Definition*                                 |*Notes*
   ----------- |-------------- |-------------------------------------------- |---------
@@ -324,13 +324,13 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MGT02       |02             |Single line of message (e.g. for printing)   |
   MGT03       |03             | System message (not normally for display)   |
 
-### NOT Note type
+### <a id="NOT"></a>NOT Note type
 
   *Code ID*   |*Code value*   |*Definition*         |*Notes*
   ----------- |-------------- |-------------------- |--------------------
   NOT01       |01             |Entity description   |This code value is primarily a place-holder for development of the code list in future issues.
 
-### PCS Patron’s library card status
+### <a id="PCS"></a>PCS Patron’s library card status
 
   *Code ID*   |*Code value*   |*Definition*                     |*Notes*
   ----------- |-------------- |-------------------------------- |---------------------
@@ -338,7 +338,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PCS02       |02             |Card retained by library staff   |
   PCS03       |03             |Card location unknown            |Card lost or stolen
 
-### PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in LCF v1.0.1*
+### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in LCF v1.0.1*
 
   *Code ID*   |*Code value*   |*Definition*           |*Notes*
   ----------- |-------------- |---------------------- |--------------------------------------------------
@@ -348,7 +348,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNI04       |21             |ORCID                  |ONIX code ‘21’
   PNI05       |31             |VIAF ID                |ONIX code ‘31’
 
-### PNS Patron status condition type (based upon ANSI/NISO Z39.70)
+### <a id="PNS"></a>PNS Patron status condition type (based upon ANSI/NISO Z39.70)
 
   *Code ID*   |*Code value*   |*Definition*                                  |*Notes*
   ----------- |-------------- |--------------------------------------------- |-------------------------
@@ -369,7 +369,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNS15       |15             |Blocked from PC use only                      |Allowed to borrow items
   PNS16       |16             |Account expired                               |*See Issue [#51](https://github.com/anthonywhitford/bic-lcf/issues/51)*
 
-### PNT Patron detailed information type
+### <a id="PNT"></a>PNT Patron detailed information type
 
   *Code ID*   |*Code value*   |*Definition*                       |*Notes*
   ----------- |-------------- |---------------------------------- |----------------------------
@@ -385,14 +385,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNT10       |15             |Fees, other than fines, owed       |
   PNT11       |16             |Fines owed                         |
 
-### PYS Payment status
+### <a id="PYS"></a>PYS Payment status
 
   *Code ID*   |*Code value*   |*Definition*                      |*Notes*
   ----------- |-------------- |--------------------------------- |--------------------------------------------------------------------
   PYS01       |01             |Payment accepted / acknowledged   |
   PYS02       |02             |Payment not accepted              |Further information, if any, should be included in a payment note.
 
-### PYT Payment type (extension of SIP 2 payment type code list)
+### <a id="PYT"></a>PYT Payment type (extension of SIP 2 payment type code list)
 
   *Code ID*   |*Code value*   |*Definition*                     |*Notes*
   ----------- |-------------- |-------------------------------- |-------------------
@@ -407,7 +407,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PYT09       |08             |Forgiven                         |Payment by the library of a correct charge
   PYT10       |09             |Waived                           |Payment by the library of an incorrect charge
 
-### RDN Reason for inability to approve request
+### <a id="RDN"></a>RDN Reason for inability to approve request
 
   *Code ID*   |*Code value*   |*Definition*                      |*Notes*
   -------------- |-------------- |---------------------------------- |----------------------
@@ -421,7 +421,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RDN08   |08             |Unable to accept payment – see message                            |Further information, if any, should be conveyed in response message.
   RDN09                                              |09             |Unable to accept some/all payment items in request – see detail   
 
-### RNQ Renewal request type
+### <a id="RNQ"></a>RNQ Renewal request type
 
   *Code ID*   |*Code value*   |*Definition*                                                             |*Notes*
   ----------- |-------------- |----------------------------------------------- |-----------------------------------------------------------------
@@ -432,7 +432,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RNQ05       |51             |Loan / renewal fee quotation request only                                |Not a loan request or confirmation, but simply a request for a loan or renewal fee quotation
   RNQ06       |99             |Cancel previous request                                                  |Cancels the previous new loan or renewal request for the same item. If there was no previous request or too long a pause since the previous request, the response should contain exception condition code EXC03.
 
-### RQT Request type
+### <a id="RQT"></a>RQT Request type
 
   *Code ID*   |*Code value*   |*Definition*                                               |*Notes*
   ----------- |-------------- |--------------------- |----------------------------------------------
@@ -441,14 +441,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RQT03       |03             |Cancel previous request                                    |Cancels a previous request. If there was no previous request or too long a pause since the previous request, the response should contain exception condition code EXC03. Approximately equivalent to use of SIP 2 field BI to indicate cancelation.
   RQT04       |04             |Loan / renewal or reservation fee quotation request only   |Not a loan / renewal or reservation request or confirmation, but simply a request for a loan / renewal or reservation fee quotation
 
-### RST Response type
+### <a id="RST"></a>RST Response type
 
   *Code ID*   |*Code value*   |*Definition*                                                 |*Notes*
   ----------- |-------------- |------------------------------------------------------------ |---------
   RST01       |01             |Request successful                                           |
   RST02       |02             |Request unsuccessful – for details see exception condition   |
 
-### RVQ Reservation request type
+### <a id="RVQ"></a>RVQ Reservation request type
 
   *Code ID*   |*Code value*   |*Definition*                             |*Notes*
   ----------- |-------------- |---------------------------------------- |--------------------------------------------
@@ -457,7 +457,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RVQ03       |03             |Reservation fee quotation request only   |Not a reservation request, but simply a request for a reservation fee quotation
   RVQ04       |04             |Cancel previous reservation request      |Cancels the previous request to reserve the same item. If there was no previous request or too long a pause since the previous request, the response should contain exception condition code EXC03.
 
-### RVS Reservation status
+### <a id="RVS"></a>RVS Reservation status
 
   *Code ID*   |*Code value*   |*Definition*                             |*Notes*
   ----------- |-------------- |---------------------------------------- |-----------------------------------------
@@ -468,7 +468,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RVS05       |05             |Ended by check-out to patron             |Used when recording past reservations
   RVS06       |06             |Expired                                  |Reservation terminated on reaching expiry date without either check-out of the item or cancellation of the reservation. Used when recording past reservations.
 
-### RVT Reservation type (based upon SIP 2 hold type code list)
+### <a id="RVT"></a>RVT Reservation type (based upon SIP 2 hold type code list)
 
   *Code ID*   |*Code value*   |*Definition*                                                         |*Notes*
   ----------- |-------------- |------------------------------------------ |-----------------------------------------
@@ -478,7 +478,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RVT04       |4              |Any copy of the item at a specified branch library or sub-location   |SIP code ‘4’ – The institution identifier and/or location must specify the branch library and/or sub-location
   RVT05       |5              |Any copy of the item in a specified group of libraries               |
 
-### SCD Security desensitization flag
+### <a id="SCD"></a>SCD Security desensitization flag
 
   *Code ID*   |*Code value*   |*Definition*                                                               |*Notes*
   ----------- |-------------- |-------------------------------------------------------------------------- |---------
@@ -486,7 +486,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SCD02       |01             |Item security should normally be desensitized / removed on check-out       |
   SCD03       |02             |Item security should not normally be desensitized / removed on check-out   |
 
-### SEL Selection criterion - *Added in LCF v1.0.1*
+### <a id="SEL"></a>SEL Selection criterion - *Added in LCF v1.0.1*
 
   *Code ID*   |*Code value*   |*Definition*                                                               |*Notes*
   ----------- |-------------- |-------------------------------------------------------------------------- |---------
@@ -497,14 +497,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SEL05       |11             |circulation-status                                                         |
   SEL06       |12             |loan-status                                                                |
 
-### SPA Special attention required flag
+### <a id="SPA"></a>SPA Special attention required flag
 
   *Code ID*   |*Code value*   |*Definition*                                    |*Notes*
   ----------- |-------------- |----------------------------------------------- |---------
   SPA01       |01             |Item does not require special attention         |
   SPA02       |02             |Item requires special attention (unspecified)   |
 
-### TTL Title type (based upon ONIX Code List 15)
+### <a id="TTL"></a>TTL Title type (based upon ONIX Code List 15)
 
   *Code ID*   |*Code value*   |*Definition*                 |*Notes*
   ----------- |-------------- |---------------------------- |----------------
@@ -515,7 +515,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   TTL05       |11             |Alternative title on cover   |ONIX code ‘11’
   TTL06       |13             |Expanded title               |ONIX code ‘13’
 
-### UNC Unnamed contributor type (based upon ONIX Code List 11)
+### <a id="UNC"></a>UNC Unnamed contributor type (based upon ONIX Code List 11)
 
   *Code ID*   |*Code value*   |*Definition*   |*Notes*
   ----------- |-------------- |-------------- |----------------
