@@ -25,10 +25,16 @@ This document defines code lists for use with LCF version 1.0.1.
 
 ### ALF Allow fees flag
 
-  *Code ID*      |*Code value*       |*Definition*                                                         |Notes*
+  *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   ALF01          | Y                 | Allow fees on items for which loan or renewal fees are applicable   |  
   ALF02          | N                 | Do not allow fees                                                   |The item may not be checked out if fees apply.
+
+### AUT Authorisation code *(added in LCF v1.0.1)*
+
+  *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
+  -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
+  AUT01          | PCI               | Parental consent has been granted for a child patron to acccess the Internet from library premises                                                                                      |  
 
 ### CHS Charge status
 
