@@ -74,6 +74,8 @@ The data frameworks for the following other types of information entity are also
 
 -   [Entity properties recognised by the LMS (used for constructing entity selection criteria)](#e12)
 
+-   [Patron authorisation codes](#e13)
+
 Each of the data frameworks for entity types defines the properties associated with that entity type. These properties may be either simple data elements or composites: more complex structures, being groupings of data elements and other composites.
 
 <a name="functions"></a>Terminal application functions
@@ -557,7 +559,7 @@ NOTE – The selection criterion identifier may be the same as the name. In any 
 
 ### 
 
-### <a name="e11"></a> E13 AUTHORISATION *(added in v1.0.1)*
+### <a name="e13"></a> E13 AUTHORISATION *(added in v1.0.1)*
 [Back to entity list](#entities)
 
 #### Description
