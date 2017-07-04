@@ -4,7 +4,7 @@
 
 **Library Data Communication Framework for Terminal Applications (LCF)**[[[1]|LCF-Version-1.0.1#Notes]]
 
-Version 1.0.1, 14 January 2016
+Version 1.0.1, 4 July 2017
 
 This document defines data frameworks for messages to meet the data communication requirements of a standard set of business functions for terminal applications within libraries.
 
