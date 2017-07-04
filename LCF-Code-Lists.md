@@ -5,6 +5,7 @@
 **Library Data Communication Framework for Terminal Applications (LCF) Code Lists Issue 2**
 
 DRAFT, 4 July 2017
+
 This document defines code lists for use with LCF version 1.0.1.
 
 **NOTES**
