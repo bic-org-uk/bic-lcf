@@ -138,7 +138,7 @@ of a given type, and hence the use of the plural form.
   ENT10       |10             |class-schemes   |Title classification scheme   |LCF Entity E10
   ENT11       |11             |class-terms     |Title classification code     |LCF Entity E11
   ENT12       |12             |properties      |Selection criteria properties |LCF Entity E12<br/>*Added in v1.0.1*
-  ENT13       |13             |auth-codes      |Authorisation codes           |LCF Entity E13<br/>*Added in v1.0.1*
+  ENT13       |13             |authorisations  |Authorisation codes           |LCF Entity E13<br/>*Added in v1.0.1*
   
 ### <a id="EXC"></a>EXC Exception condition response
 
