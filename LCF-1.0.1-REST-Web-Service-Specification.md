@@ -74,7 +74,7 @@ Date and time stamps should be carried as HTTP parameters and the LCF elements Q
 
 #### 5. Exception conditions in RESTful web service responses
 
-In a RESTful web service implementation exception condition responses should either be carried by an HTTP response status code or, if there is no equivalent HTTP status code or if several exception conditions apply, by an HTTP response status code 207 (multi-status) with the exception conditions specified in an XML payload that conforms to the LCF Exception Conditions XML schema.
+In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if the specific HTTP response status code allows a payload to be included in the response.
 
 #### 6. Encoding rules in URI query parts 
 
