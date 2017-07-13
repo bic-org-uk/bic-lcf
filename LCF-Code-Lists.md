@@ -150,13 +150,13 @@ several exception conditions apply, the HTTP response code 207
   *Code ID*   |*Code value*   | *Definition*   |*Notes*
   ----------- |-------------- |--------------- |-----------------------------------------------------------------
   EXC01       |01             |Service unavailable  |Equivalent to HTTP response code 503
-  EXC02       |02             |invalid user ID or password       | (as supplied in Q00C01)     
-  EXC03       |03             |invalid terminal ID or password (as supplied in Q00C04) |Equivalent to HTTP response code 401
+  EXC02       |02             |invalid user ID or password       | (as supplied in Q00C01) Specific case of HTTP response code 401.     
+  EXC03       |03             |invalid terminal ID or password (as supplied in Q00C04) |Specific case of HTTP response code 401.
   EXC04       |04             |Service unable to process request |Equivalent to HTTP response code 500
-  EXC05       |05             |Invalid entity reference          |For use in all entity-specific responses
+  EXC05       |05             |Invalid entity reference          |For use in all entity-specific responses. Specific case of HTTP response code 404.
   EXC06       |06             |Invalid data in element           |For use whenever a request specifies data that does not conform to the data type for the data element in question, e.g. an undefined code value, a badly-formed date, or an invalid patron password.
-  EXC07       |07             |Request denied                    |                             
-  EXC08       |08             |No records match the selection criteria in the request.<br/>*Deprecated in v1.0.1 &ndash; If no records match the selection criteria, an empty list should be returned with HTTP response code 200.*
+  EXC07       |07             |Request denied                    |Equivalent to HTTP response code 403. 
+  EXC08       |08             |No records match the selection criteria in the request. |*Deprecated in v1.0.1 &ndash; If no records match the selection criteria, the response contains an empty list.*
   EXC09       |09             |Too many records match the selection criteria in the request   |Further information may be provided in an exception description and/or response message. May be used in response to function 02 requests.
 
 ### <a id="IMD"></a>IMD Item detailed information type
