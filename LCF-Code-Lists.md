@@ -23,6 +23,55 @@ This document defines code lists for use with LCF version 1.0.1.
     in this document while other implementations may adopt more verbose
     alpha-numeric code values.
 
+The code lists defined are:
+
+-   [ALF Allow fees flag](#ALF)
+-   [AUT Authorisation code](#AUT) *(added in LCF v1.0.1)*
+-   [CHS Charge status](#CHS)
+-   [CHT Charge type](#CHT)
+-   [CIS Circulation status](#CIS)
+-   [CMT Communication type](#CMT)
+-   [CRT Check-out restriction type](#CRT)
+-   [DTM Date or Date-time format](#DTM)
+-   [ECR Encryption algorithm](#ECR)
+-   [ENT Entity type](#ENT)
+-   [EXC Exception condition response](#EXC)
+-   [IMD Item detailed information type](#IMD)
+-   [IMI Item identification scheme](#IMI)
+-   [IMT Item media type / format](#IMT)
+-   [INS Institution identification scheme](#INS)
+-   [LAT Location association type](#LAT)
+-   [LCS Library classification scheme](#LCS)
+-   [LOI Location identification scheme](#LOI)
+-   [LOS Loan status](#LOS)
+-   [LOT Location type](#LOT)
+-   [MES Media type / format scheme](#MES)
+-   [MEW Media warning flag](#MEW)
+-   [MGT Message display type](#MGT)
+-   [MND Manifestation detailed information type](#MND)
+-   [MNI Manifestation identification scheme](#MNI)
+-   [MNS Manifestation status](#MNS)
+-   [MOT Entity modification type](#MOT)
+-   [NOT Note type](#NOT)
+-   [PCS Patron’s library card status](#PCS)
+-   [PNI Patron identification scheme](#PNI) *(added in LCF v1.0.1)*
+-   [PNS Patron status condition type](#PNS)
+-   [PNT Patron detailed information type](#PNT)
+-   [PYS Payment status](#PYS)
+-   [PYT Payment type](#PYT)
+-   [RDN Reason for inability to approve request](#RDN)
+-   [RNQ Renewal request type](#RNQ)
+-   [RQT Request type](#RQT)
+-   [RST Response type](#RST)
+-   [RVQ Reservation request type](#RVQ)
+-   [RVS Reservation status](#RVS)
+-   [RVT Reservation type](#RVT)
+-   [SCD Security desensitization flag](#SCD)
+-   [SEL Selection criterion](#SEL) *(added in LCF v1.0.1)*
+-   [SPA Special attention required flag](#SPA)
+-   [TTL Title type](#TTL)
+-   [UNC Unnamed contributor type](#UNC)
+
 ### <a id="ALF"></a>ALF Allow fees flag
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
@@ -150,7 +199,7 @@ several exception conditions apply, the HTTP response code 207
   *Code ID*   |*Code value*   | *Definition*   |*Notes*
   ----------- |-------------- |--------------- |-----------------------------------------------------------------
   EXC01       |01             |Service unavailable  |Equivalent to HTTP response code 503
-  EXC02       |02             |invalid user ID or password       | (as supplied in Q00C01) Specific case of HTTP response code 401.     
+  EXC02       |02             |invalid user ID or password (as supplied in Q00C01) |Specific case of HTTP response code 401.     
   EXC03       |03             |invalid terminal ID or password (as supplied in Q00C04) |Specific case of HTTP response code 401.
   EXC04       |04             |Service unable to process request |Equivalent to HTTP response code 500
   EXC05       |05             |Invalid entity reference          |For use in all entity-specific responses. Specific case of HTTP response code 404.
@@ -237,14 +286,6 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI02       |02             |GLN            
   LOI03       |03             |SAN            
 
-### <a id="LOT"></a>LOT Location type
-
-*Code ID*   |*Code value*   |*Definition*                        |*Notes*
-  ------------ |-------------- |----------------------------------- |------------------------------
-  LOT01                                                  |01             |Library / institution               |
-  LOT02                                                  |02             |Site within library / institution   |e.g. branch or building
-  LOT03                                                  |03             |Location with site                  |e.g. department, room, shelf
-
 ### <a id="LOS"></a>LOS Loan status
 
  *Code ID*                                          |*Code value*   |*Definition*                           |*Notes*
@@ -261,6 +302,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOS10                                              |10             |Cancelled                              |Used when recording past loans
   LOS11                                              |11             |Renewal loan                           |
   
+### <a id="LOT"></a>LOT Location type
+
+*Code ID*   |*Code value*   |*Definition*                        |*Notes*
+  ------------ |-------------- |----------------------------------- |------------------------------
+  LOT01                                                  |01             |Library / institution               |
+  LOT02                                                  |02             |Site within library / institution   |e.g. branch or building
+  LOT03                                                  |03             |Location with site                  |e.g. department, room, shelf
+
 ### <a id="MES"></a>MES Media type / format scheme
 
   *Code ID*   |*Code value*   |*Definition*         |*Notes*
@@ -277,6 +326,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MEW01       |00             |Unspecified / not applicable           |
   MEW02       |01             |Item contains magnetic media           |
   MEW03       |02             |Item does not contain magnetic media   |
+
+### <a id="MGT"></a>MGT Message display type
+
+  *Code ID*   |*Code value*   |*Definition*                                 |*Notes*
+  ----------- |-------------- |-------------------------------------------- |---------
+  MGT01       |01             |Whole message (e.g. for screen display)      |
+  MGT02       |02             |Single line of message (e.g. for printing)   |
+  MGT03       |03             | System message (not normally for display)   |
 
 ### <a id="MND"></a>MND Manifestation detailed information type
 
@@ -317,14 +374,6 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |--------------- |----------------- |-----------------
   MOT01       |01             |replace         |Delete all elements of the entity and replace with those included in the request                                    |This is the only way to remove elements entirely from the entity record.
   MOT02       |02             |update          |Delete all elements of the types that are included in the request and replace with those included in the request.   |For repeatable elements all instances of the element are first removed from the entity record.
-
-### <a id="MGT"></a>MGT Message display type
-
-  *Code ID*   |*Code value*   |*Definition*                                 |*Notes*
-  ----------- |-------------- |-------------------------------------------- |---------
-  MGT01       |01             |Whole message (e.g. for screen display)      |
-  MGT02       |02             |Single line of message (e.g. for printing)   |
-  MGT03       |03             | System message (not normally for display)   |
 
 ### <a id="NOT"></a>NOT Note type
 
