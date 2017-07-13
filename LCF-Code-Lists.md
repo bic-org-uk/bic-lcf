@@ -191,10 +191,8 @@ of a given type, and hence the use of the plural form.
   
 ### <a id="EXC"></a>EXC Exception condition response
 
-NOTE - In a web service implementation some of these responses may be
-carried by an HTTP response code rather than in the response payload. If
-several exception conditions apply, the HTTP response code 207
-(multi-status) may be appropriate.
+NOTE - In a web service implementation many of these responses may be
+carried by an HTTP response code rather than in the response payload.
 
   *Code ID*   |*Code value*   | *Definition*   |*Notes*
   ----------- |-------------- |--------------- |-----------------------------------------------------------------
