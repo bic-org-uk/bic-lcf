@@ -147,6 +147,8 @@ NOTE – LCF element Q02D03 is not implemented in this binding.
 
 If the request is successful, the HTTP response will contain an XML payload that conforms to the following XML schema.
 
+If the server is able to process the request, but no entities match the criteria for retrieval given in the request, the HTTP response will still contain an XML payload, but one that contains an empty list of entities, i.e. no instances of element R02D06. *(Added in v1.0.1)*
+
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
 |-------|--------------|-----------------------------------------|---------|-------------|--------------------|
 | **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"**              | **1**   |             | **Top-level message element with namespace declarations**<br/>*'version' attribute removed in v1.0.1*                                       |
@@ -157,7 +159,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 | 6     | R02D03       | os:totalResults                         | 0-1     | int         |                    |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | int         |                    |
 | 8     | R02D05       | os:startIndex                           | 0-1     | int         |                    |
-| **9** | **R02D06**   | **entity<br>href="{instance-uri}"**     | **1-n** | **anyURI**  | **The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type**                  |
+| 9     | R02D06       | entity<br>href="{instance-uri}"         | 0-n     | anyURI      | The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type<br/>*Made non-mandatory in v1.0.1*                                                                                                       |
 
 NOTE – LCF element R02C07 is not implemented.
 
@@ -168,7 +170,7 @@ NOTE – LCF element R02C07 is not implemented.
      <entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/>
     </lcf-entity-list-response>
 
-If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
+If the request is unsuccessful, i.e. the server is unable to process the request, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
 03 Create entity item
 ---------------------
