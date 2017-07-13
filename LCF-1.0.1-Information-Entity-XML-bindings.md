@@ -369,8 +369,7 @@ E12 SELECTION CRITERION
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **property<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E12D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
-| <span id="h.gjdgxs" class="anchor"></span>**3** 
-        | **E12D02**   | **name**                    | **1**   | **string**  |         |
+| <span id="h.gjdgxs" class="anchor"></span>**3** | **E12D02**   | **name**  | **1**   | **string**  |         |
 |   4   | E12D03       | entity-type                 | 0-n     | Code        | [[ENT|LCF-Code-Lists#ENT]]     |
 |   5   | E12D04       | description                 | 0-1     | string      |         |
 |   6   | E12D05       | value-scheme-ref            | 0-1     | string      |         |
