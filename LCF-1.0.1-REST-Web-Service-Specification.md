@@ -74,7 +74,7 @@ Date and time stamps should be carried as HTTP parameters and the LCF elements Q
 
 #### 5. Exception conditions in RESTful web service responses
 
-In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if the specific HTTP response status code allows a payload to be included in the response.
+In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if it is valid to include a payload with the specific HTTP response status code.
 
 #### 6. Encoding rules in URI query parts 
 
@@ -111,7 +111,7 @@ NOTE – LCF element Q01D03 is not implemented in this binding.
 
 If the request is successful, the HTTP response will contain an XML payload that conforms to the LCF information entity XML schema for the specified entity type.
 
-If the request is unsuccessful, the HTTP response will include an appropriate status code, which may be 207 (Multi-status), in which case the response must contain an XML payload that conforms to the LCF exception conditions XML schema.
+If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
 02 Retrieve entity instance list
 --------------------------------
@@ -168,7 +168,7 @@ NOTE – LCF element R02C07 is not implemented.
      <entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/>
     </lcf-entity-list-response>
 
-If the request is unsuccessful, the HTTP response will include an appropriate status code, which may be 207 (Multi-status), in which case the response must contain an XML payload that conforms to the LCF exception conditions XML schema.
+If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
 03 Create entity item
 ---------------------
@@ -197,7 +197,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 
 If the request is successful, the HTTP response should include status code 201 (Created), in which case the HTTP header must contain a Location field containing the URL for retrieving the created entity (see function 01 above). The response may additionally contain an XML payload that conforms to the LCF information entity XML schema for the specified entity type.
 
-If the request is unsuccessful, the HTTP response will include an appropriate status code, which may be 207 (Multi-status), in which case the response must contain an XML payload that conforms to the LCF exception conditions XML schema.
+If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
 04 Modify entity item
 ---------------------
