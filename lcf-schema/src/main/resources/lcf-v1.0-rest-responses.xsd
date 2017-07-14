@@ -10,7 +10,7 @@
                 <xs:element ref="os:totalResults" minOccurs="0"/>
                 <xs:element ref="os:itemsPerPage" minOccurs="0"/>
                 <xs:element ref="os:startIndex" minOccurs="0"/>
-                <xs:element ref="entity" maxOccurs="unbounded"/>
+                <xs:element ref="entity" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
             <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
