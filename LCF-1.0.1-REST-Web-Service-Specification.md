@@ -96,7 +96,7 @@ The request is formulated using the HTTP GET method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
-| **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
+| **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                            |
 | **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | **string**  |              |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
@@ -124,7 +124,7 @@ The request is formulated using the HTTP GET method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF&nbsp;initial&nbsp;segment                                                                                                       |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number |
-| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT                                                  |
+| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]                                                  |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                            |
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
@@ -152,7 +152,7 @@ If the server is able to process the request, but no entities match the criteria
 |       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
 |-------|--------------|-----------------------------------------|---------|-------------|--------------------|
 | **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"**              | **1**   |             | **Top-level message element with namespace declarations**<br/>*'version' attribute removed in v1.0.1*                                       |
-| **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                          |
+| **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                          |
 | 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity.      |
 | 4     | R02D02.1     | property-ref                            | 1       | anyURI      | Reference to an instance of the selection criterion entity (E11).                                                                             |
 | 5     | R02D02.2     | value                                   | 1       | string      |                    |
@@ -183,9 +183,9 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
-| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list ENT |
+| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]] |
 | 4     |              | /{key-id-value}       |                       | 0-1     | string      |              |
-| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
+| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                     |
 | 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 
@@ -212,7 +212,7 @@ The request is formulated using the HTTP PUT method. The payload is an XML docum
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
-| **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
+| **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                     |
 | **4** | **Q04D02**   | **/{item-ref}**       |                       | **1**   |             |              |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
@@ -238,7 +238,7 @@ The request is formulated using the HTTP DELETE method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
-| **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list ENT**                                                                                     |
+| **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                     |
 | **4** | **Q05D02**   | **/{item-id}**        |                       | **1**   |             |              |
 | 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
 | 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
@@ -303,7 +303,7 @@ The response to a check-out or renewal may be the same response as for creating 
 | 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                             |
 | 3     | R11C02       | loan                                     | 0-1     |             | See E05           |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | MEW – Omitted if responding to a renewal                                                                                                       |
-| 5     | R11D04       | security-desensitize                     | 0-1     | Code        | SCD – Omitted if responding to a renewal                                                                                                       |
+| 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [[SCD\|LCF-Code-Lists#SCD]] – Omitted if responding to a renewal                                                                                                       |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
 
 *Example of a Response XML payload:*
@@ -355,8 +355,8 @@ A check-in response may be the same response as for modifying any entity, or may
 | **1** |              | **lcf-check-in-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                               |
 | **2** | **R12D01**   | **loan-ref**                            | **1**   | **anyURI**  |                    |
 | 3     | R12D04       | return-location-ref                     | 0-1     | anyURI      |                    |
-| 4     | R12D05       | media-warning                           | 0-1     | Code        | MEW                |
-| 5     | R12D06       | special-attention                       | 0-1     | Code        | SPA                |
+| 4     | R12D05       | media-warning                           | 0-1     | Code        | [[MEW\|LCF-Code-Lists#MEW]]                |
+| 5     | R12D06       | special-attention                       | 0-1     | Code        | [[SPA\|LCF-Code-Lists#SPA]]                |
 | 6     | R12D07       | special-attention-note                  | 0-1     | string      |                    |
 | 7     | R12D08       | charge-ref                              | 0-n     | anyURI      |                    |
 
