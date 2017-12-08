@@ -40,7 +40,7 @@ E01 MANIFESTATION
 |   9    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
 |  10    | E01D03.3     | scheme-code                      | 1       | string      |         |
 |  11    | E01C04       | title                            | 0-n     |             |         |
-|  12    | E01D04.1     | title-type                       | 1       | Code        | [[TT\L|LCF-Code-Lists#TTL]]     |
+|  12    | E01D04.1     | title-type                       | 1       | Code        | [[TTL\|LCF-Code-Lists#TTL]]     |
 |  13    | E01D04.2     | title-text                       | 1       | string      |         |
 |  14    | E01D04.3     | subtitle                         | 0-1     | string      |         |
 |  15    | E01C05       | contributor                      | 0-n     |             |         |
