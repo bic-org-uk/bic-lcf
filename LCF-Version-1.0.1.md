@@ -1001,6 +1001,6 @@ ___
 
 In general, elements in responses that are specified to be mandatory, i.e. they have cardinality ‘1’ or ‘1-n’, are mandatory *unless there is an exception condition*, in which case none of the specific response elements is included. If appropriate, information from the request may be included in the exception description element to assist in determining the cause of the exception condition.
 
-[5] The ONIX code lists are maintained by EDItEUR. For the latest issue of the ONIX code lists see [*http://www.editeur.org/14/Code-Lists/*](numbering.xml).
+[5] The ONIX code lists are maintained by EDItEUR. For the latest issue of the ONIX code lists see [https://ns.editeur.org/onix/en](https://ns.editeur.org/onix/en).
 
 [6] Elements where the cardinality is followed by 'R' are "response-only" or "read-only". These elements should only occur in responses from an LMS to a terminal application/device and will be ignored when included in requests.
