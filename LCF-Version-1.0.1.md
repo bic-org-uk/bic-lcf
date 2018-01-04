@@ -276,7 +276,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E02D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E03D22** | **Name**                   | **AE**    | **1**    | **String** | **Name of primary contact for this patron.**<br/>*Added v1.0.1*                                                                                   |
 | E03D02     | Contact reference          |           | 0-n      | String     | Contact details for this patron<br/>*Repeatable v1.0.1*                                                                                 |
-| E03D23     | Language                   |           | 1        | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1*                              |
+| E03D23     | Language                   |           | 0-1        | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1*                              |
 | *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
 | E03D03.1   | Location association type  |           | 1        | Code       | LCF code list **[[LAT\|LCF-Code-Lists#LAT]]**          |
 | E03D03.2   | Location reference         |           | 1        | String     | *Cardinality corrected in v1.0.1* |
