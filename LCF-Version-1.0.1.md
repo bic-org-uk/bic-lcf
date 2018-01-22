@@ -935,7 +935,7 @@ The reserve function combines the following core functions:
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R16D01     | Reservation reference      |            | 0-1     | String    | Either a reservation reference or a copy of the reservation record must be included in the response.                                               |
-| R16D02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
+| R16C02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
 | R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LCF entity identifier for the charge associated with reservation of this manifestation or item.                                                     |
 
 ### <a name="f17"></a> 17 Set/reset patron password
