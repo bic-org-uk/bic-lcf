@@ -306,7 +306,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ------------ |-------------- |----------------------------------- |------------------------------
   LOT01                                                  |01             |Library / institution               |
   LOT02                                                  |02             |Site within library / institution   |e.g. branch or building
-  LOT03                                                  |03             |Location with site                  |e.g. department, room, shelf
+  LOT03                                                  |03             |Location within site                |e.g. department, room, shelf
 
 ### <a id="MES"></a>MES Media type / format scheme
 
