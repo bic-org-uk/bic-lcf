@@ -571,12 +571,13 @@ A patron authorisation code.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E13D01** | **Authorisation code/identifier** |     | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this authorisation. It may be a code value from list [[AUT\|LCF-Code-Lists#AUT]]**                                                                                                          |
-| E13D02     | Authorisation heading      |            | 0-1     | String     | A heading or name for the authorisation. Must be omitted if the authorisation is a code value from list [[AUT\|LCF-Code-Lists#AUT]].                             |
-| *E13C03*   | *Authorisation description / note* |    | 0-1     |            |                                |
-| E13D03.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
-| E13D03.2   | Note date-time             |            | 0-1     | DateTime   |                                |
-| E13D03.3   | Note text                  |            | 1       | String     |                                |
+| **E13D01** | **Authorisation identifier** |          | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this authorisation.**                        |
+| E13D02     | Authorisation type         |            | 0-1     | Code       | LCF code list **[[AUT\|LCF-Code-Lists#AUT]]**                                                                                                    |
+| E13D03     | Authorisation heading      |            | 0-1     | String     | A heading or name for the authorisation. Must be omitted if E13D02 is included.                                                          |
+| *E13C04*   | *Authorisation description / note* |    | 0-1     |            |                                |
+| E13D04.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
+| E13D04.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E13D04.3   | Note text                  |            | 1       | String     |                                |
 
 Common components
 -----------------
