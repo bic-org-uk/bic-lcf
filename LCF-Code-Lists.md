@@ -313,7 +313,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   *Code ID*   |*Code value*   |*Definition*         |*Notes*
   ----------- |-------------- |-------------------- |---------
   MES01       |01             |Proprietary          |
-  MES02       |02             |SIP 2 media type     |
+  MES02       |02             |SIP2 media type      |Any code value from code list [IMT](#IMT)
   MES03       |03             |ONIX code list 150   |
   MES04       |04             |ONIX code list 175   |
   MES05       |05             |MARC 21 media type   |*Added in LCF v1.0.1, 2018-02-01*
