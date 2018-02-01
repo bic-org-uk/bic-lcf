@@ -384,12 +384,13 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **authorisation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |       |             | **Top-level&nbsp;element**<br/>                                |
-| **2** | **E13D01**   | **code**              | **1**   | **string**  | **May be a code value from list [[AUT\|LCF-Code-Lists#AUT]]** |
-|   3   | E13D02       | heading                     | 0-1     | string      |         |
-|   4   | E13C03       | note                        | 0-n     | string      |         |
-|   5   | E13D03.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]     |
-|   6   | E13D03.2     | date-time                   | 0-1     | dateTime    |         |
-|   7   | E13D03.3     | note-text                   | 1       | string      |         |
+| **2** | **E13D01**   | **identifier**              | **1**   | **string**  |         |
+|   3   | E13D02       | type                        | 0-1     | Code        | [[AUT\|LCF-Code-Lists#AUT]] |
+|   3   | E13D03       | heading                     | 0-1     | string      |         |
+|   4   | E13C04       | note                        | 0-n     | string      |         |
+|   5   | E13D04.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]] |
+|   6   | E13D04.2     | date-time                   | 0-1     | dateTime    |         |
+|   7   | E13D04.3     | note-text                   | 1       | string      |         |
 
 EXCEPTION CONDITIONS
 --------------------
