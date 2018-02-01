@@ -110,7 +110,7 @@ The code lists defined are:
   CHT11       |10             |Membership fee / subscription     |
   CHT12       |11             |Notice fee                        |
   CHT13       |12             |Referral to debt collection fee   |
-  CHT14       |13             |Printing                          |*Added in v1.0.1*
+  CHT14       |13             |Printing                          |*Added in LCF v1.0.1*
 
 ### <a id="CIS"></a>CIS Circulation status (based upon SIP2 circulation status code list)
 
