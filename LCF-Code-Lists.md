@@ -316,6 +316,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MES02       |02             |SIP 2 media type     |
   MES03       |03             |ONIX code list 150   |
   MES04       |04             |ONIX code list 175   |
+  MES05       |05             |MARC 21 media type   |*Added in LCF v1.0.1, 2018-02-01*
 
 ### <a id="MEW"></a>MEW Media warning flag
 
