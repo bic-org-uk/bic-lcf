@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
+	<xs:element name="authorisation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="identifier" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+						</xs:annotation>
+				</xs:element>
+				<xs:group ref="authorisation-props"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="authorisation-props">
+		<xs:sequence>
+			<xs:element ref="authorisation-type" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D02</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="heading" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D03</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13C04</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
 	<xs:element name="charge">
 		<xs:complexType>
 			<xs:sequence>
@@ -337,6 +368,7 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="association-type" type="locationAssociationType"/>
+	<xs:element name="authorisation-type" type="authorisationCode"/>
 	<xs:element name="available-hold-items" type="xs:int"/>
 	<xs:element name="barcode-id" type="nonEmptyString"/>
 	<xs:element name="blocked-card-message" type="nonEmptyString"/>
@@ -575,6 +607,16 @@
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="authorisationCode">
+		<xs:restriction base="xs:string">
+            <xs:enumeration value="PCI">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AUT01</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Parental consent has been granted for a child patron to acccess the Internet from library premises</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="chargeStatus">
