@@ -321,7 +321,7 @@ E09 CONTACT
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
-| **2** | **E09D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E09D01       | identifier                  | 0-1     | string      | *Cardinality corrected in LCF v1.0.1        |
 |       | **<strike>E09D02</strike>** | **<strike>name</strike>** | **<strike>1</strike>** | **<strike>String</strike>** |                                         *Removed v1.0.1* |
 | **3** | **E09D03**   | **patron-ref**              | **1-n** | **string**  |         |
 |       | <strike>E09D04</strike> | <strike>address-line</strike> | <strike>0-n</strike> | <strike>string</strike> |                                                                     *Removed v1.0.1* |
@@ -384,7 +384,7 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **authorisation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |       |             | **Top-level&nbsp;element**<br/>                                |
-| **2** | **E13D01**   | **identifier**              | **1**   | **string**  |         |
+|   2   | E13D01       | identifier                  | 0-1     | string      |         |
 |   3   | E13D02       | authorisation-type          | 0-1     | Code        | [[AUT\|LCF-Code-Lists#AUT]] |
 |   3   | E13D03       | heading                     | 0-1     | string      |         |
 |   4   | E13C04       | note                        | 0-n     | string      |         |
