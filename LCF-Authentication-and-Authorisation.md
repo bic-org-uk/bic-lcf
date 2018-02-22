@@ -25,6 +25,8 @@ In (Issue #55)[https://github.com/anthonywhitford/bic-lcf/issues/55] a proposal 
     -- or --
     HTTP/4xx - go get your access token from the IdP again, or if using HTTP BASIC, then your credentials were invalid for forbidden.
 
-The payload as a response to a Patron authorisations request is detailed within the documentation (here)[https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13].
+The response to a successful authorisations request is a list of zero or more "AUTHORISATION" entities. This is detailed within the LCF 1.01 standard, [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13). 
+
+Each AUTHORISATION entity within the list must state which authorisation is being granted. This is currently a controlled list, available [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#AUT). Note that at the time of writing there is only a Parental Consent item within the code list, and therefore extensive modification to this list is expected, or vendors will be permitted to configure their own authorisation types at this point.
 
 
