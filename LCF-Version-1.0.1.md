@@ -123,6 +123,10 @@ Data frameworks are defined for the following terminal application functions:
 
     -   [Retrieve list of available items at a specific location](#f26)
 
+-   Applications of the core functions for various other purposes
+
+    -   [Apply charge to patron account](#f31)
+
 Each of the data frameworks for terminal application functions assumes that a function is implemented as a pair of messages exchanged between the terminal application and the LMS, connected over a network. The terminal application initiates the exchange by sending a request to the LMS to execute the function in question. The LMS then sends a response to the terminal application, indicating the outcome of the request.
 
 Each entity and function is defined in terms of data elements. Data elements may be grouped into composites. Each element is identified by a number prefixed by ‘D’ for simple data elements and by ‘C’ for composite data elements.
@@ -990,6 +994,36 @@ This function is the same as the core function 02 for retrieving a list of entit
 
 This function selects all items that are available to be borrowed at a specific location and is the same as function 25 with specific Selection criteria: a specific location and a specific circulation status (CIS03 = 'Available').
 
+Various other functions
+-----------------------
+
+### <a name="f16"></a> 31 Apply charge to patron account
+[Back to functions list](#functions)
+
+The function applies the following core function:
+
+-   Unless this is a cancellation of a charge, create a charge record of the appropriate type and associate it with the corresponding patron record. If cancelling a charge, either delete the charge record or modify its status to indicate that it is cancelled.
+
+#### Request
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **Q31D01** | **Request type**           | **BX / BI**| **1**   | **Code**  | **LCF code list [[RQT\|LCF-Code-Lists#RQT]]**           |
+| **Q31D02** | **Charge type**            | **BT**     | **1**   | **Code**  | **LCF code list [[CHT\|LCF-Code-Lists#CHT]]**           |
+| **Q31D03** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| Q31D04     | Payment due date-time      |            | 0-1     | DateTime  | The date and optionally time on which the charge becomes due for payment.                                                                      |
+| **Q31D05** | **Gross charge amount**    | **BV**     | **1**   | **Value** | **Currency value of original charge**                                                                                                       |
+| Q31D06     | Charge currency            | BH         | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| *Q31C07*   | *Charge note*              |            | 0-n     |            | A note attached to this charge.|
+| Q31D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
+| Q31D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| Q31D07.3   | Note text                  |            | 1       | String     |                                |
+
+#### Response
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------------|------------|---------|-----------|---------------------------------|
+| **R31D01** | **Charge reference**       |            | **1**   | **String**| **The identifier for the Charge record that has been successfully created.**                                                                  |
 ___
 
 <a name="Notes"></a>[1] The acronym "LCF" derives from an informal, abbreviated name for the standard, coined during its development: "Library Communication Framework".
