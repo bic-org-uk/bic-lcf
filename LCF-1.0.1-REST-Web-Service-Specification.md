@@ -52,7 +52,7 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 RESTful web service implementation of LCF may use any of the following methods for authentication of terminal applications, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
-A HTTP challenge-response authentication using status code 401
+A HTTP challenge-response authentication using status code 401[[[4]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]
 
 B IP address authentication (frequently impractical, for example if IP assignment is dynamic)
 
@@ -558,10 +558,12 @@ The following selects all items that are available to be borrowed (circulation-s
     GET http://192.168.0.99:80/lcf/1.0/items?current-location=shelf1&circulation-status=03
 
 ___
+### <a name="Notes"></a>Notes
 
-<a name="Notes"></a>[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [http://www.ietf.org/rfc/rfc2616.txt](../customXml/item1.xml).
+[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [*http://www.ietf.org/rfc/rfc2616.txt*](http://www.ietf.org/rfc/rfc2616.txt).
 
-[2] The term Representational State Transfer (REST) was originally introduced by Roy Fielding in a doctoral dissertation in 2000, its key principles being scalability and generality in the design of web-based services. See [http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm](styles.xml).
+[2] The term Representational State Transfer (REST) was originally introduced by Roy Fielding in a doctoral dissertation in 2000, its key principles being scalability and generality in the design of web-based services. See [*http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm*](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm).
 
-[3] See [*http://www.ietf.org/rfc/rfc3986.txt*](settings.xml).
+[3] See [*http://www.ietf.org/rfc/rfc3986.txt*](http://www.ietf.org/rfc/rfc3986.txt).
 
+[4] See RFC 7617 - The 'Basic' HTTP Authentication Scheme ([*http://www.ietf.org/rfc/rfc7617.txt*](http://www.ietf.org/rfc/rfc7617.txt)).
