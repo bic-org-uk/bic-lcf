@@ -11,7 +11,7 @@ All LCF web services require authentication. Within the original definition of L
 
 During #Plugfest2 there was discussion about evolving this to make use of Open ID Connect (or similar) standard. At this time the decision is that this change will be deferred.
 
-The implementation is therefore that the HTTP BASIC authentication is provided for each web service call. The LMCF Server validates this authentication request, and where valid, it then processes the authorisation to dis/allow access to the requested web service. 
+The implementation is therefore that the HTTP BASIC authentication is provided for each web service call. The LCF Server validates this authentication request, and where valid, it then processes the authorisation to dis/allow access to the requested web service. 
 
 ## Patron Authentication & Authorisation
 
