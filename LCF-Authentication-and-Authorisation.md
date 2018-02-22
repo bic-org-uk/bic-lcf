@@ -17,12 +17,12 @@ The implementation is therefore that the HTTP BASIC authentication is provided f
 
 In (Issue #55)[https://github.com/anthonywhitford/bic-lcf/issues/55] a proposal was put forward following conversation within #Plugfest2. This suggested a URI, request structure and payload which would allow a Service Terminal to validate the credentials provided by a Patron. That proposal is:
 
-> GET /lcf/1.0/patrons/{unique-id}/authorisations
-> patron-pin: 1234 <--- use the same encoding as for HTTP/BASIC "unique-id:pin" BASE64 or encoded with a pre-shared secret
-> Reponds with:
-> HTTP/200
-> ... 
-> -- or --
-> HTTP/4xx - go get your access token from the IdP again.
+    GET /lcf/1.0/patrons/{unique-id}/authorisations<br/>
+    patron-pin: 1234 <--- use the same encoding as for HTTP/BASIC "unique-id:pin" BASE64 or encoded with a pre-shared secret
+    Reponds with:
+    HTTP/200
+    ... 
+    -- or --
+    HTTP/4xx - go get your access token from the IdP again.
 
 
