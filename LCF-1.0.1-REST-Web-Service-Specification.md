@@ -560,10 +560,10 @@ The following selects all items that are available to be borrowed (circulation-s
 ___
 ### <a name="Notes"></a>Notes
 
-[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, is specified by IETF RFC 2616. See [*http://www.ietf.org/rfc/rfc2616.txt*](http://www.ietf.org/rfc/rfc2616.txt).
+[1] The Hypertext Transfer Protocol (HTTP), the basic communication protocol of the World Wide Web, was originally specified by IETF RFC 2616 ([*http://www.ietf.org/rfc/rfc2616.txt*](http://www.ietf.org/rfc/rfc2616.txt)), which has been replaced by RFC 7230 ([*http://www.ietf.org/rfc/rfc7230.txt*](http://www.ietf.org/rfc/rfc7230.txt)) and the other RFCs that RFC 7230 refers to in its introduction.
 
 [2] The term Representational State Transfer (REST) was originally introduced by Roy Fielding in a doctoral dissertation in 2000, its key principles being scalability and generality in the design of web-based services. See [*http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm*](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest\_arch\_style.htm).
 
 [3] See [*http://www.ietf.org/rfc/rfc3986.txt*](http://www.ietf.org/rfc/rfc3986.txt).
 
-[4] See RFC 7617 - The 'Basic' HTTP Authentication Scheme ([*http://www.ietf.org/rfc/rfc7617.txt*](http://www.ietf.org/rfc/rfc7617.txt)).
+[4] See IETF RFC 7617 - The 'Basic' HTTP Authentication Scheme ([*http://www.ietf.org/rfc/rfc7617.txt*](http://www.ietf.org/rfc/rfc7617.txt)).
