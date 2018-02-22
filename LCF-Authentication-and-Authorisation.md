@@ -23,6 +23,8 @@ In (Issue #55)[https://github.com/anthonywhitford/bic-lcf/issues/55] a proposal 
     HTTP/200
     ... 
     -- or --
-    HTTP/4xx - go get your access token from the IdP again.
+    HTTP/4xx - go get your access token from the IdP again, or if using HTTP BASIC, then your credentials were invalid for forbidden.
+
+The payload as a response to a Patron authorisations request is detailed within the documentation (here)[https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13].
 
 
