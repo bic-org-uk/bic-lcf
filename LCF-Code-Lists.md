@@ -25,10 +25,10 @@ This document defines code lists for use with LCF version 1.0.1.
 
 The code lists defined are:
 
--   [AAT Library authority/institution association type](#AAT)
+-   [AAT Library authority/institution association type](#AAT) *(added in LCF v1.0.1)*
 -   [ALF Allow fees flag](#ALF)
 -   [AUT Authorisation code](#AUT) *(added in LCF v1.0.1)*
--   [CAT Contact association type](#CAT)
+-   [CAT Contact association type](#CAT) *(added in LCF v1.0.1)*
 -   [CHS Charge status](#CHS)
 -   [CHT Charge type](#CHT)
 -   [CIS Circulation status](#CIS)
@@ -47,9 +47,9 @@ The code lists defined are:
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
--   [MAP Message/alert priority](#MAP)
--   [MAT Message/alert type](#MAT)
--   [MAU Message/alert audience](#MAU)
+-   [MAP Message/alert priority](#MAP) *(added in LCF v1.0.1)*
+-   [MAT Message/alert type](#MAT) *(added in LCF v1.0.1)*
+-   [MAU Message/alert audience](#MAU) *(added in LCF v1.0.1)*
 -   [MES Media type / format scheme](#MES)
 -   [MEW Media warning flag](#MEW)
 -   [MGT Message display type](#MGT)
