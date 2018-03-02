@@ -278,6 +278,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   *Code ID*   |*Code value*   |*Definition*         |*Notes*
   ----------- |-------------- |-------------------- |---------------------------
   INS01       |01             |Proprietary scheme   |Other codes to be defined
+  INS02       |02             |ISIL                 |
 
 ### <a id="LAT"></a>LAT Location association type
 
