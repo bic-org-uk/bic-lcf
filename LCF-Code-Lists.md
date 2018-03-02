@@ -54,6 +54,7 @@ The code lists defined are:
 -   [MOT Entity modification type](#MOT)
 -   [NOT Note type](#NOT)
 -   [PCS Patron’s library card status](#PCS)
+-   [PGP Patron group association type](#PGP) *(added in LCF v1.0.1)*
 -   [PNI Patron identification scheme](#PNI) *(added in LCF v1.0.1)*
 -   [PNS Patron status condition type](#PNS)
 -   [PNT Patron detailed information type](#PNT)
@@ -388,6 +389,15 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PCS01       |01             |Card retained by patron          |
   PCS02       |02             |Card retained by library staff   |
   PCS03       |03             |Card location unknown            |Card lost or stolen
+
+### <a id="PGP"></a>PGP Patron group association type
+
+  *Code ID*   |*Code value*   |*Definition*                     |*Notes*
+  ----------- |-------------- |-------------------------------- |---------------------
+  PGP01       |01             |Patron member of family group    |
+  PGP02       |02             |Patron member of school group    |
+  PGP03       |11             |Lead patron of family group      |
+  PGP04       |12             |Lead patron of school group      |
 
 ### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in LCF v1.0.1*
 
