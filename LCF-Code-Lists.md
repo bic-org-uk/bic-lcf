@@ -47,6 +47,9 @@ The code lists defined are:
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
+-   [MAP Message/alert priority](#MAP)
+-   [MAT Message/alert type](#MAT)
+-   [MAU Message/alert audience](#MAU)
 -   [MES Media type / format scheme](#MES)
 -   [MEW Media warning flag](#MEW)
 -   [MGT Message display type](#MGT)
@@ -308,26 +311,50 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 ### <a id="LOS"></a>LOS Loan status
 
  *Code ID*                                          |*Code value*   |*Definition*                           |*Notes*
-  -------------------------------------------- |-------------- |-------------------------------------- |----------------
-  LOS01                                              |01             |On loan to patron                      |
-  LOS02                                              |02             |Overdue from patron                    |
-  LOS03                                              |03             |Recalled                               |
-  LOS04                                              |04             |Charge owed                            |
-  LOS05                                              |05             |In transit between library locations   |
-  LOS06                                              |06             |Claimed returned by patron             |
-  LOS07                                              |07             |Lost                                   |
-  LOS08                                              |08             |Checked in – no longer on loan         |Used when recording past loans
-  LOS09                                              |09             |Superseded by renewal loan             |Used when recording past loans. Element E05D09 may contain renewal loan reference
-  LOS10                                              |10             |Cancelled                              |Used when recording past loans
-  LOS11                                              |11             |Renewal loan                           |
+  ------------ |-------------- |-------------------------------------- |----------------
+  LOS01        |01             |On loan to patron                      |
+  LOS02        |02             |Overdue from patron                    |
+  LOS03        |03             |Recalled                               |
+  LOS04        |04             |Charge owed                            |
+  LOS05        |05             |In transit between library locations   |
+  LOS06        |06             |Claimed returned by patron             |
+  LOS07        |07             |Lost                                   |
+  LOS08        |08             |Checked in – no longer on loan         |Used when recording past loans
+  LOS09        |09             |Superseded by renewal loan             |Used when recording past loans. Element E05D09 may contain renewal loan reference
+  LOS10        |10             |Cancelled                              |Used when recording past loans
+  LOS11        |11             |Renewal loan                           |
   
 ### <a id="LOT"></a>LOT Location type
 
-*Code ID*   |*Code value*   |*Definition*                        |*Notes*
+*Code ID*      |*Code value*   |*Definition*                        |*Notes*
   ------------ |-------------- |----------------------------------- |------------------------------
-  LOT01                                                  |01             |Library / institution               |
-  LOT02                                                  |02             |Site within library / institution   |e.g. branch or building
-  LOT03                                                  |03             |Location within site                |e.g. department, room, shelf
+  LOT01        |01             |Library / institution               |
+  LOT02        |02             |Site within library / institution   |e.g. branch or building
+  LOT03        |03             |Location within site                |e.g. department, room, shelf
+  
+### <a id="MAP"></a>MAP Message/alert priority
+
+*Code ID*   |*Code value*   |*Definition*                        |*Notes*
+  --------- |-------------- |----------------------------------- |------------------------------
+  MAP01     |01             |High priority                       |
+  MAP02     |02             |Medium priority                     |
+  MAP03     |03             |Low priority                        |
+  
+### <a id="MAT"></a>MAT Message/alert type
+
+*Code ID*   |*Code value*   |*Definition*                        |*Notes*
+  --------- |-------------- |----------------------------------- |------------------------------
+  MAT01     |01             |Action required                     |
+  MAT02     |02             |Institution information             |e.g. opening hours, closures
+  MAT03     |03             |Collection information              |e.g. acquisitions, disposals
+  MAT04     |04             |Patron account information          |
+  
+### <a id="MAU"></a>MAU Message/alert audience
+
+*Code ID*   |*Code value*   |*Definition*                        |*Notes*
+  --------- |-------------- |----------------------------------- |------------------------------
+  MAU01     |01             |All patrons                         |
+  MAU02     |02             |Specified patrons and categories    |
 
 ### <a id="MES"></a>MES Media type / format scheme
 
