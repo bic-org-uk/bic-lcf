@@ -291,8 +291,13 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D24.2   | Blocked card message       | AL        | 0-1R     | String     |*ID changed from E03D06 in v1.0.1* |
 | E03D28     | Patron category            |           | 0-1      | String     | Library-specific code<br/>*Added v1.0.1*                                                                                                        |
 | E03D29     | Patron tag                 |           | 0-n      | String     | Library-specific tag<br/>*Added v1.0.1*                                                                                                        |
-| E03D32     | Patron authorisation code/reference |  | 0-n      | String     | An authorisation code assigned to this patron - See [E13](#e13).<br/>*Added v1.0.1*                                                                                                        |
+| E03D32     | Patron authorisation code/reference |  | 0-n      | String     | An authorisation code assigned to this patron - See [E13](#e13).<br/>*Added v1.0.1*                                                                   |
 | E03D30     | Patron expiration date     |           | 0-1      | Date       | Date upon which this Patron account expired or is due to expire<br/>*Added v1.0.1*                                                                 |
+| E03C33     | Associated patron group    |           | 0-n      |            | A group of patrons with which this patron is associated either as a leader or a member.<br/>*Added v1.0.1*                                        |
+| E03D33.1   | Patron group association type |        | 1        | Code       | LCF code list **[[PGP\|LCF-Code-Lists#PGP]]**                                                                                                  |
+! E03D33.2   | Patron group identifier    |           | 0-1      | String     | A unique identifier of the group |
+| E03D33.3   | Lead patron reference      |           | 0-n      | String     | Leader(s) of the group         |
+| E03D33.4   | Patron reference           |           | 0-n      | String     | Other member(s) of the group   |
 | E03D07     | Loan reference             |           | 0-nR     | String     | A loan made to this patron. May include references to past as well as current (active) loans until the loan records are deleted.               |
 | E03D08     | Number of items on loan    |           | 0-1R     | Integer    | Only applies to active loans.  |
 | E03D09     | Loan items limit           | CB        | 0-1      | Integer    |                                |
