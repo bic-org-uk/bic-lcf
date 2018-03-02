@@ -332,7 +332,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
   
-### <a id="MAP"></a>MAP Message/alert priority
+### <a id="MAP"></a>MAP Message/alert priority *(added in LCF v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
@@ -340,7 +340,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAP02     |02             |Medium priority                     |
   MAP03     |03             |Low priority                        |
   
-### <a id="MAT"></a>MAT Message/alert type
+### <a id="MAT"></a>MAT Message/alert type *(added in LCF v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
@@ -349,7 +349,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAT03     |03             |Collection information              |e.g. acquisitions, disposals
   MAT04     |04             |Patron account information          |
   
-### <a id="MAU"></a>MAU Message/alert audience
+### <a id="MAU"></a>MAU Message/alert audience *(added in LCF v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
