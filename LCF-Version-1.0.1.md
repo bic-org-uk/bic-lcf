@@ -78,6 +78,8 @@ The data frameworks for the following other types of information entity are also
 
 -   [Patron authorisation codes](#e13)
 
+-   [Message / alert](#e15)
+
 Each of the data frameworks for entity types defines the properties associated with that entity type. These properties may be either simple data elements or composites: more complex structures, being groupings of data elements and other composites.
 
 <a name="functions"></a>Terminal application functions
