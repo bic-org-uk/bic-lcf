@@ -174,11 +174,11 @@ E03 PATRON
 |  19   | E03D29       | patron-tag                  | 0-n     | string      | *Added v1.0.1*                 |
 |  20   | E03D32       | authorisation-code          | 0-n     | string      | *Added v1.0.1*                 |
 |  21   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added v1.0.1*                 |
-|  22   | E03C33       | Associated patron group     | 0-n     |             | *Added v1.0.1*                 |
-|  23   | E03D33.1     | Patron group association type | 1     | Code        | [[PGP\|LCF-Code-Lists#PGP]]    |
-|  24   | E03D33.2     | Patron group identifier     | 0-1     | String      |         |
-|  25   | E03D33.3     | Lead patron reference       | 0-n     | String      |         |
-|  26   | E03D33.4     | Patron reference            | 0-n     | String      |         |
+|  22   | E03C33       | associated-patron-group     | 0-n     |             | *Added v1.0.1*                 |
+|  23   | E03D33.1     | association-type            | 1     | Code        | [[PGP\|LCF-Code-Lists#PGP]]    |
+|  24   | E03D33.2     | patron-group-identifier     | 0-1     | String      |         |
+|  25   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
+|  26   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
 |  27   | E03D07       | loan-ref                    | 0-nR    | string      |         |
 |  28   | E03D08       | on-loan-items               | 0-1R    | int         |         |
 |  29   | E03D09       | loan-items-limit            | 0-1     | int         |         |
