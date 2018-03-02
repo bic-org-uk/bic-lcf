@@ -649,6 +649,9 @@ A message or alert that may be communicated to a patron or group of patrons.
 | E15D08     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[[MAU\|LCF-Code-Lists#MAU]]**                                                                                                  |
 | E15D09     | Patron category            |            | 0-n     | String     | Only included if audience is not all patrons |
 | E15D10     | Patron reference           |            | 0-n     | String     | Only included if audience is not all patrons |
+| ***E15C11***  | **Message/alert text ** |            | **1**   |            |                                |
+| **E15D11.1**  | Text format             |            | **1**   | Code       | LCF code list **[[TFT\|LCF-Code-Lists#TFT]]**                                                                                                  |
+| **E15D11.2**  | Text string             |            | **1**   | String     |                                |
 
 
 Common components
