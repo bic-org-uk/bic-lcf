@@ -615,7 +615,8 @@ A library authority or institution.
 | E14D04.2   | Location reference         |           | 1        | String     |                                |
 | *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
 | E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[[CAT\|LCF-Code-Lists#CAT]]**          |
-| E14D05.2   | Contact reference          |           | 1        | String     |                                |
+| E14D05.2   | Contact name               |           | 1        | String     |                                |
+| E14D05.3   | Contact reference          |           | 1        | String     |                                |
 | *E14C06*   | *Associated authority/institution* |   | 0-n      |            | Another authority/institution associated with this authority/institution.                                                                    |
 | E14D06.1   | Authority/institution association type | | 1      | Code       | LCF code list **[[AAT\|LCF-Code-Lists#AAT]]**          |
 | E14D06.2   | Authority/institution reference |      | 1        | String     |                                |
