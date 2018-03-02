@@ -590,7 +590,6 @@ A patron authorisation code.
 | E13D04.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E13D04.3   | Note text                  |            | 1       | String     |                                |
 
-
 ### 
 
 ### <a name="e14"></a> E14 LIBRARY AUTHORITY / INSTITUTION *(added in v1.0.1)*
@@ -624,6 +623,30 @@ A library authority or institution.
 | E14D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E14D07.3   | Note text                  |            | 1       | String     |                                |
+
+### 
+
+### <a name="e15"></a> E15 MESSAGE / ALERT *(added in v1.0.1)*
+[Back to entity list](#entities)
+
+#### Description
+
+A message or alert that may be communicated to a patron or group of patrons.
+
+#### Properties
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E15D01** | **Message/alert identifier** |  | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this message/alert.**.                       |
+| E15D02     | Associated authority/institution |      | 0-1     | String     |                                |
+| **E15D03** | **Message/alert type**     |            | **1**   | **Code**   | LCF code list **[[MAT\|LCF-Code-Lists#MAT]]**                                                                                                  |
+| E15D04     | Message/alert priority     |            | 0-1     | Code       | LCF code list **[[MAP\|LCF-Code-Lists#MAP]]**                                                                                                  |
+| E15D05     | Message/alert display type |            | 0-1     | Code       | LCF code list **[[MGT\|LCF-Code-Lists#MGT]]**                                                                                                  |
+| E15D06     | Display from date-time     |            | 0-1     | DateTime   |                                |
+| E15D07     | Display until date-time    |            | 0-1     | DateTime   |                                |
+| E15D08     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[[MAU\|LCF-Code-Lists#MAU]]**                                                                                                  |
+| E15D09     | Patron category            |            | 0-n     | String     | Only included if audience is not all patrons |
+| E15D10     | Patron reference           |            | 0-n     | String     | Only included if audience is not all patrons |
 
 
 Common components
