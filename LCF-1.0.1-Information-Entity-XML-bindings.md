@@ -175,7 +175,7 @@ E03 PATRON
 |  20   | E03D32       | authorisation-code          | 0-n     | string      | *Added v1.0.1*                 |
 |  21   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added v1.0.1*                 |
 |  22   | E03C33       | associated-patron-group     | 0-n     |             | *Added v1.0.1*                 |
-|  23   | E03D33.1     | association-type            | 1     | Code        | [[PGP\|LCF-Code-Lists#PGP]]    |
+|  23   | E03D33.1     | association-type            | 1       | Code        | [[PGP\|LCF-Code-Lists#PGP]]    |
 |  24   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
 |  25   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
 |  26   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
@@ -328,11 +328,12 @@ E09 CONTACT
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E09D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS<br/>*Cardinality corrected in v1.0.1* |
 |       | **<strike>E09D02</strike>** | **<strike>name</strike>** | **<strike>1</strike>** | **<strike>String</strike>** |                                         *Removed v1.0.1* |
-| **3** | **E09D03**   | **patron-ref**              | **1-n** | **string**  |         |
+|   3   | E09D03       | patron-ref                 | 0-n     | string      | Mandatory unless E09D10 present<br/>*Cardinality changed v1.0.1*                                               |
+|   4   | E09D10       | authority-ref              | 0-n     | string      | Mandatory unless E09D03 present<br/>*Added v1.0.1*                                                             |
 |       | <strike>E09D04</strike> | <strike>address-line</strike> | <strike>0-n</strike> | <strike>string</strike> |                                                                     *Removed v1.0.1* |
 |       | <strike>E09C05</strike> | <strike>communication-detail</strike> | <strike>0-n</strike> |         |                                                                     *Removed v1.0.1* |
-| **4** | **E09D08**   | **communication-type**      | **1**   | **Code**    | **[[CMT\|LCF-Code-Lists#CMT]]** |
-| **5** | **E09D09**   | **locator**                 | **1-n** | **string**  | *Repeatable v1.0.1*                                                                                |
+| **5** | **E09D08**   | **communication-type**      | **1**   | **Code**    | **[[CMT\|LCF-Code-Lists#CMT]]** |
+| **6** | **E09D09**   | **locator**                 | **1-n** | **string**  | *Repeatable v1.0.1*                                                                                |
 |       | <strike>E09D06</strike> | <strike>language</strike> | <strike>0-1</strike> | <strike>Code</strike> | <strike>ISO three-letter code</strike><br/>                           *Removed v1.0.1* |
 |   6  | E09C07       | note                         | 0-n     |             |         |
 |   7  | E09D07.1     | note-type                    | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]     |
@@ -396,6 +397,33 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |   5   | E13D04.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]] |
 |   6   | E13D04.2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E13D04.3     | note-text                   | 1       | string      |         |
+
+E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
+---------------------------------
+
+|       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
+|-------|--------------|-----------------------------|---------|-------------|---------|
+| **1** |              | **authority<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                     |       |             | **Top-level&nbsp;element**<br/>                                |
+|   2   | E14D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
+|   3   | E14C02       | additional-authority-id     | 0-n     |             |         |
+|   4   | E14D02.1     | authority-id-type           | 1       | Code        | [[INS\|LCF-Code-Lists#INS]] |
+|   5   | E14D02.2     | id-type-name                | 0-1     | string      |         |
+|   6   | E14D02.3     | id-value                    | 1       | string      |         |
+| **7** | **E14D03**   | **name**                    | 1       | string      |         |
+|   8   | E14C04       | associated-location         | 0-n     |             |         |
+|   9   | E14D04.1     | association-type            | 1       | Code        | [[LAT\|LCF-Code-Lists#LAT]] |
+|  10   | E14D04.2     | location-ref                | 1       | string      |         |
+|  11   | E14C05       | associated-contact          | 0-n     |             |         |
+|  12   | E14D05.1     | association-type            | 1       | Code        | [[CAT\|LCF-Code-Lists#CAT]] |
+|  13   | E14D05.2     | contact-name                | 0-1     | string      |         |
+|  14   | E14D05.2     | contact-ref                 | 1       | string      |         |
+|  15   | E14C06       | associated-authority        | 0-n     |             |         |
+|  16   | E14D06.1     | association-type            | 1       | Code        | [[AAT\|LCF-Code-Lists#AAT]] |
+|  17   | E14D06.2     | authority-ref        |      | 1       | string      |         |
+|  18   | E14C07       | note                        | 0-1     |             |         |
+|  19   | E14D07.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]] |
+|  20   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
+|  21   | E14D07.3     | note-text                   | 1       | string      |         |
 
 EXCEPTION CONDITIONS
 --------------------
