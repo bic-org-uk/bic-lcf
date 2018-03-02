@@ -606,7 +606,7 @@ A library authority or institution.
 |------------|----------------------------|------------|---------|------------|--------------------------------|
 | **E14D01** | **Authority/institution identifier** |  | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this authority/institution.**.               |
 | *E14C02*   | *Additional identifier*    |           | 0-n     |            | Composite element containing details of an additional identifier for this authority or institution                                                     |
-| E14D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[[AUI\|LCF-Code-Lists#AUI]]**<br/>The identification scheme.                                                                   |
+| E14D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[[INS\|LCF-Code-Lists#INS]]**<br/>The identification scheme.                                                                   |
 | E14D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
 | E14D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
