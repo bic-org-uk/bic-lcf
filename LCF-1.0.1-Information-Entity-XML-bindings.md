@@ -176,7 +176,7 @@ E03 PATRON
 |  21   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added v1.0.1*                 |
 |  22   | E03C33       | associated-patron-group     | 0-n     |             | *Added v1.0.1*                 |
 |  23   | E03D33.1     | association-type            | 1     | Code        | [[PGP\|LCF-Code-Lists#PGP]]    |
-|  24   | E03D33.2     | patron-group-identifier     | 0-1     | String      |         |
+|  24   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
 |  25   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
 |  26   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
 |  27   | E03D07       | loan-ref                    | 0-nR    | string      |         |
