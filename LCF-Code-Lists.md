@@ -75,6 +75,7 @@ The code lists defined are:
 -   [SCD Security desensitization flag](#SCD)
 -   [SEL Selection criterion](#SEL) *(added in LCF v1.0.1)*
 -   [SPA Special attention required flag](#SPA)
+-   [TFT Text format](#TFT)
 -   [TTL Title type](#TTL)
 -   [UNC Unnamed contributor type](#UNC)
 
@@ -610,6 +611,18 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |----------------------------------------------- |---------
   SPA01       |01             |Item does not require special attention         |
   SPA02       |02             |Item requires special attention (unspecified)   |
+
+### <a id="TFT"></a>TFT Text format
+
+  *Code ID*   |*Code value*   |*Definition*                                    |*Notes*
+  ----------- |-------------- |----------------------------------------------- |---------
+  TFT01       |01             |Plain text, ASCII encoding                      |
+  TFT02       |02             |Plain text, ISO 8859-1 encoding                 |
+  TFT03       |03             |Plain text, ISO 10646 / Unicode encoding        |
+  TFT04       |11             |HTML 4                                          |
+  TFT05       |12             |XHTML 1                                         |
+  TFT06       |13             |HTML 5                                          |
+  TFT07       |14             |MarkDown                                        |
 
 ### <a id="TTL"></a>TTL Title type (based upon ONIX Code List 15)
 
