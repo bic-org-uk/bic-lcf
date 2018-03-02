@@ -25,8 +25,10 @@ This document defines code lists for use with LCF version 1.0.1.
 
 The code lists defined are:
 
+-   [AAT Authority/institution association type](#AAT)
 -   [ALF Allow fees flag](#ALF)
 -   [AUT Authorisation code](#AUT) *(added in LCF v1.0.1)*
+-   [CAT Contact association type](#CAT)
 -   [CHS Charge status](#CHS)
 -   [CHT Charge type](#CHT)
 -   [CIS Circulation status](#CIS)
@@ -73,6 +75,13 @@ The code lists defined are:
 -   [TTL Title type](#TTL)
 -   [UNC Unnamed contributor type](#UNC)
 
+### <a id="AAT"></a>AAT Authority/institution association type *(added in LCF v1.0.1)*
+
+  *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
+  -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
+  AAT01          | 01               | Is member of consortium                                              |
+  AAT02          | 02               | Has consortium member                                                |  
+
 ### <a id="ALF"></a>ALF Allow fees flag
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
@@ -85,6 +94,13 @@ The code lists defined are:
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   AUT01          | PCI               | Parental consent has been granted for a child patron to acccess the Internet from library premises                                                                                      |  
+
+### <a id="CAT"></a>CAT Contact association type *(added in LCF v1.0.1)*
+
+  *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
+  -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
+  CAT01          | 01               | Primary contact for authority/institution                            |
+  CAT02          | 02               | Alternative contact for authority/institution                        |
 
 ### <a id="CHS"></a>CHS Charge status
 
@@ -270,6 +286,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LAT01       |01             |Permanent location of item                                 |SIP2 field 'AQ'
   LAT02       |02             |Current location of item                                   |SIP2 field 'AP'
   LAT03       |03             |Patron's "home" institution / branch / site / department   |
+  LAT04       |04             |Main location of authority/institution                     |*Added in v1.0.1*
+  LAT05       |05             |Other location of authority/institution                    |*Added in v1.0.1*
 
 ### <a id="LCS"></a>LCS Library classification scheme
 
