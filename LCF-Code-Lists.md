@@ -25,7 +25,7 @@ This document defines code lists for use with LCF version 1.0.1.
 
 The code lists defined are:
 
--   [AAT Authority/institution association type](#AAT)
+-   [AAT Library authority/institution association type](#AAT)
 -   [ALF Allow fees flag](#ALF)
 -   [AUT Authorisation code](#AUT) *(added in LCF v1.0.1)*
 -   [CAT Contact association type](#CAT)
@@ -75,7 +75,7 @@ The code lists defined are:
 -   [TTL Title type](#TTL)
 -   [UNC Unnamed contributor type](#UNC)
 
-### <a id="AAT"></a>AAT Authority/institution association type *(added in LCF v1.0.1)*
+### <a id="AAT"></a>AAT Library authority/institution association type *(added in LCF v1.0.1)*
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
