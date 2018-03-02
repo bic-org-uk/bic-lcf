@@ -66,6 +66,8 @@ Data frameworks are defined for the following principal types of information ent
 
 -   [Contacts (contact details for persons or organisations represented by patrons)](#e09)
 
+-   [Library authorities/institutions](#e14)
+
 The data frameworks for the following other types of information entity are also defined:
 
 -   [Classification schemes (e.g. for manifestation classification)](#e10)
@@ -293,7 +295,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D29     | Patron tag                 |           | 0-n      | String     | Library-specific tag<br/>*Added v1.0.1*                                                                                                        |
 | E03D32     | Patron authorisation code/reference |  | 0-n      | String     | An authorisation code assigned to this patron - See [E13](#e13).<br/>*Added v1.0.1*                                                                   |
 | E03D30     | Patron expiration date     |           | 0-1      | Date       | Date upon which this Patron account expired or is due to expire<br/>*Added v1.0.1*                                                                 |
-| E03C33     | Associated patron group    |           | 0-n      |            | A group of patrons with which this patron is associated either as a leader or a member.<br/>*Added v1.0.1*                                        |
+| *E03C33*   | *Associated patron group*  |           | 0-n    |            | A group of patrons with which this patron is associated either as a leader or a member.<br/>*Added v1.0.1*                                        |
 | E03D33.1   | Patron group association type |        | 1        | Code       | LCF code list **[[PGP\|LCF-Code-Lists#PGP]]**                                                                                                  |
 | E03D33.2   | Patron group identifier    |           | 0-1      | String     | A unique identifier of the group |
 | E03D33.3   | Lead patron reference      |           | 0-n      | String     | Leader(s) of the group         |
@@ -587,6 +589,41 @@ A patron authorisation code.
 | E13D04.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E13D04.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E13D04.3   | Note text                  |            | 1       | String     |                                |
+
+
+### 
+
+### <a name="e14"></a> E14 LIBRARY AUTHORITY / INSTITUTION *(added in v1.0.1)*
+[Back to entity list](#entities)
+
+#### Description
+
+A library authority or institution.
+
+#### Properties
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E14D01** | **Authority/institution identifier** |  | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this authority/institution.**.               |
+| *E14C02*   | *Additional identifier*    |           | 0-n     |            | Composite element containing details of an additional identifier for this authority or institution                                                     |
+| E14D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[[AUI\|LCF-Code-Lists#AUI]]**<br/>The identification scheme.                                                                   |
+| E14D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| E14D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
+| *E14C04*   | *Associated location*      |           | 0-n      |            | A location associated with this authority/institution.                                                                                         |
+| E14D04.1   | Location association type  |           | 1        | Code       | LCF code list **[[LAT\|LCF-Code-Lists#LAT]]**          |
+| E14D04.2   | Location reference         |           | 1        | String     |                                |
+| *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
+| E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[[CAT\|LCF-Code-Lists#CAT]]**          |
+| E14D05.2   | Contact reference          |           | 1        | String     |                                |
+| *E14C06*   | *Associated authority/institution* |   | 0-n      |            | Another authority/institution associated with this authority/institution.                                                                    |
+| E14D06.1   | Authority/institution association type | | 1      | Code       | LCF code list **[[AAT\|LCF-Code-Lists#AAT]]**          |
+| E14D06.2   | Authority/institution reference |      | 1        | String     |                                |
+| *E14C07*   | *Authority/institution description / note* || 0-1 |            |                                |
+| E14D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
+| E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| E14D07.3   | Note text                  |            | 1       | String     |                                |
+
 
 Common components
 -----------------
