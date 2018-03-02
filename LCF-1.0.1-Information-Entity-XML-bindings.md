@@ -174,31 +174,36 @@ E03 PATRON
 |  19   | E03D29       | patron-tag                  | 0-n     | string      | *Added v1.0.1*                 |
 |  20   | E03D32       | authorisation-code          | 0-n     | string      | *Added v1.0.1*                 |
 |  21   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added v1.0.1*                 |
-|  22   | E03D07       | loan-ref                    | 0-nR    | string      |         |
-|  23   | E03D08       | on-loan-items               | 0-1R    | int         |         |
-|  24   | E03D09       | loan-items-limit            | 0-1     | int         |         |
-|  25   | E03D10       | overdue-items               | 0-1R    | int         |         |
-|  26   | E03D11       | overdue-items-limit         | 0-1     | int         |         |
-|  27   | E03D12       | recalled-items              | 0-1R    | int         |         |
-|  28   | E03D13       | fees-due-items              | 0-1R    | int         |         |
-|  29   | E03D14       | fines-due-items             | 0-1R    | int         |         |
-|  30   | E03D15       | reservation-ref             | 0-nR    | string      |         |
-|  31   | E03D16       | available-hold-items        | 0-1R    | int         |         |
-|  32   | E03D17       | unavailable-hold-items      | 0-1R    | int         |         |
-|  33   | E03D18       | hold-items-limit            | 0-1     | int         |         |
-|  34   | E03D19       | charge-ref                  | 0-nR    | string      |         |
-|  35   | E03C20       | charge-limit                | 0-n     |             |         |
-|  36   | E03D20.1     | charge-type                 | 0-1     | Code        | [[CHT\|LCF-Code-Lists#CHT]]    |
-|  37   | E03D20.2     | amount                      | 1       | decimal     |         |
-|  38   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
-|  38   | E03C31       | deposit-balance             | 0-1     | decimal     | *Added v1.0.1*                |
-|  39   | E03D31.1     | amount                      | 1       | decimal     |         |
-|  40   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
-|  41   | E03C21       | note                        | 0-n     |             |         |
-|  42   | E03D21.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]    |
-|  43   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
-|  44   | E03D21.3     | note-text                   | 1       | string      |         |
-|  45   | E03D25       | date-of-birth               | 0-1     | date        | *Added v1.0.1*                |
+|  22   | E03C33       | Associated patron group     | 0-n     |             | *Added v1.0.1*                 |
+|  23   | E03D33.1     | Patron group association type | 1     | Code        | [[PGP\|LCF-Code-Lists#PGP]]    |
+|  24   | E03D33.2     | Patron group identifier     | 0-1     | String      |         |
+|  25   | E03D33.3     | Lead patron reference       | 0-n     | String      |         |
+|  26   | E03D33.4     | Patron reference            | 0-n     | String      |         |
+|  27   | E03D07       | loan-ref                    | 0-nR    | string      |         |
+|  28   | E03D08       | on-loan-items               | 0-1R    | int         |         |
+|  29   | E03D09       | loan-items-limit            | 0-1     | int         |         |
+|  30   | E03D10       | overdue-items               | 0-1R    | int         |         |
+|  31   | E03D11       | overdue-items-limit         | 0-1     | int         |         |
+|  32   | E03D12       | recalled-items              | 0-1R    | int         |         |
+|  33   | E03D13       | fees-due-items              | 0-1R    | int         |         |
+|  34   | E03D14       | fines-due-items             | 0-1R    | int         |         |
+|  35   | E03D15       | reservation-ref             | 0-nR    | string      |         |
+|  36   | E03D16       | available-hold-items        | 0-1R    | int         |         |
+|  37   | E03D17       | unavailable-hold-items      | 0-1R    | int         |         |
+|  38   | E03D18       | hold-items-limit            | 0-1     | int         |         |
+|  39   | E03D19       | charge-ref                  | 0-nR    | string      |         |
+|  40   | E03C20       | charge-limit                | 0-n     |             |         |
+|  41   | E03D20.1     | charge-type                 | 0-1     | Code        | [[CHT\|LCF-Code-Lists#CHT]]    |
+|  42   | E03D20.2     | amount                      | 1       | decimal     |         |
+|  43   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
+|  44   | E03C31       | deposit-balance             | 0-1     | decimal     | *Added v1.0.1*                |
+|  45   | E03D31.1     | amount                      | 1       | decimal     |         |
+|  46   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
+|  47   | E03C21       | note                        | 0-n     |             |         |
+|  48   | E03D21.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]    |
+|  49   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
+|  50   | E03D21.3     | note-text                   | 1       | string      |         |
+|  51   | E03D25       | date-of-birth               | 0-1     | date        | *Added v1.0.1*                |
 
 E04 LOCATION
 ------------
