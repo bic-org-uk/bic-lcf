@@ -32,7 +32,7 @@ In [Issue #55](https://github.com/anthonywhitford/bic-lcf/issues/55) a proposal 
 
     HTTP/403 - your access token or service terminal credentials were correct, however the id-value and pin combination are invalid.
 
-To be clear, the authorisation request is initiated with a GET request to  /lcf/1.0/patrons/{id-value}/authorisations where an HTTP request header "lcf-patron-credential" is passed with the request. Essentially, the header lcf-patron-credential is an implementation of element [Q01D02](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-REST-Web-Service-Specification#format-for-request-uri).
+To be clear, the authorisation request is initiated with a GET request to  /lcf/1.0/patrons/{id-value}/authorisations where an HTTP request header "lcf-patron-credential" is passed with the request. Essentially, the header lcf-patron-credential is an implementation of element [Q00D01.2](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-REST-Web-Service-Specification#format-for-request-uri).
 
 The response to a successful authorisations request is a list of zero or more "AUTHORISATION" entities. This is detailed within the LCF 1.01 standard, [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13). 
 
