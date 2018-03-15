@@ -20,17 +20,19 @@ In [Issue #55](https://github.com/anthonywhitford/bic-lcf/issues/55) a proposal 
     GET /lcf/1.0/patrons/{unique-id}/authorisations
     lcf-patron-credential: 1234 <--- use the same encoding as for HTTP/BASIC "unique-id:pin" BASE64 or encoded with a pre-shared secret
     
-Reponds with:
+    Responds with:
     HTTP/200
     Where the Body / Payload is an authorisation entity response. Note that the authorisation entity response could be empty, indicating that there are no authorisations granted.
 
--- or --
+    -- or --
 
     HTTP/401 - go get your access token from the IdP again, or if using HTTP BASIC, then your credentials were invalid.
 
--- or --
+    -- or --
 
     HTTP/403 - your access token or credentials were correct, however the unique-id and pin combination are invalid.
+
+To be clear, the authorisation request is initiated with a GET request to  /lcf/1.0/patrons/{unique-id}/authorisations where an HTTP request header "lcf-patron-credential" is passed with the request.
 
 The response to a successful authorisations request is a list of zero or more "AUTHORISATION" entities. This is detailed within the LCF 1.01 standard, [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13). 
 
