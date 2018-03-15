@@ -21,9 +21,15 @@ In [Issue #55](https://github.com/anthonywhitford/bic-lcf/issues/55) a proposal 
     patron-pin: 1234 <--- use the same encoding as for HTTP/BASIC "unique-id:pin" BASE64 or encoded with a pre-shared secret
     Reponds with:
     HTTP/200
-    ... 
+    Where the Body / Payload is an authorisation entity response. Note that the authorisation entity response could be empty, indicating that there are no authorisations granted.
+
     -- or --
-    HTTP/4xx - go get your access token from the IdP again, or if using HTTP BASIC, then your credentials were invalid for forbidden.
+
+    HTTP/401 - go get your access token from the IdP again, or if using HTTP BASIC, then your credentials were invalid.
+
+    -- or --
+
+    HTTP/403 - your access token or credentials were correct, however you do not have access to this resource. 
 
 The response to a successful authorisations request is a list of zero or more "AUTHORISATION" entities. This is detailed within the LCF 1.01 standard, [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13). 
 
