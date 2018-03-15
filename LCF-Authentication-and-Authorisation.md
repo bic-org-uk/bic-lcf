@@ -29,7 +29,7 @@ In [Issue #55](https://github.com/anthonywhitford/bic-lcf/issues/55) a proposal 
 
     -- or --
 
-    HTTP/403 - your access token or credentials were correct, however you do not have access to this resource. 
+    HTTP/403 - your access token or credentials were correct, however the unique-id and pin combination are invalid.
 
 The response to a successful authorisations request is a list of zero or more "AUTHORISATION" entities. This is detailed within the LCF 1.01 standard, [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13). 
 
