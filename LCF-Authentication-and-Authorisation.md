@@ -17,8 +17,8 @@ The implementation is therefore that the HTTP BASIC authentication is provided f
 
 In [Issue #55](https://github.com/anthonywhitford/bic-lcf/issues/55) a proposal was put forward following conversation within #Plugfest2. This suggested a URI, request structure and payload which would allow a Service Terminal to validate the credentials provided by a Patron. That proposal is:
 
-    GET /lcf/1.0/patrons/{unique-id}/authorisations
-    lcf-patron-credential: 1234 <--- use the same encoding as for HTTP/BASIC "unique-id:pin" BASE64 or encoded with a pre-shared secret
+    GET /lcf/1.0/patrons/{id-value}/authorisations
+    lcf-patron-credential: 1234 <--- use the same encoding as for HTTP/BASIC "id-value:pin" BASE64 or encoded with a pre-shared secret
     
     Responds with:
     HTTP/200
@@ -26,13 +26,13 @@ In [Issue #55](https://github.com/anthonywhitford/bic-lcf/issues/55) a proposal 
 
     -- or --
 
-    HTTP/401 - go get your access token from the IdP again, or if using HTTP BASIC, then your credentials were invalid.
+    HTTP/401 - go get your access token from the IdP again, or if using HTTP BASIC, then your service terminal credentials were invalid.
 
     -- or --
 
-    HTTP/403 - your access token or credentials were correct, however the unique-id and pin combination are invalid.
+    HTTP/403 - your access token or service terminal credentials were correct, however the id-value and pin combination are invalid.
 
-To be clear, the authorisation request is initiated with a GET request to  /lcf/1.0/patrons/{unique-id}/authorisations where an HTTP request header "lcf-patron-credential" is passed with the request.
+To be clear, the authorisation request is initiated with a GET request to  /lcf/1.0/patrons/{id-value}/authorisations where an HTTP request header "lcf-patron-credential" is passed with the request. Essentially, the header lcf-patron-credential is an implementation of element [Q01D02](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-REST-Web-Service-Specification#format-for-request-uri).
 
 The response to a successful authorisations request is a list of zero or more "AUTHORISATION" entities. This is detailed within the LCF 1.01 standard, [here](https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Version-1.0.1#e13). 
 
