@@ -26,43 +26,70 @@ The datatypes 'string', 'int', 'decimal', 'anyURI' and 'dateTime' used below are
 
 In XML payloads the datatype of the following entity reference elements, which are defined in the information entity XML binding specification to have datatype 'string', must in all web service implementations be further constrained to be 'anyURI':
 
+- E01D06.3 other-manifestation-in-series-ref
 - E01D10.1, E11D03 class-scheme-ref
 - E01D10.2 class-term-ref
 - E01D16 manifestation-record-ref
 - E01D19, E05D03, E06D05, E07D06 item-ref
 - E01D20, E02D12, E07D09 reservation-ref
 - E02D03, E06D04, E07D07 manifestation-ref
-- E02D06.2, E03D03.2 location-ref
+- E02D06.2, E03D03.2, E14D04.2 location-ref
 - E02D14 on-loan-ref
-- E03D02 contact-ref
+- E03D02, E14D05.2 contact-ref
 - E03D07, E06D12, E07D08 loan-ref
 - E03D15 reservation-ref
 - E03D19, E05D11, E06D13 charge-ref
-- E05D02, E06D03, E07D02, E09D03 patron-ref
+- E03D33.3 lead-patron-ref
+- E03D33.4, E05D02, E06D03, E07D02, E09D03 patron-ref
 - E05D08 previous-loan-ref
 - E05D09 renewal-loan-ref
 - E06D07 pickup-institution-ref
 - E06D08 pickup-location-ref
 - E07D17 payment-ref
+- E09D10, E14D06.2 authority-ref
 - E12D05 value-scheme-ref
 
 ### Implementation notes
 
-#### 1. Terminal application authentication
+#### 1. Terminal application authentication *(updated for v1.0.1)*
 
 RESTful web service implementation of LCF may use any of the following methods for authentication of terminal applications, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
-A HTTP challenge-response authentication using status code 401[[[4]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]
+**A** HTTP challenge-response authentication using status code 401[[[4]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]
 
-B IP address authentication (frequently impractical, for example if IP assignment is dynamic)
+The LCF elements Q00D04.2 and Q00D05.2 are used in constructing the Base64-encoded "user-pass" for the 'Authorization' header field. In REST implementations the LCF elements Q00C04 and Q00C05 should not be included as query parameters or in request bodies.
 
-C Public Key Infrastructure (PKI) authentication.
+**B** IP address authentication (frequently impractical, for example if IP assignment is dynamic)
 
-The LCF elements Q00D04 and Q00C05 should not be used in REST implementations.
+**C** Public Key Infrastructure (PKI) authentication.
 
-#### 2. User authentication, access rights and privileges
+#### 2. Patron authentication, access rights and privileges *(substantially revised for v1.0.1)*
 
-In addition to terminal application authentication, an LMS will frequently require that the user (patron or library staff) be authenticated. The elements Q00C01 and Q00C02 should be used for this purpose. These should be included as (additional) query parameters in the request. It is recommended that HTTPS be used for all requests that contain query parameters for user authentication.
+In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
+
+**A** Inclusion of an HTTP Request header field 'lcf-patron-credential'
+
+For example, to request details of a patron's access rights and privileges:
+
+    GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations
+    lcf-patron-credential: {Base64-encoded-string}
+
+where `{Base64-encoded-string}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [[[4]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]).
+
+**B** Inclusion of patron identification and password in query parameters in the HTTP Request. 
+
+For example:
+
+    GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations?patron-id={patron-id}&passwd={encrypted-patron-password}
+
+Implementers are reminded that, even when using HTTPS, query parameters may be stored as clear text in web server logs, so method B may not be sufficiently secure for most requirements.
+
+For either method the normal HTTP response status codes would apply:
+
+- 200 (OK), with the requested resource in the body of the response, indicating that the patron authentication has succeeded &ndash; if the patron does not have any access rights or privileges, the response body would typically contain an empty list
+- 401 (Unauthorized), indicating that terminal application authentication has not been provided or has failed
+- 403 (Forbidden), indicating that patron authentication has not been provided or has failed
+- 404 (Not Found), indicating that the specified patron ID does not exist.
 
 #### 3. Secure communication
 
