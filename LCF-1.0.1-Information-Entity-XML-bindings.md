@@ -430,13 +430,14 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
-| **1** |              | **message-alert<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                     |   2   | E15D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
+| **1** |              | **message-alert<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                     |       |             | **Top-level&nbsp;element**<br/>                                |
+|   2   | E15D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 |   3   | E15D02       | authority-ref               | 0-1     | String      |         |
 | **4** | **E15D03**   | **message-type**            | **1**   | **Code**    | **[[MAT\|LCF-Code-Lists#MAT]]** |
 |   5   | E15D04       | priority                    | 0-1     | Code        | [[MAP\|LCF-Code-Lists#MAP]] |
 |   6   | E15D05       | display-type                | 0-1     | Code        | [[MGT\|LCF-Code-Lists#MGT]] |
-|   7   | E15D06       | display-from                | 0-1     | DateTime    |         |
-|   8   | E15D07       | display-until               | 0-1     | DateTime    |         |
+|   7   | E15D06       | start-date                  | 0-1     | DateTime    |         |
+|   8   | E15D07       | end-date                    | 0-1     | DateTime    |         |
 |   9   | E15D08       | audience                    | 0-1     | Code        | [[MAU\|LCF-Code-Lists#MAU]] |
 |  10   | E15D09       | patron-category             | 0-n     | String      |         |
 |  11   | E15D10       | patron-ref                  | 0-n     | String      |         |
