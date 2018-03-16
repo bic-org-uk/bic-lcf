@@ -75,7 +75,7 @@ E01 MANIFESTATION
 | **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[[MNS\|LCF-Code-Lists#MNS]]** |
 |  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
 |  46    | E01D19       | item-ref                         | 0-nR    | string      |         |
-|  47    | E01C20       | reservation-ref                  | 0-nR    | string      |         |
+|  47    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
 |  48    | E01C21       | note                             | 0-n     |             |         |
 |  49    | E01D21.1     | note-type                        | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]     |
 |  50    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
