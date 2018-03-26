@@ -649,7 +649,7 @@ A message or alert that may be communicated to a patron or group of patrons.
 | E15D08     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[[MAU\|LCF-Code-Lists#MAU]]**                                                                                                  |
 | E15D09     | Patron category            |            | 0-n     | String     | Only included if audience is not all patrons |
 | E15D10     | Patron reference           |            | 0-n     | String     | Only included if audience is not all patrons |
-| ***E15C11***  | **Message/alert text ** |            | **1-n** |            | Repeatable if the message/alert text is available in several alternative text formats                                                               |
+| ***E15C11***  | **Message/alert text**  |            | **1-n** |            | Repeatable if the message/alert text is available in several alternative text formats                                                               |
 | **E15D11.1**  | Text format             |            | **1**   | Code       | LCF code list **[[TFT\|LCF-Code-Lists#TFT]]**                                                                                                  |
 | **E15D11.2**  | Text string             |            | **1**   | String     |                                |
 
@@ -665,7 +665,7 @@ The following data elements and composites are typically used for control of mes
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| *Q00C01*   | *User ID *                 | CN         | 0-1     |           | Composite element.              |
+| *Q00C01*   | *User ID*                  | CN         | 0-1     |           | Composite element.              |
 | Q00D01.1   | Encryption algorithm       |            | 0-1     | Code      | LCF code list **[[ECR\|LCF-Code-Lists#ECR]]**<br/>The specific encryption algorithm, if any, employed by the terminal application for encrypting the user ID. If omitted, the string value may or may not be encrypted.                                                                  |
 | Q00D01.2   | String value               |            | 1       | String    | The encrypted or unencrypted string. Element Q00D01.1 may indicate the encryption algorithm employed, if any. Mandatory in each composite.          |
 | *Q00C02*   | *Password*                 | CO         | 0-1     |           | Composite element. It would be unusual for the password not to be encrypted.                                                                  |
