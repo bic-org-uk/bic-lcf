@@ -69,7 +69,7 @@ In addition to terminal application authentication, an LMS will frequently requi
 
 **A** Inclusion of an HTTP Request header field 'lcf-patron-credential'
 
-For example, to request details of a patron's access rights and privileges:
+For example, to request details of a patron's access rights and privileges, using a terminal that does not yet have authenticated access to the server by virtue of a previous request:
 
     GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations
     Authorization: Basic {basic-terminal-credentials}
