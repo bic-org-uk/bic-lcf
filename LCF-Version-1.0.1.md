@@ -1081,14 +1081,15 @@ The function applies the following core function:
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **Q31D01** | **Request type**           | **BX / BI**| **1**   | **Code**  | **LCF code list [[RQT\|LCF-Code-Lists#RQT]]**           |
 | **Q31D02** | **Charge type**            | **BT**     | **1**   | **Code**  | **LCF code list [[CHT\|LCF-Code-Lists#CHT]]**           |
-| **Q31D03** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
-| Q31D04     | Payment due date-time      |            | 0-1     | DateTime  | The date and optionally time on which the charge becomes due for payment.                                                                      |
-| **Q31D05** | **Gross charge amount**    | **BV**     | **1**   | **Value** | **Currency value of original charge**                                                                                                       |
-| Q31D06     | Charge currency            | BH         | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| *Q31C07*   | *Charge note*              |            | 0-n     |            | A note attached to this charge.|
-| Q31D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
-| Q31D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
-| Q31D07.3   | Note text                  |            | 1       | String     |                                |
+| **Q31D03** | **Charge status**          |            | **1**   | **Code**  | **LCF code list [[CHS\|LCF-Code-Lists#CHS]]**           |
+| **Q31D04** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| Q31D05     | Payment due date-time      |            | 0-1     | DateTime  | The date and optionally time on which the charge becomes due for payment.                                                                            |
+| **Q31D06** | **Gross charge amount**    | **BV**     | **1**   | **Value** | **Currency value of original charge**|
+| Q31D07     | Charge currency            | BH         | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| *Q31C08*   | *Charge note*              |            | 0-n     |            | A note attached to this charge.|
+| Q31D08.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
+| Q31D08.2   | Note date-time             |            | 0-1     | DateTime   |                                |
+| Q31D08.3   | Note text                  |            | 1       | String     |                                |
 
 #### Response
 
