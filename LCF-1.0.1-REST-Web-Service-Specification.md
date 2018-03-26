@@ -577,7 +577,7 @@ The following selects all items that are available to be borrowed (circulation-s
 
 #### Request
 
-The request is formulated using the HTTP POST method.
+The request is formulated using the HTTP POST method to create a charge.
 
 ### Format for request URI 
 
@@ -588,15 +588,13 @@ The request is formulated using the HTTP POST method.
 | **3** |              | **/patrons**          |                       | **1**   |             |              |
 | **4** | **Q31D03**   | **/{patron-id-value}**|                       | **1**   |             |              |
 | **5** |              | **/charges**          |                       | **1**   |             |              |
-| **6** | **Q31D02**   |                       | **charge-type**       | **1**   | **Code**    | [[CHT\|LCF-Code-Lists#CHT]] |
-| 7     | Q31D04       |                       | due-date-time         | 0-1     | dateTime    |              |
-| **8** | **Q31D05**   |                       | **amount**            | **1**   | **decimal** |              |
-| 9     | Q31D06       |                       | currency              | 0-1     | Code        | ISO currency code |
-| 10    | Q31D01       |                       | confirmation          | 0-1     | Y           |              |
+| 6     | Q31D01       |                       | confirmation          | 0-1     | Y           |              |
 
 The following applies an overdue charge of GBP 2.00 to a patron's account:
 
-    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/charges?charge-type=04&amount=2%2E00&currency=GBP
+    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/charges
+
+The XML payload should contain a Charge entity (E07) and must include as a minimum the patron reference (E07D02), the charge type (E07D03), the charge status (E07D04), and the charge amount (E07D12).
 
 ___
 ### <a name="Notes"></a>Notes
