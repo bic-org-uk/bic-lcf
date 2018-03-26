@@ -126,8 +126,6 @@ The request is formulated using the HTTP GET method.
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
 | **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                            |
 | **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | **string**  |              |
-| 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 
 NOTE – LCF element Q01D03 is not implemented in this binding.
 
@@ -152,14 +150,12 @@ The request is formulated using the HTTP GET method.
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF&nbsp;initial&nbsp;segment                                                                                                       |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number |
-| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]                                                  |
+| 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]     |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
-| **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                            |
-| 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
-| 8     | Q02D02.1     |                       | {property-ref}        | 0-n     | Variable    | Each query parameter name must be a selection criterion identifier as specified in code list [[SEL\|LCF-Code-Lists#SEL]] *[v1.0.1]*. The parameter value in each case corresponds to Q02D02.2.                                                                                      |
-| 9     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
-| 10    | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
+| **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                    |
+| 6     | Q02D02.1     |                       | {property-ref}        | 0-n     | Variable    | Each query parameter name must be a selection criterion identifier as specified in code list [[SEL\|LCF-Code-Lists#SEL]] *[v1.0.1]*. The parameter value in each case corresponds to Q02D02.2.                                                         |
+| 7     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                              |
+| 8     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                         |
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
@@ -213,9 +209,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]] |
 | 4     |              | /{key-id-value}       |                       | 0-1     | string      |              |
-| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                     |
-| 6     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 7     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
+| **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                    |
 
 *Examples of a Request*
 
@@ -242,8 +236,6 @@ The request is formulated using the HTTP PUT method. The payload is an XML docum
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                     |
 | **4** | **Q04D02**   | **/{item-ref}**       |                       | **1**   |             |              |
-| 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 
 NOTE – This function replaces the entity item identified in the request with the content of the payload. LCF element Q04D03 is therefore implicitly included with value '01'.
 
@@ -268,8 +260,6 @@ The request is formulated using the HTTP DELETE method.
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                     |
 | **4** | **Q05D02**   | **/{item-id}**        |                       | **1**   |             |              |
-| 5     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 6     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
 
 *Example of a Request*
 
@@ -298,10 +288,8 @@ The request is formulated using the HTTP POST method.
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | **3** |              | **/loans**            |                       | **1**   |             |              |
-| 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
-| 6     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
-| 7     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
+| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
+| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
@@ -327,11 +315,11 @@ The response to a check-out or renewal may be the same response as for creating 
 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
-| **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                            |
-| 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                             |
+| **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                  |
+| 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                      |
 | 3     | R11C02       | loan                                     | 0-1     |             | See E05           |
-| 4     | R11D03       | media-warning                            | 0-1     | Code        | [[MEW\|LCF-Code-Lists#MEW]] – Omitted if responding to a renewal                                                                                                       |
-| 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [[SCD\|LCF-Code-Lists#SCD]] – Omitted if responding to a renewal                                                                                                       |
+| 4     | R11D03       | media-warning                            | 0-1     | Code        | [[MEW\|LCF-Code-Lists#MEW]] – Omitted if responding to a renewal                                                              |
+| 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [[SCD\|LCF-Code-Lists#SCD]] – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
 
 *Example of a Response XML payload:*
@@ -464,10 +452,8 @@ The request is formulated using the HTTP POST method.
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
 | **3** |              | **/reservations**     |                       | **1**   |             |              |
-| 4     | Q00D01.2     |                       | user-id               | 0-1     | string      | Included if user authentication required in addition to terminal authentication                                                |
-| 5     | Q00D02.2     |                       | user-pwd              | 0-1     | string      |              |
-| 6     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
-| 7     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
+| 4     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
+| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                |
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
@@ -584,6 +570,33 @@ The following selects all items that are copies of the same manifestation, for a
 The following selects all items that are available to be borrowed (circulation-status = '03') and are at a specific location 'shelf1':
 
     GET http://192.168.0.99:80/lcf/1.0/items?current-location=shelf1&circulation-status=03
+
+
+31 Apply charge to patron account
+---------------------------------
+
+#### Request
+
+The request is formulated using the HTTP POST method.
+
+### Format for request URI 
+
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
+|-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **3** |              | **/patrons**          |                       | **1**   |             |              |
+| **4** | **Q31D03**   | **/{patron-id-value}**|                       | **1**   |             |              |
+| **5** |              | **/charges**          |                       | **1**   |             |              |
+| **6** | **Q31D02**   |                       | **charge-type**       | **1**   | **Code**    | [[CHT\|LCF-Code-Lists#CHT]] |
+| 7     | Q31D04       |                       | due-date-time         | 0-1     | dateTime    |              |
+| **8** | **Q31D05**   |                       | **amount**            | **1**   | **decimal** |              |
+| 9     | Q31D06       |                       | currency              | 0-1     | Code        | ISO currency code |
+| 10    | Q31D01       |                       | confirmation          | 0-1     | Y           |              |
+
+The following applies an overdue charge of GBP 2.00 to a patron's account:
+
+    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/charges?charge-type=04&amount=2%2E00&currency=GBP
 
 ___
 ### <a name="Notes"></a>Notes
