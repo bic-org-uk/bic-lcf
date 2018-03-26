@@ -72,9 +72,10 @@ In addition to terminal application authentication, an LMS will frequently requi
 For example, to request details of a patron's access rights and privileges:
 
     GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations
-    lcf-patron-credential: {Base64-encoded-string}
+    Authorization: Basic {basic-terminal-credentials}
+    lcf-patron-credential: {Base64-encoded-patron-credentials}
 
-where `{Base64-encoded-string}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [[[4]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]).
+where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [[[4]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]).
 
 **B** Inclusion of patron identification and password in query parameters in the HTTP Request. 
 
