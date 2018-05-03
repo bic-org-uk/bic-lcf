@@ -400,7 +400,7 @@ Making a patron payment involves creating a payment record, assuming that all co
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
-#### Response
+#### Response *(Revised v1.0.1)*
 
 The response depends upon whether there is a need for a two-phase transaction process or not. If the LMS has to authorise payment before the transaction can proceed, a HTTP response 202 will be sent in response to the initial POST, which must be repeated with authorisation reference and transaction reference included in the Payment record.
 
