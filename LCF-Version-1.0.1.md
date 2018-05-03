@@ -1074,6 +1074,8 @@ Various other functions
 The function applies the following core function:
 
 -   Unless this is a cancellation of a charge, create a charge record of the appropriate type and associate it with the corresponding patron record. If cancelling a charge, either delete the charge record or modify its status to indicate that it is cancelled.
+-   Modify the patron record to add a reference to the new charge, or to remove the reference if cancelled.
+-   Make any necessary change to patron status as a consequence of creating or cancelling the charge.
 
 #### Request
 
