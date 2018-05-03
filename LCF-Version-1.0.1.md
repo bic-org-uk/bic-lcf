@@ -302,8 +302,8 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D33.1   | Patron group association type |        | 1        | Code       | LCF code list **[[PGP\|LCF-Code-Lists#PGP]]**                                                                                                  |
 | E03D33.5   | Patron group type          |           | 0-1      | String     | A code assigned by the LMS, indicating the type of group, e.g. 'family', 'school'                                                                     |
 | E03D33.2   | Patron group identifier    |           | 0-1      | String     | A unique identifier of the group |
-| E03D33.3   | Lead patron reference      |           | 0-n      | String     | Leader(s) of the group         |
-| E03D33.4   | Patron reference           |           | 0-n      | String     | Other member(s) of the group   |
+| E03D33.3   | Lead patron reference      |           | 0-n      | String     | A leader of the group. A leader is a Patron entitled to perform actions on behalf of any member of the group.                                       |
+| E03D33.4   | Patron reference           |           | 0-n      | String     | Other member of the group. Members of a group who are not leaders may only perform actions on their own account, not on behalf of other group members. |
 | E03D07     | Loan reference             |           | 0-nR     | String     | A loan made to this patron. May include references to past as well as current (active) loans until the loan records are deleted.               |
 | E03D08     | Number of items on loan    |           | 0-1R     | Integer    | Only applies to active loans.  |
 | E03D09     | Loan items limit           | CB        | 0-1      | Integer    |                                |
