@@ -236,14 +236,14 @@ An identified copy of a manifestation that is in a library's stock / holding.
 | E02D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E02D03** |**Manifestation reference** |           | **1**    | **String** | **Reference to the manifestation of which this item is an instance.**                                                                              |
 | E02D04     | Item properties            | CH        | 0-1      | String     | Descriptive information about this item.                                                                                                          |
-| E02D05     | Item owner                 | BG        | 0-1      | String     | Library identifier for owner of this item.                                                                                                          |
-| *E02C06*   | *Associated location*      |           | 0-n      |            | A location associated with this item.                                                                                                          |
-| E02D06.1   | Location association type  |           | 1        | Code       | LCF code list **[[LAT\|LCF-Code-Lists#LAT]]**          |
+| E02D05     | Item owner                 | BG        | 0-1      | String     | A reference to an Institution entity (see E14) representing the owner of this item *(Modified description in v1.0.1)*                               |
+| *E02C06*   | *Associated location*      |           | 0-n      |            | A location associated with this item.|
+| E02D06.1   | Location association type  |           | 1        | Code       | LCF code list **[[LAT\|LCF-Code-Lists#LAT]]**                                                                                                  |
 | E02D06.2   | Location reference         |           | 1        | String     | *Cardinality corrected in v1.0.1* |
-| E02D07     | Item sensitive media warning |         | 1        | Code       | LCF code list **[[MEW\|LCF-Code-Lists#MEW]]**<br/>Flag indicating that the item contains a media component that is sensitive to some security setting devices.        |
-| E02D08     | Desensitize item security  |           | 0-1      | Code       | LCF code list **[[SCD\|LCF-Code-Lists#SCD]]**<br/>Flag indicating that the security should or should not be desensitized / removed on check-out.                      |
+| E02D07     | Item sensitive media warning |         | 1        | Code       | LCF code list **[[MEW\|LCF-Code-Lists#MEW]]**<br/>Flag indicating that the item contains a media component that is sensitive to some security setting devices.                                                                                                       |
+| E02D08     | Desensitize item security  |           | 0-1      | Code       | LCF code list **[[SCD\|LCF-Code-Lists#SCD]]**<br/>Flag indicating that the security should or should not be desensitized / removed on check-out. |
 | *E02C09*   | *Check-out restriction*    |           | 0-n      |            | Composite element containing details of a restriction on check-out of this item. Repeatable for multiple restriction types. Overrides the same check-out restrictions specified for the title.                                                                          |
-| E02D09.1   | Restriction type           |           | 1        | Code       | LCF code list **[[CRT\|LCF-Code-Lists#CRT]]**          |
+| E02D09.1   | Restriction type           |           | 1        | Code       | LCF code list **[[CRT\|LCF-Code-Lists#CRT]]**                                                                                                  |
 | E02D09.2   | Restriction code / value   |           | 1        | String     | Restriction value of the specified type.                                                                                                          |
 | E02D09.3   | Restriction note           |           | 0-1      | String     | Free-text note or description of the restriction.                                                                                                   |
 | *E02C10*   | *Check-out fee*            | BO        | 0-n      |            | Composite element containing details of any fee required to check out this item. Repeatable if there are fees of different types. NOTE – Rarely used, as fees are rarely fixed for an item and must be calculated at check-out time, based upon a variety of factors. If included, Overrides the same check-out fees specified for the title.                                           |
@@ -288,10 +288,11 @@ NOTE – Contact information is held in separate contact records for security an
 | *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
 | E03D03.1   | Location association type  |           | 1        | Code       | LCF code list **[[LAT\|LCF-Code-Lists#LAT]]**          |
 | E03D03.2   | Location reference         |           | 1        | String     | *Cardinality corrected in v1.0.1* |
+| E03D34     | Patron's home institution  |           | 0-1      | String     | Patron's home library/institution as represented by an Authority / Institution entity (E14)<br/>*(Added v1.0.1)*                                    |
 | E03D04     | Patron status              |           | 0-nR     | Code       | LCF code list **[[PNS\|LCF-Code-Lists#PNS]]**              |
 | **<strike>E03D04.1</strike>** | **<strike>Condition</strike>** |            | **<strike>1-n</strike>** | **<strike>Code</strike>** |                                                                   *Removed v1.0.1* |
 | *E03C24*   | *Library card status information* |    | 0-1R     |            | Status information on the patron's library card.<br/>*Added v1.0.1*                                                                               |
-| E03D24.1   | Library card status        |           | 1R       | Code       | LCF code list **[[PCS\|LCF-Code-Lists#PCS]]**<br/>*ID changed from E03C05 in v1.0.1*                                                                                 |
+| E03D24.1   | Library card status        |           | 1R       | Code       | LCF code list **[[PCS\|LCF-Code-Lists#PCS]]**<br/>*ID changed from E03C05 in v1.0.1*                                                           |
 | E03D24.2   | Blocked card message       | AL        | 0-1R     | String     |*ID changed from E03D06 in v1.0.1* |
 | E03D28     | Patron category            |           | 0-1      | String     | Library-specific code<br/>*Added v1.0.1*                                                                                                        |
 | E03D29     | Patron tag                 |           | 0-n      | String     | Library-specific tag<br/>*Added v1.0.1*                                                                                                        |
@@ -308,21 +309,21 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D10     | Number of overdue items    |           | 0-1R     | Integer    |                                |
 | E03D11     | Overdue items limit        | CA        | 0-1      | Integer    |                                |
 | E03D12     | Number of recalled items   |           | 0-1R     | Integer    |                                |
-| E03D13     | Number of items for which                                                                          fees other than fines are due             |           | 0-1R     | Integer    |                                |
-| E03D14     | Number of items for which                                                                        fines are due                             |           | 0-1R     | Integer    |                                |
+| E03D13     | Number of items for which fees other than fines are due |  | 0-1R   | Integer    |              |
+| E03D14     | Number of items for which fines are due |  | 0-1R | Integer    |                                |
 | E03D15     | Reservation reference      |           | 0-nR     | String     | A reservation associated with this patron                                                                                                         |
 | E03D16     | Number of available hold items |       | 0-1R     | Integer    |                                |
 | E03D17     | Number of unavailable hold items |     | 0-1R     | Integer    |                                |
 | E03D18     | Hold items limit           | BZ        | 0-1      | Integer    |                                |
-| E03D19     | Charge reference           |           | 0-nR     | String     | A charge associated with this patron. It is recommended that a patron record should include references to all unpaid charges.                |
-| *E03C20*   | *Charge limit*             | CC        | 0-n      |            | Composite element. The limit on charges (fees or fines) that this patron is allowed to owe. Repeatable if separate limits are specified for charges of different types.                                                                                            |
-| E03D20.1   | Charge type                | BT        | 0-1      | Code       | LCF code list **[[CHT\|LCF-Code-Lists#CHT]]**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.                                                                         |
+| E03D19     | Charge reference           |           | 0-nR     | String     | A charge associated with this patron. It is recommended that a patron record should include references to all unpaid charges.                        |
+| *E03C20*   | *Charge limit*             | CC        | 0-n      |            | Composite element. The limit on charges (fees or fines) that this patron is allowed to owe. Repeatable if separate limits are specified for charges of different types.                                                                                               |
+| E03D20.1   | Charge type                | BT        | 0-1      | Code       | LCF code list **[[CHT\|LCF-Code-Lists#CHT]]**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.                                                  |
 | E03D20.2   | Charge amount              | BV        | 1        | Value      | Currency value                 |
 | E03D20.3   | Charge currency            | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
 | *E03C31*   | *Deposit balance*          |           | 0-1      |            | Balance of funds deposited, if the Patron maintains a balance available for settling future charges or fines<br/>*Added v1.0.1*                   |
 | E03D31.1   | Deposit amount             |           | 1        | Value      | Currency value                 |
 | E03D31.2   | Deposit currency           |           | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                               |
+| *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                                   |
 | E03D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E03D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
 | E03D21.3   | Note text                  |           | 1        | String     |                                |
@@ -347,6 +348,7 @@ An identified place where an item may be located, either inside or outside a lib
 | E04D03     | Location name              |           | 0-1      | String     |                                |
 | E04D04     | Location type              |           | 0-1      | Code       | LCF code list **[[LOT\|LCF-Code-Lists#LOT]]**              |
 | E04D05     | Location description       |           | 0-1      | String     |                                |
+| E04D07     | Contact reference          |           | 1        | String     | *Added v1.0.1*                 |
 | *E04C06*   | *Location note*            |           | 0-n      |            | A note attached to the LMS record for this location.                                                                                             |
 | E04D06.1   | Note type                  |           | 0-1      | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E04D06.2   | Note date-time             |           | 0-1      | DateTime   |                                |
@@ -483,7 +485,7 @@ An identified payment made by a patron to settle one or more charges.
 
 #### Description
 
-Contact details for the primary contact person or organization for a patron.
+Contact details for the primary contact person or organization for a patron, location or authority/institution. *(Description changed in v1.0.1)*
 
 #### Properties
 
@@ -491,11 +493,13 @@ Contact details for the primary contact person or organization for a patron.
 |------------|----------------------------|------------|---------|------------|--------------------------------|
 | **E09D01** | **Contact identifier**     |            | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this contact.**                                                                              |
 | **<strike>E09D02</strike>** | **<strike>Name</strike>** | **<strike>AE</strike>** | **<strike>1</strike>** | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>       *Removed v1.0.1* |
-| **E09D03** | **Patron ref**             |            | **1-n** | **String** |                                |
+| E09D03     | Patron reference           |            | 0-n     | String     | *Cardinality changed v1.0.1*   |
+| E09D10     | Location reference         |            | 0-n     | String     | *Added v1.0.1*                 |
+| E09D11     | Authority/Institution reference |       | 0-n     | String     | *Added v1.0.1*                 |
 | <strike>E09D04</strike> | <strike>Address</strike> | <strike>BD</strike> | <strike>0-n</strike> | <strike>String</strike> | <strike>Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.</strike><br/>                                                 *Removed v1.0.1* |
 | *<strike>E09C05</strike>* | *<strike>Communication details</strike>* |        | <strike>0-n</strike> |      | <strike>Composite element containing a single communication number, address or locator for the patron. Repeatable for different communication types.</strike><br/>                                              *Removed v1.0.1* |
-| **E09D05** | **Communication type**     |            | **1**   | **Code**   | **LCF code list [[CMT\|LCF-Code-Lists#CMT]]**<br/>*Changed v1.0.1*                                                                                                        |
-| **E09D06** | **Communication locator**  |            | **1-n** | **String** | The number, address or locator<br/>*Changed v1.0.1*                                                                                   |
+| **E09D08** | **Communication type**     |            | **1**   | **Code**   | **LCF code list [[CMT\|LCF-Code-Lists#CMT]]**<br/>*Added v1.0.1*                                                                                                        |
+| **E09D09** | **Communication locator**  |            | **1-n** | **String** | The number, address or locator<br/>*Added v1.0.1*                                                                                   |
 | **<strike>E09D06</strike>** | **<strike>Language</strike>** |        | **<strike>1</strike>** | **<strike>Code</strike>** | **<strike>Language for communication with contact<br/>ISO three-letter language code, e.g. ‘eng’</strike>**<br/>                                                                    *Removed v1.0.1* |
 | *E09C07*   | *Contact note*             |            | 0-n     |            | A note attached to the LMS record for this contact.                                                                                              |
 | E09D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
@@ -621,6 +625,8 @@ A library authority or institution.
 | *E14C06*   | *Associated authority/institution* |   | 0-n      |            | Another authority/institution associated with this authority/institution.                                                                    |
 | E14D06.1   | Authority/institution association type | | 1      | Code       | LCF code list **[[AAT\|LCF-Code-Lists#AAT]]**          |
 | E14D06.2   | Authority/institution reference |      | 1        | String     |                                |
+| E14D08     | Patron reference           |           | 0-n      | String     | A patron for whom this institution is their home library/institution                                                                                 |
+| E14D09     | Item reference             |           | 0-n      | String     | An item owned by this institution |
 | *E14C07*   | *Authority/institution description / note* || 0-1 |            |                                |
 | E14D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
