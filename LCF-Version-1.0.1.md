@@ -300,6 +300,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D30     | Patron expiration date     |           | 0-1      | Date       | Date upon which this Patron account expired or is due to expire<br/>*Added v1.0.1*                                                                 |
 | *E03C33*   | *Associated patron group*  |           | 0-n    |            | A group of patrons with which this patron is associated either as a leader or a member.<br/>*Added v1.0.1*                                        |
 | E03D33.1   | Patron group association type |        | 1        | Code       | LCF code list **[[PGP\|LCF-Code-Lists#PGP]]**                                                                                                  |
+| E03D33.5   | Patron group type          |           | 0-1      | String     | A code assigned by the LMS, indicating the type of group, e.g. 'family', 'school'                                                                     |
 | E03D33.2   | Patron group identifier    |           | 0-1      | String     | A unique identifier of the group |
 | E03D33.3   | Lead patron reference      |           | 0-n      | String     | Leader(s) of the group         |
 | E03D33.4   | Patron reference           |           | 0-n      | String     | Other member(s) of the group   |
