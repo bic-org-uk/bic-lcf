@@ -927,21 +927,23 @@ The patron payment function combines the following core functions:
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **Q13D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list [[RQT\|LCF-Code-Lists#RQT]]**           |
+| **Q13D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list [[RQT\|LCF-Code-Lists#RQT]]**<br/>Code value RQT02 shall not be used in this request. Use RQT05 instead.<br/>*Description modified in v1.0.1*                                                                                                        |
 | **Q13D02** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
 | Q13D03     | Charge reference           |            | 0-n     | String    | Charge(s) against which to set this payment. If omitted, the LMS determines the charges against which to set the payment.                          |
 | **Q13D04** | **Payment type**           |            | **1**   | **Code**  | **LCF code list [[PYT\|LCF-Code-Lists#PYT]]**           |
 | Q13D05     | Payment type description   |            | 0-1     | String    | Further information on method of payment                                                                                                        |
 | **Q13D06** | **Payment amount**         |            | **1**   | **Value** | **Currency value.**             |
 | Q13D07     | Payment currency           |            | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
+| Q13D08     | Transaction reference      |            | 0-1     | String    | The identifier of the successful payment transaction. Only included if the request type (Q13D01) is '05' (Confirmation request following successful payment transaction).<br/>*Added v1.0.1*                                                                       |
 
 #### Response
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **R13D01** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
-| R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                         |
-| R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                 |
+| R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                                 |
+| R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                      |
+| R13D04     | Authorisation reference    |            | 0-1     | String    | Reference to an authorisation entity when the LMS needs to authorise that a payment transaction can proceed. The authorisation must be of type AUT02.<br/>*Added v1.0.1*                     |
 
 ### <a name="f14"></a> 14 Block patron account
 [Back to functions list](#functions)
