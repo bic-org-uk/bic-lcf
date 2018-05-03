@@ -402,7 +402,9 @@ An XML document conforming to the XML schema for payment entities must be attach
 
 #### Response
 
-The response is the same as for creating any entity – see function 03 above.
+The response depends upon whether there is a need for a two-phase transaction process or not. If the LMS has to authorise payment before the transaction can proceed, a HTTP response 202 will be sent in response to the initial POST, which must be repeated with authorisation reference and transaction reference included in the Payment record.
+
+If the LMS does not have to authorise payment, the response is the same as for creating any entity - see function 03.
 
 14 Block patron account
 -----------------------
