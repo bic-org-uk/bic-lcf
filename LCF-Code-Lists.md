@@ -97,7 +97,8 @@ The code lists defined are:
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
-  AUT01          | PCI               | Parental consent has been granted for a child patron to acccess the Internet from library premises                                                                                      |  
+  AUT01          | PCI               | Parental consent has been granted for a child patron to access the Internet from library premises                                                                                      |
+  AUT02          | PAY               | Consent has been granted for a Patron to proceed to make a payment against their account. May only be used in LCF function 13 (Patron payment) responses.
 
 ### <a id="CAT"></a>CAT Contact association type *(added in LCF v1.0.1)*
 
