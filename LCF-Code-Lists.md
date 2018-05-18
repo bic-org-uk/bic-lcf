@@ -344,6 +344,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   --------- |-------------- |----------------------------------- |------------------------------
   MAC01     |01             |Display/deliver between from/until dates | If no 'until' date is specified, display indefinitely
   MAC02     |02             |Display/deliver until acknowledged  |
+  MAC03     |03             |Not for display/delivery - inactive |
   
 ### <a id="MAD"></a>MAD Message/alert delivery status *(added in LCF v1.0.1)*
 
