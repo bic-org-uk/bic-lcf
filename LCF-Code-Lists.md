@@ -47,8 +47,8 @@ The code lists defined are:
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
--   [MAC Message/alert display/delivery constraints [(#MAC) *(added in LCF v1.0.1)*
--   [MAD Message/alert delivery status[(#MAD) *(added in LCF v1.0.1)*
+-   [MAC Message/alert display/delivery constraints](#MAC) *(added in LCF v1.0.1)*
+-   [MAD Message/alert delivery status](#MAD) *(added in LCF v1.0.1)*
 -   [MAP Message/alert priority](#MAP) *(added in LCF v1.0.1)*
 -   [MAT Message/alert type](#MAT) *(added in LCF v1.0.1)*
 -   [MAU Message/alert audience](#MAU) *(added in LCF v1.0.1)*
