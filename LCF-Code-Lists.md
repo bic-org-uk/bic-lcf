@@ -309,6 +309,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI01       |01             |Proprietary    
   LOI02       |02             |GLN            
   LOI03       |03             |SAN            
+  LOI04       |04             |URI            |*Added v1.0.1*
 
 ### <a id="LOS"></a>LOS Loan status
 
@@ -333,6 +334,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT01        |01             |Library / institution               |
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
+  LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added v1.0.1*
   
 ### <a id="MAP"></a>MAP Message/alert priority *(added in LCF v1.0.1)*
 
