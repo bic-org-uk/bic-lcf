@@ -654,15 +654,15 @@ A message or alert that may be communicated to a patron or group of patrons.
 | **E15D03** | **Message/alert type**     |            | **1**   | **Code**   | LCF code list **[[MAT\|LCF-Code-Lists#MAT]]**                                                                                                  |
 | E15D04     | Message/alert priority     |            | 0-1     | Code       | LCF code list **[[MAP\|LCF-Code-Lists#MAP]]**                                                                                                  |
 | E15D05     | Message/alert display type |            | 0-1     | Code       | LCF code list **[[MGT\|LCF-Code-Lists#MGT]]**                                                                                                  |
-| E15D06     | Display/delivery constraints |          | 0-1     | Code       | LCF code list **[[MAC\|LCF-Code-Lists#MAC]]**                                                                                                  |
+| E15D06     | Display/delivery constraint |          | 0-1     | Code       | LCF code list **[[MAC\|LCF-Code-Lists#MAC]]**                                                                                                  |
 | E15D07     | Display from date-time     |            | 0-1     | DateTime   |                                |
 | E15D08     | Display until date-time    |            | 0-1     | DateTime   |                                |
-| E15D08     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[[MAU\|LCF-Code-Lists#MAU]]**                                                                                                  |
-| E15D09     | Patron category            |            | 0-n     | String     | Only included if audience is not all patrons |
-| E15D10     | Patron reference           |            | 0-n     | String     | Only included if audience is not all patrons |
-| ***E15C11***  | **Message/alert text**  |            | **1-n** |            | Repeatable if the message/alert text is available in several alternative text formats                                                               |
-| **E15D11.1**  | Text format             |            | **1**   | Code       | LCF code list **[[TFT\|LCF-Code-Lists#TFT]]**                                                                                                  |
-| **E15D11.2**  | Text string             |            | **1**   | String     |                                |
+| E15D09     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[[MAU\|LCF-Code-Lists#MAU]]**                                                                                                  |
+| E15D10     | Patron category            |            | 0-n     | String     | Only included if audience is not all patrons |
+| E15D11     | Patron reference           |            | 0-n     | String     | Only included if audience is not all patrons |
+| ***E15C12***  | **Message/alert text**  |            | **1-n** |            | Repeatable if the message/alert text is available in several alternative text formats                                                               |
+| **E15D12.1**  | Text format             |            | **1**   | Code       | LCF code list **[[TFT\|LCF-Code-Lists#TFT]]**                                                                                                  |
+| **E15D12.2**  | Text string             |            | **1**   | String     |                                |
 
 
 Common components
