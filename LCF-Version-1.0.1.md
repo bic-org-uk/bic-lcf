@@ -284,7 +284,7 @@ NOTE – Contact information is held in separate contact records for security an
 | E02D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E03D22** | **Name**                   | **AE**    | **1**    | **String** | **Name of primary contact for this patron.**<br/>*Added v1.0.1*                                                                                   |
 | E03D02     | Contact reference          |           | 0-n      | String     | Contact details for this patron<br/>*Repeatable v1.0.1*                                                                                 |
-| E03D23     | Language                   |           | 0-1        | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1*                              |
+| E03D23     | Language                   |           | 0-1      | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added v1.0.1*                              |
 | *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
 | E03D03.1   | Location association type  |           | 1        | Code       | LCF code list **[[LAT\|LCF-Code-Lists#LAT]]**          |
 | E03D03.2   | Location reference         |           | 1        | String     | *Cardinality corrected in v1.0.1* |
@@ -321,10 +321,13 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D20.1   | Charge type                | BT        | 0-1      | Code       | LCF code list **[[CHT\|LCF-Code-Lists#CHT]]**<br/>May only be omitted if there is only one occurrence of the charge limit composite, in which case the amount is the limit on the aggregate of charges of all types.                                                  |
 | E03D20.2   | Charge amount              | BV        | 1        | Value      | Currency value                 |
 | E03D20.3   | Charge currency            | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| *E03C31*   | *Deposit balance*          |           | 0-1      |            | Balance of funds deposited, if the Patron maintains a balance available for settling future charges or fines<br/>*Added v1.0.1*                   |
+| *E03C31*   | *Deposit balance*          |           | 0-1      |            | Balance of funds deposited, if the Patron maintains a balance available for settling future charges or fines<br/>*Added v1.0.1*                          |
 | E03D31.1   | Deposit amount             |           | 1        | Value      | Currency value                 |
 | E03D31.2   | Deposit currency           |           | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                                   |
+| E03C34     | Associated message/alert   |           | 0-n      |            | A message/alert for display<br/>*Added v1.0.1*                                                                                                        |
+| E03D34.1   | Message reference          |           | 1        | String     |                                |
+| E03D34.2   | Message delivery status    |           | 0-1      | Code       | LCF code list **[[MAD\|LCF-Code-Lists#MAD]]**<br/>                                                                                             |
+| *E03C21*   | *Patron note*              |           | 0-n      |            | A note attached to the LMS record for this patron.                                                                                                        |
 | E03D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E03D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
 | E03D21.3   | Note text                  |           | 1        | String     |                                |
@@ -651,8 +654,9 @@ A message or alert that may be communicated to a patron or group of patrons.
 | **E15D03** | **Message/alert type**     |            | **1**   | **Code**   | LCF code list **[[MAT\|LCF-Code-Lists#MAT]]**                                                                                                  |
 | E15D04     | Message/alert priority     |            | 0-1     | Code       | LCF code list **[[MAP\|LCF-Code-Lists#MAP]]**                                                                                                  |
 | E15D05     | Message/alert display type |            | 0-1     | Code       | LCF code list **[[MGT\|LCF-Code-Lists#MGT]]**                                                                                                  |
-| E15D06     | Display from date-time     |            | 0-1     | DateTime   |                                |
-| E15D07     | Display until date-time    |            | 0-1     | DateTime   |                                |
+| E15D06     | Display/delivery constraints |          | 0-1     | Code       | LCF code list **[[MAC\|LCF-Code-Lists#MAC]]**                                                                                                  |
+| E15D07     | Display from date-time     |            | 0-1     | DateTime   |                                |
+| E15D08     | Display until date-time    |            | 0-1     | DateTime   |                                |
 | E15D08     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[[MAU\|LCF-Code-Lists#MAU]]**                                                                                                  |
 | E15D09     | Patron category            |            | 0-n     | String     | Only included if audience is not all patrons |
 | E15D10     | Patron reference           |            | 0-n     | String     | Only included if audience is not all patrons |
