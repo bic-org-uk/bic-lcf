@@ -321,6 +321,7 @@ The response to a check-out or renewal may be the same response as for creating 
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [[MEW\|LCF-Code-Lists#MEW]] – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [[SCD\|LCF-Code-Lists#SCD]] – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
+| 7     | R11D06       | access-link                              | 0-1     | anyURI      | *Added v1.0.1*    |
 
 *Example of a Response XML payload:*
 
