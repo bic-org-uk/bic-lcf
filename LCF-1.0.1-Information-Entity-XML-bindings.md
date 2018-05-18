@@ -195,17 +195,20 @@ E03 PATRON
 |  40   | E03D18       | hold-items-limit            | 0-1     | int         |         |
 |  41   | E03D19       | charge-ref                  | 0-nR    | string      |         |
 |  42   | E03C20       | charge-limit                | 0-n     |             |         |
-|  43   | E03D20.1     | charge-type                 | 0-1     | Code        | [[CHT\|LCF-Code-Lists#CHT]]    |
+|  43   | E03D20.1     | charge-type                 | 0-1     | Code        | [[CHT\|LCF-Code-Lists#CHT]]   |
 |  44   | E03D20.2     | amount                      | 1       | decimal     |         |
 |  45   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
 |  46   | E03C31       | deposit-balance             | 0-1     | decimal     | *Added v1.0.1*                |
 |  47   | E03D31.1     | amount                      | 1       | decimal     |         |
 |  48   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
-|  49   | E03C21       | note                        | 0-n     |             |         |
-|  50   | E03D21.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]    |
-|  51   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
-|  52   | E03D21.3     | note-text                   | 1       | string      |         |
-|  53   | E03D25       | date-of-birth               | 0-1     | date        | *Added v1.0.1*                |
+|  49   | E03C34       | associated-message          | 0-n     |             |         |
+|  50   | E03D34.1     | message-ref                 | 1       | string      |         |
+|  51   | E03D34.2     | delivery-status             | 1       | Code        | [[MAD\|LCF-Code-Lists#MAD]]   |
+|  52   | E03C21       | note                        | 0-n     |             |         |
+|  53   | E03D21.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]   |
+|  54   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
+|  55   | E03D21.3     | note-text                   | 1       | string      |         |
+|  56   | E03D25       | date-of-birth               | 0-1     | date        | *Added v1.0.1*                |
 
 E04 LOCATION
 ------------
@@ -442,11 +445,12 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 | **4** | **E15D03**   | **message-type**            | **1**   | **Code**    | **[[MAT\|LCF-Code-Lists#MAT]]** |
 |   5   | E15D04       | priority                    | 0-1     | Code        | [[MAP\|LCF-Code-Lists#MAP]] |
 |   6   | E15D05       | display-type                | 0-1     | Code        | [[MGT\|LCF-Code-Lists#MGT]] |
-|   7   | E15D06       | start-date                  | 0-1     | DateTime    |         |
-|   8   | E15D07       | end-date                    | 0-1     | DateTime    |         |
-|   9   | E15D08       | audience                    | 0-1     | Code        | [[MAU\|LCF-Code-Lists#MAU]] |
-|  10   | E15D09       | patron-category             | 0-n     | String      |         |
-|  11   | E15D10       | patron-ref                  | 0-n     | String      |         |
+|   7   | E15D06       | display-constraint          | 0-1     | Code        | [[MAC\|LCF-Code-Lists#MAC]] |
+|   8   | E15D06       | start-date                  | 0-1     | DateTime    |         |
+|   9   | E15D07       | end-date                    | 0-1     | DateTime    |         |
+|  10   | E15D08       | audience                    | 0-1     | Code        | [[MAU\|LCF-Code-Lists#MAU]] |
+|  11   | E15D09       | patron-category             | 0-n     | String      |         |
+|  12   | E15D10       | patron-ref                  | 0-n     | String      |         |
 
 EXCEPTION CONDITIONS
 --------------------
