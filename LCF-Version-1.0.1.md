@@ -877,7 +877,7 @@ The terminal application must provide all the information required for all the n
 | R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[[MEW\|LCF-Code-Lists#MEW]]**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
 | R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[[SCD\|LCF-Code-Lists#SCD]]**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
 | R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan. |
-| R11D06     | Digital content access link and key |   | 0-1     | String    | Non-persistent link to be used by the patron to access checked-out digital content                                                                   |
+| R11D06     | Digital content access link and key |   | 0-1     | String    | Non-persistent link to be used by the patron to access checked-out digital content<br/>*Added v1.0.1*                                                |
 
 ### 
 
