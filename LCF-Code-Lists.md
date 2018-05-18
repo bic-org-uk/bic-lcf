@@ -47,6 +47,7 @@ The code lists defined are:
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
+-   [MAC Message/alert display/delivery constraints [(#MAC) *(added in LCF v1.0.1)*
 -   [MAD Message/alert delivery status[(#MAD) *(added in LCF v1.0.1)*
 -   [MAP Message/alert priority](#MAP) *(added in LCF v1.0.1)*
 -   [MAT Message/alert type](#MAT) *(added in LCF v1.0.1)*
@@ -336,6 +337,13 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
   LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added v1.0.1*
+  
+### <a id="MAC"></a>MAD Message/alert display/delivery constraints *(added in LCF v1.0.1)*
+
+*Code ID*   |*Code value*   |*Definition*                        |*Notes*
+  --------- |-------------- |----------------------------------- |------------------------------
+  MAC01     |01             |Display/deliver between from/until dates | If no 'until' date is specified, display indefinitely
+  MAC02     |02             |Display/deliver until acknowledged  |
   
 ### <a id="MAD"></a>MAD Message/alert delivery status *(added in LCF v1.0.1)*
 
