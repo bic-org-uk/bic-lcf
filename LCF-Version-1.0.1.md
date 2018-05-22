@@ -378,6 +378,7 @@ An identified event in which one or more items have been loaned to a patron.
 | E05D05     | Loan end due date-time     |           | 0-1      | DateTime   | Omitted only if the loan is permanent or doesn't have a specific end date-time.                                                            |
 | E05D06     | Loan end date-time         |           | 0-1      | DateTime   | Actual end date-time. Used when recording past loans.                                                                                          |
 | **E05D07** | **Loan status**            |           | **1-n**  | **Code**   | **LCF code list [[LOS\|LCF-Code-Lists#LOS]]**          |
+| E05D13     | Digital item access link   |           | 0-1      | String     | A link to access the item, typically only generated when the Loan entity is retrieved<br/>*Added v1.0.1*                                              |
 | E05D08     | Previous loan reference    |           | 0-1      | String     | Used when loan is a renewal                                                                                                        |
 | E05D09     | Renewal loan reference     |           | 0-1R     | String     | Used when loan is superceded by a renewal loan                                                                                                   |
 | E05D10     | Recall notice date-time    | CJ        | 0-nR     | DateTime   | The date on which a recall notice for the item on loan was issued.                                                                               |
@@ -881,7 +882,7 @@ The terminal application must provide all the information required for all the n
 | R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[[MEW\|LCF-Code-Lists#MEW]]**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
 | R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[[SCD\|LCF-Code-Lists#SCD]]**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
 | R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan. |
-| R11D06     | Digital content access link and key |   | 0-1     | String    | Non-persistent link to be used by the patron to access checked-out digital content<br/>*Added v1.0.1*                                                |
+| R11D06     | Digital content access link |   | 0-1     | String    | Non-persistent link to be used by the patron to access checked-out digital content<br/>*Added v1.0.1*                                                |
 
 ### 
 
