@@ -375,15 +375,15 @@ An identified event in which one or more items have been loaned to a patron.
 | **E05D02** | **Patron reference**       | **AA**    | **1**    | **String** |                                |
 | **E05D03** | **Item reference**         | **AB**    | **1**    | **String** | **A loan applies to a single item** |
 | **E05D04** | **Loan start date-time**   |           | **1**    |**DateTime**|                                |
-| E05D05     | Loan end due date-time     |           | 0-1      | DateTime   | Omitted only if the loan is permanent or doesn't have a specific end date-time.                                                            |
-| E05D06     | Loan end date-time         |           | 0-1      | DateTime   | Actual end date-time. Used when recording past loans.                                                                                          |
+| E05D05     | Loan end due date-time     |           | 0-1      | DateTime   | Omitted only if the loan is permanent or doesn't have a specific end date-time.                                                                         |
+| E05D06     | Loan end date-time         |           | 0-1      | DateTime   | Actual end date-time. Used when recording past loans.                                                                                                    |
 | **E05D07** | **Loan status**            |           | **1-n**  | **Code**   | **LCF code list [[LOS\|LCF-Code-Lists#LOS]]**          |
-| E05D13     | Digital item access link   |           | 0-1      | String     | A link to access the item, typically only generated when the Loan entity is retrieved<br/>*Added v1.0.1*                                              |
+| E05D13     | Digital item access link   |           | 0-1      | String     | A link to access the loaned item, typically only generated when the Loan entity is retrieved<br/>*Added v1.0.1*                                  |
 | E05D08     | Previous loan reference    |           | 0-1      | String     | Used when loan is a renewal                                                                                                        |
-| E05D09     | Renewal loan reference     |           | 0-1R     | String     | Used when loan is superceded by a renewal loan                                                                                                   |
-| E05D10     | Recall notice date-time    | CJ        | 0-nR     | DateTime   | The date on which a recall notice for the item on loan was issued.                                                                               |
+| E05D09     | Renewal loan reference     |           | 0-1R     | String     | Used when loan is superceded by a renewal loan                                                                                                           |
+| E05D10     | Recall notice date-time    | CJ        | 0-nR     | DateTime   | The date on which a recall notice for the item on loan was issued.                                                                                       |
 | E05D11     | Charge reference           |           | 0-nR     | String     |                                |
-| *E05C12*   | *Loan note*                |           | 0-n      |            | A note attached to the LMS record for this loan.                                                                                                 |
+| *E05C12*   | *Loan note*                |           | 0-n      |            | A note attached to the LMS record for this loan.                                                                                                          |
 | E05D12.1   | Note type                  |           | 0-1      | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E05D12.2   | Note date-time             |           | 0-1      | DateTime   |                                |
 | E05D12.3   | Note text                  |           | 1        | String     |                                |
