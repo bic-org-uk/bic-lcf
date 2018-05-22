@@ -352,7 +352,7 @@ An identified place where an item may be located, either inside or outside a lib
 | E04D03     | Location name              |           | 0-1      | String     |                                |
 | E04D04     | Location type              |           | 0-1      | Code       | LCF code list **[[LOT\|LCF-Code-Lists#LOT]]**              |
 | E04D05     | Location description       |           | 0-1      | String     |                                |
-| E04D07     | Contact reference          |           | 1        | String     | *Added v1.0.1*                 |
+| E04D07     | Contact reference          |           | 0-n      | String     | *Added v1.0.1*                 |
 | *E04C06*   | *Location note*            |           | 0-n      |            | A note attached to the LMS record for this location.                                                                                             |
 | E04D06.1   | Note type                  |           | 0-1      | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E04D06.2   | Note date-time             |           | 0-1      | DateTime   |                                |
@@ -630,8 +630,6 @@ A library authority or institution.
 | *E14C06*   | *Associated authority/institution* |   | 0-n      |            | Another authority/institution associated with this authority/institution.                                                                    |
 | E14D06.1   | Authority/institution association type | | 1      | Code       | LCF code list **[[AAT\|LCF-Code-Lists#AAT]]**          |
 | E14D06.2   | Authority/institution reference |      | 1        | String     |                                |
-| E14D08     | Patron reference           |           | 0-n      | String     | A patron for whom this institution is their home library/institution                                                                                 |
-| E14D09     | Item reference             |           | 0-n      | String     | An item owned by this institution |
 | *E14C07*   | *Authority/institution description / note* || 0-1 |            |                                |
 | E14D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
