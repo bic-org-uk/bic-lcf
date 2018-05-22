@@ -131,6 +131,8 @@ Data frameworks are defined for the following terminal application functions:
 
     -   [Apply charge to patron account](#f31)
 
+    -   [Acknowledge message/alert](#f32)
+
 Each of the data frameworks for terminal application functions assumes that a function is implemented as a pair of messages exchanged between the terminal application and the LMS, connected over a network. The terminal application initiates the exchange by sending a request to the LMS to execute the function in question. The LMS then sends a response to the terminal application, indicating the outcome of the request.
 
 Each entity and function is defined in terms of data elements. Data elements may be grouped into composites. Each element is identified by a number prefixed by ‘D’ for simple data elements and by ‘C’ for composite data elements.
@@ -1081,7 +1083,7 @@ This function selects all items that are available to be borrowed at a specific 
 Various other functions
 -----------------------
 
-### <a name="f16"></a> 31 Apply charge to patron account
+### <a name="f31"></a> 31 Apply charge to patron account
 [Back to functions list](#functions)
 
 The function applies the following core function:
@@ -1111,6 +1113,12 @@ The function applies the following core function:
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **R31D01** | **Charge reference**       |            | **1**   | **String**| **The identifier for the Charge record that has been successfully created.**                                                                  |
+
+### <a name="f32"></a> 32 Acknowledge message/alert
+[Back to functions list](#functions)
+
+The function modifies a Patron entity to change the delivery status of an associated Message/alert (E03D34.2) to 'Delivered, acknowledged' (MAD03), and is the same as function 04 applied to a Patron entity with entity modification type 'update' (MOT02), the request containing the associated Message/alert (E03C34) to be updated. The response is as for function 04.
+
 ___
 
 <a name="Notes"></a>[1] The acronym "LCF" derives from an informal, abbreviated name for the standard, coined during its development: "Library Communication Framework".
