@@ -428,8 +428,6 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |  15   | E14C06       | associated-authority        | 0-n     |             |         |
 |  16   | E14D06.1     | association-type            | 1       | Code        | [[AAT\|LCF-Code-Lists#AAT]] |
 |  17   | E14D06.2     | authority-ref               | 1       | string      |         |
-|  18   | E14D08       | patron-ref                  | 0-n     | string      |         |
-|  19   | E14D09       | item-ref                    | 0-n     | string      |         |
 |  20   | E14C07       | note                        | 0-1     |             |         |
 |  21   | E14D07.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]] |
 |  22   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
