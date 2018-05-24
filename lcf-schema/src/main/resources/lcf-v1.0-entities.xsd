@@ -152,6 +152,7 @@
 			<xs:element ref="end-due-date" minOccurs="0"/>
 			<xs:element ref="end-date" minOccurs="0"/>
 			<xs:element ref="loan-status" maxOccurs="unbounded"/>
+            <xs:element ref="access-link" minOccurs="0"/>
 			<xs:element ref="recall-notice-date" minOccurs="0"/>
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
@@ -321,6 +322,7 @@
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
+    <xs:element name="access-link" type="nonEmptyString"/>
 	<xs:element name="additional-item-id">
 		<xs:complexType>
 			<xs:sequence>
