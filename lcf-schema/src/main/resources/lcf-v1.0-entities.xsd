@@ -227,6 +227,7 @@
 			<xs:element ref="patron-category" minOccurs="0"/>
 			<xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="patron-expiration-date" minOccurs="0"/>
+			<xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="on-loan-items" minOccurs="0"/>
 			<xs:element ref="loan-items-limit" minOccurs="0"/>
@@ -362,12 +363,22 @@
 	<xs:element name="associated-location">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="association-type"/>
+				<xs:element name="association-type" type="locationAssociationType"/>
 				<xs:element ref="location-ref"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="association-type" type="locationAssociationType"/>
+	<xs:element name="associated-patron-group">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="association-type" type="patronGroupAssociationType"/>
+                <xs:element ref="group-type" minOccurs="0"/>
+                <xs:element ref="patron-group-id" minOccurs="0"/>
+                <xs:element ref="lead-patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 	<xs:element name="authorisation-type" type="authorisationCode"/>
 	<xs:element name="available-hold-items" type="xs:int"/>
 	<xs:element name="barcode-id" type="nonEmptyString"/>
@@ -447,6 +458,7 @@
 	</xs:element>
 	<xs:element name="fees-due-items" type="xs:int"/>
 	<xs:element name="fines-due-items" type="xs:int"/>
+    <xs:element name="group-type" type="nonEmptyString"/>
 	<xs:element name="heading" type="nonEmptyString"/>
 	<xs:element name="hold-items-limit" type="xs:int"/>
 	<xs:element name="hold-queue-position" type="xs:int"/>
@@ -459,6 +471,7 @@
 	<xs:element name="item-ref" type="nonEmptyString"/>
 	<xs:element name="items-in-stock" type="xs:int"/>
 	<xs:element name="language" type="languageCode"/>
+    <xs:element name="lead-patron-ref" type="nonEmptyString"/>
 	<xs:element name="loan-fee">
 		<xs:complexType>
 			<xs:sequence>
@@ -525,6 +538,7 @@
 	<xs:element name="paid-date" type="xs:dateTime"/>
 	<xs:element name="patron-category" type="nonEmptyString"/>
 	<xs:element name="patron-expiration-date" type="xs:dateTime"/>
+    <xs:element name="patron-group-id" type="nonEmptyString"/>
 	<xs:element name="patron-id-type" type="patronIdentificationScheme"/>
 	<xs:element name="patron-ref" type="nonEmptyString">
 		<xs:annotation>
@@ -1694,6 +1708,24 @@
 			<xs:enumeration value="00"/>
 		</xs:restriction>
 	</xs:simpleType>
+    <xs:simpleType name="patronGroupAssociationType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">PGP01</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Patron member of group</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘01’</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">PGP04</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Patron member of group</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
 	<xs:simpleType name="patronIdentificationScheme">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
