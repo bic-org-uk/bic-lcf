@@ -224,7 +224,7 @@ E04 LOCATION
 |   7   | E04D03       | name                        | 0-1     | string      |         |
 |   8   | E04D04       | location-type               | 0-1     | Code        | [[LOT\|LCF-Code-Lists#LOT]]     |
 |   9   | E04D05       | description                 | 0-1     | string      |         |
-|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added v1.0.1                   |
+|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added v1.0.1*                  |
 |  11   | E04C06       | note                        | 0-n     |             |         |
 |  12   | E04D06.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]]     |
 |  13   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
