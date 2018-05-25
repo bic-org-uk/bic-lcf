@@ -424,7 +424,7 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |  11   | E14C05       | associated-contact          | 0-n     |             |         |
 |  12   | E14D05.1     | association-type            | 1       | Code        | [[CAT\|LCF-Code-Lists#CAT]] |
 |  13   | E14D05.2     | contact-name                | 0-1     | string      |         |
-|  14   | E14D05.2     | contact-ref                 | 1       | string      |         |
+|  14   | E14D05.3     | contact-ref                 | 1       | string      |         |
 |  15   | E14C06       | associated-authority        | 0-n     |             |         |
 |  16   | E14D06.1     | association-type            | 1       | Code        | [[AAT\|LCF-Code-Lists#AAT]] |
 |  17   | E14D06.2     | authority-ref               | 1       | string      |         |
