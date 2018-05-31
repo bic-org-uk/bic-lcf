@@ -296,6 +296,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LAT03       |03             |Patron's "home" institution / branch / site / department   |
   LAT04       |04             |Main location of authority/institution                     |*Added in v1.0.1*
   LAT05       |05             |Other location of authority/institution                    |*Added in v1.0.1*
+  LAT06       |06             |Website of library authority/institution, branch or section|*Added in v1.0.1*
 
 ### <a id="LCS"></a>LCS Library classification scheme
 
@@ -312,6 +313,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI02       |02             |GLN            
   LOI03       |03             |SAN            
   LOI04       |04             |URI            |*Added v1.0.1*
+  LOI05       |05             |UPRN           |*Added v1.0.1*
 
 ### <a id="LOS"></a>LOS Loan status
 
