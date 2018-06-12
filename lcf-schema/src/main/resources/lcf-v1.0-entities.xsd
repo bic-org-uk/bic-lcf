@@ -126,6 +126,8 @@
 	<xs:group name="contact-props">
 		<xs:sequence>
 			<xs:element ref="patron-ref"/>
+			<xs:element ref="location-ref"/>
+			<xs:element ref="institution-ref"/>
 			<xs:element ref="communication-type"/>
 			<xs:element ref="locator" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -517,6 +519,7 @@
 			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="institution-ref" type="nonEmptyString"/>
 	<xs:element name="item-id-type" type="copyIDType"/>
 	<xs:element name="item-ref" type="nonEmptyString"/>
 	<xs:element name="items-in-stock" type="xs:int"/>
