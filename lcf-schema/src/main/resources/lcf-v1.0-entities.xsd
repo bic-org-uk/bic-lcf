@@ -145,7 +145,7 @@
 			<xs:element ref="additional-item-id" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="manifestation-ref"/>
 			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="owner" minOccurs="0"/>
+			<xs:element ref="owner-ref" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="media-warning"/>
 			<xs:element ref="security-desensitize"/>
@@ -195,6 +195,7 @@
 			<xs:element ref="name" minOccurs="0"/>
 			<xs:element ref="location-type" minOccurs="0"/>
 			<xs:element ref="description" minOccurs="0"/>
+			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="associated-location"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -247,6 +248,7 @@
 			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="language" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="home-institution-ref" minOccurs="0"/>
 			<xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="card-status-info" minOccurs="0"/>
 			<xs:element ref="patron-category" minOccurs="0"/>
@@ -514,6 +516,7 @@
 	<xs:element name="heading" type="nonEmptyString"/>
 	<xs:element name="hold-items-limit" type="xs:int"/>
 	<xs:element name="hold-queue-position" type="xs:int"/>
+	<xs:element name="home-institution-ref" type="nonEmptyString"/>
 	<xs:element name="identifier" type="nonEmptyString">
 		<xs:annotation>
 			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
@@ -586,7 +589,7 @@
 	<xs:element name="other-manifestation-in-series-ref" type="nonEmptyString"/>
 	<xs:element name="overdue-items" type="xs:int"/>
 	<xs:element name="overdue-items-limit" type="xs:int"/>
-	<xs:element name="owner" type="nonEmptyString"/>
+	<xs:element name="owner-ref" type="nonEmptyString"/>
 	<xs:element name="paid-amount" type="xs:decimal"/>
 	<xs:element name="paid-date" type="xs:dateTime"/>
 	<xs:element name="patron-category" type="nonEmptyString"/>
