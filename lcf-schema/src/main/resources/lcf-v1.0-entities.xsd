@@ -264,6 +264,7 @@
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="deposit-balance" minOccurs="0"/>
+			<xs:element ref="associated-message" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="date-of-birth" minOccurs="0"/>
 		</xs:sequence>
@@ -389,6 +390,14 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="associated-message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="message-ref"/>
+				<xs:element ref="delivery-status"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="association-type" type="locationAssociationType"/>
 	<xs:element name="audience" type="messageAlertAudience"/>
 	<xs:element name="authorisation-type" type="authorisationCode"/>
@@ -453,6 +462,7 @@
 	<xs:element name="currency" type="iso4217CurrencyCode"/>
 	<xs:element name="deposit-balance" type="xs:decimal"/>
 	<xs:element name="description" type="nonEmptyString"/>
+	<xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
 	<xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
 	<xs:element name="display-type" type="messageDisplayType"/>
 	<xs:element name="due-amount" type="xs:decimal"/>
@@ -524,6 +534,7 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="media-warning" type="mediaWarningFlag"/>
+	<xs:element name="message-ref" type="nonEmptyString"/>
 	<xs:element name="message-type" type="messageAlertType"/>
 	<xs:element name="name" type="nonEmptyString">
 		<xs:annotation>
@@ -1651,7 +1662,8 @@
 	</xs:simpleType>
 	<xs:simpleType name="locationIDType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
+			<xs:enumeration value="01">
+			</xs:enumeration>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
 		</xs:restriction>
@@ -1704,6 +1716,31 @@
 			<xs:enumeration value="00"/>
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="messageAlertDeliveryStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAD01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Not yet delivered</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAD02</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Delivered, not acknowledged</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAD03</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Delivered, acknowledged</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="messageAlertDisplayConstraint">
