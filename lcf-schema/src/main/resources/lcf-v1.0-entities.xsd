@@ -1684,6 +1684,13 @@
 					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="04">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI04</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">URI</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added v1.0.1</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI05</xs:appinfo>
