@@ -408,7 +408,7 @@
 	<xs:element name="condition-description" type="nonEmptyString"/>
 	<xs:element name="contact-ref" type="nonEmptyString">
 		<xs:annotation>
-			<xs:documentation>Llink to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
+			<xs:documentation>Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="contributor">
@@ -427,6 +427,7 @@
 	<xs:element name="cover-art" type="xs:anyURI"/>
 	<xs:element name="creation-date" type="xs:dateTime"/>
 	<xs:element name="currency" type="iso4217CurrencyCode"/>
+	<xs:element name="date-of-birth" type="xs:date"/>
 	<xs:element name="deposit-balance" type="xs:decimal"/>
 	<xs:element name="description" type="nonEmptyString"/>
 	<xs:element name="due-amount" type="xs:decimal"/>
@@ -601,7 +602,6 @@
 	<xs:element name="value-scheme-ref" type="nonEmptyString"/>
 	<xs:element name="volume-or-part" type="nonEmptyString"/>
 	<xs:element name="year-of-publication" type="xs:gYear"/>
-	<xs:element name="date-of-birth" type="xs:date"/>
 	<xs:simpleType name="cardStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
@@ -1087,7 +1087,7 @@
 			<xs:enumeration value="ZWL"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="innstitutionIDType">
+	<xs:simpleType name="institutionIDType">
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="languageCode">
@@ -1635,6 +1635,24 @@
 			<xs:enumeration value="03"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="manifestationIDType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
+			<xs:enumeration value="03"/>
+			<xs:enumeration value="05"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="17"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="manifestationStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
+			<xs:enumeration value="03"/>
+			<xs:enumeration value="04"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="mediaTypeScheme">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="01">
@@ -1778,24 +1796,6 @@
 			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="manifestationIDType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="14"/>
-			<xs:enumeration value="17"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="manifestationStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
