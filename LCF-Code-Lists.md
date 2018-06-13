@@ -465,7 +465,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   *Code ID*   |*Code value*   |*Definition*                     |*Notes*
   ----------- |-------------- |-------------------------------- |---------------------
   PGP01       |01             |Patron member of group           |
-  PGP04       |02             |Lead patron of group             |
+  PGP02       |02             |Lead patron of group             |
 
 ### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in LCF v1.0.1*
 
