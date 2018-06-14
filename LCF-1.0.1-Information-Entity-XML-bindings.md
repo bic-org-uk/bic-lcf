@@ -448,11 +448,14 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |   5   | E15D04       | priority                    | 0-1     | Code        | [[MAP\|LCF-Code-Lists#MAP]] |
 |   6   | E15D05       | display-type                | 0-1     | Code        | [[MGT\|LCF-Code-Lists#MGT]] |
 |   7   | E15D06       | display-constraint          | 0-1     | Code        | [[MAC\|LCF-Code-Lists#MAC]] |
-|   8   | E15D06       | start-date                  | 0-1     | DateTime    |         |
-|   9   | E15D07       | end-date                    | 0-1     | DateTime    |         |
-|  10   | E15D08       | audience                    | 0-1     | Code        | [[MAU\|LCF-Code-Lists#MAU]] |
-|  11   | E15D09       | patron-category             | 0-n     | String      |         |
-|  12   | E15D10       | patron-ref                  | 0-n     | String      |         |
+|   8   | E15D07       | start-date                  | 0-1     | DateTime    |         |
+|   9   | E15D08       | end-date                    | 0-1     | DateTime    |         |
+|  10   | E15D09       | audience                    | 0-1     | Code        | [[MAU\|LCF-Code-Lists#MAU]] |
+|  11   | E15D10       | patron-category             | 0-n     | String      |         |
+|  12   | E15D11       | patron-ref                  | 0-n     | String      |         |
+|  13   | **E15C12**   | message-text                | **1-n** | String      |         |
+|  14   | **E15D12.1** | message-format              | **1**   | Code        | **[[TFT\|LCF-Code-Lists#TFT]]** |
+|  15   | **E15D12.2** | text                        | **1**   | String      |         |
 
 EXCEPTION CONDITIONS
 --------------------
