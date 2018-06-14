@@ -418,8 +418,8 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |   2   | E14D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 |   3   | E14C02       | additional-authority-id     | 0-n     |             |         |
 |   4   | E14D02.1     | authority-id-type           | 1       | Code        | [[INS\|LCF-Code-Lists#INS]] |
-|   5   | E14D02.2     | id-type-name                | 0-1     | string      |         |
-|   6   | E14D02.3     | id-value                    | 1       | string      |         |
+|   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
+|   6   | E14D02.3     | value                    | 1       | string      |         |
 | **7** | **E14D03**   | **name**                    | 1       | string      |         |
 |   8   | E14C04       | associated-location         | 0-n     |             |         |
 |   9   | E14D04.1     | association-type            | 1       | Code        | [[LAT\|LCF-Code-Lists#LAT]] |
