@@ -503,9 +503,9 @@ Contact details for the primary contact person or organization for a patron, loc
 |------------|----------------------------|------------|---------|------------|--------------------------------|
 | **E09D01** | **Contact identifier**     |            | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this contact.**                                                                              |
 | **<strike>E09D02</strike>** | **<strike>Name</strike>** | **<strike>AE</strike>** | **<strike>1</strike>** | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>       *Removed v1.0.1* |
-| E09D03     | Patron reference           |            | 0-n     | String     | *Cardinality changed v1.0.1*   |
-| E09D10     | Location reference         |            | 0-n     | String     | *Added v1.0.1*                 |
-| E09D11     | Authority/Institution reference |       | 0-n     | String     | *Added v1.0.1*                 |
+| E09D03     | Patron reference           |            | 0-1     | String     | *Cardinality changed v1.0.1*   |
+| E09D10     | Location reference         |            | 0-1     | String     | *Added v1.0.1*                 |
+| E09D11     | Authority/Institution reference |       | 0-1     | String     | *Added v1.0.1*                 |
 | <strike>E09D04</strike> | <strike>Address</strike> | <strike>BD</strike> | <strike>0-n</strike> | <strike>String</strike> | <strike>Repeatable if address is divided into multiple lines. Not included if a location entity exists for this address.</strike><br/>                                                 *Removed v1.0.1* |
 | *<strike>E09C05</strike>* | *<strike>Communication details</strike>* |        | <strike>0-n</strike> |      | <strike>Composite element containing a single communication number, address or locator for the patron. Repeatable for different communication types.</strike><br/>                                              *Removed v1.0.1* |
 | **E09D08** | **Communication type**     |            | **1**   | **Code**   | **LCF code list [[CMT\|LCF-Code-Lists#CMT]]**<br/>*Added v1.0.1*                                                                                                        |
