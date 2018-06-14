@@ -338,7 +338,7 @@ E09 CONTACT
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E09D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS<br/>*Cardinality corrected in v1.0.1* |
 |       | **<strike>E09D02</strike>** | **<strike>name</strike>** | **<strike>1</strike>** | **<strike>String</strike>** |                                         *Removed v1.0.1* |
-|   3   | E09D03       | patron-ref                 | 0-n     | string      | Mandatory unless E09D10 present<br/>*Cardinality changed v1.0.1*                                               |
+|   3   | E09D03       | patron-ref                 | 0-1     | string      | Mandatory unless E09D10 present<br/>*Cardinality changed v1.0.1*                                               |
 |   4   | E09D10       | location-ref               | 0-n     | string      | Mandatory unless E09D03 present<br/>*Added v1.0.1*                                                             |
 |   5   | E09D11       | institution-ref            | 0-n     | string      | Mandatory unless E09D03 present<br/>*Added v1.0.1*                                                             |
 |       | <strike>E09D04</strike> | <strike>address-line</strike> | <strike>0-n</strike> | <strike>string</strike> |                                                                     *Removed v1.0.1* |
