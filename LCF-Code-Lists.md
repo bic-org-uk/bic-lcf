@@ -340,7 +340,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT03        |03             |Location within site                |e.g. department, room, shelf
   LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added v1.0.1*
   
-### <a id="MAC"></a>MAD Message/alert display/delivery constraints *(added in LCF v1.0.1)*
+### <a id="MAC"></a>MAC Message/alert display/delivery constraints *(added in LCF v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
