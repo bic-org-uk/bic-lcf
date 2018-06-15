@@ -644,6 +644,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   TFT05       |12             |XHTML 1                                         |
   TFT06       |13             |HTML 5                                          |
   TFT07       |14             |MarkDown                                        |
+  TFT08       |04             |Plain text, encoding specified at message level | *Added v1.0.1*
 
 ### <a id="TTL"></a>TTL Title type (based upon ONIX Code List 15)
 
