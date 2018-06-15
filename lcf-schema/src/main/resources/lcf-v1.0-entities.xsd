@@ -226,6 +226,7 @@
 			<xs:element ref="audience" minOccurs="0"/>
 			<xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="message-text" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="patron">
@@ -535,7 +536,16 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="media-warning" type="mediaWarningFlag"/>
+    <xs:element name="message-format" type="textFormat"/>
 	<xs:element name="message-ref" type="nonEmptyString"/>
+	<xs:element name="message-text">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="message-format"/>
+				<xs:element ref="text"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="message-type" type="messageAlertType"/>
 	<xs:element name="name" type="nonEmptyString">
 		<xs:annotation>
@@ -604,6 +614,7 @@
 	<xs:element name="start-date" type="xs:dateTime"/>
 	<xs:element name="subtitle" type="nonEmptyString"/>
 	<xs:element name="terminal-location" type="nonEmptyString"/>
+    <xs:element name="text" type="nonEmptyString"/>
 	<xs:element name="title">
 		<xs:complexType>
 			<xs:sequence>
@@ -1975,6 +1986,68 @@
 			<xs:enumeration value="13"/>
 		</xs:restriction>
 	</xs:simpleType>
+    <xs:simpleType name="textFormat">
+        <xs:restriction base="xs:string">
+<!--        The following are not applicable to LCF XML binding
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT01</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, ASCII encoding</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT02</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, ISO 8859-1 encoding</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT03</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, ISO 10646 / Unicode encoding</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+-->
+            <xs:enumeration value="11">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT04</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">HTML 4</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="12">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT05</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">XHTML 1</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="13">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT06</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">HTML 5</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="14">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT07</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">MarkDown</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="04">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT08</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, encoding specified at message level</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added v1.0.1</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
 	<xs:simpleType name="unnamedContributorType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="01"/>
