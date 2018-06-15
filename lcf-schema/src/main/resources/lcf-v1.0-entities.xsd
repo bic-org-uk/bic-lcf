@@ -400,7 +400,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="association-type" type="locationAssociationType"/>
 	<xs:element name="associated-patron-group">
         <xs:complexType>
             <xs:sequence>
@@ -412,6 +411,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+	<xs:element name="association-type" type="locationAssociationType"/>
 	<xs:element name="audience" type="messageAlertAudience"/>
 	<xs:element name="authorisation-type" type="authorisationCode"/>
 	<xs:element name="authority-ref" type="nonEmptyString"/>
