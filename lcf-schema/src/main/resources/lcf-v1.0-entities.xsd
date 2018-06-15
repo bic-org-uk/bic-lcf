@@ -1673,8 +1673,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="locationIDType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-			</xs:enumeration>
+			<xs:enumeration value="01"/>
 			<xs:enumeration value="02"/>
 			<xs:enumeration value="03"/>
 		</xs:restriction>
