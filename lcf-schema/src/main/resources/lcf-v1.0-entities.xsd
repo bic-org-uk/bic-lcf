@@ -125,9 +125,9 @@
 	</xs:element>
 	<xs:group name="contact-props">
 		<xs:sequence>
-			<xs:element ref="patron-ref"/>
-			<xs:element ref="location-ref"/>
-			<xs:element ref="institution-ref"/>
+			<xs:element ref="patron-ref" minOccurs="0"/>
+			<xs:element ref="location-ref" minOccurs="0"/>
+			<xs:element ref="institution-ref" minOccurs="0"/>
 			<xs:element ref="communication-type"/>
 			<xs:element ref="locator" maxOccurs="unbounded"/>
 		</xs:sequence>
