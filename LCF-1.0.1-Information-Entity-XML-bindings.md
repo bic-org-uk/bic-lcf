@@ -458,6 +458,10 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |  13   | **E15C12**   | message-text                | **1-n** | String      |         |
 |  14   | **E15D12.1** | message-format              | **1**   | Code        | **[[TFT\|LCF-Code-Lists#TFT]]** |
 |  15   | **E15D12.2** | text                        | **1**   | String      |         |
+|  16   | E15C13       | note                        | 0-n     |             |         |
+|  17   | E15D13.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]] |
+|  18   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
+|  19   | E15D13.3     | note-text                   | 1       | string      |         |
 
 EXCEPTION CONDITIONS
 --------------------
