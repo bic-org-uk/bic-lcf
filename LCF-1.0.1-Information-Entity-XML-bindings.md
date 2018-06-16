@@ -247,8 +247,8 @@ E05 LOAN
 |   7   | E05D06       | end-date                    | 0-1     | dateTime     |         |
 | **8** | **E05D07**   | **loan-status**             | **1-n** | **Code**     | **[[LOS\|LCF-Code-Lists#LOS]]** |
 |   9   | *E05C13*     | access-link                 | 0-n     |              | *Added v1.0.1*                  |
-|  10   | E05D13.1     | Link-type                   | 1       | Code         | [[LKT\|LCF-Code-Lists#LKT]]    |
-|  11   | E05D13.2     | Link                        | 1       | String       |         |
+|  10   | E05D13.1     | link-type                   | 1       | Code         | [[LKT\|LCF-Code-Lists#LKT]]    |
+|  11   | E05D13.2     | link                        | 1       | String       |         |
 |  12   | E05D08       | previous-loan-ref           | 0-1     | string       |         |
 |  13   | E05D09       | renewal-loan-ref            | 0-1R    | string       |         |
 |  14   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
