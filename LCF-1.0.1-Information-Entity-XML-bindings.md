@@ -433,7 +433,7 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |  15   | E14C06       | associated-authority        | 0-n     |             |         |
 |  16   | E14D06.1     | association-type            | 1       | Code        | [[AAT\|LCF-Code-Lists#AAT]] |
 |  17   | E14D06.2     | authority-ref               | 1       | string      |         |
-|  20   | E14C07       | note                        | 0-1     |             |         |
+|  20   | E14C07       | note                        | 0-n     |             |         |
 |  21   | E14D07.1     | note-type                   | 0-1     | Code        | [[NOT\|LCF-Code-Lists#NOT]] |
 |  22   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
 |  23   | E14D07.3     | note-text                   | 1       | string      |         |
