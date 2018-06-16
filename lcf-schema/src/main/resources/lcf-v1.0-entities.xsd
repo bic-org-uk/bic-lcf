@@ -106,6 +106,7 @@
 			<xs:element ref="patron-ref"/>
 			<xs:element ref="communication-type"/>
 			<xs:element ref="locator" maxOccurs="unbounded"/>
+			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="item">
