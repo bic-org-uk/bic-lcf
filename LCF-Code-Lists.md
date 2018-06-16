@@ -44,6 +44,7 @@ The code lists defined are:
 -   [INS Institution identification scheme](#INS)
 -   [LAT Location association type](#LAT)
 -   [LCS Library classification scheme](#LCS)
+-   [LKT Resource access link type](#LKT) *(added in LCF v1.0.1)*
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
@@ -304,6 +305,13 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |------------------------------------ |---------
   LCS01       |01             |Proprietary                          |
   LCS02       |02             |Dewey Decimal Classification (DDC)   |
+
+### <a id="LKT"></a>Resource access link type *(added in LCF v1.0.1)*
+
+  *Code ID*   |*Code value*   |*Definition*                         |*Notes*
+  ----------- |-------------- |------------------------------------ |---------
+  LKT01       |01             |Direct link to resource              |
+  LKT02       |02             |Indirect link to resource            |
 
 ### <a id="LOI"></a>LOI Location identification scheme
 
@@ -664,4 +672,3 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   UNC01       |01             |Unknown        |ONIX code ‘01’
   UNC02       |02             |Anonymous      |ONIX code ‘02’
   UNC03       |03             |et al.         |ONIX code ‘03’
-
