@@ -246,15 +246,17 @@ E05 LOAN
 |   6   | E05D05       | end-due-date                | 0-1     | dateTime     |         |
 |   7   | E05D06       | end-date                    | 0-1     | dateTime     |         |
 | **8** | **E05D07**   | **loan-status**             | **1-n** | **Code**     | **[[LOS\|LCF-Code-Lists#LOS]]** |
-|   9   | E05D13       | access-link                 | 0-1     | string       | *Added v1.0.1*                  |
-|  10   | E05D08       | previous-loan-ref           | 0-1     | string       |         |
-|  11   | E05D09       | renewal-loan-ref            | 0-1R    | string       |         |
-|  12   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
-|  13   | E05D11       | charge-ref                  | 0-nR    | string       |         |
-|  14   | E05C12       | note                        | 0-n     |              |         |
-|  15   | E05D12.1     | note-type                   | 0-1     | Code         | [[NOT\|LCF-Code-Lists#NOT]]     |
-|  16   | E05D12.2     | date-time                   | 0-1     | dateTime     |         |
-|  17   | E05D12.3     | note-text                   | 1       | string       |         |
+|   9   | *E05C13*     | access-link                 | 0-n     |              | *Added v1.0.1*                  |
+|  10   | E05D13.1     | Link-type                   | 1       | Code         | [[LKT\|LCF-Code-Lists#LKT]]    |
+|  11   | E05D13.2     | Link                        | 1       | String       |         |
+|  12   | E05D08       | previous-loan-ref           | 0-1     | string       |         |
+|  13   | E05D09       | renewal-loan-ref            | 0-1R    | string       |         |
+|  14   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
+|  15   | E05D11       | charge-ref                  | 0-nR    | string       |         |
+|  16   | E05C12       | note                        | 0-n     |              |         |
+|  17   | E05D12.1     | note-type                   | 0-1     | Code         | [[NOT\|LCF-Code-Lists#NOT]]     |
+|  18   | E05D12.2     | date-time                   | 0-1     | dateTime     |         |
+|  19   | E05D12.3     | note-text                   | 1       | string       |         |
 
 E06 RESERVATION
 ---------------
