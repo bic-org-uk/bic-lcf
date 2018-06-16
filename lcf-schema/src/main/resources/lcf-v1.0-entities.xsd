@@ -197,7 +197,7 @@
 			<xs:element ref="description" minOccurs="0"/>
 			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="associated-location"/>
-			<xs:element ref="note" minOccurs="0" />
+			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="manifestation">
