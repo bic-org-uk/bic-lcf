@@ -670,9 +670,9 @@ A message or alert that may be communicated to a patron or group of patrons.
 | **E15D12.1**  | Text format             |            | **1**   | Code       | LCF code list **[[TFT\|LCF-Code-Lists#TFT]]**                                                                                                  |
 | **E15D12.2**  | Text string             |            | **1**   | String     |                                |
 | *E15C13*      | *Message/alert description / note* | | 0-n     |            |                                |
-| E13D13.1      | Note type                  |         | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
-| E13D13.2      | Note date-time             |         | 0-1     | DateTime   |                                |
-| E13D13.3      | Note text                  |         | 1       | String     |                                |
+| E15D13.1      | Note type                  |         | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
+| E15D13.2      | Note date-time             |         | 0-1     | DateTime   |                                |
+| E15D13.3      | Note text                  |         | 1       | String     |                                |
 
 
 Common components
