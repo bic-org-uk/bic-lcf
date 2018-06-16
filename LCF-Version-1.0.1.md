@@ -533,7 +533,7 @@ An identified scheme for classification of titles.
 |------------|----------------------------|------------|---------|------------|--------------------------------|
 | **E10D01** | **Classification scheme identifier** |  | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this scheme.**                                                                               |
 | **E10D02** | **Scheme name**            |            | **1**   | **String** | **A name or short description of the scheme**                                                                                                       |
-| *E10C03*   | *Scheme description / note*|            | 0-1     |            | Further, more extensive description of the scheme                                                                                                  |
+| *E10C03*   | *Scheme description / note*|            | 0-n     |            | Further, more extensive description of the scheme                                                                                                  |
 | E10D03.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E10D03.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E10D03.3   | Note text                  |            | 1       | String     |                                |
@@ -555,7 +555,7 @@ A classification term in an identified scheme for classification of titles.
 | **E11D02** | **Classification code**    |            | **1**   | **String** | **A code or number used as a label for the classification term.**                                                                                 |
 | **E11D03** | **Classification scheme reference** |   | **1**   | **String** | **The LCF entity identifier for the classification scheme to which this classification term belongs**                                              |
 | E11D04     | Classification term heading|            | 0-1     | String     | A heading or name for the classification term.                                                                                           |
-| *E11C05*   | *Classification description / note* |   | 0-1     |            |                                |
+| *E11C05*   | *Classification description / note* |   | 0-n     |            |                                |
 | E11D05.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E11D05.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E11D05.3   | Note text                  |            | 1       | String     |                                |
@@ -603,7 +603,7 @@ A patron authorisation code.
 | **E13D01** | **Authorisation identifier** |          | **1**[[[4]\|LCF-Version-1.0.1#Notes]]                                                    | **String** | **The LCF entity identifier used when referring to this authorisation.**                        |
 | E13D02     | Authorisation type         |            | 0-1     | Code       | LCF code list **[[AUT\|LCF-Code-Lists#AUT]]**                                                                                                    |
 | E13D03     | Authorisation heading      |            | 0-1     | String     | A heading or name for the authorisation. Must be omitted if E13D02 is included.                                                          |
-| *E13C04*   | *Authorisation description / note* |    | 0-1     |            |                                |
+| *E13C04*   | *Authorisation description / note* |    | 0-n     |            |                                |
 | E13D04.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E13D04.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E13D04.3   | Note text                  |            | 1       | String     |                                |
@@ -637,7 +637,7 @@ A library authority or institution.
 | *E14C06*   | *Associated authority/institution* |   | 0-n      |            | Another authority/institution associated with this authority/institution.                                                                    |
 | E14D06.1   | Authority/institution association type | | 1      | Code       | LCF code list **[[AAT\|LCF-Code-Lists#AAT]]**          |
 | E14D06.2   | Authority/institution reference |      | 1        | String     |                                |
-| *E14C07*   | *Authority/institution description / note* || 0-1 |            |                                |
+| *E14C07*   | *Authority/institution description / note* || 0-n |            |                                |
 | E14D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[[NOT\|LCF-Code-Lists#NOT]]**          |
 | E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E14D07.3   | Note text                  |            | 1       | String     |                                |
