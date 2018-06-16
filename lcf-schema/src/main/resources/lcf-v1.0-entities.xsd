@@ -45,12 +45,12 @@
 	</xs:element>
 	<xs:group name="authority-props">
 		<xs:sequence>
-			<xs:element ref="additional-authority-id"/>
+			<xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="name"/>
-			<xs:element ref="associated-location"/>
-			<xs:element ref="associated-contact"/>
-			<xs:element ref="associated-authority"/>
-			<xs:element ref="note"/>
+			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="note" minOccurs="0"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="charge">
@@ -197,7 +197,7 @@
 			<xs:element ref="description" minOccurs="0"/>
 			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="associated-location"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="note" minOccurs="0" />
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="manifestation">
