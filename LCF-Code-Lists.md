@@ -625,14 +625,24 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
 ### <a id="SEL"></a>SEL Selection criterion - *Added in LCF v1.0.1*
 
-  *Code ID*   |*Code value*   |*Definition*                                                               |*Notes*
-  ----------- |-------------- |-------------------------------------------------------------------------- |---------
-  SEL01       |01             |manifestation-id                                                           |
-  SEL02       |02             |item-id                                                                    |
-  SEL03       |03             |patron-id                                                                  |
-  SEL04       |04             |location-id                                                                |
-  SEL05       |11             |circulation-status                                                         |
-  SEL06       |12             |loan-status                                                                |
+  *Code ID*   |*Code value*   |*Definition*                                             |*Notes*
+  ----------- |-------------- |---------------------------------------------------------|---------
+  SEL01       |01             |manifestation-id                                         |
+  SEL02       |02             |item-id                                                  |
+  SEL03       |03             |patron-id                                                |
+  SEL04       |04             |location-id                                              |
+  SEL05       |11             |circulation-status                                       |
+  SEL06       |12             |loan-status                                              |
+  SEL07       |21             |start-date                                               | *Added in LCF v1.0.1*
+  SEL08       |22             |end-date                                                 | *Added in LCF v1.0.1*
+  SEL09       |23             |end-due-date                                             | *Added in LCF v1.0.1*
+  SEL10       |24             |recall-notice-date                                       | *Added in LCF v1.0.1*
+  SEL11       |25             |pickup-date                                              | *Added in LCF v1.0.1*
+  SEL12       |26             |creation-date                                            | *Added in LCF v1.0.1*
+  SEL13       |27             |payment-due-date                                         | *Added in LCF v1.0.1*
+  SEL14       |28             |paid-date                                                | *Added in LCF v1.0.1*
+  SEL15       |29             |payment-date                                             | *Added in LCF v1.0.1*
+  SEL16       |30             |patron-expiration-date                                   | *Added in LCF v1.0.1*
 
 ### <a id="SPA"></a>SPA Special attention required flag
 
