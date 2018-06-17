@@ -112,6 +112,14 @@
     <xs:element name="barcode-id" type="nonEmptyString"/>
     <xs:element name="blocked-card-message" type="nonEmptyString"/>
     <xs:element name="card-status" type="cardStatus"/>
+    <xs:element name="card-status-info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="card-status"/>
+                <xs:element ref="blocked-card-message" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="characteristic-type" type="loanCharacteristicType"/>
     <xs:element name="charge-amount" type="xs:decimal"/>
     <xs:element name="charge-limit">
