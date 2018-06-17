@@ -6,7 +6,7 @@
 
 **Web Services Implementation**
 
-Version 1.0.1, Draft 18 May 2018
+Version 1.0.1, Final Draft 19 June 2018
 
 This document defines a binding of the LCF data communication framework to the HTTP[[[1]|LCF-1.0.1-REST-Web-Service-Specification#Notes]] protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[[[2]|LCF-1.0.1-REST-Web-Service-Specification#Notes]]) design principles,
 
