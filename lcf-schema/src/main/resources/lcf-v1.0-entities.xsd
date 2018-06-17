@@ -31,6 +31,28 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:group>
+	<xs:element name="authority">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="identifier" minOccurs="0">
+					<xs:annotation>
+						<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:group ref="authority-props"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="authority-props">
+		<xs:sequence>
+			<xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="name"/>
+			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
 	<xs:element name="charge">
 		<xs:complexType>
 			<xs:sequence>
@@ -103,7 +125,9 @@
 	</xs:element>
 	<xs:group name="contact-props">
 		<xs:sequence>
-			<xs:element ref="patron-ref"/>
+			<xs:element ref="patron-ref" minOccurs="0"/>
+			<xs:element ref="location-ref" minOccurs="0"/>
+			<xs:element ref="institution-ref" minOccurs="0"/>
 			<xs:element ref="communication-type"/>
 			<xs:element ref="locator" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
@@ -122,7 +146,7 @@
 			<xs:element ref="additional-item-id" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="manifestation-ref"/>
 			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="owner" minOccurs="0"/>
+			<xs:element ref="owner-ref" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="media-warning"/>
 			<xs:element ref="security-desensitize"/>
@@ -173,6 +197,7 @@
 			<xs:element ref="name" minOccurs="0"/>
 			<xs:element ref="location-type" minOccurs="0"/>
 			<xs:element ref="description" minOccurs="0"/>
+			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="associated-location"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -249,6 +274,7 @@
 			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="language" minOccurs="0"/>
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="home-institution-ref" minOccurs="0"/>
 			<xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="card-status-info" minOccurs="0"/>
 			<xs:element ref="patron-category" minOccurs="0"/>
@@ -358,6 +384,15 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="additional-authority-id">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="authority-id-type"/>
+				<xs:element ref="type-name" minOccurs="0"/>
+				<xs:element ref="value"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="additional-item-id">
 		<xs:complexType>
 			<xs:sequence>
@@ -396,6 +431,22 @@
 	</xs:element>
 	<xs:element name="address-line" type="nonEmptyString"/>
 	<xs:element name="amount" type="xs:decimal"/>
+	<xs:element name="associated-authority">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="association-type" type="authorityAssociationType"/>
+				<xs:element ref="authority-ref"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="associated-contact">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="association-type" type="contactAssociationType"/>
+				<xs:element ref="contact-ref"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="associated-location">
 		<xs:complexType>
 			<xs:sequence>
@@ -426,6 +477,7 @@
 	<xs:element name="association-type" type="locationAssociationType"/>
 	<xs:element name="audience" type="messageAlertAudience"/>
 	<xs:element name="authorisation-type" type="authorisationCode"/>
+	<xs:element name="authority-id-type" type="institutionIDType"/>
 	<xs:element name="authority-ref" type="nonEmptyString"/>
 	<xs:element name="available-hold-items" type="xs:int"/>
 	<xs:element name="barcode-id" type="nonEmptyString"/>
@@ -513,11 +565,13 @@
 	<xs:element name="heading" type="nonEmptyString"/>
 	<xs:element name="hold-items-limit" type="xs:int"/>
 	<xs:element name="hold-queue-position" type="xs:int"/>
+	<xs:element name="home-institution-ref" type="nonEmptyString"/>
 	<xs:element name="identifier" type="nonEmptyString">
 		<xs:annotation>
 			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+	<xs:element name="institution-ref" type="nonEmptyString"/>
 	<xs:element name="item-id-type" type="copyIDType"/>
 	<xs:element name="item-ref" type="nonEmptyString"/>
 	<xs:element name="items-in-stock" type="xs:int"/>
@@ -597,7 +651,7 @@
 	<xs:element name="other-manifestation-in-series-ref" type="nonEmptyString"/>
 	<xs:element name="overdue-items" type="xs:int"/>
 	<xs:element name="overdue-items-limit" type="xs:int"/>
-	<xs:element name="owner" type="nonEmptyString"/>
+	<xs:element name="owner-ref" type="nonEmptyString"/>
 	<xs:element name="paid-amount" type="xs:decimal"/>
 	<xs:element name="paid-date" type="xs:dateTime"/>
 	<xs:element name="patron-category" type="nonEmptyString"/>
@@ -723,6 +777,24 @@
                     <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">May only be used in LCF function 13 (Patron payment) responses.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="authorityAssociationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AAT01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Is member of consortium</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AAT01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Has member of consortium</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="chargeStatus">
@@ -866,6 +938,24 @@
 	</xs:simpleType>
 	<xs:simpleType name="conditionCode">
 		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="contactAssociationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CAT01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Primary contact for authority/institution</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CAT01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Alternative contact for authority/institution</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="contributorRole">
 		<xs:restriction base="xs:string">
@@ -1194,7 +1284,22 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="institutionIDType">
-		<xs:restriction base="xs:string"/>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">INS01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Proprietary scheme</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Other codes to be defined</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">INS01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">ISIL</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="languageCode">
 		<xs:restriction base="xs:string">
