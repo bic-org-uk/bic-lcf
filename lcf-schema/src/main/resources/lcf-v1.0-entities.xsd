@@ -8,9 +8,9 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0">
-                        <xs:annotation>
-                            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
-                        </xs:annotation>
+                    <xs:annotation>
+                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+                    </xs:annotation>
                 </xs:element>
                 <xs:group ref="authorisation-props"/>
             </xs:sequence>

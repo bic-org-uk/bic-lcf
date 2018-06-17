@@ -2,6 +2,9 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
     <xs:include schemaLocation="lcf-v1.0-entities.xsd"/>
     <xs:import namespace="http://a9.com/-/spec/opensearch/1.1/" schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd"/>
+
+    <!-- LCF REST Response Elements -->
+
     <xs:element name="lcf-entity-list-response">
         <xs:complexType>
             <xs:sequence>

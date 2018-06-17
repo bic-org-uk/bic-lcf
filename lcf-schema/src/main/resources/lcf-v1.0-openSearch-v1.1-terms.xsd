@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://a9.com/-/spec/opensearch/1.1/"
-    xmlns="http://a9.com/-/spec/opensearch/1.1/">
+           targetNamespace="http://a9.com/-/spec/opensearch/1.1/"
+           xmlns="http://a9.com/-/spec/opensearch/1.1/">
+
+    <!-- OpenSearch 1.1 Elements -->
+	
     <xs:element name="totalResults" type="xs:int"/>
     <xs:element name="itemsPerPage" type="xs:int"/>
     <xs:element name="startIndex" type="xs:int"/>
