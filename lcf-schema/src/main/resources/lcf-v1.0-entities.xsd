@@ -152,6 +152,7 @@
 			<xs:element ref="end-due-date" minOccurs="0"/>
 			<xs:element ref="end-date" minOccurs="0"/>
 			<xs:element ref="loan-status" maxOccurs="unbounded"/>
+            <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="recall-notice-date" minOccurs="0"/>
 			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
@@ -347,6 +348,14 @@
 			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
+    <xs:element name="access-link">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="link-type"/>
+				<xs:element ref="link"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="additional-item-id">
 		<xs:complexType>
 			<xs:sequence>
@@ -512,6 +521,8 @@
 	<xs:element name="items-in-stock" type="xs:int"/>
 	<xs:element name="language" type="languageCode"/>
     <xs:element name="lead-patron-ref" type="nonEmptyString"/>
+	<xs:element name="link" type="nonEmptyString"/>
+	<xs:element name="link-type" type="accessLinkType"/>
 	<xs:element name="loan-fee">
 		<xs:complexType>
 			<xs:sequence>
@@ -675,6 +686,25 @@
 			<xs:enumeration value="03"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="accessLinkType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LKT01</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Direct link to resource</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LKT02</xs:appinfo>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Indirect link to resource</xs:documentation>
+					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="authorisationCode">
 		<xs:restriction base="xs:string">
             <xs:enumeration value="PCI">
