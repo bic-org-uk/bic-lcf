@@ -50,7 +50,7 @@
 			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0"/>
+			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:group>
 	<xs:element name="charge">
