@@ -424,7 +424,7 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="association-type" type="authorityAssociationType"/>
-				<xs:element ref="location-ref"/>
+				<xs:element ref="authority-ref"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -432,7 +432,7 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="association-type" type="contactAssociationType"/>
-				<xs:element ref="location-ref"/>
+				<xs:element ref="contact-ref"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
