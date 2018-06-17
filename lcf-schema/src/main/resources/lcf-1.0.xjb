@@ -11,14 +11,14 @@
 
     <jxb:bindings schemaLocation="lcf-v1.0-rest-responses.xsd" node="/xs:schema">
         <jxb:schemaBindings>
-		    <jxb:package name="org.bic.ns.lcf.v1_0"/>
+            <jxb:package name="org.bic.ns.lcf.v1_0"/>
         </jxb:schemaBindings>
     </jxb:bindings>
     
     <!-- This is required in order to specify the package name for code generation, as the target namespace contains invalid chars -->
     <jxb:bindings schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd" node="/xs:schema">
         <jxb:schemaBindings>
-		    <jxb:package name="org.bic.ns.lcf.v1_0.opensearch"/>
+            <jxb:package name="org.bic.ns.lcf.v1_0.opensearch"/>
         </jxb:schemaBindings>
     </jxb:bindings>	
 </jxb:bindings>
