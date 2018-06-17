@@ -107,7 +107,7 @@
     <xs:element name="audience" type="messageAlertAudience"/>
     <xs:element name="authorisation-type" type="authorisationCode"/>
     <xs:element name="authority-id-type" type="institutionIDType"/>
-    <xs:element name="authority-ref" type="nonEmptyString"/>
+    <xs:element name="authority-ref" type="lcfEntityReference"/>
     <xs:element name="available-hold-items" type="xs:int"/>
     <xs:element name="barcode-id" type="nonEmptyString"/>
     <xs:element name="blocked-card-message" type="nonEmptyString"/>
@@ -123,13 +123,13 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="charge-ref" type="nonEmptyString"/>
+    <xs:element name="charge-ref" type="lcfEntityReference"/>
     <xs:element name="charge-status" type="chargeStatus"/>
     <xs:element name="charge-type" type="chargeType"/>
     <xs:element name="circulation-status" type="circulationStatusCode"/>
     <xs:element name="class-code" type="nonEmptyString"/>
-    <xs:element name="class-scheme-ref" type="nonEmptyString"/>
-    <xs:element name="class-term-ref" type="nonEmptyString"/>
+    <xs:element name="class-scheme-ref" type="lcfEntityReference"/>
+    <xs:element name="class-term-ref" type="lcfEntityReference"/>
     <xs:element name="classification">
         <xs:complexType>
             <xs:sequence>
@@ -145,7 +145,7 @@
     </xs:element>
     <xs:element name="condition-code" type="conditionCode"/>
     <xs:element name="condition-description" type="nonEmptyString"/>
-    <xs:element name="contact-ref" type="nonEmptyString">
+    <xs:element name="contact-ref" type="lcfEntityReference">
         <xs:annotation>
             <xs:documentation>Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
         </xs:annotation>
@@ -194,18 +194,18 @@
     <xs:element name="heading" type="nonEmptyString"/>
     <xs:element name="hold-items-limit" type="xs:int"/>
     <xs:element name="hold-queue-position" type="xs:int"/>
-    <xs:element name="home-institution-ref" type="nonEmptyString"/>
+    <xs:element name="home-institution-ref" type="lcfEntityReference"/>
     <xs:element name="identifier" type="nonEmptyString">
         <xs:annotation>
             <xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="institution-ref" type="nonEmptyString"/>
+    <xs:element name="institution-ref" type="lcfEntityReference"/>
     <xs:element name="item-id-type" type="copyIDType"/>
-    <xs:element name="item-ref" type="nonEmptyString"/>
+    <xs:element name="item-ref" type="lcfEntityReference"/>
     <xs:element name="items-in-stock" type="xs:int"/>
     <xs:element name="language" type="languageCode"/>
-    <xs:element name="lead-patron-ref" type="nonEmptyString"/>
+    <xs:element name="lead-patron-ref" type="lcfEntityReference"/>
     <xs:element name="link" type="nonEmptyString"/>
     <xs:element name="link-type" type="accessLinkType"/>
     <xs:element name="loan-fee">
@@ -218,7 +218,7 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="loan-items-limit" type="xs:int"/>
-    <xs:element name="loan-ref" type="nonEmptyString"/>
+    <xs:element name="loan-ref" type="lcfEntityReference"/>
     <xs:element name="loan-restriction">
         <xs:complexType>
             <xs:sequence>
@@ -231,11 +231,11 @@
     <xs:element name="loan-status" type="loanStatusCode"/>
     <xs:element name="location-id-type" type="locationIDType"/>
     <xs:element name="location-type" type="locationType"/>
-    <xs:element name="location-ref" type="nonEmptyString"/>
+    <xs:element name="location-ref" type="lcfEntityReference"/>
     <xs:element name="locator" type="nonEmptyString"/>
     <xs:element name="manifestation-id-type" type="manifestationIDType"/>
     <xs:element name="manifestation-record" type="nonEmptyString"/>
-    <xs:element name="manifestation-ref" type="nonEmptyString"/>
+    <xs:element name="manifestation-ref" type="lcfEntityReference"/>
     <xs:element name="manifestation-status" type="manifestationStatus"/>
     <xs:element name="media-type">
         <xs:complexType>
@@ -248,7 +248,7 @@
     </xs:element>
     <xs:element name="media-warning" type="mediaWarningFlag"/>
     <xs:element name="message-format" type="textFormat"/>
-    <xs:element name="message-ref" type="nonEmptyString"/>
+    <xs:element name="message-ref" type="lcfEntityReference"/>
     <xs:element name="message-text">
         <xs:complexType>
             <xs:sequence>
@@ -275,19 +275,19 @@
     <xs:element name="note-text" type="nonEmptyString"/>
     <xs:element name="note-type" type="noteType"/>
     <xs:element name="on-loan-items" type="xs:int"/>
-    <xs:element name="on-loan-ref" type="nonEmptyString"/>
+    <xs:element name="on-loan-ref" type="lcfEntityReference"/>
     <xs:element name="other-description" type="nonEmptyString"/>
-    <xs:element name="other-manifestation-in-series-ref" type="nonEmptyString"/>
+    <xs:element name="other-manifestation-in-series-ref" type="lcfEntityReference"/>
     <xs:element name="overdue-items" type="xs:int"/>
     <xs:element name="overdue-items-limit" type="xs:int"/>
-    <xs:element name="owner-ref" type="nonEmptyString"/>
+    <xs:element name="owner-ref" type="lcfEntityReference"/>
     <xs:element name="paid-amount" type="xs:decimal"/>
     <xs:element name="paid-date" type="xs:dateTime"/>
     <xs:element name="patron-category" type="nonEmptyString"/>
     <xs:element name="patron-expiration-date" type="xs:dateTime"/>
     <xs:element name="patron-group-id" type="nonEmptyString"/>
     <xs:element name="patron-id-type" type="patronIdentificationScheme"/>
-    <xs:element name="patron-ref" type="nonEmptyString">
+    <xs:element name="patron-ref" type="lcfEntityReference">
         <xs:annotation>
             <xs:documentation>A 'contact' must be associated with a pre-existing 'patron'.</xs:documentation>
         </xs:annotation>
@@ -297,17 +297,17 @@
     <xs:element name="patrons-in-hold-queue" type="xs:int"/>
     <xs:element name="payment-date" type="xs:dateTime"/>
     <xs:element name="payment-due-date" type="xs:dateTime"/>
-    <xs:element name="payment-ref" type="nonEmptyString"/>
+    <xs:element name="payment-ref" type="lcfEntityReference"/>
     <xs:element name="payment-status" type="paymentStatus"/>
     <xs:element name="payment-type" type="paymentType"/>
     <xs:element name="pickup-date" type="xs:dateTime"/>
-    <xs:element name="pickup-institution-ref" type="nonEmptyString"/>
-    <xs:element name="pickup-location-ref" type="nonEmptyString"/>
+    <xs:element name="pickup-institution-ref" type="lcfEntityReference"/>
+    <xs:element name="pickup-location-ref" type="lcfEntityReference"/>
     <xs:element name="priority" type="messageAlertPriority"/>
     <xs:element name="publisher-name" type="nonEmptyString"/>
     <xs:element name="recall-notice-date" type="xs:dateTime"/>
     <xs:element name="recalled-items" type="xs:int"/>
-    <xs:element name="reservation-ref" type="nonEmptyString"/>
+    <xs:element name="reservation-ref" type="lcfEntityReference"/>
     <xs:element name="reservation-status" type="reservationStatus"/>
     <xs:element name="reservation-type" type="reservationType"/>
     <xs:element name="restriction-type" type="loanRestrictionType"/>
@@ -361,7 +361,7 @@
     <xs:element name="unavailable-hold-items" type="xs:int"/>
     <xs:element name="unnamed-contributor" type="unnamedContributorType"/>
     <xs:element name="value" type="nonEmptyString"/>
-    <xs:element name="value-scheme-ref" type="nonEmptyString"/>
+    <xs:element name="value-scheme-ref" type="lcfEntityReference"/>
     <xs:element name="volume-or-part" type="nonEmptyString"/>
     <xs:element name="year-of-publication" type="xs:gYear"/>
 
