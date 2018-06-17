@@ -168,8 +168,8 @@
     <xs:element name="currency" type="iso4217CurrencyCode"/>
     <xs:element name="date-of-birth" type="xs:date"/>
     <xs:element name="deposit-balance" type="xs:decimal"/>
-    <xs:element name="description" type="nonEmptyString"/>
     <xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
+    <xs:element name="description" type="nonEmptyString"/>
     <xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
     <xs:element name="display-type" type="messageDisplayType"/>
     <xs:element name="due-amount" type="xs:decimal"/>
