@@ -1,2307 +1,376 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
-	<xs:element name="authorisation">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0">
-						<xs:annotation>
-							<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
-						</xs:annotation>
-				</xs:element>
-				<xs:group ref="authorisation-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="authorisation-props">
-		<xs:sequence>
-			<xs:element ref="authorisation-type" minOccurs="0">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D02</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="heading" minOccurs="0">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D03</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13C04</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="authority">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0">
-					<xs:annotation>
-						<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
-					</xs:annotation>
-				</xs:element>
-				<xs:group ref="authority-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="authority-props">
-		<xs:sequence>
-			<xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="name"/>
-			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="charge">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="charge-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="charge-props">
-		<xs:sequence>
-			<xs:element ref="patron-ref"/>
-			<xs:element ref="charge-type"/>
-			<xs:element ref="charge-status"/>
-			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="item-ref" minOccurs="0"/>
-			<xs:element ref="manifestation-ref" minOccurs="0"/>
-			<xs:element ref="loan-ref" minOccurs="0"/>
-			<xs:element ref="reservation-ref" minOccurs="0"/>
-			<xs:element ref="creation-date" minOccurs="0"/>
-			<xs:element ref="payment-due-date" minOccurs="0"/>
-			<xs:element ref="charge-amount"/>
-			<xs:element ref="currency" minOccurs="0"/>
-			<xs:element ref="paid-amount" minOccurs="0"/>
-			<xs:element ref="due-amount" minOccurs="0"/>
-			<xs:element ref="paid-date" minOccurs="0"/>
-			<xs:element ref="payment-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="class-scheme">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="class-scheme-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="class-scheme-props">
-		<xs:sequence>
-			<xs:element ref="name"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="class-term">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="class-term-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="class-term-props">
-		<xs:sequence>
-			<xs:element ref="class-code"/>
-			<xs:element ref="class-scheme-ref"/>
-			<xs:element ref="heading" minOccurs="0"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="contact">
-		<xs:annotation>
-			<xs:documentation>Represents a single method of communication with a 'patron'. </xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="contact-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="contact-props">
-		<xs:sequence>
-			<xs:element ref="patron-ref" minOccurs="0"/>
-			<xs:element ref="location-ref" minOccurs="0"/>
-			<xs:element ref="institution-ref" minOccurs="0"/>
-			<xs:element ref="communication-type"/>
-			<xs:element ref="locator" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="item">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="item-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="item-props">
-		<xs:sequence>
-			<xs:element ref="additional-item-id" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="manifestation-ref"/>
-			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="owner-ref" minOccurs="0"/>
-			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="media-warning"/>
-			<xs:element ref="security-desensitize"/>
-			<xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="circulation-status"/>
-			<xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
-			<xs:element ref="on-loan-ref" minOccurs="0"/>
-			<xs:element ref="condition-code" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="condition-description" minOccurs="0"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="loan">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="loan-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="loan-props">
-		<xs:sequence>
-			<xs:element ref="patron-ref"/>
-			<xs:element ref="item-ref"/>
-			<xs:element ref="start-date"/>
-			<xs:element ref="end-due-date" minOccurs="0"/>
-			<xs:element ref="end-date" minOccurs="0"/>
-			<xs:element ref="loan-status" maxOccurs="unbounded"/>
-            <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="recall-notice-date" minOccurs="0"/>
-			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="location">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="location-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="location-props">
-		<xs:sequence>
-			<xs:element ref="additional-location-id" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="name" minOccurs="0"/>
-			<xs:element ref="location-type" minOccurs="0"/>
-			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="associated-location"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="manifestation">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="manifestation-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="manifestation-props">
-		<xs:sequence>
-			<xs:element ref="additional-manifestation-id" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="media-type" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="contributor" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="series" minOccurs="0"/>
-			<xs:element ref="edition-statement" minOccurs="0"/>
-			<xs:element ref="publisher-name" minOccurs="0"/>
-			<xs:element ref="year-of-publication" minOccurs="0"/>
-			<xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="cover-art" minOccurs="0"/>
-			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
-			<xs:element ref="manifestation-record" minOccurs="0"/>
-			<xs:element ref="manifestation-status"/>
-			<xs:element ref="items-in-stock" minOccurs="0"/>
-			<xs:element ref="item-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="message-alert">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="message-alert-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="message-alert-props">
-		<xs:sequence>
-			<xs:element ref="authority-ref" minOccurs="0"/>
-			<xs:element ref="message-type"/>
-			<xs:element ref="priority" minOccurs="0"/>
-			<xs:element ref="display-type" minOccurs="0"/>
-			<xs:element ref="display-constraint" minOccurs="0"/>
-			<xs:element ref="start-date" minOccurs="0"/>
-			<xs:element ref="end-date" minOccurs="0"/>
-			<xs:element ref="audience" minOccurs="0"/>
-			<xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="message-text" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="patron">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="patron-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="patron-props">
-		<xs:sequence>
-			<xs:element ref="barcode-id" minOccurs="0"/>
-			<xs:element ref="additional-patron-id" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="name"/>
-			<xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="language" minOccurs="0"/>
-			<xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="home-institution-ref" minOccurs="0"/>
-			<xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="card-status-info" minOccurs="0"/>
-			<xs:element ref="patron-category" minOccurs="0"/>
-			<xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="patron-expiration-date" minOccurs="0"/>
-			<xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="on-loan-items" minOccurs="0"/>
-			<xs:element ref="loan-items-limit" minOccurs="0"/>
-			<xs:element ref="overdue-items" minOccurs="0"/>
-			<xs:element ref="overdue-items-limit" minOccurs="0"/>
-			<xs:element ref="recalled-items" minOccurs="0"/>
-			<xs:element ref="fees-due-items" minOccurs="0"/>
-			<xs:element ref="fines-due-items" minOccurs="0"/>
-			<xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="available-hold-items" minOccurs="0"/>
-			<xs:element ref="unavailable-hold-items" minOccurs="0"/>
-			<xs:element ref="hold-items-limit" minOccurs="0"/>
-			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="deposit-balance" minOccurs="0"/>
-			<xs:element ref="associated-message" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="date-of-birth" minOccurs="0"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="card-status-info">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="card-status"/>
-				<xs:element ref="blocked-card-message" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="payment">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="payment-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="payment-props">
-		<xs:sequence>
-			<xs:element ref="patron-ref"/>
-			<xs:element ref="payment-type"/>
-			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="payment-date" minOccurs="0"/>
-			<xs:element ref="amount"/>
-			<xs:element ref="currency" minOccurs="0"/>
-			<xs:element ref="payment-status" minOccurs="0"/>
-			<xs:element ref="transaction-reference" minOccurs="0"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="property">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="property-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="property-props">
-		<xs:sequence>
-			<xs:element ref="name" minOccurs="0"/>
-			<xs:element name="entity-type" type="entityType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="description" minOccurs="0"/>
-			<xs:element ref="value-scheme-ref" minOccurs="0"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-	<xs:element name="reservation">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="identifier" minOccurs="0"/>
-				<xs:group ref="reservation-props"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:group name="reservation-props">
-		<xs:sequence>
-			<xs:element ref="reservation-type"/>
-			<xs:element ref="patron-ref"/>
-			<xs:choice>
-				<xs:element ref="manifestation-ref"/>
-				<xs:element ref="item-ref"/>
-			</xs:choice>
-			<xs:element ref="start-date" minOccurs="0"/>
-			<xs:element ref="pickup-institution-ref" minOccurs="0"/>
-			<xs:element ref="pickup-location-ref" minOccurs="0"/>
-			<xs:element ref="pickup-date" minOccurs="0"/>
-			<xs:element ref="end-date" minOccurs="0"/>
-			<xs:element ref="reservation-status"/>
-            <xs:element ref="hold-queue-position" minOccurs="0"/>
-			<xs:element ref="loan-ref" minOccurs="0"/>
-			<xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:group>
-    <xs:element name="access-link">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="link-type"/>
-				<xs:element ref="link"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="additional-authority-id">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="authority-id-type"/>
-				<xs:element ref="type-name" minOccurs="0"/>
-				<xs:element ref="value"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="additional-item-id">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="item-id-type"/>
-				<xs:element ref="type-name" minOccurs="0"/>
-				<xs:element ref="value"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="additional-location-id">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="location-id-type"/>
-				<xs:element ref="type-name" minOccurs="0"/>
-				<xs:element ref="value"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="additional-manifestation-id">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="manifestation-id-type"/>
-				<xs:element ref="type-name" minOccurs="0"/>
-				<xs:element ref="value"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="additional-patron-id">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="patron-id-type"/>
-				<xs:element ref="type-name" minOccurs="0"/>
-				<xs:element ref="value"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="address-line" type="nonEmptyString"/>
-	<xs:element name="amount" type="xs:decimal"/>
-	<xs:element name="associated-authority">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="association-type" type="authorityAssociationType"/>
-				<xs:element ref="authority-ref"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="associated-contact">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="association-type" type="contactAssociationType"/>
-				<xs:element ref="contact-ref"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="associated-location">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="association-type" type="locationAssociationType"/>
-				<xs:element ref="location-ref"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="associated-message">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="message-ref"/>
-				<xs:element ref="delivery-status"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="associated-patron-group">
+    <xs:include schemaLocation="lcf-1.0-elements.xsd"/>
+
+    <!-- LCF Entities -->
+
+    <xs:element name="authorisation">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="association-type" type="patronGroupAssociationType"/>
-                <xs:element ref="group-type" minOccurs="0"/>
-                <xs:element ref="patron-group-id" minOccurs="0"/>
-                <xs:element ref="lead-patron-ref" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="identifier" minOccurs="0">
+                    <xs:annotation>
+                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+                    </xs:annotation>
+                </xs:element>
+                <xs:group ref="authorisation-props"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-	<xs:element name="association-type" type="locationAssociationType"/>
-	<xs:element name="audience" type="messageAlertAudience"/>
-	<xs:element name="authorisation-type" type="authorisationCode"/>
-	<xs:element name="authority-id-type" type="institutionIDType"/>
-	<xs:element name="authority-ref" type="nonEmptyString"/>
-	<xs:element name="available-hold-items" type="xs:int"/>
-	<xs:element name="barcode-id" type="nonEmptyString"/>
-	<xs:element name="blocked-card-message" type="nonEmptyString"/>
-	<xs:element name="card-status" type="cardStatus"/>
-	<xs:element name="characteristic-type" type="loanCharacteristicType"/>
-	<xs:element name="charge-amount" type="xs:decimal"/>
-	<xs:element name="charge-limit">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="charge-type" minOccurs="0"/>
-				<xs:element ref="amount"/>
-				<xs:element ref="currency" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="charge-ref" type="nonEmptyString"/>
-	<xs:element name="charge-status" type="chargeStatus"/>
-	<xs:element name="charge-type" type="chargeType"/>
-	<xs:element name="circulation-status" type="circulationStatusCode"/>
-	<xs:element name="class-code" type="nonEmptyString"/>
-	<xs:element name="class-scheme-ref" type="nonEmptyString"/>
-	<xs:element name="class-term-ref" type="nonEmptyString"/>
-	<xs:element name="classification">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="class-scheme-ref"/>
-				<xs:element ref="class-term-ref"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="communication-type" type="communicationType">
-		<xs:annotation>
-			<xs:documentation>Value from the CMT list, which determines how the locator multiplicity should work. </xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="condition-code" type="conditionCode"/>
-	<xs:element name="condition-description" type="nonEmptyString"/>
-	<xs:element name="contact-ref" type="nonEmptyString">
-		<xs:annotation>
-			<xs:documentation>Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="contributor">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="contributor-role"/>
-				<xs:choice>
-					<xs:element ref="contributor-name"/>
-					<xs:element ref="unnamed-contributor"/>
-				</xs:choice>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="contributor-name" type="nonEmptyString"/>
-	<xs:element name="contributor-role" type="contributorRole"/>
-	<xs:element name="cover-art" type="xs:anyURI"/>
-	<xs:element name="creation-date" type="xs:dateTime"/>
-	<xs:element name="currency" type="iso4217CurrencyCode"/>
-	<xs:element name="date-of-birth" type="xs:date"/>
-	<xs:element name="deposit-balance" type="xs:decimal"/>
-	<xs:element name="description" type="nonEmptyString"/>
-	<xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
-	<xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
-	<xs:element name="display-type" type="messageDisplayType"/>
-	<xs:element name="due-amount" type="xs:decimal"/>
-	<xs:element name="due-date-time" type="xs:dateTime"/>
-	<xs:element name="edition-statement" type="nonEmptyString"/>
-	<xs:element name="end-date" type="xs:dateTime"/>
-	<xs:element name="end-due-date" type="xs:dateTime"/>
-	<xs:element name="fee-description" type="nonEmptyString"/>
-	<xs:element name="fee-due-date-time" type="xs:dateTime"/>
-	<xs:element name="fee-limit">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="charge-type" minOccurs="0"/>
-				<xs:element ref="amount"/>
-				<xs:element ref="currency" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="fees-due-items" type="xs:int"/>
-	<xs:element name="fines-due-items" type="xs:int"/>
-    <xs:element name="group-type" type="nonEmptyString"/>
-	<xs:element name="heading" type="nonEmptyString"/>
-	<xs:element name="hold-items-limit" type="xs:int"/>
-	<xs:element name="hold-queue-position" type="xs:int"/>
-	<xs:element name="home-institution-ref" type="nonEmptyString"/>
-	<xs:element name="identifier" type="nonEmptyString">
-		<xs:annotation>
-			<xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="institution-ref" type="nonEmptyString"/>
-	<xs:element name="item-id-type" type="copyIDType"/>
-	<xs:element name="item-ref" type="nonEmptyString"/>
-	<xs:element name="items-in-stock" type="xs:int"/>
-	<xs:element name="language" type="languageCode"/>
-    <xs:element name="lead-patron-ref" type="nonEmptyString"/>
-	<xs:element name="link" type="nonEmptyString"/>
-	<xs:element name="link-type" type="accessLinkType"/>
-	<xs:element name="loan-fee">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="charge-type"/>
-				<xs:element ref="amount"/>
-				<xs:element ref="currency" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="loan-items-limit" type="xs:int"/>
-	<xs:element name="loan-ref" type="nonEmptyString"/>
-	<xs:element name="loan-restriction">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="restriction-type"/>
-				<xs:element ref="value"/>
-				<xs:element ref="note" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="loan-status" type="loanStatusCode"/>
-	<xs:element name="location-id-type" type="locationIDType"/>
-	<xs:element name="location-type" type="locationType"/>
-	<xs:element name="location-ref" type="nonEmptyString"/>
-	<xs:element name="locator" type="nonEmptyString"/>
-	<xs:element name="manifestation-id-type" type="manifestationIDType"/>
-	<xs:element name="manifestation-record" type="nonEmptyString"/>
-	<xs:element name="manifestation-ref" type="nonEmptyString"/>
-	<xs:element name="manifestation-status" type="manifestationStatus"/>
-	<xs:element name="media-type">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="media-type-scheme" type="mediaTypeScheme"/>
-				<xs:element ref="scheme-name" minOccurs="0"/>
-				<xs:element ref="scheme-code"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="media-warning" type="mediaWarningFlag"/>
-    <xs:element name="message-format" type="textFormat"/>
-	<xs:element name="message-ref" type="nonEmptyString"/>
-	<xs:element name="message-text">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="message-format"/>
-				<xs:element ref="text"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="message-type" type="messageAlertType"/>
-	<xs:element name="name" type="nonEmptyString">
-		<xs:annotation>
-			<xs:documentation>The full name of the person or Institution being modelled as this 'patron'.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="note">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="note-type" minOccurs="0"/>
-				<xs:element name="date-time" type="xs:dateTime" minOccurs="0"/>
-				<xs:element ref="note-text"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="note-text" type="nonEmptyString"/>
-	<xs:element name="note-type" type="noteType"/>
-	<xs:element name="on-loan-items" type="xs:int"/>
-	<xs:element name="on-loan-ref" type="nonEmptyString"/>
-	<xs:element name="other-description" type="nonEmptyString"/>
-	<xs:element name="other-manifestation-in-series-ref" type="nonEmptyString"/>
-	<xs:element name="overdue-items" type="xs:int"/>
-	<xs:element name="overdue-items-limit" type="xs:int"/>
-	<xs:element name="owner-ref" type="nonEmptyString"/>
-	<xs:element name="paid-amount" type="xs:decimal"/>
-	<xs:element name="paid-date" type="xs:dateTime"/>
-	<xs:element name="patron-category" type="nonEmptyString"/>
-	<xs:element name="patron-expiration-date" type="xs:dateTime"/>
-    <xs:element name="patron-group-id" type="nonEmptyString"/>
-	<xs:element name="patron-id-type" type="patronIdentificationScheme"/>
-	<xs:element name="patron-ref" type="nonEmptyString">
-		<xs:annotation>
-			<xs:documentation>A 'contact' must be associated with a pre-existing 'patron'.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	<xs:element name="patron-status" type="patronStatusCode"/>
-	<xs:element name="patron-tag" type="nonEmptyString"/>
-	<xs:element name="patrons-in-hold-queue" type="xs:int"/>
-	<xs:element name="payment-date" type="xs:dateTime"/>
-	<xs:element name="payment-due-date" type="xs:dateTime"/>
-	<xs:element name="payment-ref" type="nonEmptyString"/>
-	<xs:element name="payment-status" type="paymentStatus"/>
-	<xs:element name="payment-type" type="paymentType"/>
-	<xs:element name="pickup-date" type="xs:dateTime"/>
-	<xs:element name="pickup-institution-ref" type="nonEmptyString"/>
-	<xs:element name="pickup-location-ref" type="nonEmptyString"/>
-	<xs:element name="priority" type="messageAlertPriority"/>
-	<xs:element name="publisher-name" type="nonEmptyString"/>
-	<xs:element name="recall-notice-date" type="xs:dateTime"/>
-	<xs:element name="recalled-items" type="xs:int"/>
-	<xs:element name="reservation-ref" type="nonEmptyString"/>
-	<xs:element name="reservation-status" type="reservationStatus"/>
-	<xs:element name="reservation-type" type="reservationType"/>
-	<xs:element name="restriction-type" type="loanRestrictionType"/>
-	<xs:element name="scheme-code" type="nonEmptyString"/>
-	<xs:element name="scheme-name" type="nonEmptyString"/>
-	<xs:element name="security-desensitize" type="securityDesensitize"/>
-	<xs:element name="series">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="volume-or-part" minOccurs="0"/>
-				<xs:element ref="other-manifestation-in-series-ref" minOccurs="0" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="start-date" type="xs:dateTime"/>
-	<xs:element name="subtitle" type="nonEmptyString"/>
-	<xs:element name="terminal-location" type="nonEmptyString"/>
-    <xs:element name="text" type="nonEmptyString"/>
-	<xs:element name="title">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="title-type"/>
-				<xs:element ref="title-text"/>
-				<xs:element ref="subtitle" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="title-text" type="nonEmptyString"/>
-	<xs:element name="title-type" type="titleType"/>
-	<xs:element name="total-anticipated-fines">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="charge-type" minOccurs="0"/>
-				<xs:element ref="amount"/>
-				<xs:element ref="currency" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="total-fees-owed">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="charge-type" minOccurs="0"/>
-				<xs:element ref="amount"/>
-				<xs:element ref="currency" minOccurs="0"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="transaction-reference" type="nonEmptyString"/>
-	<xs:element name="type-name" type="nonEmptyString"/>
-	<xs:element name="unavailable-hold-items" type="xs:int"/>
-	<xs:element name="unnamed-contributor" type="unnamedContributorType"/>
-	<xs:element name="value" type="nonEmptyString"/>
-	<xs:element name="value-scheme-ref" type="nonEmptyString"/>
-	<xs:element name="volume-or-part" type="nonEmptyString"/>
-	<xs:element name="year-of-publication" type="xs:gYear"/>
-	<xs:simpleType name="cardStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="accessLinkType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LKT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Direct link to resource</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LKT02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Indirect link to resource</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
+    <xs:group name="authorisation-props">
+        <xs:sequence>
+            <xs:element ref="authorisation-type" minOccurs="0">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D02</xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="heading" minOccurs="0">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D03</xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13C04</xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="authority">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0">
+                    <xs:annotation>
+                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+                    </xs:annotation>
+                </xs:element>
+                <xs:group ref="authority-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="authority-props">
+        <xs:sequence>
+            <xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="name"/>
+            <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="charge">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="charge-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="charge-props">
+        <xs:sequence>
+            <xs:element ref="patron-ref"/>
+            <xs:element ref="charge-type"/>
+            <xs:element ref="charge-status"/>
+            <xs:element ref="description" minOccurs="0"/>
+            <xs:element ref="item-ref" minOccurs="0"/>
+            <xs:element ref="manifestation-ref" minOccurs="0"/>
+            <xs:element ref="loan-ref" minOccurs="0"/>
+            <xs:element ref="reservation-ref" minOccurs="0"/>
+            <xs:element ref="creation-date" minOccurs="0"/>
+            <xs:element ref="payment-due-date" minOccurs="0"/>
+            <xs:element ref="charge-amount"/>
+            <xs:element ref="currency" minOccurs="0"/>
+            <xs:element ref="paid-amount" minOccurs="0"/>
+            <xs:element ref="due-amount" minOccurs="0"/>
+            <xs:element ref="paid-date" minOccurs="0"/>
+            <xs:element ref="payment-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="class-scheme">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="class-scheme-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="class-scheme-props">
+        <xs:sequence>
+            <xs:element ref="name"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="class-term">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="class-term-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="class-term-props">
+        <xs:sequence>
+            <xs:element ref="class-code"/>
+            <xs:element ref="class-scheme-ref"/>
+            <xs:element ref="heading" minOccurs="0"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="contact">
+        <xs:annotation>
+            <xs:documentation>Represents a single method of communication with a 'patron'. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="contact-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="contact-props">
+        <xs:sequence>
+            <xs:element ref="patron-ref" minOccurs="0"/>
+            <xs:element ref="location-ref" minOccurs="0"/>
+            <xs:element ref="institution-ref" minOccurs="0"/>
+            <xs:element ref="communication-type"/>
+            <xs:element ref="locator" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="item-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="item-props">
+        <xs:sequence>
+            <xs:element ref="additional-item-id" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="manifestation-ref"/>
+            <xs:element ref="description" minOccurs="0"/>
+            <xs:element ref="owner-ref" minOccurs="0"/>
+            <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="media-warning"/>
+            <xs:element ref="security-desensitize"/>
+            <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="circulation-status"/>
+            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
+            <xs:element ref="on-loan-ref" minOccurs="0"/>
+            <xs:element ref="condition-code" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="condition-description" minOccurs="0"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="loan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="loan-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="loan-props">
+        <xs:sequence>
+            <xs:element ref="patron-ref"/>
+            <xs:element ref="item-ref"/>
+            <xs:element ref="start-date"/>
+            <xs:element ref="end-due-date" minOccurs="0"/>
+            <xs:element ref="end-date" minOccurs="0"/>
+            <xs:element ref="loan-status" maxOccurs="unbounded"/>
+            <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="recall-notice-date" minOccurs="0"/>
+            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="location">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="location-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="location-props">
+        <xs:sequence>
+            <xs:element ref="additional-location-id" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="name" minOccurs="0"/>
+            <xs:element ref="location-type" minOccurs="0"/>
+            <xs:element ref="description" minOccurs="0"/>
+            <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="associated-location"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="manifestation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="manifestation-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="manifestation-props">
+        <xs:sequence>
+            <xs:element ref="additional-manifestation-id" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="media-type" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="contributor" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="series" minOccurs="0"/>
+            <xs:element ref="edition-statement" minOccurs="0"/>
+            <xs:element ref="publisher-name" minOccurs="0"/>
+            <xs:element ref="year-of-publication" minOccurs="0"/>
+            <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="cover-art" minOccurs="0"/>
+            <xs:element ref="description" minOccurs="0"/>
+            <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
+            <xs:element ref="manifestation-record" minOccurs="0"/>
+            <xs:element ref="manifestation-status"/>
+            <xs:element ref="items-in-stock" minOccurs="0"/>
+            <xs:element ref="item-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="message-alert">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="message-alert-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="message-alert-props">
+        <xs:sequence>
+            <xs:element ref="authority-ref" minOccurs="0"/>
+            <xs:element ref="message-type"/>
+            <xs:element ref="priority" minOccurs="0"/>
+            <xs:element ref="display-type" minOccurs="0"/>
+            <xs:element ref="display-constraint" minOccurs="0"/>
+            <xs:element ref="start-date" minOccurs="0"/>
+            <xs:element ref="end-date" minOccurs="0"/>
+            <xs:element ref="audience" minOccurs="0"/>
+            <xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="message-text" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="patron">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="patron-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="patron-props">
+        <xs:sequence>
+            <xs:element ref="barcode-id" minOccurs="0"/>
+            <xs:element ref="additional-patron-id" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="name"/>
+            <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="language" minOccurs="0"/>
+            <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="home-institution-ref" minOccurs="0"/>
+            <xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="card-status-info" minOccurs="0"/>
+            <xs:element ref="patron-category" minOccurs="0"/>
+            <xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="patron-expiration-date" minOccurs="0"/>
+            <xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="on-loan-items" minOccurs="0"/>
+            <xs:element ref="loan-items-limit" minOccurs="0"/>
+            <xs:element ref="overdue-items" minOccurs="0"/>
+            <xs:element ref="overdue-items-limit" minOccurs="0"/>
+            <xs:element ref="recalled-items" minOccurs="0"/>
+            <xs:element ref="fees-due-items" minOccurs="0"/>
+            <xs:element ref="fines-due-items" minOccurs="0"/>
+            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="available-hold-items" minOccurs="0"/>
+            <xs:element ref="unavailable-hold-items" minOccurs="0"/>
+            <xs:element ref="hold-items-limit" minOccurs="0"/>
+            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="deposit-balance" minOccurs="0"/>
+            <xs:element ref="associated-message" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="date-of-birth" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="payment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="payment-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="payment-props">
+        <xs:sequence>
+            <xs:element ref="patron-ref"/>
+            <xs:element ref="payment-type"/>
+            <xs:element ref="description" minOccurs="0"/>
+            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="payment-date" minOccurs="0"/>
+            <xs:element ref="amount"/>
+            <xs:element ref="currency" minOccurs="0"/>
+            <xs:element ref="payment-status" minOccurs="0"/>
+            <xs:element ref="transaction-reference" minOccurs="0"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="property">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="property-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="property-props">
+        <xs:sequence>
+            <xs:element ref="name" minOccurs="0"/>
+            <xs:element name="entity-type" type="entityType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="description" minOccurs="0"/>
+            <xs:element ref="value-scheme-ref" minOccurs="0"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="reservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="identifier" minOccurs="0"/>
+                <xs:group ref="reservation-props"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="reservation-props">
+        <xs:sequence>
+            <xs:element ref="reservation-type"/>
+            <xs:element ref="patron-ref"/>
+            <xs:choice>
+                <xs:element ref="manifestation-ref"/>
+                <xs:element ref="item-ref"/>
+            </xs:choice>
+            <xs:element ref="start-date" minOccurs="0"/>
+            <xs:element ref="pickup-institution-ref" minOccurs="0"/>
+            <xs:element ref="pickup-location-ref" minOccurs="0"/>
+            <xs:element ref="pickup-date" minOccurs="0"/>
+            <xs:element ref="end-date" minOccurs="0"/>
+            <xs:element ref="reservation-status"/>
+            <xs:element ref="hold-queue-position" minOccurs="0"/>
+            <xs:element ref="loan-ref" minOccurs="0"/>
+            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
 
-	<xs:simpleType name="authorisationCode">
-		<xs:restriction base="xs:string">
-            <xs:enumeration value="PCI">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AUT01</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Parental consent has been granted for a child patron to acccess the Internet from library premises</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="PAY">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AUT02</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Consent has been granted for a Patron to proceed to make a payment against their account.</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">May only be used in LCF function 13 (Patron payment) responses.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="authorityAssociationType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AAT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Is member of consortium</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">AAT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Has member of consortium</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="chargeStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="chargeType">
-		<xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT01</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Other / unknown</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘01’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT02</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Administrative</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘02’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT03</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Damage</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘03’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="04">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT04</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Overdue</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘04’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="05">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT05</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Processing</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘05’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="06">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT06</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Rental</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘06’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="07">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT07</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Replacement</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘07’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="08">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT08</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Computer access charge</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘08’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="09">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT09</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Reservation fee</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP 2 code ‘09’</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="00">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT10</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Aggregate</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Default value in fee total elements</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="10">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT11</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Membership fee / subscription</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="11">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT12</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Notice fee</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="12">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT13</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Referral to debt collection fee</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="13">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CHT14</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Printing</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added in LCF v1.0.1</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="circulationStatusCode">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-			<xs:enumeration value="07"/>
-			<xs:enumeration value="08"/>
-			<xs:enumeration value="09"/>
-			<xs:enumeration value="10"/>
-			<xs:enumeration value="11"/>
-			<xs:enumeration value="12"/>
-			<xs:enumeration value="13"/>
-			<xs:enumeration value="14"/>
-			<xs:enumeration value="15"/>
-			<xs:enumeration value="16"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="communicationType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-			<xs:enumeration value="11"/>
-			<xs:enumeration value="15"/>
-			<xs:enumeration value="16"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="conditionCode">
-		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
-	<xs:simpleType name="contactAssociationType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CAT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Primary contact for authority/institution</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">CAT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Alternative contact for authority/institution</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="contributorRole">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="A01"/>
-			<xs:enumeration value="A02"/>
-			<xs:enumeration value="A03"/>
-			<xs:enumeration value="A04"/>
-			<xs:enumeration value="A05"/>
-			<xs:enumeration value="A06"/>
-			<xs:enumeration value="A07"/>
-			<xs:enumeration value="A08"/>
-			<xs:enumeration value="A09"/>
-			<xs:enumeration value="A10"/>
-			<xs:enumeration value="A11"/>
-			<xs:enumeration value="A12"/>
-			<xs:enumeration value="A13"/>
-			<xs:enumeration value="A14"/>
-			<xs:enumeration value="A15"/>
-			<xs:enumeration value="A16"/>
-			<xs:enumeration value="A17"/>
-			<xs:enumeration value="A18"/>
-			<xs:enumeration value="A19"/>
-			<xs:enumeration value="A20"/>
-			<xs:enumeration value="A21"/>
-			<xs:enumeration value="A22"/>
-			<xs:enumeration value="A23"/>
-			<xs:enumeration value="A24"/>
-			<xs:enumeration value="A25"/>
-			<xs:enumeration value="A26"/>
-			<xs:enumeration value="A27"/>
-			<xs:enumeration value="A29"/>
-			<xs:enumeration value="A30"/>
-			<xs:enumeration value="A31"/>
-			<xs:enumeration value="A32"/>
-			<xs:enumeration value="A33"/>
-			<xs:enumeration value="A34"/>
-			<xs:enumeration value="A35"/>
-			<xs:enumeration value="A36"/>
-			<xs:enumeration value="A37"/>
-			<xs:enumeration value="A38"/>
-			<xs:enumeration value="A39"/>
-			<xs:enumeration value="A40"/>
-			<xs:enumeration value="A41"/>
-			<xs:enumeration value="A42"/>
-			<xs:enumeration value="A43"/>
-			<xs:enumeration value="A44"/>
-			<xs:enumeration value="A99"/>
-			<xs:enumeration value="B01"/>
-			<xs:enumeration value="B02"/>
-			<xs:enumeration value="B03"/>
-			<xs:enumeration value="B04"/>
-			<xs:enumeration value="B05"/>
-			<xs:enumeration value="B06"/>
-			<xs:enumeration value="B07"/>
-			<xs:enumeration value="B08"/>
-			<xs:enumeration value="B09"/>
-			<xs:enumeration value="B10"/>
-			<xs:enumeration value="B11"/>
-			<xs:enumeration value="B12"/>
-			<xs:enumeration value="B13"/>
-			<xs:enumeration value="B14"/>
-			<xs:enumeration value="B15"/>
-			<xs:enumeration value="B16"/>
-			<xs:enumeration value="B17"/>
-			<xs:enumeration value="B18"/>
-			<xs:enumeration value="B19"/>
-			<xs:enumeration value="B20"/>
-			<xs:enumeration value="B21"/>
-			<xs:enumeration value="B22"/>
-			<xs:enumeration value="B23"/>
-			<xs:enumeration value="B24"/>
-			<xs:enumeration value="B25"/>
-			<xs:enumeration value="B26"/>
-			<xs:enumeration value="B99"/>
-			<xs:enumeration value="C01"/>
-			<xs:enumeration value="C02"/>
-			<xs:enumeration value="C99"/>
-			<xs:enumeration value="D01"/>
-			<xs:enumeration value="D02"/>
-			<xs:enumeration value="D03"/>
-			<xs:enumeration value="D99"/>
-			<xs:enumeration value="E01"/>
-			<xs:enumeration value="E02"/>
-			<xs:enumeration value="E03"/>
-			<xs:enumeration value="E04"/>
-			<xs:enumeration value="E05"/>
-			<xs:enumeration value="E06"/>
-			<xs:enumeration value="E07"/>
-			<xs:enumeration value="E08"/>
-			<xs:enumeration value="E09"/>
-			<xs:enumeration value="E99"/>
-			<xs:enumeration value="F01"/>
-			<xs:enumeration value="F99"/>
-			<xs:enumeration value="Z01"/>
-			<xs:enumeration value="Z99"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="copyIDType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="entityType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="manifestations"/>
-			<xs:enumeration value="items"/>
-			<xs:enumeration value="patrons"/>
-			<xs:enumeration value="locations"/>
-			<xs:enumeration value="loans"/>
-			<xs:enumeration value="reservations"/>
-			<xs:enumeration value="charges"/>
-			<xs:enumeration value="payments"/>
-			<xs:enumeration value="contacts"/>
-			<xs:enumeration value="class-schemes"/>
-			<xs:enumeration value="class-terms"/>
-			<xs:enumeration value="properties"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="feeOrFineType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-			<xs:enumeration value="07"/>
-			<xs:enumeration value="08"/>
-			<xs:enumeration value="09"/>
-			<xs:enumeration value="99"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="iso4217CurrencyCode">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="AED"/>
-			<xs:enumeration value="AFA"/>
-			<xs:enumeration value="AFN"/>
-			<xs:enumeration value="ALL"/>
-			<xs:enumeration value="AMD"/>
-			<xs:enumeration value="ANG"/>
-			<xs:enumeration value="AOA"/>
-			<xs:enumeration value="ARS"/>
-			<xs:enumeration value="ATS"/>
-			<xs:enumeration value="AUD"/>
-			<xs:enumeration value="AWG"/>
-			<xs:enumeration value="AZN"/>
-			<xs:enumeration value="BAM"/>
-			<xs:enumeration value="BBD"/>
-			<xs:enumeration value="BDT"/>
-			<xs:enumeration value="BEF"/>
-			<xs:enumeration value="BGL"/>
-			<xs:enumeration value="BGN"/>
-			<xs:enumeration value="BHD"/>
-			<xs:enumeration value="BIF"/>
-			<xs:enumeration value="BMD"/>
-			<xs:enumeration value="BND"/>
-			<xs:enumeration value="BOB"/>
-			<xs:enumeration value="BRL"/>
-			<xs:enumeration value="BSD"/>
-			<xs:enumeration value="BTN"/>
-			<xs:enumeration value="BWP"/>
-			<xs:enumeration value="BYR"/>
-			<xs:enumeration value="BZD"/>
-			<xs:enumeration value="CAD"/>
-			<xs:enumeration value="CDF"/>
-			<xs:enumeration value="CHF"/>
-			<xs:enumeration value="CLP"/>
-			<xs:enumeration value="CNY"/>
-			<xs:enumeration value="COP"/>
-			<xs:enumeration value="CRC"/>
-			<xs:enumeration value="CSD"/>
-			<xs:enumeration value="CUC"/>
-			<xs:enumeration value="CUP"/>
-			<xs:enumeration value="CVE"/>
-			<xs:enumeration value="CYP"/>
-			<xs:enumeration value="CZK"/>
-			<xs:enumeration value="DEM"/>
-			<xs:enumeration value="DJF"/>
-			<xs:enumeration value="DKK"/>
-			<xs:enumeration value="DOP"/>
-			<xs:enumeration value="DZD"/>
-			<xs:enumeration value="EEK"/>
-			<xs:enumeration value="EGP"/>
-			<xs:enumeration value="ERN"/>
-			<xs:enumeration value="ESP"/>
-			<xs:enumeration value="ETB"/>
-			<xs:enumeration value="EUR"/>
-			<xs:enumeration value="FIM"/>
-			<xs:enumeration value="FJD"/>
-			<xs:enumeration value="FKP"/>
-			<xs:enumeration value="FRF"/>
-			<xs:enumeration value="GBP"/>
-			<xs:enumeration value="GEL"/>
-			<xs:enumeration value="GHC"/>
-			<xs:enumeration value="GHS"/>
-			<xs:enumeration value="GIP"/>
-			<xs:enumeration value="GMD"/>
-			<xs:enumeration value="GNF"/>
-			<xs:enumeration value="GRD"/>
-			<xs:enumeration value="GTQ"/>
-			<xs:enumeration value="GWP"/>
-			<xs:enumeration value="GYD"/>
-			<xs:enumeration value="HKD"/>
-			<xs:enumeration value="HNL"/>
-			<xs:enumeration value="HRK"/>
-			<xs:enumeration value="HTG"/>
-			<xs:enumeration value="HUF"/>
-			<xs:enumeration value="IDR"/>
-			<xs:enumeration value="IEP"/>
-			<xs:enumeration value="ILS"/>
-			<xs:enumeration value="INR"/>
-			<xs:enumeration value="IQD"/>
-			<xs:enumeration value="IRR"/>
-			<xs:enumeration value="ISK"/>
-			<xs:enumeration value="ITL"/>
-			<xs:enumeration value="JMD"/>
-			<xs:enumeration value="JOD"/>
-			<xs:enumeration value="JPY"/>
-			<xs:enumeration value="KES"/>
-			<xs:enumeration value="KGS"/>
-			<xs:enumeration value="KHR"/>
-			<xs:enumeration value="KMF"/>
-			<xs:enumeration value="KPW"/>
-			<xs:enumeration value="KRW"/>
-			<xs:enumeration value="KWD"/>
-			<xs:enumeration value="KYD"/>
-			<xs:enumeration value="KZT"/>
-			<xs:enumeration value="LAK"/>
-			<xs:enumeration value="LBP"/>
-			<xs:enumeration value="LKR"/>
-			<xs:enumeration value="LRD"/>
-			<xs:enumeration value="LSL"/>
-			<xs:enumeration value="LTL"/>
-			<xs:enumeration value="LUF"/>
-			<xs:enumeration value="LVL"/>
-			<xs:enumeration value="LYD"/>
-			<xs:enumeration value="MAD"/>
-			<xs:enumeration value="MDL"/>
-			<xs:enumeration value="MGA"/>
-			<xs:enumeration value="MGF"/>
-			<xs:enumeration value="MKD"/>
-			<xs:enumeration value="MMK"/>
-			<xs:enumeration value="MNT"/>
-			<xs:enumeration value="MOP"/>
-			<xs:enumeration value="MRO"/>
-			<xs:enumeration value="MTL"/>
-			<xs:enumeration value="MUR"/>
-			<xs:enumeration value="MVR"/>
-			<xs:enumeration value="MWK"/>
-			<xs:enumeration value="MXN"/>
-			<xs:enumeration value="MYR"/>
-			<xs:enumeration value="MZN"/>
-			<xs:enumeration value="NAD"/>
-			<xs:enumeration value="NGN"/>
-			<xs:enumeration value="NIO"/>
-			<xs:enumeration value="NLG"/>
-			<xs:enumeration value="NOK"/>
-			<xs:enumeration value="NPR"/>
-			<xs:enumeration value="NZD"/>
-			<xs:enumeration value="OMR"/>
-			<xs:enumeration value="PAB"/>
-			<xs:enumeration value="PEN"/>
-			<xs:enumeration value="PGK"/>
-			<xs:enumeration value="PHP"/>
-			<xs:enumeration value="PKR"/>
-			<xs:enumeration value="PLN"/>
-			<xs:enumeration value="PTE"/>
-			<xs:enumeration value="PYG"/>
-			<xs:enumeration value="QAR"/>
-			<xs:enumeration value="ROL"/>
-			<xs:enumeration value="RON"/>
-			<xs:enumeration value="RSD"/>
-			<xs:enumeration value="RUB"/>
-			<xs:enumeration value="RUR"/>
-			<xs:enumeration value="RWF"/>
-			<xs:enumeration value="SAR"/>
-			<xs:enumeration value="SBD"/>
-			<xs:enumeration value="SCR"/>
-			<xs:enumeration value="SDD"/>
-			<xs:enumeration value="SDG"/>
-			<xs:enumeration value="SEK"/>
-			<xs:enumeration value="SGD"/>
-			<xs:enumeration value="SHP"/>
-			<xs:enumeration value="SIT"/>
-			<xs:enumeration value="SKK"/>
-			<xs:enumeration value="SLL"/>
-			<xs:enumeration value="SOS"/>
-			<xs:enumeration value="SRD"/>
-			<xs:enumeration value="SRG"/>
-			<xs:enumeration value="STD"/>
-			<xs:enumeration value="SVC"/>
-			<xs:enumeration value="SYP"/>
-			<xs:enumeration value="SZL"/>
-			<xs:enumeration value="THB"/>
-			<xs:enumeration value="TJS"/>
-			<xs:enumeration value="TMM"/>
-			<xs:enumeration value="TMT"/>
-			<xs:enumeration value="TND"/>
-			<xs:enumeration value="TOP"/>
-			<xs:enumeration value="TPE"/>
-			<xs:enumeration value="TRL"/>
-			<xs:enumeration value="TRY"/>
-			<xs:enumeration value="TTD"/>
-			<xs:enumeration value="TWD"/>
-			<xs:enumeration value="TZS"/>
-			<xs:enumeration value="UAH"/>
-			<xs:enumeration value="UGX"/>
-			<xs:enumeration value="USD"/>
-			<xs:enumeration value="UYU"/>
-			<xs:enumeration value="UZS"/>
-			<xs:enumeration value="VEB"/>
-			<xs:enumeration value="VEF"/>
-			<xs:enumeration value="VND"/>
-			<xs:enumeration value="VUV"/>
-			<xs:enumeration value="WST"/>
-			<xs:enumeration value="XAF"/>
-			<xs:enumeration value="XCD"/>
-			<xs:enumeration value="XOF"/>
-			<xs:enumeration value="XPF"/>
-			<xs:enumeration value="YER"/>
-			<xs:enumeration value="YUM"/>
-			<xs:enumeration value="ZAR"/>
-			<xs:enumeration value="ZMK"/>
-			<xs:enumeration value="ZWD"/>
-			<xs:enumeration value="ZWL"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="institutionIDType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">INS01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Proprietary scheme</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Other codes to be defined</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">INS01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">ISIL</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="languageCode">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="aar"/>
-			<xs:enumeration value="abk"/>
-			<xs:enumeration value="ace"/>
-			<xs:enumeration value="ach"/>
-			<xs:enumeration value="ada"/>
-			<xs:enumeration value="ady"/>
-			<xs:enumeration value="afa"/>
-			<xs:enumeration value="afh"/>
-			<xs:enumeration value="afr"/>
-			<xs:enumeration value="ain"/>
-			<xs:enumeration value="aka"/>
-			<xs:enumeration value="akk"/>
-			<xs:enumeration value="alb"/>
-			<xs:enumeration value="ale"/>
-			<xs:enumeration value="alg"/>
-			<xs:enumeration value="alt"/>
-			<xs:enumeration value="amh"/>
-			<xs:enumeration value="ang"/>
-			<xs:enumeration value="anp"/>
-			<xs:enumeration value="apa"/>
-			<xs:enumeration value="ara"/>
-			<xs:enumeration value="arc"/>
-			<xs:enumeration value="arg"/>
-			<xs:enumeration value="arm"/>
-			<xs:enumeration value="arn"/>
-			<xs:enumeration value="arp"/>
-			<xs:enumeration value="art"/>
-			<xs:enumeration value="arw"/>
-			<xs:enumeration value="asm"/>
-			<xs:enumeration value="ast"/>
-			<xs:enumeration value="ath"/>
-			<xs:enumeration value="aus"/>
-			<xs:enumeration value="ava"/>
-			<xs:enumeration value="ave"/>
-			<xs:enumeration value="awa"/>
-			<xs:enumeration value="aym"/>
-			<xs:enumeration value="aze"/>
-			<xs:enumeration value="bad"/>
-			<xs:enumeration value="bai"/>
-			<xs:enumeration value="bak"/>
-			<xs:enumeration value="bal"/>
-			<xs:enumeration value="bam"/>
-			<xs:enumeration value="ban"/>
-			<xs:enumeration value="baq"/>
-			<xs:enumeration value="bas"/>
-			<xs:enumeration value="bat"/>
-			<xs:enumeration value="bej"/>
-			<xs:enumeration value="bel"/>
-			<xs:enumeration value="bem"/>
-			<xs:enumeration value="ben"/>
-			<xs:enumeration value="ber"/>
-			<xs:enumeration value="bho"/>
-			<xs:enumeration value="bih"/>
-			<xs:enumeration value="bik"/>
-			<xs:enumeration value="bin"/>
-			<xs:enumeration value="bis"/>
-			<xs:enumeration value="bla"/>
-			<xs:enumeration value="bnt"/>
-			<xs:enumeration value="bos"/>
-			<xs:enumeration value="bra"/>
-			<xs:enumeration value="bre"/>
-			<xs:enumeration value="btk"/>
-			<xs:enumeration value="bua"/>
-			<xs:enumeration value="bug"/>
-			<xs:enumeration value="bul"/>
-			<xs:enumeration value="bur"/>
-			<xs:enumeration value="byn"/>
-			<xs:enumeration value="cad"/>
-			<xs:enumeration value="cai"/>
-			<xs:enumeration value="car"/>
-			<xs:enumeration value="cat"/>
-			<xs:enumeration value="cau"/>
-			<xs:enumeration value="ceb"/>
-			<xs:enumeration value="cel"/>
-			<xs:enumeration value="cha"/>
-			<xs:enumeration value="chb"/>
-			<xs:enumeration value="che"/>
-			<xs:enumeration value="chg"/>
-			<xs:enumeration value="chi"/>
-			<xs:enumeration value="chk"/>
-			<xs:enumeration value="chm"/>
-			<xs:enumeration value="chn"/>
-			<xs:enumeration value="cho"/>
-			<xs:enumeration value="chp"/>
-			<xs:enumeration value="chr"/>
-			<xs:enumeration value="chu"/>
-			<xs:enumeration value="chv"/>
-			<xs:enumeration value="chy"/>
-			<xs:enumeration value="cmc"/>
-			<xs:enumeration value="cop"/>
-			<xs:enumeration value="cor"/>
-			<xs:enumeration value="cos"/>
-			<xs:enumeration value="cpe"/>
-			<xs:enumeration value="cpf"/>
-			<xs:enumeration value="cpp"/>
-			<xs:enumeration value="cre"/>
-			<xs:enumeration value="crh"/>
-			<xs:enumeration value="crp"/>
-			<xs:enumeration value="csb"/>
-			<xs:enumeration value="cus"/>
-			<xs:enumeration value="cze"/>
-			<xs:enumeration value="dak"/>
-			<xs:enumeration value="dan"/>
-			<xs:enumeration value="dar"/>
-			<xs:enumeration value="day"/>
-			<xs:enumeration value="del"/>
-			<xs:enumeration value="den"/>
-			<xs:enumeration value="dgr"/>
-			<xs:enumeration value="din"/>
-			<xs:enumeration value="div"/>
-			<xs:enumeration value="doi"/>
-			<xs:enumeration value="dra"/>
-			<xs:enumeration value="dsb"/>
-			<xs:enumeration value="dua"/>
-			<xs:enumeration value="dum"/>
-			<xs:enumeration value="dut"/>
-			<xs:enumeration value="dyu"/>
-			<xs:enumeration value="dzo"/>
-			<xs:enumeration value="efi"/>
-			<xs:enumeration value="egy"/>
-			<xs:enumeration value="eka"/>
-			<xs:enumeration value="elx"/>
-			<xs:enumeration value="eng"/>
-			<xs:enumeration value="enm"/>
-			<xs:enumeration value="epo"/>
-			<xs:enumeration value="est"/>
-			<xs:enumeration value="ewe"/>
-			<xs:enumeration value="ewo"/>
-			<xs:enumeration value="fan"/>
-			<xs:enumeration value="fao"/>
-			<xs:enumeration value="fat"/>
-			<xs:enumeration value="fij"/>
-			<xs:enumeration value="fil"/>
-			<xs:enumeration value="fin"/>
-			<xs:enumeration value="fiu"/>
-			<xs:enumeration value="fon"/>
-			<xs:enumeration value="fre"/>
-			<xs:enumeration value="frm"/>
-			<xs:enumeration value="fro"/>
-			<xs:enumeration value="frr"/>
-			<xs:enumeration value="frs"/>
-			<xs:enumeration value="fry"/>
-			<xs:enumeration value="ful"/>
-			<xs:enumeration value="fur"/>
-			<xs:enumeration value="gaa"/>
-			<xs:enumeration value="gay"/>
-			<xs:enumeration value="gba"/>
-			<xs:enumeration value="gem"/>
-			<xs:enumeration value="geo"/>
-			<xs:enumeration value="ger"/>
-			<xs:enumeration value="gez"/>
-			<xs:enumeration value="gil"/>
-			<xs:enumeration value="gla"/>
-			<xs:enumeration value="gle"/>
-			<xs:enumeration value="glg"/>
-			<xs:enumeration value="glv"/>
-			<xs:enumeration value="gmh"/>
-			<xs:enumeration value="goh"/>
-			<xs:enumeration value="gon"/>
-			<xs:enumeration value="gor"/>
-			<xs:enumeration value="got"/>
-			<xs:enumeration value="grb"/>
-			<xs:enumeration value="grc"/>
-			<xs:enumeration value="gre"/>
-			<xs:enumeration value="grn"/>
-			<xs:enumeration value="gsw"/>
-			<xs:enumeration value="guj"/>
-			<xs:enumeration value="gwi"/>
-			<xs:enumeration value="hai"/>
-			<xs:enumeration value="hat"/>
-			<xs:enumeration value="hau"/>
-			<xs:enumeration value="haw"/>
-			<xs:enumeration value="heb"/>
-			<xs:enumeration value="her"/>
-			<xs:enumeration value="hil"/>
-			<xs:enumeration value="him"/>
-			<xs:enumeration value="hin"/>
-			<xs:enumeration value="hit"/>
-			<xs:enumeration value="hmn"/>
-			<xs:enumeration value="hmo"/>
-			<xs:enumeration value="hrv"/>
-			<xs:enumeration value="hsb"/>
-			<xs:enumeration value="hun"/>
-			<xs:enumeration value="hup"/>
-			<xs:enumeration value="iba"/>
-			<xs:enumeration value="ibo"/>
-			<xs:enumeration value="ice"/>
-			<xs:enumeration value="ido"/>
-			<xs:enumeration value="iii"/>
-			<xs:enumeration value="ijo"/>
-			<xs:enumeration value="iku"/>
-			<xs:enumeration value="ile"/>
-			<xs:enumeration value="ilo"/>
-			<xs:enumeration value="ina"/>
-			<xs:enumeration value="inc"/>
-			<xs:enumeration value="ind"/>
-			<xs:enumeration value="ine"/>
-			<xs:enumeration value="inh"/>
-			<xs:enumeration value="ipk"/>
-			<xs:enumeration value="ira"/>
-			<xs:enumeration value="iro"/>
-			<xs:enumeration value="ita"/>
-			<xs:enumeration value="jav"/>
-			<xs:enumeration value="jbo"/>
-			<xs:enumeration value="jpn"/>
-			<xs:enumeration value="jpr"/>
-			<xs:enumeration value="jrb"/>
-			<xs:enumeration value="kaa"/>
-			<xs:enumeration value="kab"/>
-			<xs:enumeration value="kac"/>
-			<xs:enumeration value="kal"/>
-			<xs:enumeration value="kam"/>
-			<xs:enumeration value="kan"/>
-			<xs:enumeration value="kar"/>
-			<xs:enumeration value="kas"/>
-			<xs:enumeration value="kau"/>
-			<xs:enumeration value="kaw"/>
-			<xs:enumeration value="kaz"/>
-			<xs:enumeration value="kbd"/>
-			<xs:enumeration value="kha"/>
-			<xs:enumeration value="khi"/>
-			<xs:enumeration value="khm"/>
-			<xs:enumeration value="kho"/>
-			<xs:enumeration value="kik"/>
-			<xs:enumeration value="kin"/>
-			<xs:enumeration value="kir"/>
-			<xs:enumeration value="kmb"/>
-			<xs:enumeration value="kok"/>
-			<xs:enumeration value="kom"/>
-			<xs:enumeration value="kon"/>
-			<xs:enumeration value="kor"/>
-			<xs:enumeration value="kos"/>
-			<xs:enumeration value="kpe"/>
-			<xs:enumeration value="krc"/>
-			<xs:enumeration value="krl"/>
-			<xs:enumeration value="kro"/>
-			<xs:enumeration value="kru"/>
-			<xs:enumeration value="kua"/>
-			<xs:enumeration value="kum"/>
-			<xs:enumeration value="kur"/>
-			<xs:enumeration value="kut"/>
-			<xs:enumeration value="lad"/>
-			<xs:enumeration value="lah"/>
-			<xs:enumeration value="lam"/>
-			<xs:enumeration value="lao"/>
-			<xs:enumeration value="lat"/>
-			<xs:enumeration value="lav"/>
-			<xs:enumeration value="lez"/>
-			<xs:enumeration value="lim"/>
-			<xs:enumeration value="lin"/>
-			<xs:enumeration value="lit"/>
-			<xs:enumeration value="lol"/>
-			<xs:enumeration value="loz"/>
-			<xs:enumeration value="ltz"/>
-			<xs:enumeration value="lua"/>
-			<xs:enumeration value="lub"/>
-			<xs:enumeration value="lug"/>
-			<xs:enumeration value="lui"/>
-			<xs:enumeration value="lun"/>
-			<xs:enumeration value="luo"/>
-			<xs:enumeration value="lus"/>
-			<xs:enumeration value="mac"/>
-			<xs:enumeration value="mad"/>
-			<xs:enumeration value="mag"/>
-			<xs:enumeration value="mah"/>
-			<xs:enumeration value="mai"/>
-			<xs:enumeration value="mak"/>
-			<xs:enumeration value="mal"/>
-			<xs:enumeration value="man"/>
-			<xs:enumeration value="mao"/>
-			<xs:enumeration value="map"/>
-			<xs:enumeration value="mar"/>
-			<xs:enumeration value="mas"/>
-			<xs:enumeration value="may"/>
-			<xs:enumeration value="mdf"/>
-			<xs:enumeration value="mdr"/>
-			<xs:enumeration value="men"/>
-			<xs:enumeration value="mga"/>
-			<xs:enumeration value="mic"/>
-			<xs:enumeration value="min"/>
-			<xs:enumeration value="mis"/>
-			<xs:enumeration value="mkh"/>
-			<xs:enumeration value="mlg"/>
-			<xs:enumeration value="mlt"/>
-			<xs:enumeration value="mnc"/>
-			<xs:enumeration value="mni"/>
-			<xs:enumeration value="mno"/>
-			<xs:enumeration value="moh"/>
-			<xs:enumeration value="mol"/>
-			<xs:enumeration value="mon"/>
-			<xs:enumeration value="mos"/>
-			<xs:enumeration value="mul"/>
-			<xs:enumeration value="mun"/>
-			<xs:enumeration value="mus"/>
-			<xs:enumeration value="mwl"/>
-			<xs:enumeration value="mwr"/>
-			<xs:enumeration value="myn"/>
-			<xs:enumeration value="myv"/>
-			<xs:enumeration value="nah"/>
-			<xs:enumeration value="nai"/>
-			<xs:enumeration value="nap"/>
-			<xs:enumeration value="nau"/>
-			<xs:enumeration value="nav"/>
-			<xs:enumeration value="nbl"/>
-			<xs:enumeration value="nde"/>
-			<xs:enumeration value="ndo"/>
-			<xs:enumeration value="nds"/>
-			<xs:enumeration value="nep"/>
-			<xs:enumeration value="new"/>
-			<xs:enumeration value="nia"/>
-			<xs:enumeration value="nic"/>
-			<xs:enumeration value="niu"/>
-			<xs:enumeration value="nno"/>
-			<xs:enumeration value="nob"/>
-			<xs:enumeration value="nog"/>
-			<xs:enumeration value="non"/>
-			<xs:enumeration value="nor"/>
-			<xs:enumeration value="nqo"/>
-			<xs:enumeration value="nso"/>
-			<xs:enumeration value="nub"/>
-			<xs:enumeration value="nwc"/>
-			<xs:enumeration value="nya"/>
-			<xs:enumeration value="nym"/>
-			<xs:enumeration value="nyn"/>
-			<xs:enumeration value="nyo"/>
-			<xs:enumeration value="nzi"/>
-			<xs:enumeration value="oci"/>
-			<xs:enumeration value="oji"/>
-			<xs:enumeration value="ori"/>
-			<xs:enumeration value="orm"/>
-			<xs:enumeration value="osa"/>
-			<xs:enumeration value="oss"/>
-			<xs:enumeration value="ota"/>
-			<xs:enumeration value="oto"/>
-			<xs:enumeration value="paa"/>
-			<xs:enumeration value="pag"/>
-			<xs:enumeration value="pal"/>
-			<xs:enumeration value="pam"/>
-			<xs:enumeration value="pan"/>
-			<xs:enumeration value="pap"/>
-			<xs:enumeration value="pau"/>
-			<xs:enumeration value="peo"/>
-			<xs:enumeration value="per"/>
-			<xs:enumeration value="phi"/>
-			<xs:enumeration value="phn"/>
-			<xs:enumeration value="pli"/>
-			<xs:enumeration value="pol"/>
-			<xs:enumeration value="pon"/>
-			<xs:enumeration value="por"/>
-			<xs:enumeration value="pra"/>
-			<xs:enumeration value="pro"/>
-			<xs:enumeration value="pus"/>
-			<xs:enumeration value="qar"/>
-			<xs:enumeration value="qav"/>
-			<xs:enumeration value="que"/>
-			<xs:enumeration value="raj"/>
-			<xs:enumeration value="rap"/>
-			<xs:enumeration value="rar"/>
-			<xs:enumeration value="roa"/>
-			<xs:enumeration value="roh"/>
-			<xs:enumeration value="rom"/>
-			<xs:enumeration value="rum"/>
-			<xs:enumeration value="run"/>
-			<xs:enumeration value="rup"/>
-			<xs:enumeration value="rus"/>
-			<xs:enumeration value="sad"/>
-			<xs:enumeration value="sag"/>
-			<xs:enumeration value="sah"/>
-			<xs:enumeration value="sai"/>
-			<xs:enumeration value="sal"/>
-			<xs:enumeration value="sam"/>
-			<xs:enumeration value="san"/>
-			<xs:enumeration value="sas"/>
-			<xs:enumeration value="sat"/>
-			<xs:enumeration value="scc"/>
-			<xs:enumeration value="scn"/>
-			<xs:enumeration value="sco"/>
-			<xs:enumeration value="scr"/>
-			<xs:enumeration value="sel"/>
-			<xs:enumeration value="sem"/>
-			<xs:enumeration value="sga"/>
-			<xs:enumeration value="sgn"/>
-			<xs:enumeration value="shn"/>
-			<xs:enumeration value="sid"/>
-			<xs:enumeration value="sin"/>
-			<xs:enumeration value="sio"/>
-			<xs:enumeration value="sit"/>
-			<xs:enumeration value="sla"/>
-			<xs:enumeration value="slo"/>
-			<xs:enumeration value="slv"/>
-			<xs:enumeration value="sma"/>
-			<xs:enumeration value="sme"/>
-			<xs:enumeration value="smi"/>
-			<xs:enumeration value="smj"/>
-			<xs:enumeration value="smn"/>
-			<xs:enumeration value="smo"/>
-			<xs:enumeration value="sms"/>
-			<xs:enumeration value="sna"/>
-			<xs:enumeration value="snd"/>
-			<xs:enumeration value="snk"/>
-			<xs:enumeration value="sog"/>
-			<xs:enumeration value="som"/>
-			<xs:enumeration value="son"/>
-			<xs:enumeration value="sot"/>
-			<xs:enumeration value="spa"/>
-			<xs:enumeration value="srd"/>
-			<xs:enumeration value="srn"/>
-			<xs:enumeration value="srp"/>
-			<xs:enumeration value="srr"/>
-			<xs:enumeration value="ssa"/>
-			<xs:enumeration value="ssw"/>
-			<xs:enumeration value="suk"/>
-			<xs:enumeration value="sun"/>
-			<xs:enumeration value="sus"/>
-			<xs:enumeration value="sux"/>
-			<xs:enumeration value="swa"/>
-			<xs:enumeration value="swe"/>
-			<xs:enumeration value="syc"/>
-			<xs:enumeration value="syr"/>
-			<xs:enumeration value="tah"/>
-			<xs:enumeration value="tai"/>
-			<xs:enumeration value="tam"/>
-			<xs:enumeration value="tat"/>
-			<xs:enumeration value="tel"/>
-			<xs:enumeration value="tem"/>
-			<xs:enumeration value="ter"/>
-			<xs:enumeration value="tet"/>
-			<xs:enumeration value="tgk"/>
-			<xs:enumeration value="tgl"/>
-			<xs:enumeration value="tha"/>
-			<xs:enumeration value="tib"/>
-			<xs:enumeration value="tig"/>
-			<xs:enumeration value="tir"/>
-			<xs:enumeration value="tiv"/>
-			<xs:enumeration value="tkl"/>
-			<xs:enumeration value="tlh"/>
-			<xs:enumeration value="tli"/>
-			<xs:enumeration value="tmh"/>
-			<xs:enumeration value="tog"/>
-			<xs:enumeration value="ton"/>
-			<xs:enumeration value="tpi"/>
-			<xs:enumeration value="tsi"/>
-			<xs:enumeration value="tsn"/>
-			<xs:enumeration value="tso"/>
-			<xs:enumeration value="tuk"/>
-			<xs:enumeration value="tum"/>
-			<xs:enumeration value="tup"/>
-			<xs:enumeration value="tur"/>
-			<xs:enumeration value="tut"/>
-			<xs:enumeration value="tvl"/>
-			<xs:enumeration value="twi"/>
-			<xs:enumeration value="tyv"/>
-			<xs:enumeration value="udm"/>
-			<xs:enumeration value="uga"/>
-			<xs:enumeration value="uig"/>
-			<xs:enumeration value="ukr"/>
-			<xs:enumeration value="umb"/>
-			<xs:enumeration value="und"/>
-			<xs:enumeration value="urd"/>
-			<xs:enumeration value="uzb"/>
-			<xs:enumeration value="vai"/>
-			<xs:enumeration value="ven"/>
-			<xs:enumeration value="vie"/>
-			<xs:enumeration value="vol"/>
-			<xs:enumeration value="vot"/>
-			<xs:enumeration value="wak"/>
-			<xs:enumeration value="wal"/>
-			<xs:enumeration value="war"/>
-			<xs:enumeration value="was"/>
-			<xs:enumeration value="wel"/>
-			<xs:enumeration value="wen"/>
-			<xs:enumeration value="wln"/>
-			<xs:enumeration value="wol"/>
-			<xs:enumeration value="xal"/>
-			<xs:enumeration value="xho"/>
-			<xs:enumeration value="yao"/>
-			<xs:enumeration value="yap"/>
-			<xs:enumeration value="yid"/>
-			<xs:enumeration value="yor"/>
-			<xs:enumeration value="ypk"/>
-			<xs:enumeration value="zap"/>
-			<xs:enumeration value="zbl"/>
-			<xs:enumeration value="zen"/>
-			<xs:enumeration value="zha"/>
-			<xs:enumeration value="znd"/>
-			<xs:enumeration value="zul"/>
-			<xs:enumeration value="zun"/>
-			<xs:enumeration value="zxx"/>
-			<xs:enumeration value="zza"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="libraryClassificationScheme">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="loanCharacteristicType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="loanRestrictionType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="loanStatusCode">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-			<xs:enumeration value="07"/>
-			<xs:enumeration value="08"/>
-			<xs:enumeration value="09"/>
-			<xs:enumeration value="10"/>
-			<xs:enumeration value="11"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="locationAssociationType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LAT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Permanent location of item</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP2 field 'AQ'</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LAT02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Current location of item</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">SIP2 field 'AP'</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LAT03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Patron's "home" institution / branch / site / department </xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="04">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LAT04</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Main location of authority/institution</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added in v1.0.1</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="05">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LAT05</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Other location of authority/institution</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added in v1.0.1</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="06">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LAT06</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Website of library authority/institution, branch or section</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added in v1.0.1</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="locationIDType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Proprietary</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">GLN</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">SAN</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="04">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI04</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">URI</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added v1.0.1</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="05">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">LOI05</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">UPRN</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added v1.0.1</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="locationType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="manifestationIDType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="14"/>
-			<xs:enumeration value="17"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="manifestationStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="mediaTypeScheme">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MES01</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Proprietary</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MES02</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">SIP2 media type, including LCF extensions</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Any code value from code list IMT</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MES03</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">ONIX code list 150</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="04">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MES04</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">ONIX code list 175</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="05">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MES05</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">MARC 21 media type</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added in LCF v1.0.1, 2018-02-01</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="mediaWarningFlag">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="00"/>
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="messageAlertDeliveryStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAD01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Not yet delivered</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAD02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Delivered, not acknowledged</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAD03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Delivered, acknowledged</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="messageAlertDisplayConstraint">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAC01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Display/deliver between from/until dates</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">If no 'until' date is specified, display indefinitely</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAC02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Display/deliver until acknowledged</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAC03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Not for display/delivery - inactive</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="messageDisplayType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MGT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Whole message (e.g. for screen display)</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MGT02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Single line of message (e.g. for printing)</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MGT03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">System message (not normally for display)</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="messageAlertAudience">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAU01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">All patrons</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAU02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Specified patrons and categories</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="messageAlertPriority">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-			<xs:annotation>
-				<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAP01</xs:appinfo>
-				<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">High priority</xs:documentation>
-				<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-			</xs:annotation>
-		</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAP02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Medium priority</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAP03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Low priority</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="messageAlertType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAT01</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Action required</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="02">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAT02</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Institution information</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">e.g. opening hours, closures</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="03">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAT03</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Collection information</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">e.g. acquisitions, disposals</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="04">
-				<xs:annotation>
-					<xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">MAT04</xs:appinfo>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Patron account information</xs:documentation>
-					<xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="nonEmptyString">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="1"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="noteType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="00"/>
-		</xs:restriction>
-	</xs:simpleType>
-    <xs:simpleType name="patronGroupAssociationType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">PGP01</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Patron member of group</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">PGP02</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Lead patron of group</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-	<xs:simpleType name="patronIdentificationScheme">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="16"/>
-			<xs:enumeration value="17"/>
-			<xs:enumeration value="21"/>
-			<xs:enumeration value="31"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="patronStatusCode">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-			<xs:enumeration value="07"/>
-			<xs:enumeration value="08"/>
-			<xs:enumeration value="09"/>
-			<xs:enumeration value="10"/>
-			<xs:enumeration value="11"/>
-			<xs:enumeration value="12"/>
-			<xs:enumeration value="13"/>
-			<xs:enumeration value="14"/>
-			<xs:enumeration value="15"/>
-			<xs:enumeration value="16"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="paymentStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="paymentType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="00"/>
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="reservationStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="04"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="06"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="reservationType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="1"/>
-			<xs:enumeration value="2"/>
-			<xs:enumeration value="3"/>
-			<xs:enumeration value="4"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="securityDesensitize">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="00"/>
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="titleType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="00"/>
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="03"/>
-			<xs:enumeration value="05"/>
-			<xs:enumeration value="11"/>
-			<xs:enumeration value="13"/>
-		</xs:restriction>
-	</xs:simpleType>
-    <xs:simpleType name="textFormat">
-        <xs:restriction base="xs:string">
-<!--        The following are not applicable to LCF XML binding
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT01</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, ASCII encoding</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT02</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, ISO 8859-1 encoding</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT03</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, ISO 10646 / Unicode encoding</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
--->
-            <xs:enumeration value="11">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT04</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">HTML 4</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="12">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT05</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">XHTML 1</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="13">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT06</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">HTML 5</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="14">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT07</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">MarkDown</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="04">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">TFT08</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Plain text, encoding specified at message level</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">Added v1.0.1</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-	<xs:simpleType name="unnamedContributorType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="01"/>
-			<xs:enumeration value="02"/>
-			<xs:enumeration value="03"/>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>
