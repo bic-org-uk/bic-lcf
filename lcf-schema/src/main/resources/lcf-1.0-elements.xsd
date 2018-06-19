@@ -213,7 +213,7 @@
     <xs:element name="item-id-type" type="copyIDType"/>
     <xs:element name="item-ref" type="lcfEntityReference"/>
     <xs:element name="items-in-stock" type="xs:int"/>
-    <xs:element name="language" type="languageCode"/>
+    <xs:element name="language" type="iso639LanguageCode"/>
     <xs:element name="lead-patron-ref" type="lcfEntityReference"/>
     <xs:element name="link" type="nonEmptyString"/>
     <xs:element name="link-type" type="accessLinkType"/>

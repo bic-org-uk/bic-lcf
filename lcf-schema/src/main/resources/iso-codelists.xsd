@@ -198,7 +198,7 @@
             <xs:enumeration value="ZWL"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="languageCode">
+    <xs:simpleType name="iso639LanguageCode">
         <xs:restriction base="xs:string">
             <xs:enumeration value="aar"/>
             <xs:enumeration value="abk"/>
