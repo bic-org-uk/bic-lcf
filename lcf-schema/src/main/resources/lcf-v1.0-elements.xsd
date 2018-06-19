@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
-    <xs:include schemaLocation="lcf-1.0-types.xsd"/>
-    <xs:include schemaLocation="lcf-1.0-codelists.xsd"/>
+    <xs:include schemaLocation="lcf-v1.0-types.xsd"/>
+    <xs:include schemaLocation="lcf-v1.0-codelists.xsd"/>
+    <xs:include schemaLocation="iso-codelists.xsd"/>
 
     <!-- LCF Elements -->
 
@@ -212,10 +213,10 @@
     <xs:element name="item-id-type" type="copyIDType"/>
     <xs:element name="item-ref" type="lcfEntityReference"/>
     <xs:element name="items-in-stock" type="xs:int"/>
-    <xs:element name="language" type="languageCode"/>
+    <xs:element name="language" type="iso639LanguageCode"/>
     <xs:element name="lead-patron-ref" type="lcfEntityReference"/>
     <xs:element name="link" type="nonEmptyString"/>
-    <xs:element name="link-type" type="accessLinkType"/>
+    <xs:element name="link-type" type="resourceAccessLinkType"/>
     <xs:element name="loan-fee">
         <xs:complexType>
             <xs:sequence>
