@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
-    <xs:include schemaLocation="lcf-1.0-elements.xsd"/>
+    <xs:include schemaLocation="lcf-v1.0-elements.xsd"/>
 
     <!-- LCF Entities -->
 
