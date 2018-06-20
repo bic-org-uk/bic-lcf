@@ -149,14 +149,14 @@
     </xs:element>
     <xs:element name="communication-type" type="communicationType">
         <xs:annotation>
-            <xs:documentation>Value from the CMT list, which determines how the locator multiplicity should work. </xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Value from the CMT list, which determines how the locator multiplicity should work. </xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="condition-code" type="conditionCode"/>
     <xs:element name="condition-description" type="nonEmptyString"/>
     <xs:element name="contact-ref" type="lcfEntityReference">
         <xs:annotation>
-            <xs:documentation>Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="contributor">
@@ -206,7 +206,7 @@
     <xs:element name="home-institution-ref" type="lcfEntityReference"/>
     <xs:element name="identifier" type="nonEmptyString">
         <xs:annotation>
-            <xs:documentation>Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Unique identifier, allowing the underlying database to control uniqueness of this record. The underlying system will allocate this id. Do not pass this while creating an entity.</xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="institution-ref" type="lcfEntityReference"/>
@@ -269,7 +269,7 @@
     <xs:element name="message-type" type="messageAlertType"/>
     <xs:element name="name" type="nonEmptyString">
         <xs:annotation>
-            <xs:documentation>The full name of the person or Institution being modelled as this 'patron'.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">The full name of the person or Institution being modelled as this 'patron'.</xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="note">
@@ -298,7 +298,7 @@
     <xs:element name="patron-id-type" type="patronIdentificationScheme"/>
     <xs:element name="patron-ref" type="lcfEntityReference">
         <xs:annotation>
-            <xs:documentation>A 'contact' must be associated with a pre-existing 'patron'.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">A 'contact' must be associated with a pre-existing 'patron'.</xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="patron-status" type="patronStatusCode"/>
