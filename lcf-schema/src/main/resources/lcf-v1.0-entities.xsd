@@ -5,11 +5,17 @@
     <!-- LCF Entities -->
 
     <xs:element name="authorisation">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E13</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">AUTHORISATION</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">A patron authorisation code</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0">
                     <xs:annotation>
-                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#ComponentID">01</xs:appinfo>
                     </xs:annotation>
                 </xs:element>
                 <xs:group ref="authorisation-props"/>
@@ -20,27 +26,33 @@
         <xs:sequence>
             <xs:element ref="authorisation-type" minOccurs="0">
                 <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D02</xs:appinfo>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#ComponentID">02</xs:appinfo>
                 </xs:annotation>
             </xs:element>
             <xs:element ref="heading" minOccurs="0">
                 <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D03</xs:appinfo>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#ComponentID">03</xs:appinfo>
                 </xs:annotation>
             </xs:element>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13C04</xs:appinfo>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#ComponentID">04</xs:appinfo>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:group>
     <xs:element name="authority">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E14</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">LIBRARY AUTHORITY / INSTITUTION</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">A library authority or institution.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0">
                     <xs:annotation>
-                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-1.0.1-Information-Entity-XML-bindings#ElementID">E13D01</xs:appinfo>
+                        <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#ComponentID">01</xs:appinfo>
                     </xs:annotation>
                 </xs:element>
                 <xs:group ref="authority-props"/>
@@ -58,6 +70,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="charge">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E07</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">CHARGE</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified charge made to a patron. May be a fee or a fine.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -87,6 +105,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="class-scheme">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E10</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">TITLE CLASSIFICATION SCHEME</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified scheme for classification of titles.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -101,6 +125,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="class-term">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E11</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">TITLE CLASSIFICATION TERM</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">A classification term in an identified scheme for classification of titles.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"> If the scheme is appropriate, the classification identifier may the chosen to be the same as the classification code.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -118,7 +148,10 @@
     </xs:group>
     <xs:element name="contact">
         <xs:annotation>
-            <xs:documentation>Represents a single method of communication with a 'patron'. </xs:documentation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E09</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">CONTACT</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">Contact details for the primary contact person or organization for a patron, location or authority/institution.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Description changed in v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
@@ -138,6 +171,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="item">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E02</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">ITEM</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified copy of a manifestation that is in a library's stock / holding.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -166,6 +205,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="loan">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E05</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">LOAN</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified event in which one or more items have been loaned to a patron.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -188,6 +233,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="location">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E04</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">LOCATION</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified place where an item may be located, either inside or outside a library.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -207,6 +258,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="manifestation">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E01</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">MANIFESTATION</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified manifestation of an abstract work, e.g. a book, magazine, newspaper or recording (analogue or digital). Sometimes informally referred to as a "title", but this term is reserved in LCF for the title of a manifestation.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -239,6 +296,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="message-alert">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E15</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">MESSAGE / ALERT</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">A message or alert that may be communicated to a patron or group of patrons.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -263,6 +326,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="patron">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E03</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">PATRON</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified person or organization permitted to borrow an item from a library.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Contact information is held in separate contact records for security and privacy reasons.See E09 below.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -306,6 +375,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="payment">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E08</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">PAYMENT</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified payment made by a patron to settle one or more charges.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -328,6 +403,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="property">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E12</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">SELECTION CRITERION</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified property of an entity that can be used as a selection criterion when retrieving a list of instances of that entity.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
@@ -345,6 +426,12 @@
         </xs:sequence>
     </xs:group>
     <xs:element name="reservation">
+        <xs:annotation>
+            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E06</xs:appinfo>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">RESERVATION</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified event in which one or more titles have been reserved for a patron.</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="identifier" minOccurs="0"/>
