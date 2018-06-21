@@ -151,7 +151,7 @@
             <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E09</xs:appinfo>
             <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">CONTACT</xs:documentation>
             <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">Contact details for the primary contact person or organization for a patron, location or authority/institution.</xs:documentation>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Description changed in v1.0.1</xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Description changed in LCF v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
