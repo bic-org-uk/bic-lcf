@@ -5,6 +5,9 @@
 
     <!-- LCF REST Response Elements -->
 
+
+    <!-- REST Responses -->
+
     <xs:element name="lcf-entity-list-response">
         <xs:complexType>
             <xs:sequence>
@@ -15,7 +18,6 @@
                 <xs:element ref="os:startIndex" minOccurs="0"/>
                 <xs:element ref="entity" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="lcf-check-out-response">
@@ -28,7 +30,6 @@
                 <xs:element ref="media-warning" minOccurs="0"/>
                 <xs:element ref="security-desensitize" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="lcf-check-in-response">
@@ -41,7 +42,6 @@
                 <xs:element ref="special-attention-note" minOccurs="0"/>
                 <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="lcf-exception">
@@ -50,9 +50,12 @@
                 <xs:element ref="exception-condition" maxOccurs="unbounded"/>
                 <xs:element ref="message" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name="version" fixed="1.0"/>
         </xs:complexType>
     </xs:element>
+
+
+    <!-- REST Specific elements -->
+
     <xs:element name="condition-type" type="exceptionConditionType"/>
     <xs:element name="element-ref" type="nonEmptyString"/>
     <xs:element name="entity">
@@ -90,36 +93,5 @@
     </xs:element>
     <xs:element name="special-attention" type="specialAttention"/>
     <xs:element name="special-attention-note" type="nonEmptyString"/>
-    <xs:simpleType name="exceptionConditionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="04"/>
-            <xs:enumeration value="05"/>
-            <xs:enumeration value="06"/>
-            <xs:enumeration value="07"/>
-            <xs:enumeration value="08"/>
-            <xs:enumeration value="09"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="reasonDeniedType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="04"/>
-            <xs:enumeration value="05"/>
-            <xs:enumeration value="06"/>
-            <xs:enumeration value="07"/>
-            <xs:enumeration value="08"/>
-            <xs:enumeration value="09"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="specialAttention">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-        </xs:restriction>
-    </xs:simpleType>
+
 </xs:schema>
