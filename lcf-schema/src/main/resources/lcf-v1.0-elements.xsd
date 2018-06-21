@@ -3,6 +3,7 @@
     <xs:include schemaLocation="lcf-v1.0-types.xsd"/>
     <xs:include schemaLocation="lcf-v1.0-codelists.xsd"/>
     <xs:include schemaLocation="lcf-v1.0-iso-codelists.xsd"/>
+    <xs:include schemaLocation="lcf-v1.0-onix-codelists.xsd"/>
 
     <!-- LCF Elements -->
 
