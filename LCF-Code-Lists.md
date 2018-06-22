@@ -625,24 +625,24 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
 ### <a id="SEL"></a>SEL Selection criterion - *Added in LCF v1.0.1*
 
-  *Code ID*   |*Code value*   |*Definition*                                             |*Notes*
-  ----------- |-------------- |---------------------------------------------------------|---------
-  SEL01       |01             |manifestation-id                                         |
-  SEL02       |02             |item-id                                                  |
-  SEL03       |03             |patron-id                                                |
-  SEL04       |04             |location-id                                              |
-  SEL05       |11             |circulation-status                                       |
-  SEL06       |12             |loan-status                                              |
-  SEL07       |21             |start-date                                               | *Added in LCF v1.0.1*
-  SEL08       |22             |end-date                                                 | *Added in LCF v1.0.1*
-  SEL09       |23             |end-due-date                                             | *Added in LCF v1.0.1*
-  SEL10       |24             |recall-notice-date                                       | *Added in LCF v1.0.1*
-  SEL11       |25             |pickup-date                                              | *Added in LCF v1.0.1*
-  SEL12       |26             |creation-date                                            | *Added in LCF v1.0.1*
-  SEL13       |27             |payment-due-date                                         | *Added in LCF v1.0.1*
-  SEL14       |28             |paid-date                                                | *Added in LCF v1.0.1*
-  SEL15       |29             |payment-date                                             | *Added in LCF v1.0.1*
-  SEL16       |30             |patron-expiration-date                                   | *Added in LCF v1.0.1*
+  *Code ID*   |*Code value*   |*Alpha value*          |*Definition*                |*Notes*
+  ----------- |-------------- |---------------------- |--------------------------- |----------------
+  SEL01       |01             |manifestation-id       |Manifestation identifier    | See E01D01
+  SEL02       |02             |item-id                |Item identifier             | See E02D01
+  SEL03       |03             |patron-id              |Patron identifier           | See E03D01
+  SEL04       |04             |location-id            |Location identifier         | See E04D01
+  SEL05       |11             |circulation-status     |Circulation status          | See E02D11
+  SEL06       |12             |loan-status            |Loan status                 | See E05D07
+  SEL07       |21             |start-date             |Loan start date             | See E05D04
+  SEL08       |22             |end-date               |Loan end date               | See E05D06
+  SEL09       |23             |end-due-date           |Loan end due date           | See E05D05
+  SEL10       |24             |recall-notice-date     |Loan recall notice date     | See E05D10
+  SEL11       |25             |pickup-date            |Reservation pick-up date    | See E06D09
+  SEL12       |26             |creation-date          |Charge creation date        | See E07D10
+  SEL13       |27             |payment-due-date       |Charge payment due date     | See E07D11
+  SEL14       |28             |paid-date              |Date charge paid in full    | See E07D16
+  SEL15       |29             |payment-date           |Date payment made           | See E08D06
+  SEL16       |30             |patron-expiration-date |Date patron account expired | See E03D30
 
 ### <a id="SPA"></a>SPA Special attention required flag
 
