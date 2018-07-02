@@ -633,8 +633,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SEL04       |04             |location-id            |Location identifier         | See E04D01
   SEL05       |11             |circulation-status     |Circulation status          | See E02D11
   SEL06       |12             |loan-status            |Loan status                 | See E05D07
-  SEL07       |21             |start-date             |Loan start date             | See E05D04
-  SEL08       |22             |end-date               |Loan end date               | See E05D06
+  SEL07       |21             |start-date             |Loan, reservation or message/alert start date | See E05D04, E06D06, E15D07
+  SEL08       |22             |end-date               |Loan, reservation or message/alert end date | See E05D06, E06D10, E15D08
   SEL09       |23             |end-due-date           |Loan end due date           | See E05D05
   SEL10       |24             |recall-notice-date     |Loan recall notice date     | See E05D10
   SEL11       |25             |pickup-date            |Reservation pick-up date    | See E06D09
