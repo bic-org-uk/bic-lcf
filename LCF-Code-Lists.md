@@ -26,7 +26,6 @@ This document defines code lists for use with LCF version 1.0.1.
 The code lists defined are:
 
 -   [AAT Library authority/institution association type](#AAT) *(added in LCF v1.0.1)*
--   [ALF Allow fees flag](#ALF)
 -   [AUT Authorisation code](#AUT) *(added in LCF v1.0.1)*
 -   [CAT Contact association type](#CAT) *(added in LCF v1.0.1)*
 -   [CHS Charge status](#CHS)
@@ -88,13 +87,6 @@ The code lists defined are:
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   AAT01          | 01               | Is member of consortium                                              |
   AAT02          | 02               | Has consortium member                                                |  
-
-### <a id="ALF"></a>ALF Allow fees flag
-
-  *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
-  -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
-  ALF01          | Y                 | Allow fees on items for which loan or renewal fees are applicable   |  
-  ALF02          | N                 | Do not allow fees                                                   |The item may not be checked out if fees apply.
 
 ### <a id="AUT"></a>AUT Authorisation code *(added in LCF v1.0.1)*
 
