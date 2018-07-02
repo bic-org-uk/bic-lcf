@@ -306,7 +306,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LCS01       |01             |Proprietary                          |
   LCS02       |02             |Dewey Decimal Classification (DDC)   |
 
-### <a id="LKT"></a>Resource access link type *(added in LCF v1.0.1)*
+### <a id="LKT"></a>LKT Resource access link type *(added in LCF v1.0.1)*
 
   *Code ID*   |*Code value*   |*Definition*                         |*Notes*
   ----------- |-------------- |------------------------------------ |---------
