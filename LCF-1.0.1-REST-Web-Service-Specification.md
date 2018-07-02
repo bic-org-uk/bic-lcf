@@ -178,7 +178,7 @@ If the server is able to process the request, but no entities match the criteria
 | **1** |              | **lcf-entity-list-response<br>xmlns="http://ns.bic.org/lcf/1.0"<br>xmlns:os=<br>"http://a9.com/-/spec/opensearch/1.1/"**              | **1**   |             | **Top-level message element with namespace declarations**<br/>*'version' attribute removed in v1.0.1*                                       |
 | **2** | **R02D01**   | **entity-type**                         | **1**   | **Code**    | **The alpha code value is used from code list [[ENT\|LCF-Code-Lists#ENT]]**                                                                                          |
 | 3     | R02C02       | selection-criterion                     | 0-n     |             | If the request contains a key entity reference, a selection-criterion should contain the entity type and identifier of the key entity.      |
-| 4     | R02D02.1     | property                                | 1       | Code        | The alpha code value is used from code list [[SEL\|LCF-Code-Lists#SEL]]                                                                    |
+| 4     | R02D02.1     | code                                    | 1       | Code        | The alpha code value is used from code list [[SEL\|LCF-Code-Lists#SEL]]                                                                    |
 | 5     | R02D02.2     | value                                   | 1       | string      |                    |
 | 6     | R02D03       | os:totalResults                         | 0-1     | int         |                    |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | int         |                    |
