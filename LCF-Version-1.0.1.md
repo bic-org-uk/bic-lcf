@@ -564,7 +564,7 @@ NOTE – If the scheme is appropriate, the classification identifier may the cho
 
 ###
 
-### <a name="e12"></a> E12 SELECTION CRITERION
+### <a name="e12"></a> E12 SELECTION CRITERION *(DEPRECATED in v1.0.1)*
 [Back to entity list](#entities)
 
 #### Description
