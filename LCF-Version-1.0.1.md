@@ -74,7 +74,7 @@ The data frameworks for the following other types of information entity are also
 
 -   [Classification codes](#e11)
 
--   [Entity properties recognised by the LMS (used for constructing entity selection criteria)](#e12)
+-   [Entity properties recognised by the LMS (used for constructing entity selection criteria - DEPRECATED in LCF v1.0.1)](#e12)
 
 -   [Patron authorisation codes](#e13)
 
