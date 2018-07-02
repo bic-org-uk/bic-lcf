@@ -4,7 +4,7 @@
 
 **Library Data Communication Framework for Terminal Applications (LCF)**[[[1]|LCF-Version-1.0.1#Notes]]
 
-Version 1.0.1, Final Draft 17 June 2018
+Version 1.0.1, Final Draft 02 July 2018
 
 This document defines data frameworks for messages to meet the data communication requirements of a standard set of business functions for terminal applications within libraries.
 
@@ -74,7 +74,7 @@ The data frameworks for the following other types of information entity are also
 
 -   [Classification codes](#e11)
 
--   [Entity properties recognised by the LMS (used for constructing entity selection criteria - DEPRECATED in LCF v1.0.1)](#e12)
+-   [Entity properties recognised by the LMS (used for constructing entity selection criteria - *DEPRECATED in LCF v1.0.1*)](#e12)
 
 -   [Patron authorisation codes](#e13)
 
@@ -123,7 +123,7 @@ Data frameworks are defined for the following terminal application functions:
 
     -   [Retrieve stock / holding list](#f24)
 
-    -   [Retrieve selection criterion type list](#f25)
+    -   [Retrieve selection criterion type list - *(DEPRECATED in LCF v1.0.1)*](#f25)
 
     -   [Retrieve list of available items at a specific location](#f26)
 
