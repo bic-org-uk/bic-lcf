@@ -310,26 +310,6 @@
             <xs:enumeration value="09"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="feeOrFineType">
-        <xs:annotation>
-            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListID"></xs:appinfo>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListName"></xs:documentation>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListDescription"></xs:documentation>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="04"/>
-            <xs:enumeration value="05"/>
-            <xs:enumeration value="06"/>
-            <xs:enumeration value="07"/>
-            <xs:enumeration value="08"/>
-            <xs:enumeration value="09"/>
-            <xs:enumeration value="99"/>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="institutionIDType">
         <xs:annotation>
             <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListID">INS</xs:appinfo>
@@ -514,17 +494,6 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="01"/>
             <xs:enumeration value="02"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="loanCharacteristicType">
-        <xs:annotation>
-            <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListID"></xs:appinfo>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListName"></xs:documentation>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListDescription"></xs:documentation>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="loanRestrictionType">

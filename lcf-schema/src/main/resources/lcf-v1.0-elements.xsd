@@ -126,7 +126,6 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="characteristic-type" type="loanCharacteristicType"/>
     <xs:element name="charge-amount" type="xs:decimal"/>
     <xs:element name="charge-limit">
         <xs:complexType>
