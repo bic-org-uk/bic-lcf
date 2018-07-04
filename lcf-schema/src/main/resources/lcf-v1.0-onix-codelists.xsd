@@ -4,6 +4,12 @@
            targetNamespace="http://ns.bic.org.uk/lcf/1.0"
            elementFormDefault="qualified">
 
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
+
     <!-- LCF ISO Codelists -->
 
     <xs:simpleType name="contributorRole">

@@ -4,6 +4,12 @@
            xmlns="http://a9.com/-/spec/opensearch/1.1/"
            elementFormDefault="qualified">
 
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
+
     <!-- OpenSearch 1.1 Elements -->
 	
     <xs:element name="totalResults" type="xs:int"/>

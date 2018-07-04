@@ -5,6 +5,12 @@
                xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
                jaxb:extensionBindingPrefixes="xjc">
 
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
+
     <!-- Raise theEnumMemberSizeCap limit -->
     <jaxb:bindings >
         <jaxb:globalBindings typesafeEnumMaxMembers="2000" typesafeEnumMemberName="generateName"/>
