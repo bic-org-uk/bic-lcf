@@ -381,8 +381,8 @@ E11 TITLE CLASSIFICATION TERM
 |   8   | E11D05.2     | date-time                   | 0-1     | dateTime    |         |
 |   9   | E11D05.3     | note-text                   | 1       | string      |         |
 
-E12 SELECTION CRITERION
------------------------
+E12 SELECTION CRITERION *(DEPRECATED in v1.0.1)*
+------------------------------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
