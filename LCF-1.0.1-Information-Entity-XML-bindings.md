@@ -4,7 +4,7 @@
 
 **LCF Information Entities XML bindings**
 
-Version 1.0.1, Final Draft 19 June 2018
+Version 1.0.1, Final Draft 5 July 2018
 
 This document specifies XML bindings for the information entities defined in version 1.0 of the LCF data communication framework. It is intended to be used with any implementation of LCF in which the information entities are encoded in XML, and specifically with the standard web service implementations of LCF.
 
