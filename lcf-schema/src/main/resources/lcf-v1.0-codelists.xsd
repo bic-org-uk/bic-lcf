@@ -360,18 +360,25 @@
                     <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">LCF Entity E11</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="properties">
-                <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">ENT12</xs:appinfo>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Selection criteria properties</xs:documentation>
-                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">LCF Entity E12. Deprecated in v1.0.1</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="authorisations">
                 <xs:annotation>
-                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">ENT13</xs:appinfo>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">ENT12</xs:appinfo>
                     <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Authorisation codes</xs:documentation>
                     <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">LCF Entity E13. Added in v1.0.1</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="authorities">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">ENT13</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Library authority / institution</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">LCF Entity E14. Added in v1.0.1</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="messages">
+                <xs:annotation>
+                    <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#CodeID">ENT14</xs:appinfo>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Definition">Message / alert</xs:documentation>
+                    <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Code-Lists#Notes">LCF Entity E14. Added in v1.0.1</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
