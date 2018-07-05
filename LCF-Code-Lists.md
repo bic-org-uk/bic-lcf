@@ -4,7 +4,7 @@
 
 **Library Data Communication Framework for Terminal Applications (LCF) Code Lists Issue 2**
 
-FINAL DRAFT, 19 June 2018
+FINAL DRAFT, 05 July 2018
 
 This document defines code lists for use with LCF version 1.0.1.
 
@@ -204,8 +204,9 @@ of a given type, and hence the use of the plural form.
   ENT09       |09             |contacts        |Contact details               |LCF Entity E09
   ENT10       |10             |class-schemes   |Title classification scheme   |LCF Entity E10
   ENT11       |11             |class-terms     |Title classification code     |LCF Entity E11
-  ENT12       |12             |properties      |Selection criteria properties |LCF Entity E12<br/>*Added in v1.0.1*
-  ENT13       |13             |authorisations  |Authorisation codes           |LCF Entity E13<br/>*Added in v1.0.1*
+  ENT12       |13             |authorisations  |Authorisation codes           |LCF Entity E13<br/>*Added in v1.0.1*
+  ENT13       |14             |authorities     |Library authority / institution|LCF Entity E14<br/>*Added in v1.0.1*
+  ENT14       |15             |messages        |Message / alert               |LCF Entity E15<br/>*Added in v1.0.1*
   
 ### <a id="EXC"></a>EXC Exception condition response
 
