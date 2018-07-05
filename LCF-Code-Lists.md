@@ -2,7 +2,9 @@
 
 ***Library Interoperability Standards***
 
-**Library Data Communication Framework for Terminal Applications (LCF) Code Lists Issue 2**
+**Library Data Communication Framework for Terminal Applications (LCF)**
+
+**Code Lists Issue 2**
 
 FINAL DRAFT, 05 July 2018
 
