@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://a9.com/-/spec/opensearch/1.1/"
-           xmlns="http://a9.com/-/spec/opensearch/1.1/">
+           xmlns="http://a9.com/-/spec/opensearch/1.1/"
+           elementFormDefault="qualified">
+
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
 
     <!-- OpenSearch 1.1 Elements -->
 	

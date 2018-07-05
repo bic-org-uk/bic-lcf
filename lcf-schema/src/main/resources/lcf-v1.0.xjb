@@ -1,24 +1,50 @@
-<jxb:bindings version="1.0"
-              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
-              xmlns:xs="http://www.w3.org/2001/XMLSchema"
-              xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-              jxb:extensionBindingPrefixes="xjc">
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.1"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               jaxb:extensionBindingPrefixes="xjc">
+
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
 
     <!-- Raise theEnumMemberSizeCap limit -->
-    <jxb:bindings >
-        <jxb:globalBindings typesafeEnumMemberName="generateName" typesafeEnumMaxMembers="2000"/>
-    </jxb:bindings>
+    <jaxb:bindings >
+        <jaxb:globalBindings typesafeEnumMaxMembers="2000" typesafeEnumMemberName="generateName"/>
+    </jaxb:bindings>
 
-    <jxb:bindings schemaLocation="lcf-v1.0-rest-responses.xsd" node="/xs:schema">
-        <jxb:schemaBindings>
-            <jxb:package name="org.bic.ns.lcf.v1_0"/>
-        </jxb:schemaBindings>
-    </jxb:bindings>
+    <jaxb:bindings schemaLocation="lcf-v1.0-rest-responses.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.bic.ns.lcf.v1_0"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <!-- This is required in order to ensure Java naming follows schema naming for ONIX Codelist List 17 -->
+    <jaxb:bindings schemaLocation="lcf-v1.0-onix-codelists.xsd" node="/xs:schema/xs:simpleType[@name='List17']">
+        <jaxb:typesafeEnumClass name="contributorRole"/>
+    </jaxb:bindings>
+
+    <!-- Optional: For strong typing of LCF Entity Reference elements -->
+    <!--
+    <jaxb:bindings schemaLocation="lcf-v1.0-types.xsd" node="/xs:schema/xs:simpleType[@name='lcfEntityReference']">
+        <jaxb:class name="lcfEntityReference"/>
+    </jaxb:bindings>
+    -->
+
+    <!-- Optional: For strong typing of proprietary codelist elements -->
+    <!--
+    <jaxb:bindings schemaLocation="lcf-v1.0-types.xsd" node="/xs:schema/xs:simpleType[@name='proprietaryCodeList']">
+        <jaxb:class name="proprietaryCodeList"/>
+    </jaxb:bindings>
+    -->
 
     <!-- This is required in order to specify the package name for code generation, as the target namespace contains invalid chars -->
-    <jxb:bindings schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd" node="/xs:schema">
-        <jxb:schemaBindings>
-            <jxb:package name="org.bic.ns.lcf.v1_0.opensearch"/>
-        </jxb:schemaBindings>
-    </jxb:bindings>
-</jxb:bindings>
+    <jaxb:bindings schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.bic.ns.lcf.v1_0.opensearch"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+</jaxb:bindings>

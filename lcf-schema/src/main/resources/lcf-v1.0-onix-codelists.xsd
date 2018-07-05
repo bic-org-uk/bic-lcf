@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://ns.bic.org.uk/lcf/1.0"
+           elementFormDefault="qualified">
+
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
+
+    <!-- LCF ISO Codelists -->
+
+    <xs:simpleType name="contributorRole">
+        <xs:restriction base="List17"/>
+    </xs:simpleType>
+
+
+    <!-- ************* -->
+    
+    <!--
+    Extracted from:
+
+        *     BOOK PRODUCT INFORMATION MESSAGE SCHEMA    *
+        *                                                *
+        *           CODE LIST DATA TYPES MODULE          *
+        *               XML SCHEMA VERSION               *
+        *                                                *
+        *                    ISSUE: 41                   *
+        *                                                *
+        *                 Status: RELEASED               *
+        *            Release date: 2018-04-16            *
+
+    -->
+
+    <xs:simpleType name="List17">
+        <xs:annotation>
+            <xs:documentation source="ONIX Code List 17">Contributor role code</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A01">
+                <xs:annotation>
+                    <xs:documentation>By (author)</xs:documentation>
+                    <xs:documentation>Author of a textual work</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A02">
+                <xs:annotation>
+                    <xs:documentation>With</xs:documentation>
+                    <xs:documentation>With or as told to: 'ghost' or secondary author of a literary work (for clarity, should not be used for true 'ghost' authors who are not credited on the book and whose existence is secret)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A03">
+                <xs:annotation>
+                    <xs:documentation>Screenplay by</xs:documentation>
+                    <xs:documentation>Writer of screenplay or script (film or video)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A04">
+                <xs:annotation>
+                    <xs:documentation>Libretto by</xs:documentation>
+                    <xs:documentation>Writer of libretto (opera): see also A31</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A05">
+                <xs:annotation>
+                    <xs:documentation>Lyrics by</xs:documentation>
+                    <xs:documentation>Author of lyrics (song): see also A31</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A06">
+                <xs:annotation>
+                    <xs:documentation>By (composer)</xs:documentation>
+                    <xs:documentation>Composer of music</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A07">
+                <xs:annotation>
+                    <xs:documentation>By (artist)</xs:documentation>
+                    <xs:documentation>Visual artist when named as the primary creator of, eg, a book of reproductions of artworks</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A08">
+                <xs:annotation>
+                    <xs:documentation>By (photographer)</xs:documentation>
+                    <xs:documentation>Photographer when named as the primary creator of, eg, a book of photographs</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A09">
+                <xs:annotation>
+                    <xs:documentation>Created by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A10">
+                <xs:annotation>
+                    <xs:documentation>From an idea by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A11">
+                <xs:annotation>
+                    <xs:documentation>Designed by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A12">
+                <xs:annotation>
+                    <xs:documentation>Illustrated by</xs:documentation>
+                    <xs:documentation>Artist when named as the creator of artwork which illustrates a text, or the originator (sometimes 'penciller' for collaborative art) of the artwork of a graphic novel or comic book</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A13">
+                <xs:annotation>
+                    <xs:documentation>Photographs by</xs:documentation>
+                    <xs:documentation>Photographer when named as the creator of photographs which illustrate a text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A14">
+                <xs:annotation>
+                    <xs:documentation>Text by</xs:documentation>
+                    <xs:documentation>Author of text which accompanies art reproductions or photographs, or which is part of a graphic novel or comic book</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A15">
+                <xs:annotation>
+                    <xs:documentation>Preface by</xs:documentation>
+                    <xs:documentation>Author of preface</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A16">
+                <xs:annotation>
+                    <xs:documentation>Prologue by</xs:documentation>
+                    <xs:documentation>Author of prologue</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A17">
+                <xs:annotation>
+                    <xs:documentation>Summary by</xs:documentation>
+                    <xs:documentation>Author of summary</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A18">
+                <xs:annotation>
+                    <xs:documentation>Supplement by</xs:documentation>
+                    <xs:documentation>Author of supplement</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A19">
+                <xs:annotation>
+                    <xs:documentation>Afterword by</xs:documentation>
+                    <xs:documentation>Author of afterword</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A20">
+                <xs:annotation>
+                    <xs:documentation>Notes by</xs:documentation>
+                    <xs:documentation>Author of notes or annotations: see also A29</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A21">
+                <xs:annotation>
+                    <xs:documentation>Commentaries by</xs:documentation>
+                    <xs:documentation>Author of commentaries on the main text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A22">
+                <xs:annotation>
+                    <xs:documentation>Epilogue by</xs:documentation>
+                    <xs:documentation>Author of epilogue</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A23">
+                <xs:annotation>
+                    <xs:documentation>Foreword by</xs:documentation>
+                    <xs:documentation>Author of foreword</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A24">
+                <xs:annotation>
+                    <xs:documentation>Introduction by</xs:documentation>
+                    <xs:documentation>Author of introduction: see also A29</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A25">
+                <xs:annotation>
+                    <xs:documentation>Footnotes by</xs:documentation>
+                    <xs:documentation>Author/compiler of footnotes</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A26">
+                <xs:annotation>
+                    <xs:documentation>Memoir by</xs:documentation>
+                    <xs:documentation>Author of memoir accompanying main text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A27">
+                <xs:annotation>
+                    <xs:documentation>Experiments by</xs:documentation>
+                    <xs:documentation>Person who carried out experiments reported in the text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A29">
+                <xs:annotation>
+                    <xs:documentation>Introduction and notes by</xs:documentation>
+                    <xs:documentation>Author of introduction and notes: see also A20 and A24</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A30">
+                <xs:annotation>
+                    <xs:documentation>Software written by</xs:documentation>
+                    <xs:documentation>Writer of computer programs ancillary to the text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A31">
+                <xs:annotation>
+                    <xs:documentation>Book and lyrics by</xs:documentation>
+                    <xs:documentation>Author of the textual content of a musical drama: see also A04 and A05</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A32">
+                <xs:annotation>
+                    <xs:documentation>Contributions by</xs:documentation>
+                    <xs:documentation>Author of additional contributions to the text</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A33">
+                <xs:annotation>
+                    <xs:documentation>Appendix by</xs:documentation>
+                    <xs:documentation>Author of appendix</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A34">
+                <xs:annotation>
+                    <xs:documentation>Index by</xs:documentation>
+                    <xs:documentation>Compiler of index</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A35">
+                <xs:annotation>
+                    <xs:documentation>Drawings by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A36">
+                <xs:annotation>
+                    <xs:documentation>Cover design or artwork by</xs:documentation>
+                    <xs:documentation>Use also for the cover artist of a graphic novel or comic book if named separately</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A37">
+                <xs:annotation>
+                    <xs:documentation>Preliminary work by</xs:documentation>
+                    <xs:documentation>Responsible for preliminary work on which the work is based</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A38">
+                <xs:annotation>
+                    <xs:documentation>Original author</xs:documentation>
+                    <xs:documentation>Author of the first edition (usually of a standard work) who is not an author of the current edition</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A39">
+                <xs:annotation>
+                    <xs:documentation>Maps by</xs:documentation>
+                    <xs:documentation>Maps drawn or otherwise contributed by</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A40">
+                <xs:annotation>
+                    <xs:documentation>Inked or colored by</xs:documentation>
+                    <xs:documentation>Use for secondary creators when separate persons are named as having respectively drawn and inked/colored/finished artwork, eg for a graphic novel or comic book. Use with A12 for 'drawn by'. Use A40 for 'finished by', but prefer more specific codes A46 to A48 instead of A40 unless the more specific secondary roles are inappropriate, unclear or unavailable</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A41">
+                <xs:annotation>
+                    <xs:documentation>Paper engineering by</xs:documentation>
+                    <xs:documentation>Designer or paper engineer of die-cuts, press-outs or of pop-ups in a pop-up book, who may be different from the illustrator</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A42">
+                <xs:annotation>
+                    <xs:documentation>Continued by</xs:documentation>
+                    <xs:documentation>Use where a standard work is being continued by somebody other than the original author</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A43">
+                <xs:annotation>
+                    <xs:documentation>Interviewer</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A44">
+                <xs:annotation>
+                    <xs:documentation>Interviewee</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A45">
+                <xs:annotation>
+                    <xs:documentation>Comic script by</xs:documentation>
+                    <xs:documentation>Writer of dialogue, captions in a comic book (following an outline by the primary writer)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A46">
+                <xs:annotation>
+                    <xs:documentation>Inker</xs:documentation>
+                    <xs:documentation>Renders final comic book line art based on work of the illustrator or penciller. Preferred to code A40</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A47">
+                <xs:annotation>
+                    <xs:documentation>Colorist</xs:documentation>
+                    <xs:documentation>Provides comic book color art and effects. Preferred to code A40</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A48">
+                <xs:annotation>
+                    <xs:documentation>Letterer</xs:documentation>
+                    <xs:documentation>Creates comic book text balloons and other text elements (where this is a distinct role from script writer and/or illustrator)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A51">
+                <xs:annotation>
+                    <xs:documentation>Research by</xs:documentation>
+                    <xs:documentation>Person or organization responsible for performing research on which the work is based. For use in ONIX 3.0 only</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="A99">
+                <xs:annotation>
+                    <xs:documentation>Other primary creator</xs:documentation>
+                    <xs:documentation>Other type of primary creator not specified above</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B01">
+                <xs:annotation>
+                    <xs:documentation>Edited by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B02">
+                <xs:annotation>
+                    <xs:documentation>Revised by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B03">
+                <xs:annotation>
+                    <xs:documentation>Retold by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B04">
+                <xs:annotation>
+                    <xs:documentation>Abridged by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B05">
+                <xs:annotation>
+                    <xs:documentation>Adapted by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B06">
+                <xs:annotation>
+                    <xs:documentation>Translated by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B07">
+                <xs:annotation>
+                    <xs:documentation>As told by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B08">
+                <xs:annotation>
+                    <xs:documentation>Translated with commentary by</xs:documentation>
+                    <xs:documentation>This code applies where a translator has provided a commentary on issues relating to the translation. If the translator has also provided a commentary on the work itself, codes B06 and A21 should be used</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B09">
+                <xs:annotation>
+                    <xs:documentation>Series edited by</xs:documentation>
+                    <xs:documentation>Name of a series editor when the product belongs to a series</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B10">
+                <xs:annotation>
+                    <xs:documentation>Edited and translated by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B11">
+                <xs:annotation>
+                    <xs:documentation>Editor-in-chief</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B12">
+                <xs:annotation>
+                    <xs:documentation>Guest editor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B13">
+                <xs:annotation>
+                    <xs:documentation>Volume editor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B14">
+                <xs:annotation>
+                    <xs:documentation>Editorial board member</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B15">
+                <xs:annotation>
+                    <xs:documentation>Editorial coordination by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B16">
+                <xs:annotation>
+                    <xs:documentation>Managing editor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B17">
+                <xs:annotation>
+                    <xs:documentation>Founded by</xs:documentation>
+                    <xs:documentation>Usually the founder editor of a serial publication: Begruendet von</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B18">
+                <xs:annotation>
+                    <xs:documentation>Prepared for publication by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B19">
+                <xs:annotation>
+                    <xs:documentation>Associate editor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B20">
+                <xs:annotation>
+                    <xs:documentation>Consultant editor</xs:documentation>
+                    <xs:documentation>Use also for 'advisory editor', 'series advisor', 'editorial consultant' etc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B21">
+                <xs:annotation>
+                    <xs:documentation>General editor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B22">
+                <xs:annotation>
+                    <xs:documentation>Dramatized by</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B23">
+                <xs:annotation>
+                    <xs:documentation>General rapporteur</xs:documentation>
+                    <xs:documentation>In Europe, an expert editor who takes responsibility for the legal content of a collaborative law volume</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B24">
+                <xs:annotation>
+                    <xs:documentation>Literary editor</xs:documentation>
+                    <xs:documentation>An editor who is responsible for establishing the text used in an edition of a literary work, where this is recognised as a distinctive role (in Spain, 'editor literario')</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B25">
+                <xs:annotation>
+                    <xs:documentation>Arranged by (music)</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B26">
+                <xs:annotation>
+                    <xs:documentation>Technical editor</xs:documentation>
+                    <xs:documentation>Responsible for the technical accuracy and language, may also be involved in coordinating and preparing technical material for publication</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B27">
+                <xs:annotation>
+                    <xs:documentation>Thesis advisor or supervisor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B28">
+                <xs:annotation>
+                    <xs:documentation>Thesis examiner</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B29">
+                <xs:annotation>
+                    <xs:documentation>Scientific editor</xs:documentation>
+                    <xs:documentation>Responsible overall for the scientific content of the publication</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B30">
+                <xs:annotation>
+                    <xs:documentation>Historical advisor</xs:documentation>
+                    <xs:documentation>For use in ONIX 3.0 only</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B31">
+                <xs:annotation>
+                    <xs:documentation>Original editor</xs:documentation>
+                    <xs:documentation>Editor of the first edition (usually of a standard work) who is not an editor of the current edition. For use in ONIX 3.0 only</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B99">
+                <xs:annotation>
+                    <xs:documentation>Other adaptation by</xs:documentation>
+                    <xs:documentation>Other type of adaptation or editing not specified above</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="C01">
+                <xs:annotation>
+                    <xs:documentation>Compiled by</xs:documentation>
+                    <xs:documentation>For puzzles, directories, statistics, etc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="C02">
+                <xs:annotation>
+                    <xs:documentation>Selected by</xs:documentation>
+                    <xs:documentation>For textual material (eg for an anthology)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="C03">
+                <xs:annotation>
+                    <xs:documentation>Non-text material selected by</xs:documentation>
+                    <xs:documentation>Eg for a collection of photographs etc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="C04">
+                <xs:annotation>
+                    <xs:documentation>Curated by</xs:documentation>
+                    <xs:documentation>Eg for an exhibition</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="C99">
+                <xs:annotation>
+                    <xs:documentation>Other compilation by</xs:documentation>
+                    <xs:documentation>Other type of compilation not specified above</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D01">
+                <xs:annotation>
+                    <xs:documentation>Producer</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D02">
+                <xs:annotation>
+                    <xs:documentation>Director</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D03">
+                <xs:annotation>
+                    <xs:documentation>Conductor</xs:documentation>
+                    <xs:documentation>Conductor of a musical performance</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D04">
+                <xs:annotation>
+                    <xs:documentation>Choreographer</xs:documentation>
+                    <xs:documentation>Of a dance performance. For use in ONIX 3.0 only</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D99">
+                <xs:annotation>
+                    <xs:documentation>Other direction by</xs:documentation>
+                    <xs:documentation>Other type of direction not specified above</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E01">
+                <xs:annotation>
+                    <xs:documentation>Actor</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E02">
+                <xs:annotation>
+                    <xs:documentation>Dancer</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E03">
+                <xs:annotation>
+                    <xs:documentation>Narrator</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E04">
+                <xs:annotation>
+                    <xs:documentation>Commentator</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E05">
+                <xs:annotation>
+                    <xs:documentation>Vocal soloist</xs:documentation>
+                    <xs:documentation>Singer etc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E06">
+                <xs:annotation>
+                    <xs:documentation>Instrumental soloist</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E07">
+                <xs:annotation>
+                    <xs:documentation>Read by</xs:documentation>
+                    <xs:documentation>Reader of recorded text, as in an audiobook</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E08">
+                <xs:annotation>
+                    <xs:documentation>Performed by (orchestra, band, ensemble)</xs:documentation>
+                    <xs:documentation>Name of a musical group in a performing role</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E09">
+                <xs:annotation>
+                    <xs:documentation>Speaker</xs:documentation>
+                    <xs:documentation>Of a speech, lecture etc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E10">
+                <xs:annotation>
+                    <xs:documentation>Presenter</xs:documentation>
+                    <xs:documentation>Introduces and links other contributors and material, eg within a documentary</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="E99">
+                <xs:annotation>
+                    <xs:documentation>Performed by</xs:documentation>
+                    <xs:documentation>Other type of performer not specified above: use for a recorded performance which does not fit a category above, eg a performance by a stand-up comedian</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="F01">
+                <xs:annotation>
+                    <xs:documentation>Filmed/photographed by</xs:documentation>
+                    <xs:documentation>Cinematographer, etc</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="F02">
+                <xs:annotation>
+                    <xs:documentation>Editor (film or video)</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="F99">
+                <xs:annotation>
+                    <xs:documentation>Other recording by</xs:documentation>
+                    <xs:documentation>Other type of recording not specified above</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Z01">
+                <xs:annotation>
+                    <xs:documentation>Assisted by</xs:documentation>
+                    <xs:documentation>May be associated with any contributor role, and placement should therefore be controlled by contributor sequence numbering</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Z02">
+                <xs:annotation>
+                    <xs:documentation>Honored/dedicated to</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Z98">
+                <xs:annotation>
+                    <xs:documentation>(Various roles)</xs:documentation>
+                    <xs:documentation>For use ONLY with 'et al' or 'Various' within &lt;UnnamedPersons&gt;, where the roles of the multiple contributors vary</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Z99">
+                <xs:annotation>
+                    <xs:documentation>Other</xs:documentation>
+                    <xs:documentation>Other creative responsibility not falling within A to F above</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

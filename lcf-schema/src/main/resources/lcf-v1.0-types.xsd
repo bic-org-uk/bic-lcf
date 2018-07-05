@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ns.bic.org.uk/lcf/1.0" elementFormDefault="qualified">
+<xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://ns.bic.org.uk/lcf/1.0"
+           elementFormDefault="qualified">
+
+    <!--
+    The use of this document is subject to license terms and conditions that can be found at
+    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    -->
+
 
     <!-- LCF Common Types -->
 
     <xs:simpleType name="lcfEntityReference">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-        </xs:restriction>
+        <xs:restriction base="nonEmptyString"/>
     </xs:simpleType>
     <xs:simpleType name="nonEmptyString">
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
         </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="proprietaryCodeList">
+        <xs:restriction base="xs:string"/>
     </xs:simpleType>
 
 </xs:schema>
