@@ -417,7 +417,7 @@
             <xs:appinfo source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#EntityID">E12</xs:appinfo>
             <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Name">SELECTION CRITERION</xs:documentation>
             <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Description">An identified property of an entity that can be used as a selection criterion when retrieving a list of instances of that entity.</xs:documentation>
-            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes"></xs:documentation>
+            <xs:documentation source="https://github.com/anthonywhitford/bic-lcf/wiki/LCF-Entities#Notes">Deprecated in v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>

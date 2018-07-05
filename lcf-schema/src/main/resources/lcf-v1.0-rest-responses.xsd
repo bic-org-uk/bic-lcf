@@ -67,6 +67,7 @@
 
     <!-- REST Specific elements -->
 
+    <xs:element name="code" type="selectionCriteria"/>
     <xs:element name="condition-type" type="exceptionConditionType"/>
     <xs:element name="element-ref" type="nonEmptyString"/>
     <xs:element name="entity">
@@ -92,12 +93,11 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="property-ref" type="nonEmptyString"/>
     <xs:element name="reason-denied" type="reasonDeniedType"/>
     <xs:element name="selection-criterion">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="property-ref"/>
+                <xs:element ref="code"/>
                 <xs:element ref="value"/>
             </xs:sequence>
         </xs:complexType>
