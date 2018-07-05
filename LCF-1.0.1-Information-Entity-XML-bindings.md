@@ -2,7 +2,9 @@
 
 **Library Interoperability Standards**
 
-**LCF Information Entities XML bindings**
+**Library Data Communication Framework for Terminal Applications (LCF)**
+
+**Information Entities XML bindings**
 
 Version 1.0.1
 
