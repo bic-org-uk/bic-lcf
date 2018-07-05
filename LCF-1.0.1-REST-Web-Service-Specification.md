@@ -2,7 +2,7 @@
 
 **Library Interoperability Standards**
 
-**LCF version 1.0.1**
+**Library Data Communication Framework for Terminal Applications (LCF)**
 
 **Web Services Implementation**
 
