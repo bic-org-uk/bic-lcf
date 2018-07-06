@@ -1,0 +1,14 @@
+remote_theme: chromatical/jekyll-materialdocs
+
+title: LCF 1.0.1
+highlight: rouge
+logo: assets/bic-logo.png 
+mdl_colors: indigo-blue 
+copyright: <a href="http://www.bic.org.uk">Book Industry Communication</a>
+search: true 
+
+# Build settings
+markdown: kramdown
+
+plugins:
+- jekyll-remote-theme
