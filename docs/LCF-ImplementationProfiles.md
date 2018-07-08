@@ -1,12 +1,22 @@
+---
+title: LCF v1.0.1 Implementation Profiles
+menu: Implementation Profiles
+weight: 6
+---
+
 ***Book Industry Communication***
 
 **Library Interoperability Standards**
 
-**LCF v1.0.1 Implementation Profiles**
+**Library Data Communication Framework for Terminal Applications (LCF)**
 
-Version 1 November 2016
+**Implementation Profiles**
 
-This document is currently under development.
+*Issue 1*
+
+*01 November 2016*
+
+---
 
 ### Profiles
 
@@ -14,11 +24,11 @@ This document is currently under development.
 
 This profile has the following function groups:
 
-    - Basic check-in / check-out with standard HTTP response (no XML payload)
-    - Handle item security information on check-in / check-out
-    - Retrieve Patron-specific loan information
-    - Reservation-related activities (retrieve reservation information, make / cancel reservations)
-    - Handle payments (handle charge refs in check-in/check-out response, make payment).
+* Basic check-in / check-out with standard HTTP response (no XML payload)
+* Handle item security information on check-in / check-out
+* Retrieve Patron-specific loan information
+* Reservation-related activities (retrieve reservation information, make / cancel reservations)
+* Handle payments (handle charge refs in check-in/check-out response, make payment).
 
 |                        |       *Basic*       |      *Security*      |    *Loans*    | *Reservations* |     *Payments*    |
 |------------------------|---------------------|----------------------|---------------|----------------|-------------------|
@@ -37,9 +47,9 @@ This profile has the following function groups:
 
 This profile has the following function groups:
 
-    - Maintain personal contact details
-    - Manage reservations
-    - Manage charges
+* Maintain personal contact details
+* Manage reservations
+* Manage charges
 
 |                        |       Personal      |     Reservations     |    Charges    |
 |------------------------|---------------------|----------------------|---------------|

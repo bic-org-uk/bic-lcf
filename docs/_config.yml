@@ -1,10 +1,13 @@
 remote_theme: chromatical/jekyll-materialdocs
 
 title: LCF 1.0.1
-highlight: rouge
-logo: assets/bic-logo.png 
-mdl_colors: indigo-blue 
+description: Library Data Communication Framework for Terminal Applications (LCF)
 copyright: <a href="http://www.bic.org.uk">Book Industry Communication</a>
+logo: assets/bic-logo.png 
+url: "https://bic-org-uk.github.io"
+baseurl: "/bic-lcf"
+highlight: rouge
+mdl_colors: indigo-blue 
 search: true 
 
 # Build settings
@@ -12,3 +15,6 @@ markdown: kramdown
 
 plugins:
 - jekyll-remote-theme
+
+
+

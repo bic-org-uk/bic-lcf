@@ -1,14 +1,22 @@
-**Book Industry Communication**
+---
+title: LCF v1.0.1 Code Lists
+menu: Code Lists
+weight: 2
+---
 
-***Library Interoperability Standards***
+***Book Industry Communication***
+
+**Library Interoperability Standards***
 
 **Library Data Communication Framework for Terminal Applications (LCF)**
 
 **Code Lists**
 
-Issue 2
+*Issue 2*
 
-FINAL DRAFT, 05 July 2018
+*FINAL DRAFT, 08 July 2018*
+
+---
 
 This document defines code lists for use with LCF version 1.0.1.
 
