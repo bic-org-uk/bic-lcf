@@ -4,8 +4,6 @@ title: LCF 1.0.1
 description: Library Data Communication Framework for Terminal Applications (LCF)
 copyright: <a href="http://www.bic.org.uk">Book Industry Communication</a>
 logo: assets/bic-logo.png 
-url: "https://bic-org-uk.github.io"
-baseurl: "/bic-lcf"
 highlight: rouge
 mdl_colors: indigo-blue 
 search: true 
@@ -15,6 +13,3 @@ markdown: kramdown
 
 plugins:
 - jekyll-remote-theme
-
-
-
