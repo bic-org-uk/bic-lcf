@@ -14,7 +14,7 @@ weight: 6
 
 ### Issue 1
 
-### FINAL DRAFT, 12 July 2018
+### 12 July 2018
 
 ---
 

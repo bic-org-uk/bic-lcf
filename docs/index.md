@@ -12,7 +12,7 @@ weight: 0
 
 ### Version 1.0.1
 
-### FINAL DRAFT, 12 July 2018
+### 12 July 2018
 
 ---
 
