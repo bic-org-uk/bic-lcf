@@ -4,17 +4,17 @@ menu: Implementation Profiles
 weight: 6
 ---
 
-***Book Industry Communication***
+# Book Industry Communication
 
-**Library Interoperability Standards**
+## Library Interoperability Standards
 
-**Library Data Communication Framework for Terminal Applications (LCF)**
+## Library Data Communication Framework for Terminal Applications (LCF)
 
-**Implementation Profiles**
+## Implementation Profiles
 
-*Issue 1*
+### Issue 1
 
-*01 November 2016*
+### FINAL DRAFT, 12 July 2018
 
 ---
 

@@ -4,17 +4,17 @@ menu: Code Lists
 weight: 2
 ---
 
-***Book Industry Communication***
+# Book Industry Communication
 
-**Library Interoperability Standards***
+## Library Interoperability Standards
 
-**Library Data Communication Framework for Terminal Applications (LCF)**
+## Library Data Communication Framework for Terminal Applications (LCF)
 
-**Code Lists**
+## Code Lists
 
-*Issue 2*
+### Issue 2
 
-*FINAL DRAFT, 08 July 2018*
+### FINAL DRAFT, 12 July 2018
 
 ---
 

@@ -4,17 +4,17 @@ menu: REST Authentication and Authorisation
 weight: 5
 ---
 
-***Book Industry Communication***
+# Book Industry Communication
 
-**Library Interoperability Standards***
+## Library Interoperability Standards
 
-**Library Data Communication Framework for Terminal Applications (LCF)**
+## Library Data Communication Framework for Terminal Applications (LCF)
 
-**REST Authentication and Authorisation**
+## REST Authentication and Authorisation
 
-*Version 1.0.1*
+### Version 1.0.1
 
-*02 March 2018*
+### FINAL DRAFT, 12 July 2018
 
 ---
 
