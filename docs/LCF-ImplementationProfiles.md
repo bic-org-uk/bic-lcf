@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.1 Implementation Profiles
+title: LCF v1.0.2 Implementation Profiles
 menu: Implementation Profiles
 weight: 6
 ---
@@ -12,9 +12,9 @@ weight: 6
 
 ## Implementation Profiles
 
-### Issue 1
+### Issue 2
 
-### 12 July 2018
+### DRAFT, 12 July 2018
 
 ---
 
