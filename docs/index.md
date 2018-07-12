@@ -32,7 +32,12 @@ LCF will enable commercial suppliers to develop new functionality to a commonly 
 
 Suppliers will be urged to apply for certification that their products have been developed using the principles and values defined in LCF, and new functionality – not supported at the moment – will have to be submitted to BIC for inclusion in LCF. The framework – and additions – will be maintained by BIC on behalf of the industry
 
-The LCF Framework consists of a number of documents which are downloadable from this BIC website.
+Status and future development of this standard
+----------------------------------------------
+
+This standard is subject to revision from time to time. The latest stable release versions of this standard may be found at [https://bic-org-uk.github.io/bic-lcf](https://bic-org-uk.github.io/bic-lcf).
+
+It is intended to maintain and develop further this standard. Future development will continue to be guided by the requirements of libraries and carried out in collaboration with device and system developers. Details of how to report errors, request changes and contribute to future developments of the standard are to be found at [https://github.com/bic-org-uk/bic-lcf](https://github.com/bic-org-uk/bic-lcf).
 
 ---
 
