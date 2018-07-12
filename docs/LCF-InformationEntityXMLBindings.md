@@ -4,17 +4,17 @@ menu: Information Entities XML bindings
 weight: 3
 ---
 
-***Book Industry Communication***
+# Book Industry Communication
 
-**Library Interoperability Standards**
+## Library Interoperability Standards
 
-**Library Data Communication Framework for Terminal Applications (LCF)**
+## Library Data Communication Framework for Terminal Applications (LCF)
 
-**Information Entities XML bindings**
+## Information Entities XML bindings
 
-*Version 1.0.1*
+### Version 1.0.1
 
-*FINAL DRAFT, 08 July 2018*
+### FINAL DRAFT, 12 July 2018
 
 ---
 
