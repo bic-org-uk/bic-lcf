@@ -22,7 +22,7 @@
     <version>1.0.1-SNAPSHOT</version>
 
     <description>
-        Implementation of the JAXB bindings for the BIC LCF 1.0 XML Schemas
+        Implementation of the JAXB bindings for the BIC LCF Version 1.0.1 XML Schemas
     </description>
 
     <properties>
