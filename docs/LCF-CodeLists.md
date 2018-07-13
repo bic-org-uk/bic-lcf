@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.1 Code Lists
+title: LCF v1.0.2 Code Lists
 menu: Code Lists
 weight: 2
 ---
@@ -12,9 +12,9 @@ weight: 2
 
 ## Code Lists
 
-### Issue 2
+### Issue 3
 
-### FINAL DRAFT, 12 July 2018
+### DRAFT, 12 July 2018
 
 ---
 
