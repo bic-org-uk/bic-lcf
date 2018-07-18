@@ -18,7 +18,7 @@ weight: 4
 
 ---
 
-This document defines a binding of the LCF data communication framework to the HTTP[1](#Notes) protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[2](#Notes)) design principles,
+This document defines a binding of the LCF data communication framework to the HTTP[1](#Notes) protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[2](#Notes)) design principles.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
