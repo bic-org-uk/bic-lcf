@@ -20,6 +20,10 @@ weight: 5
 
 ### Authentication and Authorisation
 
+This document defines authentication and authorisation mechanisms for the REST binding of the LCF data communication framework.
+
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+
 #### Service Terminal Authentication & Authorisation
 LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. 
 

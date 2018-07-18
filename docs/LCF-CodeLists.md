@@ -20,6 +20,8 @@ weight: 2
 
 This document defines code lists for use with LCF version 1.0.1.
 
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+
 **NOTES**
 
 1.  Code lists may be revised independently and more frequently than the

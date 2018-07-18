@@ -9,7 +9,7 @@ This repository holds five things:
 
  * The documentation for the BIC Library Communication Framework:
      * [Current release on the __master__ branch](../../tree/master/docs)
-     * [Next release in development on the __develop__ branch](t../../ree/develop/docs)
+     * [Next release in development on the __develop__ branch](../../tree/develop/docs)
  * The XML Schema for the BIC Library Communication Framework:
      * [Current release on the __master__ branch](../../tree/master/lcf-schema/src/main/resources)
      * [Next release in development on the __develop__ branch](../../tree/develop/lcf-schema/src/main/resources)

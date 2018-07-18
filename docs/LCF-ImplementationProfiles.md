@@ -20,6 +20,10 @@ weight: 6
 
 ### Profiles
 
+This document defines implementation profiles for the LCF data communication framework.
+
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+
 #### P01 Self Issue
 
 This profile has the following function groups:

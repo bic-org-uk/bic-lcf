@@ -45,7 +45,7 @@ It is intended to maintain and develop further this standard. Future development
 
 ### TERMS AND CONDITIONS OF USE FOR THE LIBRARY COMMUNICATIONS FRAMEWORK AND ASSOCIATED CODELISTS, WEB SERVICES AND OTHER DOCUMENTS WHICH TOGETHER MAKE UP THE LCF
 
-All LCF standards and documentation – including this document – are copyright materials, made available free of charge for general use. A full licence agreement that governs their use is available from [http://www.bic.org.uk/files/bicstandardslicence.pdf].
+All LCF standards and documentation – including this document – are copyright materials, made available free of charge for general use. A full licence agreement that governs their use is available from [http://www.bic.org.uk/files/bicstandardslicence.pdf](http://www.bic.org.uk/files/bicstandardslicence.pdf).
 
 In particular, if you use any of the LCF documents you will be deemed to have accepted these terms and conditions:
 
