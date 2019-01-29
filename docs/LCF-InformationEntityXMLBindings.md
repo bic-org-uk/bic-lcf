@@ -176,7 +176,7 @@ E03 PATRON
 |  11   | E03C03       | associated-location         | 0-n     |             |         |
 |  12   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists#LAT)    |
 |  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
-|  14   | E03D34       | home-institution-ref        | 0-1     | string      | *added v1.0.1*                 |
+|  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added v1.0.1, ID corrected in v1.0.2*                 |
 |  15   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists#PNS)    |
 |  16   | E03C24       | card-status-info            | 0-nR    |             | *Added v1.0.1*                 |
 |  17   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists#PCS)    |
