@@ -290,7 +290,7 @@ NOTE – Contact information is held in separate contact records for security an
 | *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
 | E03D03.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
 | E03D03.2   | Location reference         |           | 1        | String     | *Cardinality corrected in v1.0.1* |
-| E03D34     | Patron's home institution  |           | 0-1      | String     | Patron's home library/institution as represented by an Authority / Institution entity (E14)<br/>*(Added v1.0.1)*                                    |
+| E03D35     | Patron's home institution  |           | 0-1      | String     | Patron's home library/institution as represented by an Authority / Institution entity (E14)<br/>*(Added v1.0.1, Id correct v1.0.2)*                                    |
 | E03D04     | Patron status              |           | 0-nR     | Code       | LCF code list **[PNS](LCF-CodeLists.md#PNS)**              |
 | **<strike>E03D04.1</strike>** | **<strike>Condition</strike>** |            | **<strike>1-n</strike>** | **<strike>Code</strike>** |                                                                   *Removed v1.0.1* |
 | *E03C24*   | *Library card status information* |    | 0-1R     |            | Status information on the patron's library card.<br/>*Added v1.0.1*                                                                               |
