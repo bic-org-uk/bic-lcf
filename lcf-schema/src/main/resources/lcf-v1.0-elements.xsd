@@ -135,7 +135,7 @@
     <xs:element name="charge-limit">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="charge-type"/>
+                <xs:element ref="charge-type" minOccurs="0"/>
                 <xs:group ref="pecuniaryGroup"/>
             </xs:sequence>
         </xs:complexType>
