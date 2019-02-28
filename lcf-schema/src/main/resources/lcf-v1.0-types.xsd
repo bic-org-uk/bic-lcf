@@ -9,6 +9,7 @@
     http://www.bic.org.uk/files/bicstandardslicence.pdf.
     -->
 
+    <xs:include schemaLocation="lcf-v1.0-iso-codelists.xsd"/>
 
     <!-- LCF Common Types -->
 
@@ -23,5 +24,15 @@
     <xs:simpleType name="proprietaryCodeList">
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
+    
+    <xs:group name="pecuniaryGroup">
+        <xs:sequence>
+            <xs:element ref="amount"/>
+            <xs:element ref="currency" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="amount" type="xs:decimal"/>
+    <xs:element name="currency" type="iso4217CurrencyCode"/>
+
 
 </xs:schema>
