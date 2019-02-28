@@ -71,7 +71,6 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="address-line" type="nonEmptyString"/>
-    <xs:element name="amount" type="xs:decimal"/>
     <xs:element name="associated-authority">
         <xs:complexType>
             <xs:sequence>
@@ -137,8 +136,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
+                <xs:group ref="pecuniaryGroup"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -184,9 +182,12 @@
     <xs:element name="contributor-role" type="contributorRole"/>
     <xs:element name="cover-art" type="xs:anyURI"/>
     <xs:element name="creation-date" type="xs:dateTime"/>
-    <xs:element name="currency" type="iso4217CurrencyCode"/>
     <xs:element name="date-of-birth" type="xs:date"/>
-    <xs:element name="deposit-balance" type="xs:decimal"/>
+    <xs:element name="deposit-balance">
+        <xs:complexType>
+            <xs:group ref="pecuniaryGroup"/>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
     <xs:element name="description" type="nonEmptyString"/>
     <xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
@@ -198,15 +199,7 @@
     <xs:element name="end-due-date" type="xs:dateTime"/>
     <xs:element name="fee-description" type="nonEmptyString"/>
     <xs:element name="fee-due-date-time" type="xs:dateTime"/>
-    <xs:element name="fee-limit">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:element name="fee-type" type="chargeType"/>
     <xs:element name="fees-due-items" type="xs:int"/>
     <xs:element name="fines-due-items" type="xs:int"/>
     <xs:element name="group-type" type="nonEmptyString"/>
@@ -230,9 +223,8 @@
     <xs:element name="loan-fee">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="charge-type"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
+                <xs:element ref="fee-type"/>
+                <xs:group ref="pecuniaryGroup"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -357,24 +349,6 @@
     </xs:element>
     <xs:element name="title-text" type="nonEmptyString"/>
     <xs:element name="title-type" type="titleType"/>
-    <xs:element name="total-anticipated-fines">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="total-fees-owed">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
     <xs:element name="transaction-reference" type="nonEmptyString"/>
     <xs:element name="type-name" type="nonEmptyString"/>
     <xs:element name="unavailable-hold-items" type="xs:int"/>

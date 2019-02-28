@@ -405,8 +405,7 @@
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="payment-date" minOccurs="0"/>
-            <xs:element ref="amount"/>
-            <xs:element ref="currency" minOccurs="0"/>
+            <xs:group ref="pecuniaryGroup"/>
             <xs:element ref="payment-status" minOccurs="0"/>
             <xs:element ref="transaction-reference" minOccurs="0"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
