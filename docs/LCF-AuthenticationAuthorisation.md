@@ -27,9 +27,9 @@ The use of this document is subject to license terms and conditions that can be 
 #### Service Terminal Authentication
 LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. 
 
-Where an LCF web services requires authentication of the Service Terminal, this is implemented in the LCF REST implementation using HTTP BASIC authentication, providing a username and location code (in the format of an email address) and a complex password. This would be encoded in the HTTP Header field "Authorization".
+Where an LCF web service requires authentication of the Service Terminal, this is implemented in the LCF REST implementation using HTTP BASIC authentication, providing a username and location code (in the format of an email address) and a complex password. This would be encoded in the HTTP Header field "Authorization".
 
-The implementation is therefore that the HTTP BASIC authentication should be provided for each web service call. The LCF Server validates this authentication request, and where valid, it then processes the authorisation to dis/allow access to the requested web service. Alternatively an external IdP (such as OAuth or OpenID) may be is used for authentication.
+The implementation is therefore that the HTTP BASIC authentication should be provided for each web service call. The LCF Server validates this authentication request, and where valid, it then processes the authorisation to dis/allow access to the requested web service. Alternatively an external IdP (Identity Provider), using a protocol such as OAuth or OpenId, may be used for authentication.
 
 A response code of 401 indicates that the Service Terminal credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
 
@@ -39,19 +39,19 @@ A response code of 401 indicates that the Service Terminal credentials were inco
     Responds with:
     HTTP/200
     Where the Body / Payload is a patron entity response
-
+    
     -- or --
-
+    
     HTTP/401 - Service Terminal credentials were invalid, or need to be obtained from the IdP again
-
+    
     -- or --
-
+    
     HTTP/404 - the Patron represented by id-value does not exist
 
 
 #### Patron Authentication
 
-Where an LCF web service requires authentication of a Patron, this is done by using the HTTP header field "lcf-patron-credential". This should use the same format as HTTP BASIC authentication, i.e. the value "patron-id:password" encoded using BASE64, prepended by "BASIC ". Alternatively if an external IdP (such as OAuth or OpenID) is used for authentication, the token from the IdP can also be passed via this field.
+Where an LCF web service requires authentication of a Patron, this is done by using the HTTP header field "lcf-patron-credential". This should use the same format as HTTP BASIC authentication, i.e. the value "patron-id:password" encoded using BASE64, prepended by "BASIC ". Alternatively if an external IdP (Identity Provider) using a protocol such as OAuth or OpenId, is used for authentication, the token from the IdP can also be passed via this field.
 
 A response code of 401 indicates that the patron credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
 
@@ -61,13 +61,13 @@ A response code of 401 indicates that the patron credentials were incorrect, or 
     Responds with:
     HTTP/200
     Where the Body / Payload is a patron entity response
-
+    
     -- or --
-
+    
     HTTP/403 - The id-value and password\pin combination are invalid, or need to be obtained from the IdP again
-
+    
     -- or --
-
+    
     HTTP/404 - the Patron represented by id-value does not exist
 
 
@@ -87,15 +87,15 @@ Each AUTHORISATION entity within the list must state which authorisation is bein
     Responds with:
     HTTP/200
     Where the Body / Payload is an authorisation entity response. Note that the authorisation entity response could be empty, indicating that there are no authorisations granted.
-
+    
     -- or --
-
+    
     HTTP/401 - Service Terminal credentials were invalid, or need to be obtained from the IdP again
-
+    
     -- or --
-
+    
     HTTP/403 - The id-value and password\pin combination are invalid, or need to be obtained from the IdP again
-
+    
     -- or --
-
+    
     HTTP/404 - the Patron represented by id-value does not exist
