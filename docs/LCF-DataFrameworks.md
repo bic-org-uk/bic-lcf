@@ -34,7 +34,7 @@ The information that these functions retrieve or change related to a number of "
 
 -   patrons – users entitled to borrow items from a library
 
--   locations – where items may be located, usually inside a library; or the "home" location of a patron
+-   locations – where items may be located, usually inside a library; the "home library" locations of patrons; or locations associated with library authorities/institutions
 
 -   loans – of items to patrons
 
@@ -340,7 +340,10 @@ NOTE – Contact information is held in separate contact records for security an
 
 #### Description
 
-An identified place where an item may be located, either inside or outside a library.
+A location associated with a library, such as:
+-  an identified place where an item may be located, either inside or outside a library;
+-  a library location associated with a patron, typically the patron's "home library";
+-  a library location associated with a library authority/institution, such as the main or branch site of a library.
 
 #### Properties
 
