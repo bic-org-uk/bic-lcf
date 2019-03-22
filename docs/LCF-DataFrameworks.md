@@ -424,7 +424,10 @@ An identified event in which one or more titles have been reserved for a patron.
 | **E06D11** | **Reservation status**      |           | **1**   | **Code**   | **LCF code list [RVS](LCF-CodeLists.md#RVS)**          |
 | E06D15     | Position in hold queue      |           | 0-1     | Integer    | Position of the reserved item in the hold queue<br/>*Added in v1.0.1*                                                                               |
 | E06D12     | Loan reference              |           | 0-1R    | String     | Only included if maintaining records of reservations that have ended with the item being loaned to the patron.                                      |
-| E06D13     | Charge reference            |           | 0-nR      String     | Reference to a charge incurred by this reservation.                                                                                              |
+| E06D13     | Charge reference            |           | 0-nR    | String     | Reference to a charge incurred by this reservation.|
+| E06C16     | Suspension period           |           | 0-n     |            | A period during which this Reservation is suspended.<br/>*Added v1.1.0*|
+| E06D16.1   | Start date-time             |           | 0-1     | DateTime   |                                                    |
+| E06D16.2   | End date-time               |           | 0-1     | DateTime   |                                                    |
 | *E06C14*   | *Reservation note*          |           | 0-n     |            | A note attached to this reservation.|
 | E06D14.1   | Note type                   |           | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E06D14.2   | Note date-time              |           | 0-1     | DateTime   |                                |
