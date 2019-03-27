@@ -141,7 +141,7 @@ E02 ITEM
 |  24    | E02D12       | reservation-ref             | 0-nR    | string      |         |
 |  25    | E02D13       | patrons-in-hold-queue       | 0-1R    | int         |         |
 |  26    | E02D14       | on-loan-ref                 | 0-1R    | string      |         |
-|  27    | E02D15       | condition-code              | 0-1     | Code        | LMS-proprietary                                                                         |
+|  27    | E02D15       | condition-code              | 0-n     | Code        | LMS-proprietary<br/>*Cardinality corrected v1.0.2*                                                                         |
 |  28    | E02D16       | condition-description       | 0-1     | string      |         |
 |  29    | E02C17       | note                        | 0-n     |             |         |
 |  30    | E02D17.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
