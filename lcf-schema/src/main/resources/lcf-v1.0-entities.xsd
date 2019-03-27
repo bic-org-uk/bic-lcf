@@ -292,7 +292,7 @@
             <xs:element ref="publisher-name" minOccurs="0"/>
             <xs:element ref="year-of-publication" minOccurs="0"/>
             <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="cover-art" minOccurs="0"/>
+            <xs:element ref="cover-art" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
