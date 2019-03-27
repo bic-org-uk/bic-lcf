@@ -465,6 +465,7 @@
             <xs:element ref="hold-queue-position" minOccurs="0"/>
             <xs:element ref="loan-ref" minOccurs="0"/>
             <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="suspension-period" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:group>

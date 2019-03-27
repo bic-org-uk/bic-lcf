@@ -336,6 +336,14 @@
     </xs:element>
     <xs:element name="start-date" type="xs:dateTime"/>
     <xs:element name="subtitle" type="nonEmptyString"/>
+    <xs:element name="suspension-period">
+        <xs:complexType>
+            <xs:sequence>
+	        <xs:element ref="start-date" minOccurs="0"/>
+		<xs:element ref="end-date" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="terminal-location" type="nonEmptyString"/>
     <xs:element name="text" type="nonEmptyString"/>
     <xs:element name="title">
@@ -359,3 +367,4 @@
     <xs:element name="year-of-publication" type="xs:gYear"/>
 
 </xs:schema>
+
