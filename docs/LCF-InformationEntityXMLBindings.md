@@ -208,7 +208,7 @@ E03 PATRON
 |  43   | E03D20.1     | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)   |
 |  44   | E03D20.2     | amount                      | 1       | decimal     |         |
 |  45   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
-|  46   | E03C31       | deposit-balance             | 0-1     | decimal     | *Added v1.0.1*                |
+|  46   | E03C31       | deposit-balance             | 0-1     |             | *Added v1.0.1*                |
 |  47   | E03D31.1     | amount                      | 1       | decimal     |         |
 |  48   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
 |  49   | E03C34       | associated-message          | 0-n     |             |         |
