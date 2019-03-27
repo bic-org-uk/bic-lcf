@@ -124,6 +124,7 @@ The code lists defined are:
   CHS01          |01                |Not yet paid   |
   CHS02          |02                |Part paid      |
   CHS03          |03                |Fully paid     |Used when recording past charges
+  CHS04          |04                |Not yet payable|*Added in LCF v1.1.0*
 
 ### <a id="CHT"></a>CHT Charge type (based upon SIP 2 fee type code list)
 
