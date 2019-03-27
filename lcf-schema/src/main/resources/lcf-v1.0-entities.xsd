@@ -237,6 +237,8 @@
             <xs:element ref="end-date" minOccurs="0"/>
             <xs:element ref="loan-status" maxOccurs="unbounded"/>
             <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="previous-loan-ref" minOccurs="0"/>
+			<xs:element ref="renewal-loan-ref" minOccurs="0"/>		
             <xs:element ref="recall-notice-date" minOccurs="0"/>
             <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>

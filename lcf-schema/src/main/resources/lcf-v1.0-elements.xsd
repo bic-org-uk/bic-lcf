@@ -314,10 +314,12 @@
     <xs:element name="pickup-date" type="xs:dateTime"/>
     <xs:element name="pickup-institution-ref" type="lcfEntityReference"/>
     <xs:element name="pickup-location-ref" type="lcfEntityReference"/>
+	<xs:element name="previous-loan-ref" type="lcfEntityReference"/>
     <xs:element name="priority" type="messageAlertPriority"/>
     <xs:element name="publisher-name" type="nonEmptyString"/>
     <xs:element name="recall-notice-date" type="xs:dateTime"/>
     <xs:element name="recalled-items" type="xs:int"/>
+	<xs:element name="renewal-loan-ref" type="lcfEntityReference"/>
     <xs:element name="reservation-ref" type="lcfEntityReference"/>
     <xs:element name="reservation-status" type="reservationStatus"/>
     <xs:element name="reservation-type" type="reservationType"/>
