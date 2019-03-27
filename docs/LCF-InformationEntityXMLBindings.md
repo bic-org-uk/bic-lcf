@@ -288,10 +288,13 @@ E06 RESERVATION
 |  13    | E06D15       | hold-queue-position         | 0-1     | int         | *Added in v1.0.1* |
 |  14    | E06D12       | loan-ref                    | 0-1R    | string      |         |
 |  15    | E06D13       | charge-ref                  | 0-nR    | string      |         |
-|  16    | E06C14       | note                        | 0-n     |             |         |
-|  17    | E06D14.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  18    | E06D14.2     | date-time                   | 0-1     | dateTime    |         |
-|  19    | E06D14.3     | note-text                   | 1       | string      |         |
+|  16    | E06C16       | suspension-period           | 0-n     |             | *Added in v1.1.0* |
+|  17    | E06D16.1     | start-date                  | 0-1     | dateTime    |         |
+|  18    | E06D16.2     | end-date                    | 0-1     | dateTime    |         |
+|  19    | E06C14       | note                        | 0-n     |             |         |
+|  20    | E06D14.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  21    | E06D14.2     | date-time                   | 0-1     | dateTime    |         |
+|  22    | E06D14.3     | note-text                   | 1       | string      |         |
 
 E07 CHARGE
 ----------
