@@ -185,7 +185,9 @@
     <xs:element name="date-of-birth" type="xs:date"/>
     <xs:element name="deposit-balance">
         <xs:complexType>
-            <xs:group ref="pecuniaryGroup"/>
+            <xs:sequence>
+                <xs:group ref="pecuniaryGroup"/>
+            </xs:sequence>
         </xs:complexType>
     </xs:element>
     <xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
