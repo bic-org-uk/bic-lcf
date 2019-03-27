@@ -427,7 +427,7 @@
     </xs:element>
     <xs:group name="property-props">
         <xs:sequence>
-            <xs:element ref="name" minOccurs="0"/>
+            <xs:element ref="name"/>
             <xs:element name="entity-type" type="entityType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="value-scheme-ref" minOccurs="0"/>
