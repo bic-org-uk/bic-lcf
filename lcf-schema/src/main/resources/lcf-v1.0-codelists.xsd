@@ -93,7 +93,7 @@
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="01">
-			    <xs:annotation>
+                <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">CHS01</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Not yet paid</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
@@ -112,14 +112,14 @@
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Fully paid</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Used when recording past charges</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>			
-			<xs:enumeration value="04">
+            </xs:enumeration>           
+            <xs:enumeration value="04">
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">CHS04</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Not yet payable</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Added in LCF v1.1.0</xs:documentation>
                 </xs:annotation>
-            </xs:enumeration>			
+            </xs:enumeration>           
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="chargeType">
