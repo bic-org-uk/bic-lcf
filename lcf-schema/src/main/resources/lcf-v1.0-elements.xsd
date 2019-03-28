@@ -83,6 +83,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="association-type" type="contactAssociationType"/>
+                <xs:element ref="contact-name"/>
                 <xs:element ref="contact-ref"/>
             </xs:sequence>
         </xs:complexType>
@@ -162,6 +163,7 @@
     </xs:element>
     <xs:element name="condition-code" type="proprietaryCodeList"/>
     <xs:element name="condition-description" type="nonEmptyString"/>
+    <xs:element name="contact-name" type="nonEmptyString"/>
     <xs:element name="contact-ref" type="lcfEntityReference">
         <xs:annotation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
@@ -341,8 +343,8 @@
     <xs:element name="suspension-period">
         <xs:complexType>
             <xs:sequence>
-	        <xs:element ref="start-date" minOccurs="0"/>
-		<xs:element ref="end-date" minOccurs="0"/>
+                <xs:element ref="start-date" minOccurs="0"/>
+                <xs:element ref="end-date" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
