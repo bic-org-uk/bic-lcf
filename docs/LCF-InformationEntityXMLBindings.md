@@ -434,14 +434,14 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |   3   | E14C02       | additional-authority-id     | 0-n     |             |         |
 |   4   | E14D02.1     | authority-id-type           | 1       | Code        | [INS](LCF-CodeLists#INS) |
 |   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
-|   6   | E14D02.3     | value                    | 1       | string      |         |
+|   6   | E14D02.3     | value                       | 1       | string      |         |
 | **7** | **E14D03**   | **name**                    | 1       | string      |         |
 |   8   | E14C04       | associated-location         | 0-n     |             |         |
 |   9   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists#LAT) |
 |  10   | E14D04.2     | location-ref                | 1       | string      |         |
 |  11   | E14C05       | associated-contact          | 0-n     |             |         |
 |  12   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists#CAT) |
-|  13   | E14D05.2     | contact-name                | 0-1     | string      |         |
+|  13   | E14D05.2     | contact-name                | 1       | string      |         |
 |  14   | E14D05.3     | contact-ref                 | 1       | string      |         |
 |  15   | E14C06       | associated-authority        | 0-n     |             |         |
 |  16   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists#AAT) |
@@ -489,7 +489,6 @@ EXCEPTION CONDITIONS
 |   6   | R00C06       | message                     | 0-n     |             |         |
 |   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
-
 
 ___
 
