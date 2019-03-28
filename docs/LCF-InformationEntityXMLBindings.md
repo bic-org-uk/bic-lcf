@@ -24,7 +24,7 @@ This document also specifies a standard XML binding for the data framework for c
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
-The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0".
+The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0". This namespace will be used for all 1.x.x versions of this specification. From Version 1.1.0 onwards, wherever possible, the XML Bindings will be backwards compatible with earlier versions within the same Major version, for example, by only introducing optional, non-mandatory elements. However, clients and servers must be prepared to receive XML messages that might contain optional but unknown elements introduced in a newer versions, the contents of these elements being safe to ignore.
 
 The datatypes 'string', 'int', 'decimal', 'anyURI', 'year', 'date' and 'dateTime' used in these XML bindings are specified in W3C XML Schema Part 2: Datatypes &ndash; see <a href="http://www.w3.org/TR/xmlschema-2/">http://www.w3.org/TR/xmlschema-2/</a>.
 
@@ -489,7 +489,6 @@ EXCEPTION CONDITIONS
 |   6   | R00C06       | message                     | 0-n     |             |         |
 |   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
-
 
 ___
 
