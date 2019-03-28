@@ -343,8 +343,8 @@
     <xs:element name="suspension-period">
         <xs:complexType>
             <xs:sequence>
-            <xs:element ref="start-date" minOccurs="0"/>
-        <xs:element ref="end-date" minOccurs="0"/>
+                <xs:element ref="start-date" minOccurs="0"/>
+                <xs:element ref="end-date" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
