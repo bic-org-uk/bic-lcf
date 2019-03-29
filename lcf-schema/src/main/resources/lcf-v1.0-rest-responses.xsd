@@ -69,7 +69,7 @@
 
     <xs:element name="code" type="selectionCriteria"/>
     <xs:element name="condition-type" type="exceptionConditionType"/>
-    <xs:element name="element-ref" type="lcfEntityReference"/>
+    <xs:element name="element-id" type="nonEmptyString"/>
     <xs:element name="entity">
         <xs:complexType>
             <xs:attribute name="href" type="xs:anyURI"/>

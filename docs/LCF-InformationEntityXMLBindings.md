@@ -482,7 +482,7 @@ EXCEPTION CONDITIONS
 | **2** | **R00C05**   | **exception-condition**     | **1-n** |             |         |
 | **3** | **R00D05.1** | **condition-type**          | **1**   | **Code**    | **[EXC](LCF-CodeLists#EXC)** |
 |   4   | R00D05.2     | reason-denied               | 0-1     | Code        | [RDN](LCF-CodeLists#RDN)     |
-|   5   | R00D05.3     | element-ref                 | 0-1     | string      |         |
+|   5   | R00D05.3     | element-id                  | 0-1     | string      |         |
 |   6   | R00C06       | message                     | 0-n     |             |         |
 |   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
