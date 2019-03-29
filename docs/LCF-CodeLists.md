@@ -396,6 +396,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   --------- |-------------- |----------------------------------- |------------------------------
   MAU01     |01             |All patrons                         |
   MAU02     |02             |Specified patrons and categories    |
+  MAU03     |03             |Patrons related to specified loans  | *Added in LCF v1.1.0*
+  MAU04     |04             |Patrons related to specified reservations | *Added in LCF v1.1.0*
 
 ### <a id="MES"></a>MES Media type / format scheme
 
