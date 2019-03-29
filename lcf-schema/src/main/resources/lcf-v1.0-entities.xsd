@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://ns.bic.org.uk/lcf/1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:vcard="urn:ietf:params:xml:ns:vcard-4.0"
            targetNamespace="http://ns.bic.org.uk/lcf/1.0"
            elementFormDefault="qualified">
 
@@ -11,6 +12,8 @@
 
 
     <xs:include schemaLocation="lcf-v1.0-elements.xsd"/>
+    <xs:import namespace="urn:ietf:params:xml:ns:vcard-4.0" schemaLocation="vcard-4.0-rfc6351.xsd"/>
+
 
     <!-- LCF Entities -->
 
@@ -72,7 +75,8 @@
     <xs:group name="authority-props">
         <xs:sequence>
             <xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="name"/>
+            <xs:element ref="vcard:title"/>
+            <xs:element ref="vcard:role" minOccurs="0"/>
             <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
@@ -175,8 +179,13 @@
             <xs:element ref="patron-ref" minOccurs="0"/>
             <xs:element ref="location-ref" minOccurs="0"/>
             <xs:element ref="institution-ref" minOccurs="0"/>
-            <xs:element ref="communication-type"/>
-            <xs:element ref="locator" maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="vcard:adr"/>
+                <xs:element ref="vcard:tel"/>
+                <xs:element ref="vcard:email"/>
+                <xs:element ref="vcard:impp"/>
+                <xs:element ref="vcard:lang"/>
+            </xs:choice>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:group>
@@ -355,7 +364,13 @@
         <xs:sequence>
             <xs:element ref="barcode-id" minOccurs="0"/>
             <xs:element ref="additional-patron-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="name"/>
+            <xs:element ref="vcard:fn"/>
+            <xs:element ref="vcard:n"/>
+            <xs:element ref="vcard:nickname" minOccurs="0"/>
+            <xs:element ref="vcard:photo" minOccurs="0"/>
+            <xs:element ref="vcard:bday" minOccurs="0"/>
+            <xs:element ref="vcard:anniversary" minOccurs="0"/>
+            <xs:element ref="vcard:gender" minOccurs="0"/>
             <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="language" minOccurs="0"/>
             <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
@@ -383,7 +398,6 @@
             <xs:element ref="deposit-balance" minOccurs="0"/>
             <xs:element ref="associated-message" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="date-of-birth" minOccurs="0"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="payment">
