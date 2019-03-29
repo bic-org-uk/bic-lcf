@@ -170,9 +170,17 @@ E03 PATRON
 |   5   | E03D27.1     | patron-id-type              | 1       | Code        | **[PNI](LCF-CodeLists.md#PNI)** |
 |   6   | E02D27.2     | type-name                   | 0-1     | String      |         |
 |   7   | E02D27.3     | value                       | 1       | String      |         |
-| **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added v1.0.1*                 |
+| ~~**8**~~ | ~~**E03D22**~~ | ~~**name**~~ | ~~**1**~~ | ~~**string**~~ | ~~*Added v1.0.1*~~             |
+|  |  | vcard:fn | 1 |  |  |
+|  |  | vcard:n | 1 |  |  |
+|  |  | vcard:nickname | 0-1 |  |  |
+|  |  | vcard:photo | 0-1 |  |  |
+|  |  | vcard:bday | 0-1 |  |  |
+|  |  | vcard:anniversary | 0-1 |  |  |
+|  |  | vcard:gender | 0-1 |  |  |
+|  |  | vcard:lang | 0-1 |  |  |
 |   9   | E03D02       | contact-ref                 | 0-n     | string      |         |
-|  10   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added v1.0.1*                                                                                |
+| ~~10~~ | ~~E03D23~~ | ~~language~~        | ~~0-1~~ | ~~Code~~ | ~~ISO three-letter code~~<br/>~~*Added v1.0.1*~~ |
 |  11   | E03C03       | associated-location         | 0-n     |             |         |
 |  12   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
 |  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
@@ -358,9 +366,13 @@ E09 CONTACT
 |   5   | E09D11       | institution-ref            | 0-1     | string      | Mandatory unless E09D03 or E09D10 present<br/>*Added v1.0.1*                                                             |
 |       | <strike>E09D04</strike> | <strike>address-line</strike> | <strike>0-n</strike> | <strike>string</strike> |                                                                     *Removed v1.0.1* |
 |       | <strike>E09C05</strike> | <strike>communication-detail</strike> | <strike>0-n</strike> |         |                                                                     *Removed v1.0.1* |
-| **6** | **E09D08**   | **communication-type**      | **1**   | **Code**    | **[CMT](LCF-CodeLists.md#CMT)** |
-| **7** | **E09D09**   | **locator**                 | **1-n** | **string**  | *Repeatable v1.0.1*                                                                                |
-|       | <strike>E09D06</strike> | <strike>language</strike> | <strike>0-1</strike> | <strike>Code</strike> | <strike>ISO three-letter code</strike><br/>                           *Removed v1.0.1* |
+| ~~**6**~~ | ~~**E09D08**~~   | ~~**communication-type**~~      | ~~**1**~~   | ~~**Code**~~    | ~~**[CMT](LCF-CodeLists.md#CMT)**~~ |
+| ~~**7**~~ | ~~**E09D09**~~   | ~~**locator**~~                 | ~~**1-n**~~ | ~~**string**~~  | ~~*Repeatable v1.0.1*~~                                                                                |
+| |  | vcard:adr | 0-n |  | Should contain only one type of vcard:adr, vcard:tel, vcard:email, vcard:impp |
+| |  | vcard:tel | 0-n |  | Should contain only one type of vcard:adr, vcard:tel, vcard:email, vcard:impp |
+| |  | vcard:email | 0-n |  | Should contain only one type of vcard:adr, vcard:tel, vcard:email, vcard:impp |
+| |  | vcard:impp | 0-n |  | Should contain only one type of vcard:adr, vcard:tel, vcard:email, vcard:impp |
+|       | <strike>E09D06</strike> | <strike>language</strike> | <strike>0-1</strike> | <strike>Code</strike> | <strike>ISO three-letter code<br/>                           *Removed v1.0.1*</strike> |
 |   8  | E09C07       | note                         | 0-n     |             |         |
 |   9  | E09D07.1     | note-type                    | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
@@ -435,7 +447,9 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |   4   | E14D02.1     | authority-id-type           | 1       | Code        | [INS](LCF-CodeLists#INS) |
 |   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
 |   6   | E14D02.3     | value                       | 1       | string      |         |
-| **7** | **E14D03**   | **name**                    | 1       | string      |         |
+| ~~**7**~~ | ~~**E14D03**~~   | ~~**name**~~                    | ~~1~~       | ~~string~~      |         |
+|  |  | vcard:title | 1 |  | |
+|  |  | vcard:role | 0-1 |  | |
 |   8   | E14C04       | associated-location         | 0-n     |             |         |
 |   9   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists#LAT) |
 |  10   | E14D04.2     | location-ref                | 1       | string      |         |
