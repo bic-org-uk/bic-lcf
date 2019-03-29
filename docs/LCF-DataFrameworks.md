@@ -391,6 +391,7 @@ An identified event in which one or more items have been loaned to a patron.
 | E05D13.2   | Link                       |           | 1        | String     |                                |
 | E05D08     | Previous loan reference    |           | 0-1      | String     | Used when loan is a renewal                                                                                                        |
 | E05D09     | Renewal loan reference     |           | 0-1R     | String     | Used when loan is superceded by a renewal loan                                                                                                           |
+| E05D13     | Reservation reference      |           | 0-1R    | String      | Only included if maintaining records of reservations that have ended with the item being loaned to the patron.<br/>*Added in v1.1.0* |
 | E05D10     | Recall notice date-time    | CJ        | 0-nR     | DateTime   | The date on which a recall notice for the item on loan was issued.                                                                                       |
 | E05D11     | Charge reference           |           | 0-nR     | String     |                                |
 | *E05C12*   | *Loan note*                |           | 0-n      |            | A note attached to the LMS record for this loan.                                                                                                          |

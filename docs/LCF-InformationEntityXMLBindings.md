@@ -261,12 +261,13 @@ E05 LOAN
 |  11   | E05D13.2     | link                        | 1       | String       |         |
 |  12   | E05D08       | previous-loan-ref           | 0-1     | string       |         |
 |  13   | E05D09       | renewal-loan-ref            | 0-1R    | string       |         |
-|  14   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
-|  15   | E05D11       | charge-ref                  | 0-nR    | string       |         |
-|  16   | E05C12       | note                        | 0-n     |              |         |
-|  17   | E05D12.1     | note-type                   | 0-1     | Code         | [NOT](LCF-CodeLists.md#NOT)     |
-|  18   | E05D12.2     | date-time                   | 0-1     | dateTime     |         |
-|  19   | E05D12.3     | note-text                   | 1       | string       |         |
+|  14   | E05D13       | reservation-ref             | 0-1R    | string       | *Added v1.1.0* |
+|  15   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
+|  16   | E05D11       | charge-ref                  | 0-nR    | string       |         |
+|  17   | E05C12       | note                        | 0-n     |              |         |
+|  18   | E05D12.1     | note-type                   | 0-1     | Code         | [NOT](LCF-CodeLists.md#NOT)     |
+|  19   | E05D12.2     | date-time                   | 0-1     | dateTime     |         |
+|  20   | E05D12.3     | note-text                   | 1       | string       |         |
 
 E06 RESERVATION
 ---------------
