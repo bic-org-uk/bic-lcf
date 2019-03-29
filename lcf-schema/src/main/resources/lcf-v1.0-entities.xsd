@@ -333,6 +333,8 @@
             <xs:element ref="audience" minOccurs="0"/>
             <xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="message-text" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
