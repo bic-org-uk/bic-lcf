@@ -364,6 +364,7 @@
             <xs:element ref="card-status-info" minOccurs="0"/>
             <xs:element ref="patron-category" minOccurs="0"/>
             <xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="authorisation-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="patron-expiration-date" minOccurs="0"/>
             <xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
