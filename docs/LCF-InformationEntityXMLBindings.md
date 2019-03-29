@@ -261,7 +261,7 @@ E05 LOAN
 |  11   | E05D13.2     | link                        | 1       | String       |         |
 |  12   | E05D08       | previous-loan-ref           | 0-1     | string       |         |
 |  13   | E05D09       | renewal-loan-ref            | 0-1R    | string       |         |
-|  14   | E05D13       | reservation-ref             | 0-1R    | string       | *Added v1.1.0* |
+|  14   | E05D14       | reservation-ref             | 0-1R    | string       | *Added v1.1.0* |
 |  15   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
 |  16   | E05D11       | charge-ref                  | 0-nR    | string       |         |
 |  17   | E05C12       | note                        | 0-n     |              |         |
