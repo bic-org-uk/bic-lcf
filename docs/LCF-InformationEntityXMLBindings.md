@@ -132,7 +132,7 @@ E02 ITEM
 |  15    | E02C09       | loan-restriction            | 0-n     |             |         |
 |  16    | E02D09.1     | restriction-type            | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
 |  17    | E02D09.2     | value                       | 1       | string      |         |
-|  18    | E02D09.3     | note                        | 0-1     | string      |         |
+|  18    | E02D09.3     | restriction-note            | 0-1     | string      | *Name changed v1.1.0*        |
 |  19    | E02C10       | loan-fee                    | 0-n     |             |         |
 |  20    | E02D10.1     | fee-type                    | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
 |  21    | E02D10.2     | amount                      | 1       | decimal     |         |

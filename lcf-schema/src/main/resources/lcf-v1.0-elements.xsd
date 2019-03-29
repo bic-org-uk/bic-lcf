@@ -237,7 +237,7 @@
             <xs:sequence>
                 <xs:element ref="restriction-type"/>
                 <xs:element ref="value"/>
-                <xs:element ref="note" minOccurs="0"/>
+                <xs:element ref="restriction-note" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -325,6 +325,7 @@
     <xs:element name="reservation-ref" type="lcfEntityReference"/>
     <xs:element name="reservation-status" type="reservationStatus"/>
     <xs:element name="reservation-type" type="reservationType"/>
+    <xs:element name="restriction-note" type="nonEmptyString"/>
     <xs:element name="restriction-type" type="loanRestrictionType"/>
     <xs:element name="scheme-code" type="nonEmptyString"/>
     <xs:element name="scheme-name" type="nonEmptyString"/>
