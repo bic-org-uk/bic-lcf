@@ -523,8 +523,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |---------------------------------- |----------------------------
   PNT01       |00             |No details – i.e. status only      |
   PNT02       |01             |All details                        |
-  PNT03       |02             |All personal, no account details   |See [E03 Patron](LCF-DataFrameworks.md#-e03-patron)
-  PNT04       |03             |All account, no personal details   |See [E03 Patron](LCF-DataFrameworks.md#-e03-patron)
+  PNT03       |02             |All personal, no account details   |See [E03 Patron](LCF-DataFrameworks.md#e03)
+  PNT04       |03             |All account, no personal details   |See [E03 Patron](LCF-DataFrameworks.md#e03)
   PNT05       |10             |Items on loan                      |
   PNT06       |11             |Reserved items                     |
   PNT07       |12             |Overdue items                      |
