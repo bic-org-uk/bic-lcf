@@ -598,9 +598,9 @@ NOTE – The selection criterion identifier may be the same as the name. In any 
 ### <a name="e13"></a> E13 AUTHORISATION *(added in v1.0.1)*
 [Back to entity list](#entities)
 
-#### Description
+#### Description *(clarified in v1.1.0)*
 
-A patron authorisation code.
+A patron authorisation code: either a standard code from LCF code list [AUT](LCF-CodeLists.md#AUT) (E13D02) or a library-assigned heading or name (E13D03).
 
 #### Properties
 
