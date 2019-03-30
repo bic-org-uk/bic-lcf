@@ -390,7 +390,7 @@ E11 TITLE CLASSIFICATION TERM
 | **4** | **E11D03**   | **class-scheme-ref**        | **1**   | **string**  |         |
 |   5   | E11D04       | heading                     | 0-1     | string      |         |
 |   6   | E11C05       | note                        | 0-n     | string      |         |
-|   7   | E11D05.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists#NOT)     |
+|   7   | E11D05.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |   8   | E11D05.2     | date-time                   | 0-1     | dateTime    |         |
 |   9   | E11D05.3     | note-text                   | 1       | string      |         |
 
@@ -402,11 +402,11 @@ E12 SELECTION CRITERION *(DEPRECATED in v1.0.1)*
 | **1** |              | **property<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E12D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 | <span id="h.gjdgxs" class="anchor"></span>**3** | **E12D02**   | **name**  | **1**   | **string**  |         |
-|   4   | E12D03       | entity-type                 | 0-n     | Code        | [ENT](LCF-CodeLists#ENT)     |
+|   4   | E12D03       | entity-type                 | 0-n     | Code        | [ENT](LCF-CodeLists.md#ENT)     |
 |   5   | E12D04       | description                 | 0-1     | string      |         |
 |   6   | E12D05       | value-scheme-ref            | 0-1     | string      |         |
 |   7   | E12C06       | note                        | 0-n     | string      |         |
-|   8   | E12D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists#NOT)     |
+|   8   | E12D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |   9   | E12D06.2     | date-time                   | 0-1     | dateTime    |         |
 |  10   | E12D06.3     | note-text                   | 1       | string      |         |
 
@@ -417,10 +417,10 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **authorisation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |       |             | **Top-level&nbsp;element**<br/>                                |
 |   2   | E13D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
-|   3   | E13D02       | authorisation-type          | 0-1     | Code        | [AUT](LCF-CodeLists#AUT) |
+|   3   | E13D02       | authorisation-type          | 0-1     | Code        | [AUT](LCF-CodeLists.md#AUT) |
 |   3   | E13D03       | heading                     | 0-1     | string      |         |
 |   4   | E13C04       | note                        | 0-n     | string      |         |
-|   5   | E13D04.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists#NOT) |
+|   5   | E13D04.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |   6   | E13D04.2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E13D04.3     | note-text                   | 1       | string      |         |
 
@@ -432,22 +432,22 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 | **1** |              | **authority<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                     |       |             | **Top-level&nbsp;element**<br/>                                |
 |   2   | E14D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 |   3   | E14C02       | additional-authority-id     | 0-n     |             |         |
-|   4   | E14D02.1     | authority-id-type           | 1       | Code        | [INS](LCF-CodeLists#INS) |
+|   4   | E14D02.1     | authority-id-type           | 1       | Code        | [INS](LCF-CodeLists.md#INS) |
 |   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
 |   6   | E14D02.3     | value                       | 1       | string      |         |
 | **7** | **E14D03**   | **name**                    | 1       | string      |         |
 |   8   | E14C04       | associated-location         | 0-n     |             |         |
-|   9   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists#LAT) |
+|   9   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT) |
 |  10   | E14D04.2     | location-ref                | 1       | string      |         |
 |  11   | E14C05       | associated-contact          | 0-n     |             |         |
-|  12   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists#CAT) |
+|  12   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists.md#CAT) |
 |  13   | E14D05.2     | contact-name                | 1       | string      |         |
 |  14   | E14D05.3     | contact-ref                 | 1       | string      |         |
 |  15   | E14C06       | associated-authority        | 0-n     |             |         |
-|  16   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists#AAT) |
+|  16   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists.md#AAT) |
 |  17   | E14D06.2     | authority-ref               | 1       | string      |         |
 |  20   | E14C07       | note                        | 0-n     |             |         |
-|  21   | E14D07.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists#NOT) |
+|  21   | E14D07.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |  22   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
 |  23   | E14D07.3     | note-text                   | 1       | string      |         |
 
@@ -459,21 +459,21 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 | **1** |              | **message-alert<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                     |       |             | **Top-level&nbsp;element**<br/>                                |
 |   2   | E15D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 |   3   | E15D02       | authority-ref               | 0-1     | String      |         |
-| **4** | **E15D03**   | **message-type**            | **1**   | **Code**    | **[MAT](LCF-CodeLists#MAT)** |
-|   5   | E15D04       | priority                    | 0-1     | Code        | [MAP](LCF-CodeLists#MAP) |
-|   6   | E15D05       | display-type                | 0-1     | Code        | [MGT](LCF-CodeLists#MGT) |
-|   7   | E15D06       | display-constraint          | 0-1     | Code        | [MAC](LCF-CodeLists#MAC) |
+| **4** | **E15D03**   | **message-type**            | **1**   | **Code**    | **[MAT](LCF-CodeLists.md#MAT)** |
+|   5   | E15D04       | priority                    | 0-1     | Code        | [MAP](LCF-CodeLists.md#MAP) |
+|   6   | E15D05       | display-type                | 0-1     | Code        | [MGT](LCF-CodeLists.md#MGT) |
+|   7   | E15D06       | display-constraint          | 0-1     | Code        | [MAC](LCF-CodeLists.md#MAC) |
 |   8   | E15D07       | start-date                  | 0-1     | DateTime    |         |
 |   9   | E15D08       | end-date                    | 0-1     | DateTime    |         |
-|  10   | E15D09       | audience                    | 0-1     | Code        | [MAU](LCF-CodeLists#MAU) |
+|  10   | E15D09       | audience                    | 0-1     | Code        | [MAU](LCF-CodeLists.md#MAU) |
 |  11   | E15D10       | patron-category             | 0-n     | String      |         |
 |  12   | E15D11       | patron-ref                  | 0-n     | String      |         |
 |  13   | E15D14       | loan-ref                    | 0-n     | String      | *Added in v1.1.0* |
 |  14   | E15D15       | reservation-ref             | 0-n     | String      | *Added in v1.1.0* |
-|  15   | **E15D12.1** | message-format              | **1**   | Code        | **[TFT](LCF-CodeLists#TFT)** |
+|  15   | **E15D12.1** | message-format              | **1**   | Code        | **[TFT](LCF-CodeLists.md#TFT)** |
 |  16   | **E15D12.2** | text                        | **1**   | String      |         |
 |  17   | E15C13       | note                        | 0-n     |             |         |
-|  18   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists#NOT) |
+|  18   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |  19   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
 |  20   | E15D13.3     | note-text                   | 1       | string      |         |
 
@@ -484,11 +484,11 @@ EXCEPTION CONDITIONS
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **lcf-exception<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 | **2** | **R00C05**   | **exception-condition**     | **1-n** |             |         |
-| **3** | **R00D05.1** | **condition-type**          | **1**   | **Code**    | **[EXC](LCF-CodeLists#EXC)** |
-|   4   | R00D05.2     | reason-denied               | 0-1     | Code        | [RDN](LCF-CodeLists#RDN)     |
+| **3** | **R00D05.1** | **condition-type**          | **1**   | **Code**    | **[EXC](LCF-CodeLists.md#EXC)** |
+|   4   | R00D05.2     | reason-denied               | 0-1     | Code        | [RDN](LCF-CodeLists.md#RDN)     |
 |   5   | R00D05.3     | element-id                  | 0-1     | string      |         |
 |   6   | R00C06       | message                     | 0-n     |             |         |
-|   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists#MGT)     |
+|   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists.md#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
 
 ___
