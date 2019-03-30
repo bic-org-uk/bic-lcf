@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.2 Information Entities XML bindings
+title: LCF v1.1.0 Information Entities XML bindings
 menu: Information Entities XML bindings
 weight: 3
 ---
@@ -12,9 +12,9 @@ weight: 3
 
 ## Information Entities XML bindings
 
-### Version 1.0.2
+### Version 1.1.0
 
-### DRAFT, 12 July 2018
+### DRAFT, 30 March 2019
 
 ---
 
@@ -132,7 +132,7 @@ E02 ITEM
 |  15    | E02C09       | loan-restriction            | 0-n     |             |         |
 |  16    | E02D09.1     | restriction-type            | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
 |  17    | E02D09.2     | value                       | 1       | string      |         |
-|  18    | E02D09.3     | restriction-note            | 0-1     | string      | *Name changed v1.1.0*        |
+|  18    | E02D09.3     | restriction-note            | 0-1     | string      | *Name changed in v1.1.0*        |
 |  19    | E02C10       | loan-fee                    | 0-n     |             |         |
 |  20    | E02D10.1     | fee-type                    | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
 |  21    | E02D10.2     | amount                      | 1       | decimal     |         |
@@ -141,7 +141,7 @@ E02 ITEM
 |  24    | E02D12       | reservation-ref             | 0-nR    | string      |         |
 |  25    | E02D13       | patrons-in-hold-queue       | 0-1R    | int         |         |
 |  26    | E02D14       | on-loan-ref                 | 0-1R    | string      |         |
-|  27    | E02D15       | condition-code              | 0-n     | Code        | LMS-proprietary<br/>*Cardinality corrected v1.0.2*                                                                         |
+|  27    | E02D15       | condition-code              | 0-n     | Code        | LMS-proprietary<br/>*Cardinality corrected in v1.1.0*                                                                         |
 |  28    | E02D16       | condition-description       | 0-1     | string      |         |
 |  29    | E02C17       | note                        | 0-n     |             |         |
 |  30    | E02D17.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
@@ -165,27 +165,27 @@ E03 PATRON
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **patron<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E03D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
-|   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added v1.0.1*                 |
-|   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added v1.0.1*                 |
+|   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added in v1.0.1*                 |
+|   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added in v1.0.1*                 |
 |   5   | E03D27.1     | patron-id-type              | 1       | Code        | **[PNI](LCF-CodeLists.md#PNI)** |
 |   6   | E02D27.2     | type-name                   | 0-1     | String      |         |
 |   7   | E02D27.3     | value                       | 1       | String      |         |
-| **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added v1.0.1*                 |
+| **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
 |   9   | E03D02       | contact-ref                 | 0-n     | string      |         |
-|  10   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added v1.0.1*                                                                                |
+|  10   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added in v1.0.1*                                                                                |
 |  11   | E03C03       | associated-location         | 0-n     |             |         |
 |  12   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
 |  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
-|  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added v1.0.1, ID corrected in v1.0.2*                 |
+|  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0*                 |
 |  15   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
-|  16   | E03C24       | card-status-info            | 0-nR    |             | *Added v1.0.1*                 |
+|  16   | E03C24       | card-status-info            | 0-nR    |             | *Added in v1.0.1*                 |
 |  17   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
 |  18   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
-|  19   | E03D28       | patron-category             | 0-1     | string      | *Added v1.0.1*                 |
-|  20   | E03D29       | patron-tag                  | 0-n     | string      | *Added v1.0.1*                 |
-|  21   | E03D32       | authorisation-ref           | 0-n     | string      | *Added v1.0.1*                 |
-|  22   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added v1.0.1*                 |
-|  23   | E03C33       | associated-patron-group     | 0-n     |             | *Added v1.0.1*                 |
+|  19   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
+|  20   | E03D29       | patron-tag                  | 0-n     | string      | *Added in v1.0.1*                 |
+|  21   | E03D32       | authorisation-ref           | 0-n     | string      | *Added in v1.0.1*                 |
+|  22   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added in v1.0.1*                 |
+|  23   | E03C33       | associated-patron-group     | 0-n     |             | *Added in v1.0.1*                 |
 |  24   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |
 |  25   | E03D33.5     | group-type                  | 0-1     | String      |         |
 |  26   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
@@ -208,7 +208,7 @@ E03 PATRON
 |  43   | E03D20.1     | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)   |
 |  44   | E03D20.2     | amount                      | 1       | decimal     |         |
 |  45   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
-|  46   | E03C31       | deposit-balance             | 0-1     |             | *Added v1.0.1*                |
+|  46   | E03C31       | deposit-balance             | 0-1     |             | *Added in v1.0.1*                |
 |  47   | E03D31.1     | amount                      | 1       | decimal     |         |
 |  48   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
 |  49   | E03C34       | associated-message          | 0-n     |             |         |
@@ -218,7 +218,7 @@ E03 PATRON
 |  53   | E03D21.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)   |
 |  54   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
 |  55   | E03D21.3     | note-text                   | 1       | string      |         |
-|  56   | E03D25       | date-of-birth               | 0-1     | date        | *Added v1.0.1*                |
+|  56   | E03D25       | date-of-birth               | 0-1     | date        | *Added in v1.0.1*                |
 
 E04 LOCATION
 ------------
@@ -234,7 +234,7 @@ E04 LOCATION
 |   7   | E04D03       | name                        | 0-1     | string      |         |
 |   8   | E04D04       | location-type               | 0-1     | Code        | [LOT](LCF-CodeLists.md#LOT)     |
 |   9   | E04D05       | description                 | 0-1     | string      |         |
-|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added v1.0.1*                  |
+|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
 |  11   | E04C08       | associated-location         | 0-n     |             |         |
 |  12   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
 |  13   | E04D08.2     | location-ref                | 1       | string      |         |
@@ -256,12 +256,12 @@ E05 LOAN
 |   6   | E05D05       | end-due-date                | 0-1     | dateTime     |         |
 |   7   | E05D06       | end-date                    | 0-1     | dateTime     |         |
 | **8** | **E05D07**   | **loan-status**             | **1-n** | **Code**     | **[LOS](LCF-CodeLists.md#LOS)** |
-|   9   | *E05C13*     | access-link                 | 0-n     |              | *Added v1.0.1*                  |
+|   9   | *E05C13*     | access-link                 | 0-n     |              | *Added in v1.0.1*                  |
 |  10   | E05D13.1     | link-type                   | 1       | Code         | [LKT](LCF-CodeLists.md#LKT)    |
 |  11   | E05D13.2     | link                        | 1       | String       |         |
 |  12   | E05D08       | previous-loan-ref           | 0-1     | string       |         |
 |  13   | E05D09       | renewal-loan-ref            | 0-1R    | string       |         |
-|  14   | E05D14       | reservation-ref             | 0-1R    | string       | *Added v1.1.0* |
+|  14   | E05D14       | reservation-ref             | 0-1R    | string       | *Added in v1.1.0* |
 |  15   | E05D10       | recall-notice-date          | 0-1R    | dateTime     |         |
 |  16   | E05D11       | charge-ref                  | 0-nR    | string       |         |
 |  17   | E05C12       | note                        | 0-n     |              |         |
@@ -353,15 +353,15 @@ E09 CONTACT
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **contact<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E09D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS<br/>*Cardinality corrected in v1.0.1* |
-|       | **<strike>E09D02</strike>** | **<strike>name</strike>** | **<strike>1</strike>** | **<strike>String</strike>** |                                         *Removed v1.0.1* |
-|   3   | E09D03       | patron-ref                 | 0-1     | string      | Mandatory unless E09D10 or E09D11 present<br/>*Cardinality changed v1.0.1*                                               |
-|   4   | E09D10       | location-ref               | 0-1     | string      | Mandatory unless E09D03 or E09D11 present<br/>*Added v1.0.1*                                                             |
-|   5   | E09D11       | institution-ref            | 0-1     | string      | Mandatory unless E09D03 or E09D10 present<br/>*Added v1.0.1*                                                             |
-|       | <strike>E09D04</strike> | <strike>address-line</strike> | <strike>0-n</strike> | <strike>string</strike> |                                                                     *Removed v1.0.1* |
-|       | <strike>E09C05</strike> | <strike>communication-detail</strike> | <strike>0-n</strike> |         |                                                                     *Removed v1.0.1* |
+|       | **<strike>E09D02</strike>** | **<strike>name</strike>** | **<strike>1</strike>** | **<strike>String</strike>** |                                         *Removed in v1.0.1* |
+|   3   | E09D03       | patron-ref                 | 0-1     | string      | Mandatory unless E09D10 or E09D11 present<br/>*Cardinality changed in v1.0.1*                                               |
+|   4   | E09D10       | location-ref               | 0-1     | string      | Mandatory unless E09D03 or E09D11 present<br/>*Added in v1.0.1*                                                             |
+|   5   | E09D11       | institution-ref            | 0-1     | string      | Mandatory unless E09D03 or E09D10 present<br/>*Added in v1.0.1*                                                             |
+|       | <strike>E09D04</strike> | <strike>address-line</strike> | <strike>0-n</strike> | <strike>string</strike> |                                                                     *Removed in v1.0.1* |
+|       | <strike>E09C05</strike> | <strike>communication-detail</strike> | <strike>0-n</strike> |         |                                                                     *Removed in v1.0.1* |
 | **6** | **E09D08**   | **communication-type**      | **1**   | **Code**    | **[CMT](LCF-CodeLists.md#CMT)** |
 | **7** | **E09D09**   | **locator**                 | **1-n** | **string**  | *Repeatable v1.0.1*                                                                                |
-|       | <strike>E09D06</strike> | <strike>language</strike> | <strike>0-1</strike> | <strike>Code</strike> | <strike>ISO three-letter code</strike><br/>                           *Removed v1.0.1* |
+|       | <strike>E09D06</strike> | <strike>language</strike> | <strike>0-1</strike> | <strike>Code</strike> | <strike>ISO three-letter code</strike><br/>                           *Removed in v1.0.1* |
 |   8  | E09C07       | note                         | 0-n     |             |         |
 |   9  | E09D07.1     | note-type                    | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
