@@ -183,7 +183,7 @@ E03 PATRON
 |  18   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
 |  19   | E03D28       | patron-category             | 0-1     | string      | *Added v1.0.1*                 |
 |  20   | E03D29       | patron-tag                  | 0-n     | string      | *Added v1.0.1*                 |
-|  21   | E03D32       | authorisation-code          | 0-n     | string      | *Added v1.0.1*                 |
+|  21   | E03D32       | authorisation-ref           | 0-n     | string      | *Added v1.0.1*                 |
 |  22   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added v1.0.1*                 |
 |  23   | E03C33       | associated-patron-group     | 0-n     |             | *Added v1.0.1*                 |
 |  24   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |

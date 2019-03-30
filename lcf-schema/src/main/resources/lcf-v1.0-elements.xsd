@@ -117,6 +117,7 @@
     </xs:element>
     <xs:element name="association-type" type="locationAssociationType"/>
     <xs:element name="audience" type="messageAlertAudience"/>
+    <xs:element name="authorisation-ref" type="lcfEntityReference"/>
     <xs:element name="authorisation-type" type="authorisationCode"/>
     <xs:element name="authority-id-type" type="institutionIDType"/>
     <xs:element name="authority-ref" type="lcfEntityReference"/>
