@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.2 REST Web Services Implementation
+title: LCF v1.1.0 REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
@@ -12,9 +12,9 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version 1.0.2
+### Version 1.1.0
 
-### DRAFT, 12 July 2018
+### DRAFT, 30 March 2019
 
 ---
 
@@ -161,7 +161,7 @@ The request is formulated using the HTTP GET method.
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)         |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                             |
-| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the LCF v1.0.1 specification. |
+| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02). |
 | 7     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
 | 8     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
 
@@ -329,7 +329,7 @@ The response to a check-out or renewal may be the same response as for creating 
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW) – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [SCD](LCF-CodeLists.md#SCD) – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
-| 7     | R11D06       | access-link                              | 0-1     | anyURI      | *Added v1.0.1*    |
+| 7     | R11D06       | access-link                              | 0-1     | anyURI      | *Added in v1.0.1*    |
 
 *Example of a Response XML payload:*
 
@@ -409,7 +409,7 @@ Making a patron payment involves creating a payment record, assuming that all co
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
-#### Response *(Revised v1.0.1)*
+#### Response *(Revised in v1.0.1)*
 
 The response depends upon whether there is a need for a two-phase transaction process or not. If the LMS has to authorise payment before the transaction can proceed, a HTTP response 202 will be sent in response to the initial POST, which must be repeated with authorisation reference and transaction reference included in the Payment record.
 
@@ -482,11 +482,11 @@ An XML document that conforms to the XML schema for a reservation entity (E06) m
 
 #### Response
 
-The response is the same as for creating any entity – see function 03 above. *[Changed in LCF&nbsp;v1.0.1.]*
+The response is the same as for creating any entity – see function 03 above. *[Changed in v1.0.1.]*
 
 17 Set/reset patron password
 ----------------------------
-*[Added in LCF v1.0.1]*
+*[Added in v1.0.1]*
 
 #### Request
 
@@ -509,7 +509,7 @@ If the request is successful, the HTTP response should include status code 200 (
 
 18 Set/reset patron PIN
 ----------------------------
-*[Added in LCF v1.0.1]*
+*[Added in v1.0.1]*
 
 #### Request
 
