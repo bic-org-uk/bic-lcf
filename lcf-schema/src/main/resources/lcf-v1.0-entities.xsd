@@ -161,7 +161,7 @@
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E09</xs:appinfo>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Name">CONTACT</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Description">Contact details for the primary contact person or organization for a patron, location or authority/institution.</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Description changed in LCF v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Description changed in v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
