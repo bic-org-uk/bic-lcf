@@ -81,7 +81,7 @@
             <xs:sequence>
                 <xs:element ref="condition-type"/>
                 <xs:element ref="reason-denied" minOccurs="0"/>
-                <xs:element ref="element-ref" minOccurs="0"/>
+                <xs:element ref="element-id" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
