@@ -1,5 +1,5 @@
 ---
-title: LCF v1.1.0 REST Web Services Implementation
+title: LCF v1.2.0 REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
@@ -12,9 +12,9 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version 1.1.0
+### Version 1.2.0
 
-### 31 March 2019
+### DRAFT
 
 ---
 
