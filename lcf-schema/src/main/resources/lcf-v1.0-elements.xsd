@@ -71,7 +71,6 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="address-line" type="nonEmptyString"/>
-    <xs:element name="amount" type="xs:decimal"/>
     <xs:element name="associated-authority">
         <xs:complexType>
             <xs:sequence>
@@ -84,6 +83,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="association-type" type="contactAssociationType"/>
+                <xs:element ref="contact-name"/>
                 <xs:element ref="contact-ref"/>
             </xs:sequence>
         </xs:complexType>
@@ -117,6 +117,7 @@
     </xs:element>
     <xs:element name="association-type" type="locationAssociationType"/>
     <xs:element name="audience" type="messageAlertAudience"/>
+    <xs:element name="authorisation-ref" type="lcfEntityReference"/>
     <xs:element name="authorisation-type" type="authorisationCode"/>
     <xs:element name="authority-id-type" type="institutionIDType"/>
     <xs:element name="authority-ref" type="lcfEntityReference"/>
@@ -137,8 +138,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
+                <xs:group ref="pecuniaryGroup"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -164,6 +164,7 @@
     </xs:element>
     <xs:element name="condition-code" type="proprietaryCodeList"/>
     <xs:element name="condition-description" type="nonEmptyString"/>
+    <xs:element name="contact-name" type="nonEmptyString"/>
     <xs:element name="contact-ref" type="lcfEntityReference">
         <xs:annotation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Link to the methods of communication for the 'patron'. There ought to be at least one method of communication, but this has been reduced to a zero limit due to test data observed in customer deployments. </xs:documentation>
@@ -184,9 +185,12 @@
     <xs:element name="contributor-role" type="contributorRole"/>
     <xs:element name="cover-art" type="xs:anyURI"/>
     <xs:element name="creation-date" type="xs:dateTime"/>
-    <xs:element name="currency" type="iso4217CurrencyCode"/>
     <xs:element name="date-of-birth" type="xs:date"/>
-    <xs:element name="deposit-balance" type="xs:decimal"/>
+    <xs:element name="deposit-balance">
+        <xs:complexType>
+            <xs:group ref="pecuniaryGroup"/>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
     <xs:element name="description" type="nonEmptyString"/>
     <xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
@@ -198,15 +202,7 @@
     <xs:element name="end-due-date" type="xs:dateTime"/>
     <xs:element name="fee-description" type="nonEmptyString"/>
     <xs:element name="fee-due-date-time" type="xs:dateTime"/>
-    <xs:element name="fee-limit">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:element name="fee-type" type="chargeType"/>
     <xs:element name="fees-due-items" type="xs:int"/>
     <xs:element name="fines-due-items" type="xs:int"/>
     <xs:element name="group-type" type="nonEmptyString"/>
@@ -230,9 +226,8 @@
     <xs:element name="loan-fee">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="charge-type"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
+                <xs:element ref="fee-type"/>
+                <xs:group ref="pecuniaryGroup"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -243,7 +238,7 @@
             <xs:sequence>
                 <xs:element ref="restriction-type"/>
                 <xs:element ref="value"/>
-                <xs:element ref="note" minOccurs="0"/>
+                <xs:element ref="restriction-note" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -322,13 +317,16 @@
     <xs:element name="pickup-date" type="xs:dateTime"/>
     <xs:element name="pickup-institution-ref" type="lcfEntityReference"/>
     <xs:element name="pickup-location-ref" type="lcfEntityReference"/>
+    <xs:element name="previous-loan-ref" type="lcfEntityReference"/>
     <xs:element name="priority" type="messageAlertPriority"/>
     <xs:element name="publisher-name" type="nonEmptyString"/>
     <xs:element name="recall-notice-date" type="xs:dateTime"/>
     <xs:element name="recalled-items" type="xs:int"/>
+    <xs:element name="renewal-loan-ref" type="lcfEntityReference"/>
     <xs:element name="reservation-ref" type="lcfEntityReference"/>
     <xs:element name="reservation-status" type="reservationStatus"/>
     <xs:element name="reservation-type" type="reservationType"/>
+    <xs:element name="restriction-note" type="nonEmptyString"/>
     <xs:element name="restriction-type" type="loanRestrictionType"/>
     <xs:element name="scheme-code" type="nonEmptyString"/>
     <xs:element name="scheme-name" type="nonEmptyString"/>
@@ -344,6 +342,14 @@
     </xs:element>
     <xs:element name="start-date" type="xs:dateTime"/>
     <xs:element name="subtitle" type="nonEmptyString"/>
+    <xs:element name="suspension-period">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="start-date" minOccurs="0"/>
+                <xs:element ref="end-date" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="terminal-location" type="nonEmptyString"/>
     <xs:element name="text" type="nonEmptyString"/>
     <xs:element name="title">
@@ -357,24 +363,6 @@
     </xs:element>
     <xs:element name="title-text" type="nonEmptyString"/>
     <xs:element name="title-type" type="titleType"/>
-    <xs:element name="total-anticipated-fines">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="total-fees-owed">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="charge-type" minOccurs="0"/>
-                <xs:element ref="amount"/>
-                <xs:element ref="currency" minOccurs="0"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
     <xs:element name="transaction-reference" type="nonEmptyString"/>
     <xs:element name="type-name" type="nonEmptyString"/>
     <xs:element name="unavailable-hold-items" type="xs:int"/>
@@ -385,3 +373,4 @@
     <xs:element name="year-of-publication" type="xs:gYear"/>
 
 </xs:schema>
+

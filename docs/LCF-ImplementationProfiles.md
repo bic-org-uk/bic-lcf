@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.1 Implementation Profiles
+title: LCF v1.1.0 Implementation Profiles
 menu: Implementation Profiles
 weight: 6
 ---

@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.1 Code Lists
+title: LCF v1.1.0 Code Lists
 menu: Code Lists
 weight: 2
 ---
@@ -12,13 +12,13 @@ weight: 2
 
 ## Code Lists
 
-### Issue 2
+### Issue 3
 
-### 12 July 2018
+### 31 March 2019
 
 ---
 
-This document defines code lists for use with LCF version 1.0.1.
+This document defines code lists for use with LCF version 1.1.0.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
@@ -39,9 +39,9 @@ The use of this document is subject to license terms and conditions that can be 
 
 The code lists defined are:
 
--   [AAT Library authority/institution association type](#AAT) *(added in LCF v1.0.1)*
--   [AUT Authorisation code](#AUT) *(added in LCF v1.0.1)*
--   [CAT Contact association type](#CAT) *(added in LCF v1.0.1)*
+-   [AAT Library authority/institution association type](#AAT) *(added in v1.0.1)*
+-   [AUT Authorisation code](#AUT) *(added in v1.0.1)*
+-   [CAT Contact association type](#CAT) *(added in v1.0.1)*
 -   [CHS Charge status](#CHS)
 -   [CHT Charge type](#CHT)
 -   [CIS Circulation status](#CIS)
@@ -57,15 +57,15 @@ The code lists defined are:
 -   [INS Institution identification scheme](#INS)
 -   [LAT Location association type](#LAT)
 -   [LCS Library classification scheme](#LCS)
--   [LKT Resource access link type](#LKT) *(added in LCF v1.0.1)*
+-   [LKT Resource access link type](#LKT) *(added in v1.0.1)*
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
--   [MAC Message/alert display/delivery constraints](#MAC) *(added in LCF v1.0.1)*
--   [MAD Message/alert delivery status](#MAD) *(added in LCF v1.0.1)*
--   [MAP Message/alert priority](#MAP) *(added in LCF v1.0.1)*
--   [MAT Message/alert type](#MAT) *(added in LCF v1.0.1)*
--   [MAU Message/alert audience](#MAU) *(added in LCF v1.0.1)*
+-   [MAC Message/alert display/delivery constraints](#MAC) *(added in v1.0.1)*
+-   [MAD Message/alert delivery status](#MAD) *(added in v1.0.1)*
+-   [MAP Message/alert priority](#MAP) *(added in v1.0.1)*
+-   [MAT Message/alert type](#MAT) *(added in v1.0.1)*
+-   [MAU Message/alert audience](#MAU) *(added in v1.0.1)*
 -   [MES Media type / format scheme](#MES)
 -   [MEW Media warning flag](#MEW)
 -   [MGT Message display type](#MGT)
@@ -75,8 +75,8 @@ The code lists defined are:
 -   [MOT Entity modification type](#MOT)
 -   [NOT Note type](#NOT)
 -   [PCS Patron’s library card status](#PCS)
--   [PGP Patron group association type](#PGP) *(added in LCF v1.0.1)*
--   [PNI Patron identification scheme](#PNI) *(added in LCF v1.0.1)*
+-   [PGP Patron group association type](#PGP) *(added in v1.0.1)*
+-   [PNI Patron identification scheme](#PNI) *(added in v1.0.1)*
 -   [PNS Patron status condition type](#PNS)
 -   [PNT Patron detailed information type](#PNT)
 -   [PYS Payment status](#PYS)
@@ -89,27 +89,28 @@ The code lists defined are:
 -   [RVS Reservation status](#RVS)
 -   [RVT Reservation type](#RVT)
 -   [SCD Security desensitization flag](#SCD)
--   [SEL Selection criterion](#SEL) *(added in LCF v1.0.1)*
+-   [SEL Selection criterion](#SEL) *(added in v1.0.1)*
 -   [SPA Special attention required flag](#SPA)
 -   [TFT Text format](#TFT)
 -   [TTL Title type](#TTL)
 -   [UNC Unnamed contributor type](#UNC)
 
-### <a id="AAT"></a>AAT Library authority/institution association type *(added in LCF v1.0.1)*
+### <a id="AAT"></a>AAT Library authority/institution association type *(added in v1.0.1)*
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   AAT01          | 01               | Is member of consortium                                              |
   AAT02          | 02               | Has consortium member                                                |  
 
-### <a id="AUT"></a>AUT Authorisation code *(added in LCF v1.0.1)*
+### <a id="AUT"></a>AUT Authorisation code *(added in v1.0.1)*
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
   AUT01          | PCI               | Parental consent has been granted for a child patron to access the Internet from library premises                                                                                      |
   AUT02          | PAY               | Consent has been granted for a Patron to proceed to make a payment against their account.                                                                                             | May only be used in LCF function 13 (Patron payment) responses.
+  AUT03          | ACC               | Consent has been granted for the Patron to gain access to the library/site/building during un-staffed opening periods.                                                            | *Added in v1.1.0*
 
-### <a id="CAT"></a>CAT Contact association type *(added in LCF v1.0.1)*
+### <a id="CAT"></a>CAT Contact association type *(added in v1.0.1)*
 
   *Code ID*      |*Code value*       |*Definition*                                                         |*Notes*
   -------------- | ----------------- |-------------------------------------------------------------------  |----------------------------------
@@ -123,6 +124,7 @@ The code lists defined are:
   CHS01          |01                |Not yet paid   |
   CHS02          |02                |Part paid      |
   CHS03          |03                |Fully paid     |Used when recording past charges
+  CHS04          |04                |Not yet payable|*Added in v1.1.0*
 
 ### <a id="CHT"></a>CHT Charge type (based upon SIP 2 fee type code list)
 
@@ -141,7 +143,7 @@ The code lists defined are:
   CHT11       |10             |Membership fee / subscription     |
   CHT12       |11             |Notice fee                        |
   CHT13       |12             |Referral to debt collection fee   |
-  CHT14       |13             |Printing                          |*Added in LCF v1.0.1*
+  CHT14       |13             |Printing                          |*Added in v1.0.1*
 
 ### <a id="CIS"></a>CIS Circulation status (based upon SIP2 circulation status code list)
 
@@ -173,10 +175,10 @@ The code lists defined are:
   CMT03       |03             |Business phone number             |
   CMT04       |04             |Mobile phone number               |
   CMT05       |05             |Email address                     |
-  CMT06       |06             |Postal address                    |*Added for use with LCF&nbsp;v1.0.1*              |
-  CMT07       |11             |Primary phone number              |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
-  CMT08       |15             |Primary email address             |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
-  CMT09       |16             |Primary postal address            |A Patron may only reference one Contact with this communication type<br/>*Added for use with LCF&nbsp;v1.0.1*                                                         |
+  CMT06       |06             |Postal address                    |*Added in v1.0.1*              |
+  CMT07       |11             |Primary phone number              |A Patron may only reference one Contact with this communication type<br/>*Added in v1.0.1*                                                         |
+  CMT08       |15             |Primary email address             |A Patron may only reference one Contact with this communication type<br/>*Added in v1.0.1*                                                         |
+  CMT09       |16             |Primary postal address            |A Patron may only reference one Contact with this communication type<br/>*Added in v1.0.1*                                                         |
 
 ### <a id="CRT"></a>CRT Check-out restriction type
 
@@ -313,7 +315,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LCS01       |01             |Proprietary                          |
   LCS02       |02             |Dewey Decimal Classification (DDC)   |
 
-### <a id="LKT"></a>LKT Resource access link type *(added in LCF v1.0.1)*
+### <a id="LKT"></a>LKT Resource access link type *(added in v1.0.1)*
 
   *Code ID*   |*Code value*   |*Definition*                         |*Notes*
   ----------- |-------------- |------------------------------------ |---------
@@ -327,8 +329,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI01       |01             |Proprietary    
   LOI02       |02             |GLN            
   LOI03       |03             |SAN            
-  LOI04       |04             |URI            |*Added v1.0.1*
-  LOI05       |05             |UPRN           |*Added v1.0.1*
+  LOI04       |04             |URI            |*Added in v1.0.1*
+  LOI05       |05             |UPRN           |*Added in v1.0.1*
 
 ### <a id="LOS"></a>LOS Loan status
 
@@ -353,9 +355,9 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT01        |01             |Library / institution               |
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
-  LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added v1.0.1*
+  LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added in v1.0.1*
   
-### <a id="MAC"></a>MAC Message/alert display/delivery constraints *(added in LCF v1.0.1)*
+### <a id="MAC"></a>MAC Message/alert display/delivery constraints *(added in v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
@@ -363,7 +365,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAC02     |02             |Display/deliver until acknowledged  |
   MAC03     |03             |Not for display/delivery - inactive |
   
-### <a id="MAD"></a>MAD Message/alert delivery status *(added in LCF v1.0.1)*
+### <a id="MAD"></a>MAD Message/alert delivery status *(added in v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
@@ -371,7 +373,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAD02     |02             |Delivered, not acknowledged         |
   MAD03     |03             |Delivered, acknowledged             |
   
-### <a id="MAP"></a>MAP Message/alert priority *(added in LCF v1.0.1)*
+### <a id="MAP"></a>MAP Message/alert priority *(added in v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
@@ -379,7 +381,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAP02     |02             |Medium priority                     |
   MAP03     |03             |Low priority                        |
   
-### <a id="MAT"></a>MAT Message/alert type *(added in LCF v1.0.1)*
+### <a id="MAT"></a>MAT Message/alert type *(added in v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
@@ -388,12 +390,14 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAT03     |03             |Collection information              |e.g. acquisitions, disposals
   MAT04     |04             |Patron account information          |
   
-### <a id="MAU"></a>MAU Message/alert audience *(added in LCF v1.0.1)*
+### <a id="MAU"></a>MAU Message/alert audience *(added in v1.0.1)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
   --------- |-------------- |----------------------------------- |------------------------------
   MAU01     |01             |All patrons                         |
   MAU02     |02             |Specified patrons and categories    |
+  MAU03     |03             |Patrons related to specified loans  | *Added in v1.1.0*
+  MAU04     |04             |Patrons related to specified reservations | *Added in v1.1.0*
 
 ### <a id="MES"></a>MES Media type / format scheme
 
@@ -403,7 +407,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MES02       |02             |SIP2 media type, including LCF extensions |Any code value from code list [IMT](#IMT)
   MES03       |03             |ONIX code list 150   |
   MES04       |04             |ONIX code list 175   |
-  MES05       |05             |MARC 21 media type   |*Added in LCF v1.0.1, 2018-02-01*
+  MES05       |05             |MARC 21 media type   |*Added in v1.0.1*
 
 ### <a id="MEW"></a>MEW Media warning flag
 
@@ -482,7 +486,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PGP01       |01             |Patron member of group           |
   PGP02       |02             |Lead patron of group             |
 
-### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in LCF v1.0.1*
+### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in v1.0.1*
 
   *Code ID*   |*Code value*   |*Definition*           |*Notes*
   ----------- |-------------- |---------------------- |--------------------------------------------------
@@ -511,7 +515,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNS13       |13             |Recall overdue                                |
   PNS14       |14             |Too many items billed                         |
   PNS15       |15             |Blocked from PC use only                      |Allowed to borrow items
-  PNS16       |16             |Account expired                               |*See Issue [#51](https://github.com/anthonywhitford/bic-lcf/issues/51)*
+  PNS16       |16             |Account expired                               |*Added in v1.0.1*
 
 ### <a id="PNT"></a>PNT Patron detailed information type
 
@@ -519,8 +523,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |---------------------------------- |----------------------------
   PNT01       |00             |No details – i.e. status only      |
   PNT02       |01             |All details                        |
-  PNT03       |02             |All personal, no account details   |See E03 Patron in LCF v1.0
-  PNT04       |03             |All account, no personal details   |See E03 Patron in LCF v1.0
+  PNT03       |02             |All personal, no account details   |See [E03 Patron](LCF-DataFrameworks.md#e03)
+  PNT04       |03             |All account, no personal details   |See [E03 Patron](LCF-DataFrameworks.md#e03)
   PNT05       |10             |Items on loan                      |
   PNT06       |11             |Reserved items                     |
   PNT07       |12             |Overdue items                      |
@@ -611,6 +615,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RVS04       |04             |Reservation cancelled by library staff   |Used when recording past reservations
   RVS05       |05             |Ended by check-out to patron             |Used when recording past reservations
   RVS06       |06             |Expired                                  |Reservation terminated on reaching expiry date without either check-out of the item or cancellation of the reservation. Used when recording past reservations.
+  RVS07       |07             |Suspended                                |Reservation temporarily suspended. It is recommended to specify start and/or end dates of the suspension.<br/>*Added in v1.1.0*
 
 ### <a id="RVT"></a>RVT Reservation type (based upon SIP 2 hold type code list)
 
@@ -630,7 +635,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SCD02       |01             |Item security should normally be desensitized / removed on check-out       |
   SCD03       |02             |Item security should not normally be desensitized / removed on check-out   |
 
-### <a id="SEL"></a>SEL Selection criterion - *Added in LCF v1.0.1*
+### <a id="SEL"></a>SEL Selection criterion - *Added in v1.0.1*
 
   *Code ID*   |*Code value*   |*Alpha value*          |*Definition*                |*Notes*
   ----------- |-------------- |---------------------- |--------------------------- |----------------
@@ -669,7 +674,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   TFT05       |12             |XHTML 1                                         |
   TFT06       |13             |HTML 5                                          |
   TFT07       |14             |MarkDown                                        |
-  TFT08       |04             |Plain text, encoding specified at message level | *Added v1.0.1*
+  TFT08       |04             |Plain text, encoding specified at message level | *Added in v1.0.1*
 
 ### <a id="TTL"></a>TTL Title type (based upon ONIX Code List 15)
 

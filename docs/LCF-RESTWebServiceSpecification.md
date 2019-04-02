@@ -1,5 +1,5 @@
 ---
-title: LCF v1.0.1 REST Web Services Implementation
+title: LCF v1.1.0 REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
@@ -12,13 +12,13 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version 1.0.1
+### Version 1.1.0
 
-### 12 July 2018
+### 31 March 2019
 
 ---
 
-This document defines a binding of the LCF data communication framework to the HTTP[1](#Notes) protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[2](#Notes)) design principles.
+This document defines a binding of the LCF data communication framework to the HTTP[\[1\]](#Notes) protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[\[2\]](#Notes)) design principles.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
@@ -28,7 +28,7 @@ All RESTful web service implementations of LCF should use standard HTTP features
 
 All web service implementations must identify the version of LCF that is implemented for each function.
 
-Where URIs are shown in examples, the path and query parts of the URI, as defined by IETF RFC 3986[3](#Notes) (i.e. the sub-string of the URI that starts with ‘/lcf’) should be the same in all web service implementations. The authority part of the URI (i.e. the sub-string of the URL to the left of ‘/lcf’) is implementation-specific, but should not be obfuscatory.
+Where URIs are shown in examples, the path and query parts of the URI, as defined by IETF RFC 3986[\[3\]](#Notes) (i.e. the sub-string of the URI that starts with ‘/lcf’) should be the same in all web service implementations. The authority part of the URI (i.e. the sub-string of the URL to the left of ‘/lcf’) is implementation-specific, but should not be obfuscatory.
 
 The datatypes 'string', 'int', 'decimal', 'anyURI' and 'dateTime' used below are specified in W3C XML Schema Part 2: Datatypes – see http://www.w3.org/TR/xmlschema-2/.
 
@@ -63,7 +63,7 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 RESTful web service implementation of LCF may use any of the following methods for authentication of terminal applications, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
-**A** HTTP challenge-response authentication using status code 401[4](#Notes)
+**A** HTTP challenge-response authentication using status code 401[\[4\]](#Notes)
 
 The LCF elements Q00D04.2 and Q00D05.2 are used in constructing the Base64-encoded "user-pass" for the 'Authorization' header field. In REST implementations the LCF elements Q00C04 and Q00C05 should not be included as query parameters or in request bodies.
 
@@ -128,12 +128,12 @@ The request is formulated using the HTTP GET method.
 
 ### Format for request URI
 
-|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
-|-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
-| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number                                                                                                        |
-| **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                                            |
-| **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | **string**  |              |
+|       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*                                                      |
+| ----- | ------------ | --------------------- | --------------------- | ------- | ----------- | ------------------------------------------------------------ |
+| **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                          |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
+| **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)** |
+| **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | **string**  |                                                              |
 
 NOTE – LCF element Q01D03 is not implemented in this binding.
 
@@ -157,11 +157,11 @@ The request is formulated using the HTTP GET method.
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF&nbsp;initial&nbsp;segment                                                                                                       |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)         |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                             |
-| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the LCF v1.0.1 specification. |
+| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02). |
 | 7     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
 | 8     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
 
@@ -170,9 +170,9 @@ NOTE – LCF element Q02D03 is not implemented in this binding.
 *Examples of a Request*
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations
-
+    
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
-
+    
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?os:count=10&os:startIndex=0
 
 ### XML payload format for response message
@@ -214,7 +214,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when creating an entity relating to a specific key entity, e.g. an item that is a copy of a specific manifestation. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT) |
 | 4     |              | /{key-id-value}       |                       | 0-1     | string      |              |
 | **5** | **Q03D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                    |
@@ -222,7 +222,7 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 *Examples of a Request*
 
     POST http://192.168.0.99:80/lcf/1.0/manifestations
-
+    
     POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
 
 ### XML payload format for response message
@@ -241,7 +241,7 @@ The request is formulated using the HTTP PUT method. The payload is an XML docum
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** | **Q04D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                                                     |
 | **4** | **Q04D02**   | **/{item-ref}**       |                       | **1**   |             |              |
 
@@ -265,7 +265,7 @@ The request is formulated using the HTTP DELETE method.
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** | **Q05D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                                                     |
 | **4** | **Q05D02**   | **/{item-id}**        |                       | **1**   |             |              |
 
@@ -294,7 +294,7 @@ The request is formulated using the HTTP POST method.
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/loans**            |                       | **1**   |             |              |
 | 4     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
 | 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
@@ -329,7 +329,7 @@ The response to a check-out or renewal may be the same response as for creating 
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW) – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [SCD](LCF-CodeLists.md#SCD) – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
-| 7     | R11D06       | access-link                              | 0-1     | anyURI      | *Added v1.0.1*    |
+| 7     | R11D06       | access-link                              | 0-1     | anyURI      | *Added in v1.0.1*    |
 
 *Example of a Response XML payload:*
 
@@ -409,7 +409,7 @@ Making a patron payment involves creating a payment record, assuming that all co
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
-#### Response *(Revised v1.0.1)*
+#### Response *(Revised in v1.0.1)*
 
 The response depends upon whether there is a need for a two-phase transaction process or not. If the LMS has to authorise payment before the transaction can proceed, a HTTP response 202 will be sent in response to the initial POST, which must be repeated with authorisation reference and transaction reference included in the Payment record.
 
@@ -423,7 +423,7 @@ If the LMS does not have to authorise payment, the response is the same as for c
 Blocking a patron account involves a change to the status of a patron and therefore a modification to a specific patron record. No other functions are involved. Normally the patron record would need to be retrieved, then modified, i.e.:
 
     GET http://192.168.0.99:80/lcf/1.0/patrons/1234567890
-
+    
     PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
@@ -440,7 +440,7 @@ The response is the same as for modifying any entity – see function 04 above.
 Un-blocking a patron account, as with blocking, involves a change in the status of a patron and therefore a modification to a specific patron record, having first retrieved the record. No other functions are involved.
 
     GET http://192.168.0.99:80/lcf/1.0/patrons/1234567890
-
+    
     PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
@@ -461,7 +461,7 @@ The request is formulated using the HTTP POST method.
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/reservations**     |                       | **1**   |             |              |
 | 4     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
 | 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                |
@@ -482,11 +482,11 @@ An XML document that conforms to the XML schema for a reservation entity (E06) m
 
 #### Response
 
-The response is the same as for creating any entity – see function 03 above. *[Changed in LCF&nbsp;v1.0.1.]*
+The response is the same as for creating any entity – see function 03 above. *[Changed in v1.0.1.]*
 
 17 Set/reset patron password
 ----------------------------
-*[Added in LCF v1.0.1]*
+*[Added in v1.0.1]*
 
 #### Request
 
@@ -509,7 +509,7 @@ If the request is successful, the HTTP response should include status code 200 (
 
 18 Set/reset patron PIN
 ----------------------------
-*[Added in LCF v1.0.1]*
+*[Added in v1.0.1]*
 
 #### Request
 
@@ -572,7 +572,7 @@ The following selects all items that are copies of the same manifestation, for a
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
 
     GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=manifestations
-
+    
     GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
 
 26 Retrieve list of available items at a specific location
@@ -595,7 +595,7 @@ The request is formulated using the HTTP POST method to create a charge.
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*      |
 |-------|--------------|-----------------------|-----------------------|---------|-------------|--------------|
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number  |
+| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/patrons**          |                       | **1**   |             |              |
 | **4** | **Q31D03**   | **/{patron-id-value}**|                       | **1**   |             |              |
 | **5** |              | **/charges**          |                       | **1**   |             |              |

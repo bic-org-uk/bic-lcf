@@ -161,7 +161,7 @@
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E09</xs:appinfo>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Name">CONTACT</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Description">Contact details for the primary contact person or organization for a patron, location or authority/institution.</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Description changed in LCF v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Description changed in v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
@@ -237,6 +237,9 @@
             <xs:element ref="end-date" minOccurs="0"/>
             <xs:element ref="loan-status" maxOccurs="unbounded"/>
             <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="previous-loan-ref" minOccurs="0"/>
+            <xs:element ref="renewal-loan-ref" minOccurs="0"/>   
+            <xs:element ref="reservation-ref" minOccurs="0"/>            
             <xs:element ref="recall-notice-date" minOccurs="0"/>
             <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
@@ -292,7 +295,7 @@
             <xs:element ref="publisher-name" minOccurs="0"/>
             <xs:element ref="year-of-publication" minOccurs="0"/>
             <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="cover-art" minOccurs="0"/>
+            <xs:element ref="cover-art" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
@@ -331,6 +334,8 @@
             <xs:element ref="audience" minOccurs="0"/>
             <xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="message-text" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -362,6 +367,7 @@
             <xs:element ref="card-status-info" minOccurs="0"/>
             <xs:element ref="patron-category" minOccurs="0"/>
             <xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="authorisation-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="patron-expiration-date" minOccurs="0"/>
             <xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
@@ -405,8 +411,7 @@
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="payment-date" minOccurs="0"/>
-            <xs:element ref="amount"/>
-            <xs:element ref="currency" minOccurs="0"/>
+            <xs:group ref="pecuniaryGroup"/>
             <xs:element ref="payment-status" minOccurs="0"/>
             <xs:element ref="transaction-reference" minOccurs="0"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
@@ -428,7 +433,7 @@
     </xs:element>
     <xs:group name="property-props">
         <xs:sequence>
-            <xs:element ref="name" minOccurs="0"/>
+            <xs:element ref="name"/>
             <xs:element name="entity-type" type="entityType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="value-scheme-ref" minOccurs="0"/>
@@ -466,6 +471,7 @@
             <xs:element ref="hold-queue-position" minOccurs="0"/>
             <xs:element ref="loan-ref" minOccurs="0"/>
             <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="suspension-period" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:group>
