@@ -1,5 +1,5 @@
 ---
-title: LCF v1.1.0 REST Authentication and Authorisation
+title: LCF v1.2.0 REST Authentication and Authorisation
 menu: REST Authentication and Authorisation
 weight: 5
 ---
@@ -12,9 +12,9 @@ weight: 5
 
 ## REST Authentication and Authorisation
 
-### Version 1.1.0
+### Version 1.2.0
 
-### DRAFT, 30 March 2019
+### DRAFT
 
 ---
 

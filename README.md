@@ -17,7 +17,7 @@ This repository holds five things:
      * [Current release on the __master__ branch](../../tree/master/lcf-samples)
      * [Next release in development on the __develop__ branch](../../tree/develop/lcf-samples/)    
  * The [issue tracker](../../issues), used to request amendments to the standard, or seek clarifications
- * The [wiki](../../wiki) including FAQs, other information and tips
+ * The [wiki](../../wiki) including FAQs (such as raising issues and registering extensions), editorial processes, other information and tips
 
 ## Getting Started ##
 1. Read the documentation and wiki;
@@ -27,5 +27,5 @@ This repository holds five things:
 ## Twitter ##
 [@bic_lcf](http://twitter.com/bic_lcf) is our Twitter account, please follow us!
 
-*© 2018 [Book Industry Communication](http://www.bic.org.uk)*
+*© 2019 [Book Industry Communication](http://www.bic.org.uk)*
 

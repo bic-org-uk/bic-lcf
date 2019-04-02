@@ -1,5 +1,5 @@
 ---
-title: LCF v1.1.0 Information Entities XML bindings
+title: LCF v1.2.0 Information Entities XML bindings
 menu: Information Entities XML bindings
 weight: 3
 ---
@@ -12,9 +12,9 @@ weight: 3
 
 ## Information Entities XML bindings
 
-### Version 1.1.0
+### Version 1.2.0
 
-### DRAFT, 30 March 2019
+### DRAFT
 
 ---
 
@@ -32,7 +32,7 @@ Data elements must be non-empty when included, as well as conforming to the spec
 
 Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item and Patron entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal.
 
-An XML schema that corresponds to this specification is available at [https://github.com/bic-org-uk/bic-lcf/tree/develop/lcf-schema/src/main/resources](https://github.com/bic-org-uk/bic-lcf/tree/develop/lcf-schema/src/main/resources).
+An XML schema that corresponds to this specification is available at [https://github.com/bic-org-uk/bic-lcf/tree/v1.1.0/lcf-schema/src/main/resources](https://github.com/bic-org-uk/bic-lcf/tree/v1.2.0/lcf-schema/src/main/resources).
 
 E01 MANIFESTATION
 -----------------

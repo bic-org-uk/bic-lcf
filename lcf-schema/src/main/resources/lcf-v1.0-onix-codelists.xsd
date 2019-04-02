@@ -22,15 +22,28 @@
     <!--
     Extracted from:
 
-        *     BOOK PRODUCT INFORMATION MESSAGE SCHEMA    *
-        *                                                *
-        *           CODE LIST DATA TYPES MODULE          *
-        *               XML SCHEMA VERSION               *
-        *                                                *
-        *                    ISSUE: 41                   *
-        *                                                *
-        *                 Status: RELEASED               *
-        *            Release date: 2018-04-16            *
+    **************************************************
+    *                                                *
+    *               ONIX INTERNATIONAL               *
+    *                                                *
+    *     BOOK PRODUCT INFORMATION MESSAGE SCHEMA    *
+    *                                                *
+    *           CODE LIST DATA TYPES MODULE          *
+    *               XML SCHEMA VERSION               *
+    *                                                *
+    *                    ISSUE: 44                   *
+    *                                                *
+    *                 Status: RELEASED               *
+    *            Release date: 2019-01-16            *
+    *                                                *
+    *  Orig filename ONIX_BookProduct_CodeLists.XSD  *
+    *                                                *
+    *          Original author: Francis Cave         *
+    *                                                *
+    *              (c) 2003-2019 EDItEUR             *
+    *             http://www.editeur.org/            *
+    *                                                *
+    **************************************************
 
     -->
 
@@ -588,7 +601,7 @@
             <xs:enumeration value="E01">
                 <xs:annotation>
                     <xs:documentation>Actor</xs:documentation>
-                    <xs:documentation/>
+                    <xs:documentation>Performer in a dramatized production (including a voice actor in an audio production)</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="E02">
@@ -600,7 +613,7 @@
             <xs:enumeration value="E03">
                 <xs:annotation>
                     <xs:documentation>Narrator</xs:documentation>
-                    <xs:documentation/>
+                    <xs:documentation>Where the narrator is a character in a dramatized production (including a voice actor in an audio production). For the 'narrator' of a non-dramatized audiobook, see code E07</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="E04">

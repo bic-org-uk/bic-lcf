@@ -19,10 +19,10 @@
 
     <name>BIC LCF Schema Components</name>
 
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.2.0-SNAPSHOT</version>
 
     <description>
-        Implementation of the JAXB bindings for the BIC LCF Version 1.0.2 XML Schemas
+        Implementation of the JAXB bindings for the BIC LCF Version 1.2.0 XML Schemas
     </description>
 
     <properties>
