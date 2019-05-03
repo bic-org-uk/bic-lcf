@@ -18,7 +18,7 @@ weight: 2
 
 ---
 
-This document defines code lists for use with LCF version 1.1.0.
+This document defines code lists for use with LCF version 1.2.0.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
@@ -61,6 +61,8 @@ The code lists defined are:
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
+-   [LST Library statutory status](#LST)
+-   [LTY Library type](#LTY)
 -   [MAC Message/alert display/delivery constraints](#MAC) *(added in v1.0.1)*
 -   [MAD Message/alert delivery status](#MAD) *(added in v1.0.1)*
 -   [MAP Message/alert priority](#MAP) *(added in v1.0.1)*
@@ -356,6 +358,25 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
   LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added in v1.0.1*
+  
+### <a id="LST"></a>LST Library statutory status *(added in v1.2.0)*
+
+  *Code ID*    |*Code value*    |*Definition*                       |*Notes*
+  ------------ | -------------- |-----------------------------------|----------------------------------
+  LST01        | 01             | Statutory provision               |
+  LST02        | 02             | Non-statutory provision           |
+
+### <a id="LTY"></a>LTY Library type *(added in v1.2.0)*
+
+  *Code ID*    |*Code value*    |*Definition*                                                         |*Notes*
+  -------------| ---------------|-------------------------------------------------------------------  |----------------------------------
+  LTY01        | LAL            | Local authority run (funded, run and managed by local authority staff but may be augmented by volunteers)                                                  |
+  LTY02        | LAL-           | Local authority run (funded and managed by the local authority but unstaffed) |
+  LTY03        | CL             | Commissioned library (commissioned and funded by a local authority but delivered by a contracted third party)                                                       |
+  LTY04        | CRL            | Community run libraries (some ongoing support, eg funding, stock, guidance from the local authority)                                                                |
+  LTY05        | CRL+           | Community run libraries (paid staff may be involved in the day to day running of the library)                                                                      |
+  LTY06        | ICL            | Independent community library (outside the local authority, staffed only by volunteers)                                                                            |
+  LTY07        | ICL+           | Independent community library (outside the local authority with paid staff) |
   
 ### <a id="MAC"></a>MAC Message/alert display/delivery constraints *(added in v1.0.1)*
 
