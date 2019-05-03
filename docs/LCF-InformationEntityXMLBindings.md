@@ -437,16 +437,18 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
 |   6   | E14D02.3     | value                       | 1       | string      |         |
 | **7** | **E14D03**   | **name**                    | 1       | string      |         |
-|   8   | E14C04       | associated-location         | 0-n     |             |         |
-|   9   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT) |
-|  10   | E14D04.2     | location-ref                | 1       | string      |         |
-|  11   | E14C05       | associated-contact          | 0-n     |             |         |
-|  12   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists.md#CAT) |
-|  13   | E14D05.2     | contact-name                | 1       | string      |         |
-|  14   | E14D05.3     | contact-ref                 | 1       | string      |         |
-|  15   | E14C06       | associated-authority        | 0-n     |             |         |
-|  16   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists.md#AAT) |
-|  17   | E14D06.2     | authority-ref               | 1       | string      |         |
+|   8   | E14D08       | library-status              | 0-1     | Code        | [LST](LCF-CodeLists.md#LST)<br/>*Added v1.2.0*     |
+|   9   | E14D09       | library-type                | 0-1     | Code        | [LTY](LCF-CodeLists.md#LTY)<br/>*Added v1.2.0*     |
+|  10   | E14C04       | associated-location         | 0-n     |             |         |
+|  11   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT) |
+|  12   | E14D04.2     | location-ref                | 1       | string      |         |
+|  13   | E14C05       | associated-contact          | 0-n     |             |         |
+|  14   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists.md#CAT) |
+|  15   | E14D05.2     | contact-name                | 1       | string      |         |
+|  16   | E14D05.3     | contact-ref                 | 1       | string      |         |
+|  17   | E14C06       | associated-authority        | 0-n     |             |         |
+|  18   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists.md#AAT) |
+|  19   | E14D06.2     | authority-ref               | 1       | string      |         |
 |  20   | E14C07       | note                        | 0-n     |             |         |
 |  21   | E14D07.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |  22   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
