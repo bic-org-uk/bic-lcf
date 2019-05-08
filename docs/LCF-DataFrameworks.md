@@ -1061,7 +1061,25 @@ This function sets the password associated with a Patron entity. Since, for secu
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R17D01** | **Patron reference**       |            | **1**   | **String**| **The identifier for the Patron record for which the password has been successfully set/reset.**                                               |
+| R17D01     | Patron reference           |            | 0-1     | String    | The identifier for the Patron record for which the password has been successfully set/reset.<br/>*Cardinality changed in v1.2.0*                                  |
+
+### <a name="f18"></a> 18 Set/reset patron PIN
+Back to functions list
+
+This function sets the PIN associated with a Patron entity. Since, for security reasons, this PIN may not be held as a property of the Patron entity, it cannot be set or retrieved using any of the core functions.
+
+#### Request
+
+| *Id*       | *Element*            | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------|------------|---------|-----------|---------------------------------|
+| **Q18D01** | **Patron reference** |            | **1**   | **String**|                                 |
+| **Q18D02** | **Patron PIN**       |            | **1**   | **String**| Encrypted PIN                   |
+
+#### Response
+
+| *Id*       | *Element*            | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
+|------------|----------------------|------------|---------|-----------|---------------------------------|
+| R18D01 | Patron reference         |            | 0-1     | String    | The identifier for the Patron record for which the PIN has been successfully set/reset.                                                                             |
 
 Stock management functions
 --------------------------
