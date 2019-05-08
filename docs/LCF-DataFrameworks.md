@@ -1087,11 +1087,19 @@ This function is the same as core function 02 for retrieving a list of entities 
 This function combines the core functions for retrieval of a list of manifestations (entity type E01) and list of stock items (entity type E02).
 
 ### <a name="f25"></a> 25 Retrieve selection criterion type list
+\[*Deprecated in v1.2.0*\]
+
 [Back to functions list](#functions)
 
 This function is the same as the core function 02 for retrieving a list of entities of type E12 Selection criterion.
 
+NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version.
+
 ### <a name="f26"></a> 26 Retrieve list of available items at a specific location
+\[*Deprecated in v1.2.0*\]
+
+NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version.
+
 [Back to functions list](#functions)
 
 This function selects all items that are available to be borrowed at a specific location and is the same as function 25 with specific Selection criteria: a specific location and a specific circulation status (CIS03 = 'Available').
