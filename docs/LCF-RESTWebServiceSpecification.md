@@ -568,6 +568,7 @@ The following selects all items that are copies of the same manifestation, for a
 
 25 Retrieve selection criterion type list
 -----------------------------------------
+\[*Deprecated in v1.2.0*\]
 
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
 
@@ -575,13 +576,17 @@ The following selects all items that are copies of the same manifestation, for a
     
     GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
 
+NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
+
 26 Retrieve list of available items at a specific location
 ----------------------------------------------------------
+\[*Deprecated in v1.2.0*\]
 
 The following selects all items that are available to be borrowed (circulation-status = '03') and are at a specific location 'shelf1':
 
     GET http://192.168.0.99:80/lcf/1.0/items?current-location=shelf1&circulation-status=03
 
+NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
 31 Apply charge to patron account
 ---------------------------------
