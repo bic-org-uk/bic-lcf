@@ -437,8 +437,8 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
 |   6   | E14D02.3     | value                       | 1       | string      |         |
 | **7** | **E14D03**   | **name**                    | 1       | string      |         |
-|   8   | E14D08       | library-status              | 0-1     | Code        | [LST](LCF-CodeLists.md#LST)<br/>*Added v1.2.0*     |
-|   9   | E14D09       | library-type                | 0-1     | Code        | [LTY](LCF-CodeLists.md#LTY)<br/>*Added v1.2.0*     |
+|   8   | E14D08       | library-status              | 0-1     | Code        | [LST](LCF-CodeLists.md#LST)<br/>*Added in v1.2.0*     |
+|   9   | E14D09       | library-type                | 0-1     | Code        | [LTY](LCF-CodeLists.md#LTY)<br/>*Added in v1.2.0*     |
 |  10   | E14C04       | associated-location         | 0-n     |             |         |
 |  11   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT) |
 |  12   | E14D04.2     | location-ref                | 1       | string      |         |
