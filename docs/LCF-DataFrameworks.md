@@ -635,8 +635,8 @@ A library authority or institution.
 | E14D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
-| E14D08     | Library statutory status   |           | 0-1      | Code        | LCF code list **[LST](LCF-CodeLists.md#LST)**<br/>*Added v1.2.0*         |
-| E14D09     | Library type               |           | 0-1      | Code        | LCF code list **[LTY](LCF-CodeLists.md#LTY)**<br/>*Added v1.2.0*         |
+| E14D08     | Library statutory status   |           | 0-1      | Code        | LCF code list **[LST](LCF-CodeLists.md#LST)**<br/>*Added in v1.2.0*         |
+| E14D09     | Library type               |           | 0-1      | Code        | LCF code list **[LTY](LCF-CodeLists.md#LTY)**<br/>*Added in v1.2.0*         |
 | *E14C04*   | *Associated location*      |           | 0-n      |            | A location associated with this authority/institution.                                                                                         |
 | E14D04.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
 | E14D04.2   | Location reference         |           | 1        | String     |                                |
