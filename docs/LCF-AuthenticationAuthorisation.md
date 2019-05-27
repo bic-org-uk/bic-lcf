@@ -53,7 +53,7 @@ A response code of 401 indicates that the Service Terminal credentials were inco
 
 Where an LCF web service requires authentication of a Patron, this is done by using the HTTP header field "lcf-patron-credential". This should use the same format as HTTP BASIC authentication, i.e. the value "patron-id:password" encoded using BASE64, prepended by "BASIC ". Alternatively if an external IdP (Identity Provider) using a protocol such as OAuth or OpenId, is used for authentication, the token from the IdP can also be passed via this field.
 
-A response code of 401 indicates that the patron credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
+A response code of 403 indicates that the patron credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
 
     GET /lcf/1.0/patrons/{id-value}
     lcf-patron-credential: BASIC cGF0cm9uLWlkOnBhc3N3b3Jk
