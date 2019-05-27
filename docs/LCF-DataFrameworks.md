@@ -192,10 +192,13 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D07     | Edition statement          |           | 0-1      | String     | Edition of the item            |
 | E01D08     | Publisher name             |           | 0-1      | String     | Name of the publisher of the manifestation                                                                                                  |
 | E01D09     | Year of publication        |           | 0-1      | YYYY       | Year of publication of the manifestation                                                                                                  |
-| *E01C10*   | *Classification*           |           | 0-n      |            |                                |
+| *E01C10*   | *External classification*  |           | 0-n      |            | Classification scheme and term _not_ represented by LCF entities.</br>*Element name and description changed in v1.2.0*                               |
 | E01D10.1   | Classification scheme      |           | 1        | Code       | LCF code list **[LCS](LCF-CodeLists.md#LCS)**          |
 | E01D10.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme                                                                                                         |
 | E01D10.3   | Scheme code                |           | 1        | String     |                                |
+| *E01C22*   | *LCF classification*       |           | 0-n      |            |  Classification scheme and term represented by LCF entities.<br/>*Added in v1.2.0* |
+| E01D22.1   | Classification scheme reference |      | 0-1      | String     | Reference to a classification scheme record  |
+| E01D22.2   | Classification term reference |        | 0-1      | String     | Reference to a classification term record  |
 | E01D11     | Item cover art             |           | 0-n      | URI        | URI reference to cover art resource                                                                                                       |
 | E01D12     | Other description          |           | 0-1      | String     | Other descriptive information about the manifestation.                                                                                             |
 | *E01C13*   | *Check-out restriction*    |           | 0-n      |            | Composite element containing details of a restriction on check-out of this manifestation. Repeatable for multiple restriction types.                |
