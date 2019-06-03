@@ -116,6 +116,12 @@ In a RESTful web service implementation exception condition responses should gen
 
 The URI syntax rules don't allow certain characters in query parts, including the space character. Although these rules allow a space character to be represented by a '+' sign, it is recommended that all non-allowed characters should always be encoded using percent encoding, i.e. '%' followed by hexadecimal digits representing the character's Unicode character number.
 
+#### 7. Reporting LCF version in responses *(Added in v1.2.0)*
+
+The LCF element R00D07 should be carried by a custom field 'lcf-version' in the HTTP(S) response header, e.g.
+
+    lcf-version: 1.2.0
+
 #### 
 
 Core functions
