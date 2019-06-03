@@ -168,6 +168,8 @@ The request is formulated using the HTTP GET method.
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
+NOTE *(Added in v1.2.0)* - A server may ignore the query parameter 'list-type' and always return a list of (zero or more) URIs for retrieving the entities individually.
+
 *Examples of a Request*
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations
@@ -192,9 +194,8 @@ If the server is able to process the request, but no entities match the criteria
 | 6     | R02D03       | os:totalResults                         | 0-1     | int         |                    |
 | 7     | R02D04       | os:itemsPerPage                         | 0-1     | int         |                    |
 | 8     | R02D05       | os:startIndex                           | 0-1     | int         |                    |
-| 9     | R02D06       | entity<br>href="{instance-uri}"         | 0-n     | anyURI      | The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type<br/>*Made non-mandatory in v1.0.1*                                                                                                       |
-
-NOTE – LCF element R02C07 is not implemented.
+| 9     | R02D06       | entity<br>href="{instance-uri}"         | 0-n     | anyURI      | The 'href' attribute on the element 'entity' contains the URI for retrieving the instance of the specified entity type<br/>*Made non-mandatory in v1.0.1*  |
+| 10    | R02C07       | {entity}                                | 0-n     |             | One or more LCF information entities of the specified entity type and conforming to the LCF information entity XML schema<br/>*Added in v1.2.0*           |
 
 *Example of a Response XML payload*
 
