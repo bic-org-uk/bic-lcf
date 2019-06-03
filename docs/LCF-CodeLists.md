@@ -49,6 +49,7 @@ The code lists defined are:
 -   [CRT Check-out restriction type](#CRT)
 -   [DTM Date or Date-time format](#DTM)
 -   [ECR Encryption algorithm](#ECR)
+-   [ELI Entity list type](#ELI) *(added in v1.2.0)*
 -   [ENT Entity type](#ENT)
 -   [EXC Exception condition response](#EXC)
 -   [IMD Item detailed information type](#IMD)
@@ -200,6 +201,13 @@ The code lists defined are:
   *Code ID*   |*Code value*   |*Definition*   |*Notes*
   ----------- |-------------- |-------------- |-------------------------
   ECR01       |               |               |Code list to be defined
+
+### <a id="ELI"></a>ELI Entity list type *(Added in v1.2.0)*
+
+  *Code ID*   |*Code value*   |*Alpha value*   |*Definition*                  |*Notes*
+  ----------- |-------------- |--------------- |----------------------------- |----------------
+  ELI01       |01             |uri             |Requested list should contain entity reference URIs only | 
+  ELI02       |02             |entity          |Requested list should contain the entities themselves | 
 
 ### <a id="ENT"></a>ENT Entity type
 
