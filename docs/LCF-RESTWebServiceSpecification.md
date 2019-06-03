@@ -162,8 +162,9 @@ The request is formulated using the HTTP GET method.
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                             |
 | 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02). |
-| 7     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
-| 8     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
+| 7     | Q02D06       |                       | list-type             | 0-1     | Code        | The alpha code value is used from code list [ELI](LCF-CodeLists.md#ELI)<br/>If omitted, the default value 'uri' is implied.<br/>*Added in v1.2.0*
+| 8     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
+| 9     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
