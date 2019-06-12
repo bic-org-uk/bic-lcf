@@ -471,12 +471,13 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |  12   | E15D11       | patron-ref                  | 0-n     | String      |         |
 |  13   | E15D14       | loan-ref                    | 0-n     | String      | *Added in v1.1.0* |
 |  14   | E15D15       | reservation-ref             | 0-n     | String      | *Added in v1.1.0* |
-|  15   | **E15D12.1** | message-format              | **1**   | Code        | **[TFT](LCF-CodeLists.md#TFT)** |
-|  16   | **E15D12.2** | text                        | **1**   | String      |         |
-|  17   | E15C13       | note                        | 0-n     |             |         |
-|  18   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
-|  19   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
-|  20   | E15D13.3     | note-text                   | 1       | string      |         |
+|  15   | **E15C12**   | **message-text**            | **1-n** |             | *Corrected in v1.2.0* |
+|  16   | **E15D12.1** | **message-format**          | **1**   | Code        | **[TFT](LCF-CodeLists.md#TFT)** |
+|  17   | **E15D12.2** | **text**                    | **1**   | String      |         |
+|  18   | E15C13       | note                        | 0-n     |             |         |
+|  19   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
+|  20   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
+|  21   | E15D13.3     | note-text                   | 1       | string      |         |
 
 EXCEPTION CONDITIONS
 --------------------
