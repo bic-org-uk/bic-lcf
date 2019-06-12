@@ -721,6 +721,7 @@ The following data elements and composites are typically used for control of mes
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R00D01     | Response ID                |            | 0-1     | String    | An ID of a response.            |
 | R00D02     | Response type              |            | 0-1     | Code      | LCF code list **[RST](LCF-CodeLists.md#RST)**               |
+| R00D07     | LCF version                |            | 0-1     | String    | Number of LCF version supported by the responding application. The string should use the same Semantic Versioning number format as LCF as a whole.<br/>*Added in v1.2.0* |
 | R00D03     | Request reference          |            | 0-1     | String    | The ID of the request to which this is the response. Mandatory if the request included a request ID.                                               |
 | R00D04     | Response date-time         |            | 0-1     | DateTime  | The date and time of the response.|
 | *R00C05*   | *Exception condition*      |            | 0-n     |           | Response if there is an exception condition, in which case this and, optionally, one or more of the following message elements terminate the response.|
