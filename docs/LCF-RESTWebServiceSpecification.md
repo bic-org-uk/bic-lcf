@@ -59,29 +59,67 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 ### Implementation notes
 
-#### 1. Terminal application authentication *(updated for v1.0.1)*
+#### 1. Terminal application authentication *(updated for v1.2.0)*
 
-RESTful web service implementation of LCF may use any of the following methods for authentication of terminal applications, provided it is practical to do so, but method A is recommended as the most RESTful approach:
+LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. Where a RESTful web service implementation of LCF requires authentication of the Service Terminal, it may use any of the following methods, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
-**A** HTTP challenge-response authentication using status code 401[\[4\]](#Notes)
+**A** HTTP challenge-response authentication using status code 401[\[4\]](#Notes) either using HTTP BASIC authentication or a protocol such as OAuth or OpenId
 
 The LCF elements Q00D04.2 and Q00D05.2 are used in constructing the Base64-encoded "user-pass" for the 'Authorization' header field. In REST implementations the LCF elements Q00C04 and Q00C05 should not be included as query parameters or in request bodies.
+
+In this case, HTTP BASIC authentication should be provided for each web service call requiring Terminal Service authentication. The LCF Server validates this authentication request, and where valid, it then processes the authorisation to dis/allow access to the requested web service. Alternatively an external IdP (Identity Provider), using a protocol such as OAuth or OpenId, may be used for authentication.
+
+A response code of 401 indicates that the Service Terminal credentials were incorrect or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
+
+```
+GET /lcf/1.0/patrons/{id-value}
+Authorization: BASIC {Base64-encoded-terminal-credentials}
+
+Responds with:
+HTTP/200
+Where the Body / Payload is a patron entity response
+
+-- or --
+
+HTTP/401 - Service Terminal credentials were invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/404 - the Patron represented by id-value does not exist
+```
+
+where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D04.2 and Q00D05.2 (see [4](#Notes)).
 
 **B** IP address authentication (frequently impractical, for example if IP assignment is dynamic)
 
 **C** Public Key Infrastructure (PKI) authentication.
 
-#### 2. Patron authentication, access rights and privileges *(substantially revised for v1.0.1)*
+#### 2. Patron authentication, access rights and privileges *(updated for 1.2.0)*
 
 In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
 
 **A** Inclusion of an HTTP Request header field 'lcf-patron-credential'
 
-For example, to request details of a patron's access rights and privileges, using a terminal that does not yet have authenticated access to the server by virtue of a previous request:
+Where an LCF web service requires authentication of a Patron, this is done by using the HTTP header field "lcf-patron-credential". This should use the same format as HTTP BASIC authentication, i.e. the value "patron-id:password" encoded using BASE64, prepended by "BASIC ". Alternatively if an external IdP (Identity Provider) using a protocol such as OAuth or OpenId, is used for authentication, the token from the IdP can also be passed via this field.
 
-    GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations
-    Authorization: Basic {basic-terminal-credentials}
-    lcf-patron-credential: {Base64-encoded-patron-credentials}
+A response code of 403 indicates that the patron credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
+
+```
+GET /lcf/1.0/patrons/{id-value}
+lcf-patron-credential: BASIC {Base64-encoded-patron-credentials}
+
+Responds with:
+HTTP/200
+Where the Body / Payload is a patron entity response
+
+-- or --
+
+HTTP/403 - The id-value and password\pin combination for the patron are invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/404 - the Patron represented by id-value does not exist
+```
 
 where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [4](#Notes)).
 
@@ -100,23 +138,65 @@ For either method the normal HTTP response status codes would apply:
 - 403 (Forbidden), indicating that patron authentication has not been provided or has failed
 - 404 (Not Found), indicating that the specified patron ID does not exist.
 
-#### 3. Secure communication
+#### 3. Determining if an Operation requires Authentication *(added in 1.2.0)*
+
+The client should attempt the operation with no authentication information (neither terminal authentication via HTTP Basic nor user authentication via lcf-patron-credential HTTP header) 
+
+A response code of 200\201 means that no authentication is required.
+A response of 401 means that terminal authentication is required.
+A response of 403 means that patron authentication is required.
+
+(if both terminal and patron authentication is required, the server may respond with either 401/403, and may respond to a subsequent request with a similar message should the client send only one of the required authentication).
+
+Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
+
+#### 4. Patron Authorisation *(added in 1.2.0)*
+
+Authorisation requests are initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations
+
+The response to a successful authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
+
+Each AUTHORISATION entity within the list must state which authorisation is being granted. This is currently a controlled list - code list [AUT](LCF-CodeLists.md#AUT). 
+
+```
+GET /lcf/1.0/patrons/{id-value}/authorisations
+Authorization: BASIC {Base64-encoded-terminal-credentials}=
+lcf-patron-credential: BASIC {Base64-encoded-patron-credentials}
+
+Responds with:
+HTTP/200
+Where the Body / Payload is an authorisation entity response. Note that the authorisation entity response could be empty, indicating that there are no authorisations granted.
+
+-- or --
+
+HTTP/401 - Service Terminal credentials were invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/403 - The id-value and password\pin combination are invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/404 - the Patron represented by id-value does not exist
+```
+
+#### 5. Secure communication
 
 Connections should use HTTPS for all Live deployments.
 
-#### 4. Time-stamped requests and responses
+#### 6. Time-stamped requests and responses
 
 Date and time stamps should be carried as HTTP parameters and the LCF elements Q00D08 and R00D04 should not be used in REST implementations.
 
-#### 5. Exception conditions in RESTful web service responses
+#### 7. Exception conditions in RESTful web service responses
 
 In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if it is valid to include a payload with the specific HTTP response status code.
 
-#### 6. Encoding rules in URI query parts 
+#### 8. Encoding rules in URI query parts 
 
 The URI syntax rules don't allow certain characters in query parts, including the space character. Although these rules allow a space character to be represented by a '+' sign, it is recommended that all non-allowed characters should always be encoded using percent encoding, i.e. '%' followed by hexadecimal digits representing the character's Unicode character number.
 
-#### 7. Reporting LCF version in responses *(Added in v1.2.0)*
+#### 9. Reporting LCF version in responses *(Added in v1.2.0)*
 
 The LCF element R00D07 should be carried by a custom field 'lcf-version' in the HTTP(S) response header, e.g.
 
