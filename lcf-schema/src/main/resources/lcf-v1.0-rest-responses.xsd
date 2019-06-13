@@ -47,7 +47,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="loan-ref" minOccurs="0"/>
-                <xs:element name="return-location-ref" minOccurs="0"/>
+                <xs:element ref="return-location-ref" minOccurs="0"/>
                 <xs:element ref="media-warning" minOccurs="0"/>
                 <xs:element ref="special-attention" minOccurs="0"/>
                 <xs:element ref="special-attention-note" minOccurs="0"/>
