@@ -64,12 +64,23 @@ A response code of 403 indicates that the patron credentials were incorrect, or 
     
     -- or --
     
-    HTTP/403 - The id-value and password\pin combination are invalid, or need to be obtained from the IdP again
+    HTTP/403 - The id-value and password\pin combination for the patron are invalid, or need to be obtained from the IdP again
     
     -- or --
     
     HTTP/404 - the Patron represented by id-value does not exist
 
+#### Determining if an Operation requires Authentication
+
+The client should attempt the operation with no authentication information (neither terminal authentication via HTTP Basic nor user authentication via lcf-patron-credential HTTP header) 
+
+A response code of 200\201 means that no authentication is required.
+A response of 401 means that terminal authentication is required.
+A response of 403 means that patron authentication is required.
+
+(if both terminal and patron authentication is required, the server may respond with either 401/403, and may respond to a subsequent request with a similar message should the client send only one of the required authentication).
+
+Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
 
 #### Patron Authorisation
 
@@ -99,3 +110,4 @@ Each AUTHORISATION entity within the list must state which authorisation is bein
     -- or --
     
     HTTP/404 - the Patron represented by id-value does not exist
+
