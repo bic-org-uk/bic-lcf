@@ -59,7 +59,7 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 ### Implementation notes
 
-#### 1. Terminal application authentication *(updated for v1.2.0)*
+#### 1. Terminal Application Authentication *(updated for v1.2.0)*
 
 LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. Where a RESTful web service implementation of LCF requires authentication of the Service Terminal, it may use any of the following methods, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
@@ -94,7 +94,7 @@ where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D0
 
 **C** Public Key Infrastructure (PKI) authentication.
 
-#### 2. Patron authentication, access rights and privileges *(updated for 1.2.0)*
+#### 2. Patron Authentication *(updated for 1.2.0)*
 
 In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
 
@@ -150,13 +150,15 @@ A response of 403 means that patron authentication is required.
 
 Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
 
-#### 4. Patron Authorisation *(added in 1.2.0)*
+#### 4. Patron Authorisation (Access Rights and Privileges) *(added in 1.2.0)*
 
 Authorisation requests are initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations
 
-The response to a successful authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
+The response to a successful Authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
 
-Each AUTHORISATION entity within the list must state which authorisation is being granted. This is currently a controlled list - code list [AUT](LCF-CodeLists.md#AUT). 
+Each AUTHORISATION entity within the list must state which authorisation is being granted. There is currently a controlled list (code list [AUT](LCF-CodeLists.md#AUT)) of common authorisations which can be used in an [AUTHORISATION entities](LCF-Dataframeworks.md#E13), although an implementation may extend this with custom [AUTHORISATION entities](LCF-Dataframeworks.md#E13).
+
+Implementations SHOULD only provide a list of [AUTHORISATION entities](LCF-Dataframeworks.md#E13) after a successful Patron Authentication (see above). As such this operation MAY be used for Patron authentication purposes.
 
 ```
 GET /lcf/1.0/patrons/{id-value}/authorisations
