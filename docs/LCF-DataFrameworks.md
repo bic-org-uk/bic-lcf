@@ -635,11 +635,20 @@ A library authority or institution.
 | E14D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
-| E14D08     | Library statutory status   |           | 0-1      | Code        | LCF code list **[LST](LCF-CodeLists.md#LST)**<br/>*Added in v1.2.0*         |
-| E14D09     | Library type               |           | 0-1      | Code        | LCF code list **[LTY](LCF-CodeLists.md#LTY)**<br/>*Added in v1.2.0*         |
+| E14D08     | Library statutory status   |           | 0-1      | Code       | LCF code list **[LST](LCF-CodeLists.md#LST)**<br/>*Added in v1.2.0*         |
+| E14D09     | Library type               |           | 0-1      | Code       | LCF code list **[LTY](LCF-CodeLists.md#LTY)**<br/>*Added in v1.2.0*         |
 | *E14C04*   | *Associated location*      |           | 0-n      |            | A location associated with this authority/institution.                                                                                         |
 | E14D04.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
 | E14D04.2   | Location reference         |           | 1        | String     |                                |
+| *E14C04.3* | Library opening/closing times |        | 0-n      |            | Only to be used for location association types LAT04 or LAT05<br/>*Added in v1.2.0*    |
+| E14D04.3.1 | Day(s) of the week         |           | 0-n      | Code       | LCF code list **[WKD](LCF-CodeLists.md#WKD)**   |
+|*E14C04.3.2*| Season                     |           | 0-n      |            |                                    |
+|E14D04.3.2.1| Season name                |           | 1        | String     |                                 |
+|E14D04.3.2.2| Season start date inclusive|           | 1        | Date       |                                 |
+|E14D04.32.3 | Season end date inclusive  |           | 1        | Date       |                                 |
+| E14D04.3.3 | Library opening time       |           | 1        | Time       |                                 |
+| E14D04.3.4 | Library closing time       |           | 1        | Time       |                                 |
+| E15D04.3.5 | Staffed / un-staffed       |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
 | *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
 | E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[CAT](LCF-CodeLists.md#CAT)**          |
 | E14D05.2   | Contact name               |           | 1        | String     |                                |
