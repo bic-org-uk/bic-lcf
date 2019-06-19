@@ -640,7 +640,7 @@ A library authority or institution.
 | *E14C04*   | *Associated location*      |           | 0-n      |            | A location associated with this authority/institution.                                                                                         |
 | E14D04.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
 | E14D04.2   | Location reference         |           | 1        | String     |                                |
-| *E14C04.3* | Library opening/closing times |        | 0-n      |            | Only to be used for location association types LAT04 or LAT05<br/>*Added in v1.2.0*    |
+| *E14C04.3* | Library opening/closing times |        | 0-n      |            | Only to be used for location association types LAT04 or LAT05<br/>See Notes below on interpretation of repetitions of this composite element<br/>*Added in v1.2.0*    |
 | E14D04.3.1 | Day(s) of the week         |           | 0-n      | Code       | LCF code list **[WKD](LCF-CodeLists.md#WKD)**   |
 |*E14C04.3.2*| Season                     |           | 0-n      |            |                                    |
 |E14D04.3.2.1| Season name                |           | 1        | String     |                                 |
@@ -660,6 +660,14 @@ A library authority or institution.
 | E14D07.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E14D07.3   | Note text                  |            | 1       | String     |                                |
+
+**Notes on interpretation of repeated instances of E14C04.3 Library opening/closing times**
+
+1. If instances of E14C04.3 don't overlap in their scope, i.e. they are mutually exclusive, all are applicable.
+
+2. If the scope of one instance is wholly contained within the scope of another instance, the instance with the wider scope is overridden by the instance with the narrow scope to the extent of the scope of the latter. An example would be to specify opening and closing times for weekdays in one instance and different opening and closing times for Wednesdays in a second instance. Another example would be to specify opening and closing times for an academic term in one instance and different times for a specific week of that term in a second instance.
+
+3. If the scope of two instances overlap, but the scope or neither instance is wholly contained within the scope of the other instance, the repeated instances cannot be interpreted unambiguously and the terminal application should ignore the library opening/closing times.
 
 ***
 
