@@ -61,8 +61,8 @@ The code lists defined are:
 -   [LOI Location identification scheme](#LOI)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
--   [LST Library statutory status](#LST)
--   [LTY Library type](#LTY)
+-   [LST Library statutory status](#LST) *(added in v1.2.0)*
+-   [LTY Library type](#LTY) *(added in v1.2.0)*
 -   [MAC Message/alert display/delivery constraints](#MAC) *(added in v1.0.1)*
 -   [MAD Message/alert delivery status](#MAD) *(added in v1.0.1)*
 -   [MAP Message/alert priority](#MAP) *(added in v1.0.1)*
@@ -93,9 +93,11 @@ The code lists defined are:
 -   [SCD Security desensitization flag](#SCD)
 -   [SEL Selection criterion](#SEL) *(added in v1.0.1)*
 -   [SPA Special attention required flag](#SPA)
+-   [STA Staffed / un-staffed](#STA) *(added in v1.2.0)*
 -   [TFT Text format](#TFT)
 -   [TTL Title type](#TTL)
 -   [UNC Unnamed contributor type](#UNC)
+-   [WKD Days of the week](#WKD) *(added in v1.2.0)*
 
 ### <a id="AAT"></a>AAT Library authority/institution association type *(added in v1.0.1)*
 
@@ -507,7 +509,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PGP01       |01             |Patron member of group           |
   PGP02       |02             |Lead patron of group             |
 
-### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in v1.0.1*
+### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) *(Added in v1.0.1)*
 
   *Code ID*   |*Code value*   |*Definition*           |*Notes*
   ----------- |-------------- |---------------------- |--------------------------------------------------
@@ -656,7 +658,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SCD02       |01             |Item security should normally be desensitized / removed on check-out       |
   SCD03       |02             |Item security should not normally be desensitized / removed on check-out   |
 
-### <a id="SEL"></a>SEL Selection criterion - *Added in v1.0.1*
+### <a id="SEL"></a>SEL Selection criterion *(Added in v1.0.1)*
 
   *Code ID*   |*Code value*   |*Alpha value*          |*Definition*                |*Notes*
   ----------- |-------------- |---------------------- |--------------------------- |----------------
@@ -683,6 +685,15 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |----------------------------------------------- |---------
   SPA01       |01             |Item does not require special attention         |
   SPA02       |02             |Item requires special attention (unspecified)   |
+
+### <a id="STA"></a>STA Staffed / un-staffed *(Added in v1.2.0)*
+
+  *Code ID*      |*Code value*      |*Definition*   |*Notes*
+  -------------- |----------------- |-------------- |----------------------------------
+  STA01            |00                |Unspecified   | Default
+  STA02            |01                |Staffed          | 
+  STA03            |02                |Un-staffed    | 
+  STA04            |03                |Staffed with voluntary staff | 
 
 ### <a id="TFT"></a>TFT Text format
 
@@ -715,3 +726,19 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   UNC01       |01             |Unknown        |ONIX code ‘01’
   UNC02       |02             |Anonymous      |ONIX code ‘02’
   UNC03       |03             |et al.         |ONIX code ‘03’
+
+### <a id="WKD"></a>WKD Days of the week *(Added in v1.2.0)*
+
+  *Code ID*      |*Code value*      |*Definition*   |*Notes*
+  -------------- |----------------- |-------------- |----------------------------------
+  WKD01         |00                |Unspecified   | Default
+  WKD02         |01                |Monday    |
+  WKD03         |02                |Tuesday    |
+  WKD04         |03                |Wednesday    |
+  WKD05         |04                |Thursday    |
+  WKD06         |05                |Friday    |
+  WKD07         |06                |Saturday    |
+  WKD08         |07                |Sunday    |
+  WKD09         |11                |Weekdays (Monday to Friday inclusive)    |
+  WKD10         |12                |Weekends (Saturday and Sunday) |
+  
