@@ -142,11 +142,11 @@ For either method the normal HTTP response status codes would apply:
 
 The client should attempt the operation with no authentication information (neither terminal authentication via HTTP Basic nor user authentication via lcf-patron-credential HTTP header) 
 
-A response code of 200\201 means that no authentication is required.
+A response code of 200 or 201 means that no authentication is required.
 A response of 401 means that terminal authentication is required.
 A response of 403 means that patron authentication is required.
 
-(if both terminal and patron authentication is required, the server may respond with either 401/403, and may respond to a subsequent request with a similar message should the client send only one of the required authentication).
+(if both terminal and patron authentication is required, the server may respond with either 401 or 403, and may respond to a subsequent request with a similar message should the client send only one of the required authentication).
 
 Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
 
