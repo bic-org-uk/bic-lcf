@@ -178,7 +178,7 @@ E03 PATRON
 |  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
 |  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0*                 |
 |  15   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
-|  16   | E03C24       | card-status-info            | 0-nR    |             | *Added in v1.0.1*                 |
+|  16   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0*                 |
 |  17   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
 |  18   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
 |  19   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
