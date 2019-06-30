@@ -59,6 +59,7 @@ The code lists defined are:
 -   [LCS Library classification scheme](#LCS)
 -   [LKT Resource access link type](#LKT) *(added in v1.0.1)*
 -   [LOI Location identification scheme](#LOI)
+-   [LOP Location purpose](#LOP)
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
 -   [MAC Message/alert display/delivery constraints](#MAC) *(added in v1.0.1)*
@@ -331,6 +332,15 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI03       |03             |SAN            
   LOI04       |04             |URI            |*Added in v1.0.1*
   LOI05       |05             |UPRN           |*Added in v1.0.1*
+
+### <a id="LOp"></a>LOP Location purpose
+
+  *Code ID*   |*Code value*   |*Definition*   |*Notes*
+  ----------- |-------------- |-------------- |---------
+  LOP01       |01             |May be selected by a patron as their home location          |
+  LOP02       |02             |May be selected by a patron as a preferred collection point |
+  LOP03       |03             |A collection point, but not selectable as preferred         |
+  LOP04       |04             |A return/drop-off point                                     |
 
 ### <a id="LOS"></a>LOS Loan status
 
