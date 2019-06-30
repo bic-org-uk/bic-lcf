@@ -80,9 +80,9 @@ Data frameworks are defined for the following principal types of information ent
 
 The data frameworks for the following other types of information entity are also defined:
 
--   [Classification schemes (e.g. for manifestation classification)](#e10)
+-   [Classification schemes (e.g. for manifestation classification - *DEPRECATED in v1.2.0*)](#e10)
 
--   [Classification codes](#e11)
+-   [Classification codes - *DEPRECATED in v1.2.0*](#e11)
 
 -   [Entity properties recognised by the LMS (used for constructing entity selection criteria - *DEPRECATED in v1.0.1*)](#e12)
 
