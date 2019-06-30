@@ -233,15 +233,16 @@ E04 LOCATION
 |   6   | E04D02.3     | value                       | 1       | string      |         |
 |   7   | E04D03       | name                        | 0-1     | string      |         |
 |   8   | E04D04       | location-type               | 0-1     | Code        | [LOT](LCF-CodeLists.md#LOT)     |
-|   9   | E04D05       | description                 | 0-1     | string      |         |
-|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
-|  11   | E04C08       | associated-location         | 0-n     |             |         |
-|  12   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
-|  13   | E04D08.2     | location-ref                | 1       | string      |         |
-|  14   | E04C06       | note                        | 0-n     |             |         |
-|  15   | E04D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  16   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
-|  17   | E04D06.3     | note-text                   | 1       | string      |         |
+|   9   | E04D09       | location-purpose            | 0-n     | Code        | [LOP](LCF-CodeLists.md#LOP)<br/>*Added in v1.2.0*    |
+|  10   | E04D05       | description                 | 0-1     | string      |         |
+|  11   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
+|  12   | E04C08       | associated-location         | 0-n     |             |         |
+|  13   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
+|  14   | E04D08.2     | location-ref                | 1       | string      |         |
+|  15   | E04C06       | note                        | 0-n     |             |         |
+|  16   | E04D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  17   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
+|  18   | E04D06.3     | note-text                   | 1       | string      |         |
 
 E05 LOAN
 --------
