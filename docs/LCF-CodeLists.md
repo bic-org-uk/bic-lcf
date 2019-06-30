@@ -655,6 +655,17 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SEL14       |28             |paid-date              |Date charge paid in full    | See E07D16
   SEL15       |29             |payment-date           |Date payment made           | See E08D06
   SEL16       |30             |patron-expiration-date |Date patron account expired | See E03D30
+  SEL17       |31             |patron-barcode-id      |Patron barcode ID           | See E03D26
+  SEL18       |32             |alt-patron-id          |Patron alternative ID       | See E03D27.3
+  SEL19       |33             |alt-patron-id-type     |Patron alt. ID type         | See E03D27.1
+  SEL20       |34             |alt-manifestation-id   |Manifestation alt. ID       | See E01D02.3
+  SEL21       |35             |alt-manifestation-id-type|Manifestation alt. ID type| See E01D02.1
+  SEL22       |36             |alt-item-id            |Item alt. ID                | See E02D02.3
+  SEL23       |37             |alt-item-id-type       |Item alt. ID type           | See E02D02.1
+  SEL24       |38             |alt-location-id        |Location alt. ID            | See E04D02.3
+  SEL25       |39             |alt-location-id-type   |Location alt. ID type       | See E04D02.1
+  SEL26       |40             |alt-authority-id       |Authority alt. ID           | See E14D02.3
+  SEL27       |41             |alt-authority-id-type  |Authority alt. ID type      | See E14D02.1
 
 ### <a id="SPA"></a>SPA Special attention required flag
 
