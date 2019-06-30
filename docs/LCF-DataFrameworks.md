@@ -531,7 +531,7 @@ Contact details for the primary contact person or organization for a patron, loc
 
 ***
 
-### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME
+### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 [Back to entity list](#entities)
 
 #### Description
@@ -551,7 +551,7 @@ An identified scheme for classification of titles.
 
 ***
 
-### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM
+### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 [Back to entity list](#entities)
 
 #### Description
