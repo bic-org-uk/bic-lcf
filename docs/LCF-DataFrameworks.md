@@ -866,21 +866,21 @@ Circulation management functions
 ### <a name="f11"></a> 11 Check-out / renewal (create loan)
 [Back to functions list](#functions)
 
-The check-out / renewal function combines the following core functions:
+The check-out / renewal function, if successfully executed, causes an LMS to perform a number of consequential actions to create, delete or modify various entity records. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record creation, modification or deletion actions might be performed by an LMS:
 
--   Unless this is a confirmation or cancellation of check-out or renewal, retrieve the patron, item and manifestation records to check the patron’s status and ensure that check-out is permitted and to check for any applicable fees.
+-   Unless this is a confirmation or cancellation of check-out or renewal, an LMS would typically retrieve the patron, item and manifestation records to check the patron’s status and ensure that check-out is permitted and to check for any applicable fees.
 
--   If check-out / renewal is to proceed, create a loan record for the specified patron and item. If cancelling a check-out or renewal, search for and either delete or modify the loan record.
+-   If check-out / renewal is to proceed, an LMS would create a loan record for the specified patron and item and, in the case of renewal, modify or delete the existing loan record. If cancelling a check-out or renewal, an LMS would retrieve and either delete or modify the loan record.
 
--   Search for any reservation record for the specified patron and manifestation (or item) and modify to change its status.
+-   If there is an associated reservation record for the specified patron and manifestation (or item), an LMS would retrieve and modify or delete this record.
 
--   If fees apply, create a charge record for the applicable fee. If cancelling a check-out or renewal, search for and either delete or modify the charge record.
+-   If fees apply to check-out of this item, an LMS would create a charge record for the applicable fee. If cancelling a check-out or renewal, an LMS would retrieve and either delete or modify the charge record.
 
--   Modify the item record to update its circulation status and location and (optionally) add a reference to the loan record. If cancelling a previous check-out or renewal and deleting the associated loan record, remove any reference to this record from the item record.
+-   An LMS would modify the item record to update its circulation status and location and (optionally) add a reference to the loan record. If cancelling a previous check-out or renewal and deleting the associated loan record, an LMS would remove any reference to this loan record from the item record.
 
--   Modify the patron record to update patron status and the number of items on loan and (optionally) add a reference to the loan record. If cancelling a previous check-out or renewal and deleting the associated loan record, remove any reference to this record from the patron record.
+-   An LMS would modify the patron record to update patron status and the number of items on loan and (optionally) add a reference to the loan record. If cancelling a previous check-out or renewal and deleting the associated loan record, an LMS would remove any reference to this loan record from the patron record.
 
-The terminal application must provide all the information required for all the necessary core functions to be performed.
+This implies that the terminal application must provide sufficient information in the request for all the necessary consequential actions to be performed by the LMS.
 
 #### Request
 
@@ -910,13 +910,15 @@ The terminal application must provide all the information required for all the n
 ### <a name="f12"></a> 12 Check-in
 [Back to functions list](#functions)
 
-The check-in function combines the following core functions:
+The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification actions might be performed by an LMS:
 
--   Retrieve the item record and modify to update circulation status and location.
+-   The LMS would retrieve the item record and modify to update circulation status and location.
 
--   Retrieve the loan record for this item and modify it to update its status.
+-   The LMS would retrieve the loan record for this item and modify it to update its status.
 
--   Retrieve the patron record and modify it to update the number of items on loan.
+-   The LMS would retrieve the patron record and modify it to update the number of items on loan.
+
+-   If appropriate (such as when the item is overdue, or when a loan fee is dependent upon the precise date and time of check-in), the LMS would create a charge record for any fine or fee due.
 
 #### Request
 
@@ -944,11 +946,11 @@ The check-in function combines the following core functions:
 ### <a name="f13"></a> 13 Patron payment
 [Back to functions list](#functions)
 
-The patron payment function combines the following core functions:
+The patron payment function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, and assuming payment has been authorised or does not require authorisation, either or both of the following entity record modification actions might be performed by an LMS:
 
--   Attempt to create a payment record for the amount to be paid. If cancelling a payment, the payment record is deleted or the payment status is modified.
+-   The LMS would create a payment record for the amount to be paid. If cancelling a payment, the payment record is deleted or the payment status is modified.
 
--   Retrieve and modify the charge records to update the charge status.
+-   The LMS would retrieve and modify the relevant charge records to update their charge status.
 
 #### Request
 
