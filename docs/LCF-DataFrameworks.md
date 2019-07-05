@@ -910,7 +910,7 @@ This implies that the terminal application must provide sufficient information i
 ### <a name="f12"></a> 12 Check-in
 [Back to functions list](#functions)
 
-The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification actions might be performed by an LMS:
+The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification or creation actions might be performed by an LMS:
 
 -   The LMS would retrieve the item record and modify to update circulation status and location.
 
@@ -946,7 +946,7 @@ The check-in function, if successfully executed, causes an LMS to perform a numb
 ### <a name="f13"></a> 13 Patron payment
 [Back to functions list](#functions)
 
-The patron payment function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, and assuming payment has been authorised or does not require authorisation, either or both of the following entity record modification actions might be performed by an LMS:
+The patron payment function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, and assuming payment has been authorised or does not require authorisation, either or both of the following entity record modification or deletion actions might be performed by an LMS:
 
 -   The LMS would create a payment record for the amount to be paid. If cancelling a payment, the payment record is deleted or the payment status is modified.
 
@@ -977,7 +977,7 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 ### <a name="f14"></a> 14 Block patron account
 [Back to functions list](#functions)
 
-Used to prevent unauthorised use of a patron account, such as when the patron’s library card is stolen or mislaid. This function is simply an application of core functions to retrieve and modify a patron entity. The patron's current record is retrieved and the patron status and library card status updated as appropriate. If necessary a blocked card message is added.
+Used to prevent unauthorised use of a patron account, such as when the patron’s library card is stolen or mislaid. This function could alternatively be implemented using core functions to retrieve and modify a patron entity: the patron's current record is retrieved, the patron status and library card status are updated and any blocked card messages is added, as appropriate.
 
 #### Request
 
@@ -998,7 +998,7 @@ Used to prevent unauthorised use of a patron account, such as when the patron’
 ### <a name="f15"></a> 15 Un-block patron account
 [Back to functions list](#functions)
 
-This function is very similar to function 14 Block patron. A patron record is retrieved and the patron status and library card status are updated as appropriate. Any blocked card message is removed.
+This function is very similar to function 14 Block patron. Any blocked card message is removed. This function could alternatively be implemented using core functions to retrieve and modify a patron entity: the patron's current record is retrieved and the patron status and library card status are updated as appropriate.
 
 #### Request
 
@@ -1017,17 +1017,17 @@ This function is very similar to function 14 Block patron. A patron record is re
 ### <a name="f16"></a> 16 Reserve manifestation / item
 [Back to functions list](#functions)
 
-The reserve function combines the following core functions:
+The reserve function, if successfully executed, causes an LMS to perform a number of consequential actions to create, delete or modify various entity records. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record creation, modification or deletion actions might be performed by an LMS:
 
--   Unless this is a confirmation or cancellation of reservation, retrieve the patron, item and/or manifestation records to check the patron’s status and ensure that reservation is permitted and to check for any applicable fees.
+-   Unless this is a confirmation or cancellation of reservation, the LMS would retrieve the patron, item and/or manifestation records to check the patron’s status and ensure that reservation is permitted and to check for any applicable fees.
 
--   If reservation is to proceed, create a reservation record for the specified patron and manifestation or item. If cancelling a reservation, search for and either delete or modify the reservation record.
+-   If reservation is to proceed, the LMS would create a reservation record for the specified patron and manifestation or item. If cancelling a reservation, the LMS would either delete or modify the corresponding reservation record.
 
--   If fees apply, create a charge record for the applicable fee. If cancelling a reservation, search for and either delete or modify the charge record.
+-   If fees apply, the LMS would create a charge record for the applicable fee. If cancelling a reservation, the LMS would either delete or modify the corresponding charge record.
 
--   Modify the manifestation or item record to add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, remove any reference to this record from the associated manifestation or item record.
+-   The LMS would modify the manifestation or item record to add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, the LMS would remove any reference to this record from the associated manifestation or item record.
 
--   Modify the patron record to update patron status and the number of items on loan and (optionally) add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, remove any reference to this record from the patron record.
+-   The LMS would modify the patron record to update patron status and the number of items on loan and (optionally) add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, the LMS remove any reference to this record from the patron record.
 
 #### Request
 
