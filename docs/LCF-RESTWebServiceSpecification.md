@@ -190,7 +190,7 @@ A half-closed range is specified by a pair of values, the first less (or earlier
 -    `(x,y]` means that a value `v` meets the selection criterion if it is is in the range `x < v <= y`
 -    `[x,y)` means that a value `v` meets the selection criterion if it is in the range `x <= v < y`.
 
-An unbounded range is an open, half-closed range in which at one open end of the range no bound is specified, e.g.:
+An unbounded range is an open or half-closed range in which at one open end of the range no bound is specified, e.g.:
 
 -    `(,x)` means that a value `v` meets the selection criterion if it is in the range `v < x`
 -    `(,x]` means that a value `v` meets the selection criterion if it is in the range `v <= x`
