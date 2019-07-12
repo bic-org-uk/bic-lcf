@@ -80,9 +80,9 @@ Data frameworks are defined for the following principal types of information ent
 
 The data frameworks for the following other types of information entity are also defined:
 
--   [Classification schemes (e.g. for manifestation classification)](#e10)
+-   [Classification schemes (e.g. for manifestation classification) - *DEPRECATED in v1.2.0*](#e10)
 
--   [Classification codes](#e11)
+-   [Classification codes - *DEPRECATED in v1.2.0*](#e11)
 
 -   [Entity properties recognised by the LMS (used for constructing entity selection criteria - *DEPRECATED in v1.0.1*)](#e12)
 
@@ -531,7 +531,7 @@ Contact details for the primary contact person or organization for a patron, loc
 
 ***
 
-### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME
+### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 [Back to entity list](#entities)
 
 #### Description
@@ -551,7 +551,7 @@ An identified scheme for classification of titles.
 
 ***
 
-### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM
+### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 [Back to entity list](#entities)
 
 #### Description
