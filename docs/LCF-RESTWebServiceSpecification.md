@@ -249,19 +249,51 @@ The request is formulated using the HTTP GET method.
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)         |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                             |
-| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02). |
+| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02).<br/>See below *(added in v1.2.0)* for how to specify ranges and lists of values in relevant parameter values. |
 | 7     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
 | 8     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
+#### Specifying ranges and sets in selection criteria *(added in v1.2.0)*
+
+The following notation is derived from ISO 31-11:1992.
+
+Where a selection criterion takes a date, date-time or a numerical value, a range may be specified using the following rules:
+
+A range may be open, closed, half-closed or unbounded.
+
+A closed range is specified by a pair of values, the first less (or earlier in time) than the second, separated by a comma and enclosed in square brackets, e.g. `[x,y]`, meaning that a value of `v` meets the selection criterion if it is the range `x <= v <= y`.
+
+An open range is specified by a pair of values, the first less (or earlier in time) than the second, separated by a comma and enclosed in parentheses, e.g. `(x,y)`, meaning that a value of `v` meets the selection criterion if it is in the range `x < v < y`.
+
+A half-closed range is specified by a pair of values, the first less (or earlier in time) than the second, separated by a comma and enclosed by a square bracket at the closed end of the range and by a parenthesis at the open end of the range, e.g. 
+
+-    `(x,y]` means that a value `v` meets the selection criterion if it is is in the range `x < v <= y`
+-    `[x,y)` means that a value `v` meets the selection criterion if it is in the range `x <= v < y`.
+
+An unbounded range is an open or half-closed range in which at one open end of the range no bound is specified, e.g.:
+
+-    `(,x)` means that a value `v` meets the selection criterion if it is in the range `v < x`
+-    `(,x]` means that a value `v` meets the selection criterion if it is in the range `v <= x`
+-    `(x,)` means that a value `v` meets the selection criterion if it is in the range `x < v`
+-    `[x,)` means that a value `v` meets the selection criterion if it is in the range `x <= v`
+
+A set of alternative values may be specified as a comma-separated list of values, ranges or a mixture of the two, enclosed in braces, e.g. 
+
+-    `{a,b,c}` means that a value `v` meets the selection criterion if it is any of `a` or `b` or `c`
+-    `{(x,y),z}` means that a value `v` meets the selection criterion if it is in the range `x < v < y` or is equal to `z`.
+
 *Examples of a Request*
+*(end-date range example added in v1.2.0)*
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations
     
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
     
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?os:count=10&os:startIndex=0
+    
+    GET http://192.168.0.99:80/lcf/1.0/patrons/12345/loans?end-date=[2019-06-01,2019-06-30]
 
 ### XML payload format for response message
 
