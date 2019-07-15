@@ -88,7 +88,7 @@ HTTP/401 - Service Terminal credentials were invalid, or need to be obtained fro
 HTTP/404 - the Patron represented by id-value does not exist
 ```
 
-where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D04.2 and Q00D05.2 (see [4](#Notes)).
+where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D04.2 and Q00D05.2 (see [\[4\]](#Notes)).
 
 **B** IP address authentication (frequently impractical, for example if IP assignment is dynamic)
 
@@ -121,7 +121,7 @@ HTTP/403 - The id-value and password\pin combination for the patron are invalid,
 HTTP/404 - the Patron represented by id-value does not exist
 ```
 
-where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [4](#Notes)).
+where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [\[4\]](#Notes)).
 
 **B** Inclusion of patron identification and password in query parameters in the HTTP Request. 
 
