@@ -367,7 +367,7 @@ E09 CONTACT
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
 |  11  | D09D07.3     | note-text                    | 1       | string      |         |
 
-E10 TITLE CLASSIFICATION SCHEME
+E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 -------------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
@@ -380,7 +380,7 @@ E10 TITLE CLASSIFICATION SCHEME
 |   6   | E10D03,2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E10D03.3     | note-text                   | 1       | string      |         |
 
-E11 TITLE CLASSIFICATION TERM
+E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 -----------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
