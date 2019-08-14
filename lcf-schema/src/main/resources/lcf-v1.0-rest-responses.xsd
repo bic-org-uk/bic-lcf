@@ -34,10 +34,7 @@
     <xs:element name="lcf-check-out-response">
         <xs:complexType>
             <xs:sequence>
-                <xs:choice>
-                    <xs:element ref="loan-ref"/>
-                    <xs:element ref="loan"/>
-                </xs:choice>
+                <xs:element ref="loan"/>
                 <xs:element ref="media-warning" minOccurs="0"/>
                 <xs:element ref="security-desensitize" minOccurs="0"/>
             </xs:sequence>
@@ -46,7 +43,7 @@
     <xs:element name="lcf-check-in-response">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="loan-ref" minOccurs="0"/>
+                <xs:element ref="loan"/>
                 <xs:element ref="return-location-ref" minOccurs="0"/>
                 <xs:element ref="media-warning" minOccurs="0"/>
                 <xs:element ref="special-attention" minOccurs="0"/>

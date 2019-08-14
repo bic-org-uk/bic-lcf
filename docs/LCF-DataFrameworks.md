@@ -826,8 +826,8 @@ This function is used to create a new item of a specific entity type. In practic
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R03D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item created in response to the request.**                                                         |
-| **R03D02** | **Item identifier**        |            | **1**   | **String**| **The LCF entity identifier for the inventory item, assigned by the LMS if a new item has been successfully created.**                             |
+| R03D01     | Entity type                |            | 0-1     | Code      | LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item created in response to the request.<br/>*Cardinality changed in v1.2.0*                       |
+| R03D02     | Item identifier            |            | 0-1     | String    | The LCF entity identifier for the inventory item, assigned by the LMS if a new item has been successfully created.<br/>*Cardinality changed in v1.2.0*           |
 
 ***
 
@@ -849,8 +849,8 @@ This function is used to modify an existing item of a specific entity type.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R04D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item created in response to the request.**                                                         |
-| **R04D02** | **Item identifier**        |            | **1**   | **String**| **The identifier for the item that has been successfully modified.**                                                                              |
+| R04D01     | Entity type                |            | 0-1     | Code      | LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item created in response to the request.<br/>*Cardinality changed in v1.2.0*                       |
+| R04D02     | Item identifier            |            | 0-1     | String    | The identifier for the item that has been successfully modified.<br/>*Cardinality changed in v1.2.0*                                                                  |
 
 ***
 
@@ -870,8 +870,8 @@ This function is used to delete an item of a specific entity type. Since deletio
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R05D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item created in response to the request.**                                                         |
-| **R05D02** | **Item identifier**        |            | **1**   | **String**| **The identifier of the item that has been successfully deleted**                                                                                    |
+| R05D01     | Entity type                |            | 0-1     | Code      | LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item created in response to the request.<br/>*Cardinality changed in v1.2.0*                       |
+| R05D02     | Item identifier            |            | 0-1     | String    | The identifier of the item that has been successfully deleted<br/>*Cardinality changed in v1.2.0*                                                                    |
 
 Circulation management functions
 --------------------------------
@@ -948,6 +948,7 @@ The check-in function, if successfully executed, causes an LMS to perform a numb
 | Id         | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R12D01     | Loan reference             |            | 0-1     | String    |                                 |
+| R12C09     | Loan entity record         |            | 0-1     |           | See E05 *Added in v1.2.0*       |
 | R12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
 | R12D03     | Item reference             | AB         | 0-1     | String    |                                 |
 | R12D04     | Item return location reference| CL      | 0-1     | String    | LCF entity identifier for return location, e.g. sort bin.                                                                                       |
@@ -982,7 +983,7 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R13D01** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
+| R13D01     | Patron reference           | AA         | 0-1     | String    | *Cardinality changed in v1.2.0* |
 | R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                                 |
 | R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                      |
 | R13D04     | Authorisation reference    |            | 0-1     | String    | Reference to an authorisation entity when the LMS needs to authorise that a payment transaction can proceed. The authorisation must be of type AUT02.<br/>*Added in v1.0.1*                     |
@@ -1004,7 +1005,7 @@ Used to prevent unauthorised use of a patron account, such as when the patron’
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R14D01** | **Patron reference**       |            | **1**   | **String**| **The identifier for the Patron record that has been successfully modified.**                                                                  |
+| R14D01     | Patron reference           |            | 0-1     | String    | The identifier for the Patron record that has been successfully modified.<br/>*Cardinality changed in v1.2.0*                                                     |
 
 ***
 
@@ -1023,7 +1024,7 @@ This function is very similar to function 14 Block patron. Any blocked card mess
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| **R15D01** | **Patron reference**       |            | **1**   | **String**| **The identifier for the Patron record that has been successfully modified.**                                                                  |
+| R15D01     | Patron reference           |            | 0-1     | String    | The identifier for the Patron record that has been successfully modified.<br/>*Cardinality changed in v1.2.0*                                                     |
 
 ***
 
