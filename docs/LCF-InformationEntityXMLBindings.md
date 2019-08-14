@@ -479,6 +479,19 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |  19   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |  20   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
 |  21   | E15D13.3     | note-text                   | 1       | string      |         |
+|  21   | E15C16       | delivery-summary            | 0-1     |             | *Added in v1.2.0*              |
+|  22   | E15D16.1     | delivered                   | 0-1     | Integer     |         |
+|  23   | E15D16.2     | acknowledged                | 0-1     | Integer     |         |
+|  24   | E15C16.3     | delivery-to-patron-category | 0-n     |             |         |
+|  25   | E15D16.3.1   | category-name               | 1       | String      |         |
+|  26   | E15D16.3.2   | total-patrons-in-category   | 0-1     | Integer     |         |
+|  27   | E15D16.3.3   | delivered                   | 0-1     | Integer     |         |
+|  28   | E15D16.3.4   | acknowledged                | 0-1     | Integer     |         |
+|  29   | E15C16.4     | delivery-to-related-patrons | 0-n     |             |         |
+|  30   | E15D16.4.1   | total-related-patrons       | 0-1     | Integer     |         |
+|  31   | E15D16.4.2   | delivered                   | 0-1     | Integer     |         |
+|  32   | E15D16.4.3   | acknowledged                | 0-1     | Integer     |         |
+
 
 EXCEPTION CONDITIONS
 --------------------

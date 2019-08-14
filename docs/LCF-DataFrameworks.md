@@ -684,9 +684,21 @@ A message or alert that may be communicated to a patron or group of patrons.
 | **E15D12.1**  | Text format             |            | **1**   | Code       | LCF code list **[TFT](LCF-CodeLists.md#TFT)**                                                                                                  |
 | **E15D12.2**  | Text string             |            | **1**   | String     |                                |
 | *E15C13*      | *Message/alert description / note* | | 0-n     |            |                                |
-| E15D13.1      | Note type                  |         | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
-| E15D13.2      | Note date-time             |         | 0-1     | DateTime   |                                |
-| E15D13.3      | Note text                  |         | 1       | String     |                                |
+| E15D13.1      | Note type               |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)** |
+| E15D13.2      | Note date-time          |            | 0-1     | DateTime   |                                |
+| E15D13.3      | Note text               |            | 1       | String     |                                |
+| *E15C16*      | Delivery information    |            | 0-1     |            | *Added in v1.2.0*              |
+| E15D16.1      | Total delivered         |            | 0-1     | Integer    | Number of Patrons to whom this message/alert has been delivered |
+| E15D16.2      | Total acknowledged      |            | 0-1     | Integer    | Number of Patrons from whom acknowledgements of this message/alert have been received |
+| *E15C16.3*    | Delivery to Patron category |        | 0-n     |            | Delivery status for specific category of Patron |
+| E15D16.3.1    | Category name           |            | 1       | String     |                                |
+| E15D16.3.2    | Total Patrons in category |          | 0-1     | Integer    | Number of Patrons at whom this message/alert is aimed |
+| E15D16.3.3    | Total delivered         |            | 0-1     | Integer    | Number of Patrons in category to whom this message/alert has been delivered |
+| E15D16.3.4    | Total acknowledged      |            | 0-1     | Integer    | Number of Patrons in this category from whom acknowledgements of this message/alert have been received |
+| *E15C16.4*    | Delivery to related Patrons |        | 0-n     |            | Delivery status for Patrons related to the specified Loans or Reservations |
+| E15D16.4.1    | Total Patrons           |            | 0-1     | Integer    | Number of Patrons at whom this message/alert is aimed |
+| E15D16.4.2    | Total delivered         |            | 0-1     | Integer    | Number of Patrons to whom this message/alert has been delivered |
+| E15D16.4.3    | Total acknowledged      |            | 0-1     | Integer    | Number of Patrons from whom acknowledgements of this message/alert have been received |
 
 
 Common components
