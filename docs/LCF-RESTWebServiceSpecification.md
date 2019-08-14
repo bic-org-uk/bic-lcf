@@ -331,7 +331,7 @@ The response to a check-out or renewal may be the same response as for creating 
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
 | **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                  |
 | ~~2~~ | ~~R11D01~~   | ~~loan-ref~~                             | ~~0-1~~ | ~~anyURI~~  | ~~One of R11D01, R11C02 or R11D03 must be included in the response.~~ (Removed in 1.2.0)                                              |
-| **3** | **R11C02**   | **loan**                                 | **1** |             | **See E05 (Cardinality changed in 1.2.0)** |
+| **3** | **R12C09**   | **loan**                                 | **1** |             | **See E05 (Cardinality changed in 1.2.0)** |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW) – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [SCD](LCF-CodeLists.md#SCD) – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
