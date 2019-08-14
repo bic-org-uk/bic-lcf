@@ -80,7 +80,7 @@ E01 MANIFESTATION
 |  39    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
 |  40    | E01D14.2     | amount                           | 1       | decimal     |         |
 |  41    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
-|  42    | E01D15       | patrons-in-hold-queue            |0-1R[1](#Notes)                                                 | int         |         |
+|  42    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
 |  43    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
 | **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
 |  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
@@ -368,7 +368,7 @@ E09 CONTACT
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
 |  11  | D09D07.3     | note-text                    | 1       | string      |         |
 
-E10 TITLE CLASSIFICATION SCHEME
+E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 -------------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
@@ -381,7 +381,7 @@ E10 TITLE CLASSIFICATION SCHEME
 |   6   | E10D03,2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E10D03.3     | note-text                   | 1       | string      |         |
 
-E11 TITLE CLASSIFICATION TERM
+E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 -----------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
