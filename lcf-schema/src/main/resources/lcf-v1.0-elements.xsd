@@ -221,6 +221,8 @@
     <xs:element name="items-in-stock" type="xs:int"/>
     <xs:element name="language" type="iso639LanguageCode"/>
     <xs:element name="lead-patron-ref" type="lcfEntityReference"/>
+    <xs:element name="library-status" type="libraryStatutoryStatus"/>
+    <xs:element name="library-type" type="libraryType"/>
     <xs:element name="link" type="nonEmptyString"/>
     <xs:element name="link-type" type="resourceAccessLinkType"/>
     <xs:element name="loan-fee">

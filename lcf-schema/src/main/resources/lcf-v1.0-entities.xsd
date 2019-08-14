@@ -73,6 +73,8 @@
         <xs:sequence>
             <xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="name"/>
+            <xs:element ref="library-status" minOccurs="0"/>
+            <xs:element ref="library-type" minOccurs="0"/>
             <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
