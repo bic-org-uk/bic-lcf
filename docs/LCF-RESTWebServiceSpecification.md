@@ -152,7 +152,7 @@ Care should be taken not to use operations which have side effects (e.g. POST, P
 
 #### 4. Patron Authorisation (Access Rights and Privileges) *(added in 1.2.0)*
 
-A request for Authorisations for a specific Patron are initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations.
+A request for the Authorisations for a specific Patron is initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations.
 
 The response to a successful Authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
 
