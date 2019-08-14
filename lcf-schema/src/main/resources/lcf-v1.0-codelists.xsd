@@ -1527,7 +1527,7 @@
             <xs:enumeration value="02"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="staffed">
+    <xs:simpleType name="staffedUnstaffed">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">STA</xs:appinfo>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Staffed / un-staffed</xs:documentation>
