@@ -338,6 +338,7 @@
             <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="message-text" maxOccurs="unbounded"/>
             <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="delivery-summary" minOccurs="0"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="patron">

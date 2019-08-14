@@ -25,6 +25,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="acknowledged" type="xs:int"/>
     <xs:element name="additional-authority-id">
         <xs:complexType>
             <xs:sequence>
@@ -133,6 +134,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="category-name" type="xs:string"/>
     <xs:element name="charge-amount" type="xs:decimal"/>
     <xs:element name="charge-limit">
         <xs:complexType>
@@ -191,7 +193,37 @@
             <xs:group ref="pecuniaryGroup"/>
         </xs:complexType>
     </xs:element>
+    <xs:element name="delivered" type="xs:int"/>
     <xs:element name="delivery-status" type="messageAlertDeliveryStatus"/>
+    <xs:element name="delivery-summary">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="delivered" minOccurs="0"/>
+                <xs:element ref="acknowledged" minOccurs="0"/>
+                <xs:element ref="delivery-to-patron-category" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="delivery-to-related-patrons" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="delivery-to-patron-category">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="category-name"/>
+                <xs:element ref="total-patrons-in-category" minOccurs="0"/>
+                <xs:element ref="delivered" minOccurs="0"/>
+                <xs:element ref="acknowledged" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="delivery-to-related-patrons">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="total-related-patrons" minOccurs="0"/>
+                <xs:element ref="delivered" minOccurs="0"/>
+                <xs:element ref="acknowledged" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="description" type="nonEmptyString"/>
     <xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
     <xs:element name="display-type" type="messageDisplayType"/>
@@ -364,6 +396,8 @@
     </xs:element>
     <xs:element name="title-text" type="nonEmptyString"/>
     <xs:element name="title-type" type="titleType"/>
+    <xs:element name="total-patrons-in-category" type="xs:int"/>
+    <xs:element name="total-related-patrons" type="xs:int"/>
     <xs:element name="transaction-reference" type="nonEmptyString"/>
     <xs:element name="type-name" type="nonEmptyString"/>
     <xs:element name="unavailable-hold-items" type="xs:int"/>
