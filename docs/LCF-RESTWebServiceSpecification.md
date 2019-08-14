@@ -59,31 +59,69 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 ### Implementation notes
 
-#### 1. Terminal application authentication *(updated for v1.0.1)*
+#### 1. Terminal Application Authentication *(updated for v1.2.0)*
 
-RESTful web service implementation of LCF may use any of the following methods for authentication of terminal applications, provided it is practical to do so, but method A is recommended as the most RESTful approach:
+LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. Where a RESTful web service implementation of LCF requires authentication of the Service Terminal, it may use any of the following methods, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
-**A** HTTP challenge-response authentication using status code 401[\[4\]](#Notes)
+**A** HTTP challenge-response authentication using status code 401[\[4\]](#Notes) either using HTTP BASIC authentication or a protocol such as OAuth or OpenId
 
 The LCF elements Q00D04.2 and Q00D05.2 are used in constructing the Base64-encoded "user-pass" for the 'Authorization' header field. In REST implementations the LCF elements Q00C04 and Q00C05 should not be included as query parameters or in request bodies.
+
+In this case, HTTP BASIC authentication should be provided for each web service call requiring Terminal Service authentication. The LCF Server validates this authentication request, and where valid, it then processes the authorisation to dis/allow access to the requested web service. Alternatively an external IdP (Identity Provider), using a protocol such as OAuth or OpenId, may be used for authentication.
+
+A response code of 401 indicates that the Service Terminal credentials were incorrect or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
+
+```
+GET /lcf/1.0/patrons/{id-value}
+Authorization: BASIC {Base64-encoded-terminal-credentials}
+
+Responds with:
+HTTP/200
+Where the Body / Payload is a patron entity response
+
+-- or --
+
+HTTP/401 - Service Terminal credentials were invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/404 - the Patron represented by id-value does not exist
+```
+
+where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D04.2 and Q00D05.2 (see [\[4\]](#Notes)).
 
 **B** IP address authentication (frequently impractical, for example if IP assignment is dynamic)
 
 **C** Public Key Infrastructure (PKI) authentication.
 
-#### 2. Patron authentication, access rights and privileges *(substantially revised for v1.0.1)*
+#### 2. Patron Authentication *(updated for 1.2.0)*
 
 In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
 
 **A** Inclusion of an HTTP Request header field 'lcf-patron-credential'
 
-For example, to request details of a patron's access rights and privileges, using a terminal that does not yet have authenticated access to the server by virtue of a previous request:
+Where an LCF web service requires authentication of a Patron, this is done by using the HTTP header field "lcf-patron-credential". This should use the same format as HTTP BASIC authentication, i.e. the value "patron-id:password" encoded using BASE64, prepended by "BASIC ". Alternatively if an external IdP (Identity Provider) using a protocol such as OAuth or OpenId, is used for authentication, the token from the IdP can also be passed via this field.
 
-    GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations
-    Authorization: Basic {basic-terminal-credentials}
-    lcf-patron-credential: {Base64-encoded-patron-credentials}
+A response code of 403 indicates that the patron credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
 
-where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [4](#Notes)).
+```
+GET /lcf/1.0/patrons/{id-value}
+lcf-patron-credential: BASIC {Base64-encoded-patron-credentials}
+
+Responds with:
+HTTP/200
+Where the Body / Payload is a patron entity response
+
+-- or --
+
+HTTP/403 - The id-value and password\pin combination for the patron are invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/404 - the Patron represented by id-value does not exist
+```
+
+where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID (Q00D01.2) and encrypted password (Q00D02.2) in the same manner as for terminal authentication (method A above - see [\[4\]](#Notes)).
 
 **B** Inclusion of patron identification and password in query parameters in the HTTP Request. 
 
@@ -100,23 +138,67 @@ For either method the normal HTTP response status codes would apply:
 - 403 (Forbidden), indicating that patron authentication has not been provided or has failed
 - 404 (Not Found), indicating that the specified patron ID does not exist.
 
-#### 3. Secure communication
+#### 3. Determining if an Operation requires Authentication *(added in 1.2.0)*
+
+The client should attempt the operation with no authentication information (neither terminal authentication via HTTP Basic nor user authentication via lcf-patron-credential HTTP header) 
+
+A response code of 200 or 201 means that no authentication is required.
+A response of 401 means that terminal authentication is required.
+A response of 403 means that patron authentication is required.
+
+(if both terminal and patron authentication is required, the server may respond with either 401 or 403, and may respond to a subsequent request with a similar message should the client send only one of the required authentication).
+
+Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
+
+#### 4. Patron Authorisation (Access Rights and Privileges) *(added in 1.2.0)*
+
+Authorisation requests are initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations
+
+The response to a successful Authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
+
+Each AUTHORISATION entity within the list must state which authorisation is being granted. There is currently a controlled list (code list [AUT](LCF-CodeLists.md#AUT)) of common authorisations which can be used in an [AUTHORISATION entities](LCF-Dataframeworks.md#E13), although an implementation may extend this with custom [AUTHORISATION entities](LCF-Dataframeworks.md#E13).
+
+Implementations SHOULD only provide a list of [AUTHORISATION entities](LCF-Dataframeworks.md#E13) after a successful Patron Authentication (see above). As such this operation MAY be used for Patron authentication purposes.
+
+```
+GET /lcf/1.0/patrons/{id-value}/authorisations
+Authorization: BASIC {Base64-encoded-terminal-credentials}=
+lcf-patron-credential: BASIC {Base64-encoded-patron-credentials}
+
+Responds with:
+HTTP/200
+Where the Body / Payload is an authorisation entity response. Note that the authorisation entity response could be empty, indicating that there are no authorisations granted.
+
+-- or --
+
+HTTP/401 - Service Terminal credentials were invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/403 - The id-value and password\pin combination are invalid, or need to be obtained from the IdP again
+
+-- or --
+
+HTTP/404 - the Patron represented by id-value does not exist
+```
+
+#### 5. Secure communication
 
 Connections should use HTTPS for all Live deployments.
 
-#### 4. Time-stamped requests and responses
+#### 6. Time-stamped requests and responses
 
 Date and time stamps should be carried as HTTP parameters and the LCF elements Q00D08 and R00D04 should not be used in REST implementations.
 
-#### 5. Exception conditions in RESTful web service responses
+#### 7. Exception conditions in RESTful web service responses
 
 In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if it is valid to include a payload with the specific HTTP response status code.
 
-#### 6. Encoding rules in URI query parts 
+#### 8. Encoding rules in URI query parts 
 
 The URI syntax rules don't allow certain characters in query parts, including the space character. Although these rules allow a space character to be represented by a '+' sign, it is recommended that all non-allowed characters should always be encoded using percent encoding, i.e. '%' followed by hexadecimal digits representing the character's Unicode character number.
 
-#### 7. Reporting LCF version in responses *(Added in v1.2.0)*
+#### 9. Reporting LCF version in responses *(Added in v1.2.0)*
 
 The LCF element R00D07 should be carried by a custom field 'lcf-version' in the HTTP(S) response header, e.g.
 
@@ -167,19 +249,51 @@ The request is formulated using the HTTP GET method.
 | 3     |              | /{key-entity-type}    |                       | 0-1     | Code        | Key entity type, when retrieving a list of entities relating to a specific key entity, e.g. a list of items relating to a specific manifestation, or a list of charges relating to a specific patron. If included in the request, the identifier of the key entity must also be included. The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)         |
 | 4     |              | /{key-entity-id-value}|                       | 0-1     | string      |              |
 | **5** | **Q02D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)**                                                             |
-| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02). |
+| 6     | Q02C02       |                       | {selection-criterion-code}| 0-n | Variable    | Each query parameter name must be the alpha version of a selection criterion code as specified in code list [SEL](LCF-CodeLists.md#SEL). The parameter name and value in each case correspond to Q02D02.1 and Q02D02.2 respectively in the [Data Frameworks](LCF-DataFrameworks.md#f02).<br/>See below *(added in v1.2.0)* for how to specify ranges and lists of values in relevant parameter values. |
 | 7     | Q02D04       |                       | os:count              | 0-1     | int         | Implements the OpenSearch 1.1 'count' parameter                                                                                         |
 | 8     | Q02D05       |                       | os:startIndex         | 0-1     | int         | Implements the OpenSearch 1.1 'startIndex' parameter                                                                                    |
 
 NOTE – LCF element Q02D03 is not implemented in this binding.
 
+#### Specifying ranges and sets in selection criteria *(added in v1.2.0)*
+
+The following notation is derived from ISO 31-11:1992.
+
+Where a selection criterion takes a date, date-time or a numerical value, a range may be specified using the following rules:
+
+A range may be open, closed, half-closed or unbounded.
+
+A closed range is specified by a pair of values, the first less (or earlier in time) than the second, separated by a comma and enclosed in square brackets, e.g. `[x,y]`, meaning that a value of `v` meets the selection criterion if it is the range `x <= v <= y`.
+
+An open range is specified by a pair of values, the first less (or earlier in time) than the second, separated by a comma and enclosed in parentheses, e.g. `(x,y)`, meaning that a value of `v` meets the selection criterion if it is in the range `x < v < y`.
+
+A half-closed range is specified by a pair of values, the first less (or earlier in time) than the second, separated by a comma and enclosed by a square bracket at the closed end of the range and by a parenthesis at the open end of the range, e.g. 
+
+-    `(x,y]` means that a value `v` meets the selection criterion if it is is in the range `x < v <= y`
+-    `[x,y)` means that a value `v` meets the selection criterion if it is in the range `x <= v < y`.
+
+An unbounded range is an open or half-closed range in which at one open end of the range no bound is specified, e.g.:
+
+-    `(,x)` means that a value `v` meets the selection criterion if it is in the range `v < x`
+-    `(,x]` means that a value `v` meets the selection criterion if it is in the range `v <= x`
+-    `(x,)` means that a value `v` meets the selection criterion if it is in the range `x < v`
+-    `[x,)` means that a value `v` meets the selection criterion if it is in the range `x <= v`
+
+A set of alternative values may be specified as a comma-separated list of values, ranges or a mixture of the two, enclosed in braces, e.g. 
+
+-    `{a,b,c}` means that a value `v` meets the selection criterion if it is any of `a` or `b` or `c`
+-    `{(x,y),z}` means that a value `v` meets the selection criterion if it is in the range `x < v < y` or is equal to `z`.
+
 *Examples of a Request*
+*(end-date range example added in v1.2.0)*
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations
     
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
     
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?os:count=10&os:startIndex=0
+    
+    GET http://192.168.0.99:80/lcf/1.0/patrons/12345/loans?end-date=[2019-06-01,2019-06-30]
 
 ### XML payload format for response message
 

@@ -80,7 +80,7 @@ E01 MANIFESTATION
 |  39    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
 |  40    | E01D14.2     | amount                           | 1       | decimal     |         |
 |  41    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
-|  42    | E01D15       | patrons-in-hold-queue            |0-1R[1](#Notes)                                                 | int         |         |
+|  42    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
 |  43    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
 | **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
 |  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
@@ -233,15 +233,16 @@ E04 LOCATION
 |   6   | E04D02.3     | value                       | 1       | string      |         |
 |   7   | E04D03       | name                        | 0-1     | string      |         |
 |   8   | E04D04       | location-type               | 0-1     | Code        | [LOT](LCF-CodeLists.md#LOT)     |
-|   9   | E04D05       | description                 | 0-1     | string      |         |
-|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
-|  11   | E04C08       | associated-location         | 0-n     |             |         |
-|  12   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
-|  13   | E04D08.2     | location-ref                | 1       | string      |         |
-|  14   | E04C06       | note                        | 0-n     |             |         |
-|  15   | E04D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  16   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
-|  17   | E04D06.3     | note-text                   | 1       | string      |         |
+|   9   | E04D09       | location-purpose            | 0-n     | Code        | [LOP](LCF-CodeLists.md#LOP)<br/>*Added in v1.2.0*    |
+|  10   | E04D05       | description                 | 0-1     | string      |         |
+|  11   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
+|  12   | E04C08       | associated-location         | 0-n     |             |         |
+|  13   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
+|  14   | E04D08.2     | location-ref                | 1       | string      |         |
+|  15   | E04C06       | note                        | 0-n     |             |         |
+|  16   | E04D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  17   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
+|  18   | E04D06.3     | note-text                   | 1       | string      |         |
 
 E05 LOAN
 --------
@@ -367,7 +368,7 @@ E09 CONTACT
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
 |  11  | D09D07.3     | note-text                    | 1       | string      |         |
 
-E10 TITLE CLASSIFICATION SCHEME
+E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 -------------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
@@ -380,7 +381,7 @@ E10 TITLE CLASSIFICATION SCHEME
 |   6   | E10D03,2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E10D03.3     | note-text                   | 1       | string      |         |
 
-E11 TITLE CLASSIFICATION TERM
+E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 -----------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |

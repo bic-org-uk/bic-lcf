@@ -8,7 +8,7 @@ weight: 1
 
 ## Library Interoperability Standards
 
-## Library Data Communication Framework for Terminal Applications (LCF)[1](#Notes)
+## Library Data Communication Framework for Terminal Applications (LCF)[\[1\]](#Notes)
 
 ### Version 1.2.0
 
@@ -46,7 +46,7 @@ The information that these functions retrieve or change related to a number of "
 
 -   contacts – contact details for persons or organizations represented by patrons.
 
-Each entity and each request and response message-pair is defined in terms of a data framework[[2](#Notes), or schema. A data framework specifies how to describe an entity in terms of a collection of properties (identifiers, name, etc.), and how to construct a message (request or response) in terms of entity descriptions and other parameters. Each data element and composite is defined in terms of what data it may contain and its meaning.
+Each entity and each request and response message-pair is defined in terms of a data framework[\[2\]](#Notes), or schema. A data framework specifies how to describe an entity in terms of a collection of properties (identifiers, name, etc.), and how to construct a message (request or response) in terms of entity descriptions and other parameters. Each data element and composite is defined in terms of what data it may contain and its meaning.
 
 This document is inevitably influenced by the widespread use of the 3M™ Standard Interchange Protocol Version 2.00 (SIP2) by library systems. Where appropriate, the relationship between an LCF function or data element and the corresponding SIP2 message type or field is indicated, to promote interoperability wherever possible between SIP2 and the LCF standard.
 
@@ -80,9 +80,9 @@ Data frameworks are defined for the following principal types of information ent
 
 The data frameworks for the following other types of information entity are also defined:
 
--   [Classification schemes (e.g. for manifestation classification)](#e10)
+-   [Classification schemes (e.g. for manifestation classification) - *DEPRECATED in v1.2.0*](#e10)
 
--   [Classification codes](#e11)
+-   [Classification codes - *DEPRECATED in v1.2.0*](#e11)
 
 -   [Entity properties recognised by the LMS (used for constructing entity selection criteria - *DEPRECATED in v1.0.1*)](#e12)
 
@@ -167,9 +167,9 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 #### Properties
 
-| *Id*       | *Element*                  | *SIP2 ID* | *Card.*[3](#Notes)                                                    | *Format*   | *Description*                  |
+| *Id*       | *Element*                  | *SIP2 ID* | *Card.*[\[3\]](#Notes)                                                    | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E01D01** | **Identifier**             |           | **1**[4](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                          |
+| **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                          |
 | *E01C02*   | *Additional identifier*    |           | 1-n      |            | Composite element containing details of an additional identifier for the manifestation.                                                             |
 | E01D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[MNI](LCF-CodeLists.md#MNI)**          |
 | E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
@@ -183,7 +183,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D04.2   | Title text                 |           | 1        | String     |                                |
 | E01D04.3   | Subtitle                   |           | 0-1      | String     |                                |
 | *E01C05*   | *Contributor*              |           | 0-n      |            | Composite element containing author or other contributor. Repeatable for multiple contributors.                                                    |
-| E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[5](#Notes).                                                                        |
+| E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[\[5\]](#Notes).                                                                        |
 | E01D05.2   | Contributor name           |           | 0-1      | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                  |
 | E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | LCF code list **[UNC](LCF-CodeLists.md#UNC)**          |
 | *E01C06*   | *Series*                   |           | 0-1      |            | Composite element containing information about a series of which this manifestation is a member.                                            |
@@ -210,7 +210,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D14.1   | Fee type                   | BT        | 1        | Code       | LCF code list **[CHT](LCF-CodeLists.md#CHT)**          |
 | E01D14.2   | Fee amount                 | BV        | 1        | Value      | Currency value                 |
 | E01D14.3   | Fee currency               | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E01D15     | Number of patrons in hold queue | CF   | 0-1R[6](#Notes)                                                    | Integer    |                                |
+| E01D15     | Number of patrons in hold queue | CF   | 0-1R[\[6\]](#Notes)                                                    | Integer    |                                |
 | E01D16     | Manifestation record reference  |      | 0-1      | String     | A reference (e.g. URI or query string) for retrieving a catalogue record for this manifestation from the LMS or online catalogue.             |
 | **E01D17** | **Manifestation status**   |           | **1**    | **Code**   | LCF code list **[MNS](LCF-CodeLists.md#MNS)**          |
 | E01D18     | Number of copies in stock / holding |  | 0-1R     | Integer    |                                |
@@ -234,7 +234,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E02D01** | **Identifier**             | **AB**    | **1**[4](#Notes)                                                   | **String** | **The LCF identifier normally used when referring to this item entity.**                                                                          |
+| **E02D01** | **Identifier**             | **AB**    | **1**[\[4\]](#Notes)                                                   | **String** | **The LCF identifier normally used when referring to this item entity.**                                                                          |
 | *E02C02*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this item.                                                                     |
 | E02D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[IMI](LCF-CodeLists.md#IMI)**<br/>The identification scheme.                                                                                         |
 | E02D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
@@ -282,7 +282,7 @@ NOTE – Contact information is held in separate contact records for security an
 
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E03D01** | **Identifier**             | **AA**    | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier normally used when referring to this patron.**                                                                          |
+| **E03D01** | **Identifier**             | **AA**    | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier normally used when referring to this patron.**                                                                          |
 | E03D26     | Barcode identifier         |           | 0-1      | String     | The identifier on the patron's library card. Mandatory unless the LCF entity identifier is the same identifier.<br/>*Added in v1.0.1*            |
 | *E03C27*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this patron.<br/>*Added in v1.0.1*                                                |
 | E03D27.1   | Identifier type            |           | 1        | Code       | LCF code list **[PNI](LCF-CodeLists.md#PNI)**<br/>The identification scheme.                                                                                         |
@@ -353,13 +353,14 @@ A location associated with a library, such as:
 
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E04D01** | **Identifier**             |           | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier normally used when referring to this location.**                                                                        |
+| **E04D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier normally used when referring to this location.**                                                                        |
 | *E04C02*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this location.                                                                 |
 | E04D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[LOI](LCF-CodeLists.md#LOI)**<br/>The identification scheme                                                                                          |
 | E04D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
 | E04D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | E04D03     | Location name              |           | 0-1      | String     |                                |
-| E04D04     | Location type              |           | 0-1      | Code       | LCF code list **[LOT](LCF-CodeLists.md#LOT)**              |
+| E04D04     | Location type              |           | 0-1      | Code       | LCF code list **[LOT](LCF-CodeLists.md#LOT)**  |
+| E04D09     | Location purpose           |           | 0-n      | Code       | LCF code list **[LOP](LCF-CodeLists.md#LOP)**<br/>*Added in v1.2.0* |
 | E04D05     | Location description       |           | 0-1      | String     |                                |
 | E04D07     | Contact reference          |           | 0-n      | String     | *Added in v1.0.1*                 |
 | *E04C08*   | *Associated location*      |           | 0-n      |            | A location associated with this location.<br/>*Added in v1.0.1*                                                                                            |
@@ -383,7 +384,7 @@ An identified event in which one or more items have been loaned to a patron.
 
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*  | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E05D01** | **Loan identifier**        |           | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this loan.**                                                                                 |
+| **E05D01** | **Loan identifier**        |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this loan.**                                                                                 |
 | **E05D02** | **Patron reference**       | **AA**    | **1**    | **String** |                                |
 | **E05D03** | **Item reference**         | **AB**    | **1**    | **String** | **A loan applies to a single item** |
 | **E05D04** | **Loan start date-time**   |           | **1**    |**DateTime**|                                |
@@ -416,7 +417,7 @@ An identified event in which one or more titles have been reserved for a patron.
 
 | *Id*       | *Element*                   | *SIP2 ID* | *Card.* | *Format*   | *Description*                  |
 |------------|-----------------------------|-----------|---------|------------|--------------------------------|
-| **E06D01** | **Reservation identifier**  |           | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this reservation.**                                                                          |
+| **E06D01** | **Reservation identifier**  |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this reservation.**                                                                          |
 | **E06D02** | **Reservation type**        |           | **1**   | **Code**   | **LCF code list [RVT](LCF-CodeLists.md#RVT)**          |
 | **E06D03** | **Patron reference**        | **AA**    | **1**   | **String** |                                |
 | E06D04     | Manifestation reference     |           | 0-1     | String     | A reservation applies to either a single manifestation or a single item. Each reservation must have one or the other but not both.               |
@@ -451,7 +452,7 @@ An identified charge made to a patron. May be a fee or a fine.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E07D01** | **Charge identifier**      | **CG**     | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this charge.**                                                                               |
+| **E07D01** | **Charge identifier**      | **CG**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this charge.**                                                                               |
 | **E07D02** | **Patron reference**       | **AA**     | **1**   | **String** |                                |
 | **E07D03** | **Charge type**            | **BT**     | **1**   | **Code**   | **LCF code list [CHT](LCF-CodeLists.md#CHT)<br/>The type or category of charge.**                                                                                          |
 | **E07D04** | **Charge status**          |            | **1**   | **Code**   | **LCF code list [CHS](LCF-CodeLists.md#CHS)**          |
@@ -486,7 +487,7 @@ An identified payment made by a patron to settle one or more charges.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E08D01** | **Payment identifier**     | **AA**     | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                                                              |
+| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                                                              |
 | **E08D02** | **Patron reference**       |            | **1**   | **String** |                                |
 | **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                           |
 | E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                             |
@@ -514,7 +515,7 @@ Contact details for the primary contact person or organization for a patron, loc
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E09D01** | **Contact identifier**     |            | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this contact.**                                                                              |
+| **E09D01** | **Contact identifier**     |            | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this contact.**                                                                              |
 | **<strike>E09D02</strike>** | **<strike>Name</strike>** | **<strike>AE</strike>** | **<strike>1</strike>** | **<strike>String</strike>** | **<strike>Name of person or organization.</strike>**<br/>       *Removed in v1.0.1* |
 | E09D03     | Patron reference           |            | 0-1     | String     | Each instance of E09 must contain one and only one of E09D03, E09D10 or E09D11<br/>*Note added and cardinality changed in v1.0.1*   |
 | E09D10     | Location reference         |            | 0-1     | String     | *Added in v1.0.1*                 |
@@ -531,7 +532,7 @@ Contact details for the primary contact person or organization for a patron, loc
 
 ***
 
-### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME
+### <a name="e10"></a> E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 [Back to entity list](#entities)
 
 #### Description
@@ -542,7 +543,7 @@ An identified scheme for classification of titles.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E10D01** | **Classification scheme identifier** |  | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this scheme.**                                                                               |
+| **E10D01** | **Classification scheme identifier** |  | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this scheme.**                                                                               |
 | **E10D02** | **Scheme name**            |            | **1**   | **String** | **A name or short description of the scheme**                                                                                                       |
 | *E10C03*   | *Scheme description / note*|            | 0-n     |            | Further, more extensive description of the scheme                                                                                                  |
 | E10D03.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
@@ -551,7 +552,7 @@ An identified scheme for classification of titles.
 
 ***
 
-### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM
+### <a name="e11"></a> E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 [Back to entity list](#entities)
 
 #### Description
@@ -562,7 +563,7 @@ A classification term in an identified scheme for classification of titles.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E11D01** | **Classification identifier** |         | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this classification term.**                                                                  |
+| **E11D01** | **Classification identifier** |         | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this classification term.**                                                                  |
 | **E11D02** | **Classification code**    |            | **1**   | **String** | **A code or number used as a label for the classification term.**                                                                                 |
 | **E11D03** | **Classification scheme reference** |   | **1**   | **String** | **The LCF entity identifier for the classification scheme to which this classification term belongs**                                              |
 | E11D04     | Classification term heading|            | 0-1     | String     | A heading or name for the classification term.                                                                                           |
@@ -586,7 +587,7 @@ An identified property of an entity that can be used as a selection criterion wh
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E12D01** | **Identifier**             |            | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this selection criterion.**                                                                  |
+| **E12D01** | **Identifier**             |            | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this selection criterion.**                                                                  |
 | **E12D02** | **Criterion type name**    |            | **1**   | **String** | **Name of the selection criterion type, to be used in item list requests.**                                                                      |
 | E12D03     | Entity type                |            | 0-n     | Code       | LCF code list **[ENT](LCF-CodeLists.md#ENT)**<br/>If applicable, the types of entity for which this is a valid selection criterion.                                 |
 | E12D04     | Criterion type description |            | 0-1     | String     | A description of the criterion type and the domain and range of its values.                                                                        |
@@ -611,7 +612,7 @@ A patron authorisation code: either a standard code from LCF code list [AUT](LCF
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E13D01** | **Authorisation identifier** |          | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this authorisation.**                        |
+| **E13D01** | **Authorisation identifier** |          | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this authorisation.**                        |
 | E13D02     | Authorisation type         |            | 0-1     | Code       | LCF code list **[AUT](LCF-CodeLists.md#AUT)**                                                                                                    |
 | E13D03     | Authorisation heading      |            | 0-1     | String     | A heading or name for the authorisation. Must be omitted if E13D02 is included.                                                          |
 | *E13C04*   | *Authorisation description / note* |    | 0-n     |            |                                |
@@ -632,7 +633,7 @@ A library authority or institution.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E14D01** | **Authority/institution identifier** |  | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this authority/institution.**.               |
+| **E14D01** | **Authority/institution identifier** |  | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this authority/institution.**.               |
 | *E14C02*   | *Additional identifier*    |           | 0-n     |            | Composite element containing details of an additional identifier for this authority or institution                                                     |
 | E14D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[INS](LCF-CodeLists.md#INS)**<br/>The identification scheme.                                                                   |
 | E14D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
@@ -666,7 +667,7 @@ A message or alert that may be communicated to a patron or group of patrons.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E15D01** | **Message/alert identifier** |  | **1**[4](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this message/alert.**.                       |
+| **E15D01** | **Message/alert identifier** |  | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this message/alert.**.                       |
 | E15D02     | Associated authority/institution |      | 0-1     | String     |                                |
 | **E15D03** | **Message/alert type**     |            | **1**   | **Code**   | LCF code list **[MAT](LCF-CodeLists.md#MAT)**                                                                                                  |
 | E15D04     | Message/alert priority     |            | 0-1     | Code       | LCF code list **[MAP](LCF-CodeLists.md#MAP)**                                                                                                  |
@@ -922,7 +923,7 @@ This implies that the terminal application must provide sufficient information i
 ### <a name="f12"></a> 12 Check-in
 [Back to functions list](#functions)
 
-The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification actions might be performed by an LMS:
+The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification or creation actions might be performed by an LMS:
 
 -   The LMS would retrieve the item record and modify to update circulation status and location.
 
@@ -958,7 +959,7 @@ The check-in function, if successfully executed, causes an LMS to perform a numb
 ### <a name="f13"></a> 13 Patron payment
 [Back to functions list](#functions)
 
-The patron payment function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, and assuming payment has been authorised or does not require authorisation, either or both of the following entity record modification actions might be performed by an LMS:
+The patron payment function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, and assuming payment has been authorised or does not require authorisation, either or both of the following entity record modification or deletion actions might be performed by an LMS:
 
 -   The LMS would create a payment record for the amount to be paid. If cancelling a payment, the payment record is deleted or the payment status is modified.
 
@@ -989,7 +990,7 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 ### <a name="f14"></a> 14 Block patron account
 [Back to functions list](#functions)
 
-Used to prevent unauthorised use of a patron account, such as when the patron’s library card is stolen or mislaid. This function is simply an application of core functions to retrieve and modify a patron entity. The patron's current record is retrieved and the patron status and library card status updated as appropriate. If necessary a blocked card message is added.
+Used to prevent unauthorised use of a patron account, such as when the patron’s library card is stolen or mislaid. This function could alternatively be implemented using core functions to retrieve and modify a patron entity: the patron's current record is retrieved, the patron status and library card status are updated and any blocked card messages is added, as appropriate.
 
 #### Request
 
@@ -1010,7 +1011,7 @@ Used to prevent unauthorised use of a patron account, such as when the patron’
 ### <a name="f15"></a> 15 Un-block patron account
 [Back to functions list](#functions)
 
-This function is very similar to function 14 Block patron. A patron record is retrieved and the patron status and library card status are updated as appropriate. Any blocked card message is removed.
+This function is very similar to function 14 Block patron. Any blocked card message is removed. This function could alternatively be implemented using core functions to retrieve and modify a patron entity: the patron's current record is retrieved and the patron status and library card status are updated as appropriate.
 
 #### Request
 
@@ -1029,17 +1030,17 @@ This function is very similar to function 14 Block patron. A patron record is re
 ### <a name="f16"></a> 16 Reserve manifestation / item
 [Back to functions list](#functions)
 
-The reserve function combines the following core functions:
+The reserve function, if successfully executed, causes an LMS to perform a number of consequential actions to create, delete or modify various entity records. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record creation, modification or deletion actions might be performed by an LMS:
 
--   Unless this is a confirmation or cancellation of reservation, retrieve the patron, item and/or manifestation records to check the patron’s status and ensure that reservation is permitted and to check for any applicable fees.
+-   Unless this is a confirmation or cancellation of reservation, the LMS would retrieve the patron, item and/or manifestation records to check the patron’s status and ensure that reservation is permitted and to check for any applicable fees.
 
--   If reservation is to proceed, create a reservation record for the specified patron and manifestation or item. If cancelling a reservation, search for and either delete or modify the reservation record.
+-   If reservation is to proceed, the LMS would create a reservation record for the specified patron and manifestation or item. If cancelling a reservation, the LMS would either delete or modify the corresponding reservation record.
 
--   If fees apply, create a charge record for the applicable fee. If cancelling a reservation, search for and either delete or modify the charge record.
+-   If fees apply, the LMS would create a charge record for the applicable fee. If cancelling a reservation, the LMS would either delete or modify the corresponding charge record.
 
--   Modify the manifestation or item record to add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, remove any reference to this record from the associated manifestation or item record.
+-   The LMS would modify the manifestation or item record to add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, the LMS would remove any reference to this record from the associated manifestation or item record.
 
--   Modify the patron record to update patron status and the number of items on loan and (optionally) add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, remove any reference to this record from the patron record.
+-   The LMS would modify the patron record to update patron status and the number of items on loan and (optionally) add a reference to the reservation record. If cancelling a previous reservation and deleting the associated reservation record, the LMS remove any reference to this record from the patron record.
 
 #### Request
 

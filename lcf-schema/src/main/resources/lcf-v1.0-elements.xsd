@@ -276,6 +276,7 @@
     </xs:element>
     <xs:element name="loan-status" type="loanStatusCode"/>
     <xs:element name="location-id-type" type="locationIDType"/>
+    <xs:element name="location-purpose" type="locationPurpose"/>
     <xs:element name="location-type" type="locationType"/>
     <xs:element name="location-ref" type="lcfEntityReference"/>
     <xs:element name="locator" type="nonEmptyString"/>

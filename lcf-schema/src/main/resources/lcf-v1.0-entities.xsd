@@ -13,7 +13,12 @@
     <xs:include schemaLocation="lcf-v1.0-elements.xsd"/>
 
     <!-- LCF Entities -->
-
+    
+    <xs:complexType name="lcf-entity" abstract="true">
+        <xs:sequence>
+            <xs:element ref="identifier" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:element name="authorisation">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E13</xs:appinfo>
@@ -22,35 +27,17 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0">
-                    <xs:annotation>
-                        <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#ComponentID">01</xs:appinfo>
-                    </xs:annotation>
-                </xs:element>
-                <xs:group ref="authorisation-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="authorisation-type" minOccurs="0"/>
+                        <xs:element ref="heading" minOccurs="0"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="authorisation-props">
-        <xs:sequence>
-            <xs:element ref="authorisation-type" minOccurs="0">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#ComponentID">02</xs:appinfo>
-                </xs:annotation>
-            </xs:element>
-            <xs:element ref="heading" minOccurs="0">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#ComponentID">03</xs:appinfo>
-                </xs:annotation>
-            </xs:element>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#ComponentID">04</xs:appinfo>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="authority">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E14</xs:appinfo>
@@ -59,26 +46,20 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0">
-                    <xs:annotation>
-                        <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#ComponentID">01</xs:appinfo>
-                    </xs:annotation>
-                </xs:element>
-                <xs:group ref="authority-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="name"/>
+                        <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="authority-props">
-        <xs:sequence>
-            <xs:element ref="additional-authority-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="name"/>
-            <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="associated-contact" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="associated-authority" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="charge">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E07</xs:appinfo>
@@ -87,33 +68,31 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="charge-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="patron-ref"/>
+                        <xs:element ref="charge-type"/>
+                        <xs:element ref="charge-status"/>
+                        <xs:element ref="description" minOccurs="0"/>
+                        <xs:element ref="item-ref" minOccurs="0"/>
+                        <xs:element ref="manifestation-ref" minOccurs="0"/>
+                        <xs:element ref="loan-ref" minOccurs="0"/>
+                        <xs:element ref="reservation-ref" minOccurs="0"/>
+                        <xs:element ref="creation-date" minOccurs="0"/>
+                        <xs:element ref="payment-due-date" minOccurs="0"/>
+                        <xs:element ref="charge-amount"/>
+                        <xs:element ref="currency" minOccurs="0"/>
+                        <xs:element ref="paid-amount" minOccurs="0"/>
+                        <xs:element ref="due-amount" minOccurs="0"/>
+                        <xs:element ref="paid-date" minOccurs="0"/>
+                        <xs:element ref="payment-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="charge-props">
-        <xs:sequence>
-            <xs:element ref="patron-ref"/>
-            <xs:element ref="charge-type"/>
-            <xs:element ref="charge-status"/>
-            <xs:element ref="description" minOccurs="0"/>
-            <xs:element ref="item-ref" minOccurs="0"/>
-            <xs:element ref="manifestation-ref" minOccurs="0"/>
-            <xs:element ref="loan-ref" minOccurs="0"/>
-            <xs:element ref="reservation-ref" minOccurs="0"/>
-            <xs:element ref="creation-date" minOccurs="0"/>
-            <xs:element ref="payment-due-date" minOccurs="0"/>
-            <xs:element ref="charge-amount"/>
-            <xs:element ref="currency" minOccurs="0"/>
-            <xs:element ref="paid-amount" minOccurs="0"/>
-            <xs:element ref="due-amount" minOccurs="0"/>
-            <xs:element ref="paid-date" minOccurs="0"/>
-            <xs:element ref="payment-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="class-scheme">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E10</xs:appinfo>
@@ -122,18 +101,16 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="class-scheme-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="name"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="class-scheme-props">
-        <xs:sequence>
-            <xs:element ref="name"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="class-term">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E11</xs:appinfo>
@@ -142,20 +119,18 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"> If the scheme is appropriate, the classification identifier may the chosen to be the same as the classification code.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="class-term-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="class-code"/>
+                        <xs:element ref="class-scheme-ref"/>
+                        <xs:element ref="heading" minOccurs="0"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="class-term-props">
-        <xs:sequence>
-            <xs:element ref="class-code"/>
-            <xs:element ref="class-scheme-ref"/>
-            <xs:element ref="heading" minOccurs="0"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="contact">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E09</xs:appinfo>
@@ -164,22 +139,20 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Description changed in v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="contact-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="patron-ref" minOccurs="0"/>
+                        <xs:element ref="location-ref" minOccurs="0"/>
+                        <xs:element ref="institution-ref" minOccurs="0"/>
+                        <xs:element ref="communication-type"/>
+                        <xs:element ref="locator" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="contact-props">
-        <xs:sequence>
-            <xs:element ref="patron-ref" minOccurs="0"/>
-            <xs:element ref="location-ref" minOccurs="0"/>
-            <xs:element ref="institution-ref" minOccurs="0"/>
-            <xs:element ref="communication-type"/>
-            <xs:element ref="locator" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="item">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E02</xs:appinfo>
@@ -188,32 +161,30 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="item-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="additional-item-id" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="manifestation-ref"/>
+                        <xs:element ref="description" minOccurs="0"/>
+                        <xs:element ref="owner-ref" minOccurs="0"/>
+                        <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="media-warning"/>
+                        <xs:element ref="security-desensitize"/>
+                        <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="circulation-status"/>
+                        <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
+                        <xs:element ref="on-loan-ref" minOccurs="0"/>
+                        <xs:element ref="condition-code" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="condition-description" minOccurs="0"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="item-props">
-        <xs:sequence>
-            <xs:element ref="additional-item-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="manifestation-ref"/>
-            <xs:element ref="description" minOccurs="0"/>
-            <xs:element ref="owner-ref" minOccurs="0"/>
-            <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="media-warning"/>
-            <xs:element ref="security-desensitize"/>
-            <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="circulation-status"/>
-            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
-            <xs:element ref="on-loan-ref" minOccurs="0"/>
-            <xs:element ref="condition-code" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="condition-description" minOccurs="0"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="loan">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E05</xs:appinfo>
@@ -222,29 +193,27 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="loan-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="patron-ref"/>
+                        <xs:element ref="item-ref"/>
+                        <xs:element ref="start-date"/>
+                        <xs:element ref="end-due-date" minOccurs="0"/>
+                        <xs:element ref="end-date" minOccurs="0"/>
+                        <xs:element ref="loan-status" maxOccurs="unbounded"/>
+                        <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="previous-loan-ref" minOccurs="0"/>
+                        <xs:element ref="renewal-loan-ref" minOccurs="0"/>   
+                        <xs:element ref="reservation-ref" minOccurs="0"/>            
+                        <xs:element ref="recall-notice-date" minOccurs="0"/>
+                        <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="loan-props">
-        <xs:sequence>
-            <xs:element ref="patron-ref"/>
-            <xs:element ref="item-ref"/>
-            <xs:element ref="start-date"/>
-            <xs:element ref="end-due-date" minOccurs="0"/>
-            <xs:element ref="end-date" minOccurs="0"/>
-            <xs:element ref="loan-status" maxOccurs="unbounded"/>
-            <xs:element ref="access-link" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="previous-loan-ref" minOccurs="0"/>
-            <xs:element ref="renewal-loan-ref" minOccurs="0"/>   
-            <xs:element ref="reservation-ref" minOccurs="0"/>            
-            <xs:element ref="recall-notice-date" minOccurs="0"/>
-            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="location">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E04</xs:appinfo>
@@ -253,23 +222,22 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="location-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="additional-location-id" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="name" minOccurs="0"/>
+                        <xs:element ref="location-type" minOccurs="0"/>
+                        <xs:element ref="location-purpose" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="description" minOccurs="0"/>
+                        <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="associated-location"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="location-props">
-        <xs:sequence>
-            <xs:element ref="additional-location-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="name" minOccurs="0"/>
-            <xs:element ref="location-type" minOccurs="0"/>
-            <xs:element ref="description" minOccurs="0"/>
-            <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="associated-location"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="manifestation">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E01</xs:appinfo>
@@ -278,36 +246,34 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="manifestation-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="additional-manifestation-id" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="media-type" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="contributor" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="series" minOccurs="0"/>
+                        <xs:element ref="edition-statement" minOccurs="0"/>
+                        <xs:element ref="publisher-name" minOccurs="0"/>
+                        <xs:element ref="year-of-publication" minOccurs="0"/>
+                        <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="cover-art" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="description" minOccurs="0"/>
+                        <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
+                        <xs:element ref="manifestation-record" minOccurs="0"/>
+                        <xs:element ref="manifestation-status"/>
+                        <xs:element ref="items-in-stock" minOccurs="0"/>
+                        <xs:element ref="item-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="manifestation-props">
-        <xs:sequence>
-            <xs:element ref="additional-manifestation-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="media-type" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="title" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="contributor" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="series" minOccurs="0"/>
-            <xs:element ref="edition-statement" minOccurs="0"/>
-            <xs:element ref="publisher-name" minOccurs="0"/>
-            <xs:element ref="year-of-publication" minOccurs="0"/>
-            <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="cover-art" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="description" minOccurs="0"/>
-            <xs:element ref="loan-restriction" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="loan-fee" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="patrons-in-hold-queue" minOccurs="0"/>
-            <xs:element ref="manifestation-record" minOccurs="0"/>
-            <xs:element ref="manifestation-status"/>
-            <xs:element ref="items-in-stock" minOccurs="0"/>
-            <xs:element ref="item-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="message-alert">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E15</xs:appinfo>
@@ -316,31 +282,29 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="message-alert-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="authority-ref" minOccurs="0"/>
+                        <xs:element ref="message-type"/>
+                        <xs:element ref="priority" minOccurs="0"/>
+                        <xs:element ref="display-type" minOccurs="0"/>
+                        <xs:element ref="display-constraint" minOccurs="0"/>
+                        <xs:element ref="start-date" minOccurs="0"/>
+                        <xs:element ref="end-date" minOccurs="0"/>
+                        <xs:element ref="audience" minOccurs="0"/>
+                        <xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="message-text" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="delivery-summary" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="message-alert-props">
-        <xs:sequence>
-            <xs:element ref="authority-ref" minOccurs="0"/>
-            <xs:element ref="message-type"/>
-            <xs:element ref="priority" minOccurs="0"/>
-            <xs:element ref="display-type" minOccurs="0"/>
-            <xs:element ref="display-constraint" minOccurs="0"/>
-            <xs:element ref="start-date" minOccurs="0"/>
-            <xs:element ref="end-date" minOccurs="0"/>
-            <xs:element ref="audience" minOccurs="0"/>
-            <xs:element ref="patron-category" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="patron-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="message-text" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="delivery-summary" minOccurs="0"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="patron">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E03</xs:appinfo>
@@ -349,48 +313,46 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Contact information is held in separate contact records for security and privacy reasons.See E09 below.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="patron-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="barcode-id" minOccurs="0"/>
+                        <xs:element ref="additional-patron-id" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="name"/>
+                        <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="language" minOccurs="0"/>
+                        <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="home-institution-ref" minOccurs="0"/>
+                        <xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="card-status-info" minOccurs="0"/>
+                        <xs:element ref="patron-category" minOccurs="0"/>
+                        <xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="authorisation-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="patron-expiration-date" minOccurs="0"/>
+                        <xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="on-loan-items" minOccurs="0"/>
+                        <xs:element ref="loan-items-limit" minOccurs="0"/>
+                        <xs:element ref="overdue-items" minOccurs="0"/>
+                        <xs:element ref="overdue-items-limit" minOccurs="0"/>
+                        <xs:element ref="recalled-items" minOccurs="0"/>
+                        <xs:element ref="fees-due-items" minOccurs="0"/>
+                        <xs:element ref="fines-due-items" minOccurs="0"/>
+                        <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="available-hold-items" minOccurs="0"/>
+                        <xs:element ref="unavailable-hold-items" minOccurs="0"/>
+                        <xs:element ref="hold-items-limit" minOccurs="0"/>
+                        <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="deposit-balance" minOccurs="0"/>
+                        <xs:element ref="associated-message" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="date-of-birth" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="patron-props">
-        <xs:sequence>
-            <xs:element ref="barcode-id" minOccurs="0"/>
-            <xs:element ref="additional-patron-id" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="name"/>
-            <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="language" minOccurs="0"/>
-            <xs:element ref="associated-location" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="home-institution-ref" minOccurs="0"/>
-            <xs:element ref="patron-status" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="card-status-info" minOccurs="0"/>
-            <xs:element ref="patron-category" minOccurs="0"/>
-            <xs:element ref="patron-tag" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="authorisation-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="patron-expiration-date" minOccurs="0"/>
-            <xs:element ref="associated-patron-group" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="loan-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="on-loan-items" minOccurs="0"/>
-            <xs:element ref="loan-items-limit" minOccurs="0"/>
-            <xs:element ref="overdue-items" minOccurs="0"/>
-            <xs:element ref="overdue-items-limit" minOccurs="0"/>
-            <xs:element ref="recalled-items" minOccurs="0"/>
-            <xs:element ref="fees-due-items" minOccurs="0"/>
-            <xs:element ref="fines-due-items" minOccurs="0"/>
-            <xs:element ref="reservation-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="available-hold-items" minOccurs="0"/>
-            <xs:element ref="unavailable-hold-items" minOccurs="0"/>
-            <xs:element ref="hold-items-limit" minOccurs="0"/>
-            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="charge-limit" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="deposit-balance" minOccurs="0"/>
-            <xs:element ref="associated-message" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="date-of-birth" minOccurs="0"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="payment">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E08</xs:appinfo>
@@ -399,25 +361,23 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="payment-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="patron-ref"/>
+                        <xs:element ref="payment-type"/>
+                        <xs:element ref="description" minOccurs="0"/>
+                        <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="payment-date" minOccurs="0"/>
+                        <xs:group ref="pecuniaryGroup"/>
+                        <xs:element ref="payment-status" minOccurs="0"/>
+                        <xs:element ref="transaction-reference" minOccurs="0"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="payment-props">
-        <xs:sequence>
-            <xs:element ref="patron-ref"/>
-            <xs:element ref="payment-type"/>
-            <xs:element ref="description" minOccurs="0"/>
-            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="payment-date" minOccurs="0"/>
-            <xs:group ref="pecuniaryGroup"/>
-            <xs:element ref="payment-status" minOccurs="0"/>
-            <xs:element ref="transaction-reference" minOccurs="0"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="property">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E12</xs:appinfo>
@@ -426,21 +386,19 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Deprecated in v1.0.1</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="property-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="name"/>
+                        <xs:element name="entity-type" type="entityType" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="description" minOccurs="0"/>
+                        <xs:element ref="value-scheme-ref" minOccurs="0"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="property-props">
-        <xs:sequence>
-            <xs:element ref="name"/>
-            <xs:element name="entity-type" type="entityType" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="description" minOccurs="0"/>
-            <xs:element ref="value-scheme-ref" minOccurs="0"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="reservation">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E06</xs:appinfo>
@@ -449,32 +407,30 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="identifier" minOccurs="0"/>
-                <xs:group ref="reservation-props"/>
-            </xs:sequence>
+            <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+                        <xs:element ref="reservation-type"/>
+                        <xs:element ref="patron-ref"/>
+                        <xs:choice>
+                            <xs:element ref="manifestation-ref"/>
+                            <xs:element ref="item-ref"/>
+                        </xs:choice>
+                        <xs:element ref="start-date" minOccurs="0"/>
+                        <xs:element ref="pickup-institution-ref" minOccurs="0"/>
+                        <xs:element ref="pickup-location-ref" minOccurs="0"/>
+                        <xs:element ref="pickup-date" minOccurs="0"/>
+                        <xs:element ref="end-date" minOccurs="0"/>
+                        <xs:element ref="reservation-status"/>
+                        <xs:element ref="hold-queue-position" minOccurs="0"/>
+                        <xs:element ref="loan-ref" minOccurs="0"/>
+                        <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="suspension-period" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:group name="reservation-props">
-        <xs:sequence>
-            <xs:element ref="reservation-type"/>
-            <xs:element ref="patron-ref"/>
-            <xs:choice>
-                <xs:element ref="manifestation-ref"/>
-                <xs:element ref="item-ref"/>
-            </xs:choice>
-            <xs:element ref="start-date" minOccurs="0"/>
-            <xs:element ref="pickup-institution-ref" minOccurs="0"/>
-            <xs:element ref="pickup-location-ref" minOccurs="0"/>
-            <xs:element ref="pickup-date" minOccurs="0"/>
-            <xs:element ref="end-date" minOccurs="0"/>
-            <xs:element ref="reservation-status"/>
-            <xs:element ref="hold-queue-position" minOccurs="0"/>
-            <xs:element ref="loan-ref" minOccurs="0"/>
-            <xs:element ref="charge-ref" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="suspension-period" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
 
 </xs:schema>
