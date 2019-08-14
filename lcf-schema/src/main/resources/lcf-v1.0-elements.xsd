@@ -260,6 +260,7 @@
     </xs:element>
     <xs:element name="loan-status" type="loanStatusCode"/>
     <xs:element name="location-id-type" type="locationIDType"/>
+    <xs:element name="location-purpose" type="locationPurpose"/>
     <xs:element name="location-type" type="locationType"/>
     <xs:element name="location-ref" type="lcfEntityReference"/>
     <xs:element name="locator" type="nonEmptyString"/>
@@ -345,6 +346,7 @@
     <xs:element name="reservation-type" type="reservationType"/>
     <xs:element name="restriction-note" type="nonEmptyString"/>
     <xs:element name="restriction-type" type="loanRestrictionType"/>
+    <xs:element name="return-location-ref" type="lcfEntityReference"/>
     <xs:element name="scheme-code" type="nonEmptyString"/>
     <xs:element name="scheme-name" type="nonEmptyString"/>
     <xs:element name="season">
