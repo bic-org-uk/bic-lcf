@@ -935,6 +935,7 @@ The check-in function, if successfully executed, causes an LMS to perform a numb
 | Id         | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R12D01     | Loan reference             |            | 0-1     | String    |                                 |
+| R12C09     | Loan entity record         |            | 0-1     |           | See E05 *Added in v1.2.0*       |
 | R12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
 | R12D03     | Item reference             | AB         | 0-1     | String    |                                 |
 | R12D04     | Item return location reference| CL      | 0-1     | String    | LCF entity identifier for return location, e.g. sort bin.                                                                                       |
