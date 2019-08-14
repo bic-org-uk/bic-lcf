@@ -359,7 +359,8 @@ A location associated with a library, such as:
 | E04D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
 | E04D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | E04D03     | Location name              |           | 0-1      | String     |                                |
-| E04D04     | Location type              |           | 0-1      | Code       | LCF code list **[LOT](LCF-CodeLists.md#LOT)**              |
+| E04D04     | Location type              |           | 0-1      | Code       | LCF code list **[LOT](LCF-CodeLists.md#LOT)**  |
+| E04D09     | Location purpose           |           | 0-n      | Code       | LCF code list **[LOP](LCF-CodeLists.md#LOP)**<br/>*Added in v1.2.0* |
 | E04D05     | Location description       |           | 0-1      | String     |                                |
 | E04D07     | Contact reference          |           | 0-n      | String     | *Added in v1.0.1*                 |
 | *E04C08*   | *Associated location*      |           | 0-n      |            | A location associated with this location.<br/>*Added in v1.0.1*                                                                                            |
