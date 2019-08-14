@@ -152,13 +152,13 @@ Care should be taken not to use operations which have side effects (e.g. POST, P
 
 #### 4. Patron Authorisation (Access Rights and Privileges) *(added in 1.2.0)*
 
-Authorisation requests are initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations
+A request for Authorisations for a specific Patron are initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations.
 
 The response to a successful Authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
 
 Each AUTHORISATION entity within the list must state which authorisation is being granted. There is currently a controlled list (code list [AUT](LCF-CodeLists.md#AUT)) of common authorisations which can be used in an [AUTHORISATION entities](LCF-Dataframeworks.md#E13), although an implementation may extend this with custom [AUTHORISATION entities](LCF-Dataframeworks.md#E13).
 
-Implementations SHOULD only provide a list of [AUTHORISATION entities](LCF-Dataframeworks.md#E13) after a successful Patron Authentication (see above). As such this operation MAY be used for Patron authentication purposes.
+Implementations SHOULD only provide a list of the Patron's [AUTHORISATION entities](LCF-Dataframeworks.md#E13) after a successful Patron Authentication (see above). As such this operation MAY be used for Patron authentication purposes.
 
 ```
 GET /lcf/1.0/patrons/{id-value}/authorisations
@@ -181,6 +181,8 @@ HTTP/403 - The id-value and password\pin combination are invalid, or need to be 
 
 HTTP/404 - the Patron represented by id-value does not exist
 ```
+
+*NOTE: A GET request to /lcf/1.0/authorisations, (as it does not explicitly specify a Patron), will return a list of all Authorisations supported by the LMS without indicating which ones are being granted to the Patron in question.*
 
 #### 5. Secure communication
 
