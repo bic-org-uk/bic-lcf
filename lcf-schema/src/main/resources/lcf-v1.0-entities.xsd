@@ -264,6 +264,7 @@
             <xs:element ref="additional-location-id" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="name" minOccurs="0"/>
             <xs:element ref="location-type" minOccurs="0"/>
+            <xs:element ref="location-purpose" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="description" minOccurs="0"/>
             <xs:element ref="contact-ref" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="associated-location"/>
