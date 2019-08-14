@@ -330,8 +330,8 @@ The response to a check-out or renewal may be the same response as for creating 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
 | **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                  |
-| 2     | R11D01       | loan-ref                                 | 0-1     | anyURI      | One of R11D01, R11C02 or R11D03 must be included in the response.                                                                      |
-| 3     | R11C02       | loan                                     | 0-1     |             | See E05           |
+| ~~2~~ | ~~R11D01~~   | ~~loan-ref~~                             | ~~0-1~~ | ~~anyURI~~  | ~~One of R11D01, R11C02 or R11D03 must be included in the response.~~ (Removed in 1.2.0)                                              |
+| **3** | **R11C02**   | **loan**                                 | **1** |             | **See E05 (Cardinality changed in 1.2.0)** |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW) – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [SCD](LCF-CodeLists.md#SCD) – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
@@ -381,15 +381,15 @@ This presumes that a number of consequential functions are performed server-side
 
 A check-in response may be the same response as for modifying any entity, or may contain an XML message that conforms to the following schema. The advantage of including the XML payload in the response is that the terminal application will thereby be alerted by the inclusion of any of R12D04 – R12D08 in the response.
 
-|       | *Element ID* | *XML structure*                         | *Card.* | *Data type* | *Notes*            |
-|-------|--------------|-----------------------------------------|---------|-------------|--------------------|
-| **1** |              | **lcf-check-in-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                               |
-| **2** | **R12D01**   | **loan-ref**                            | **1**   | **anyURI**  |                    |
-| 3     | R12D04       | return-location-ref                     | 0-1     | anyURI      |                    |
-| 4     | R12D05       | media-warning                           | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW)                |
-| 5     | R12D06       | special-attention                       | 0-1     | Code        | [SPA](LCF-CodeLists.md#SPA)                |
-| 6     | R12D07       | special-attention-note                  | 0-1     | string      |                    |
-| 7     | R12D08       | charge-ref                              | 0-n     | anyURI      |                    |
+|       | *Element ID* | *XML structure*           | *Card.* | *Data type* | *Notes*                                                      |
+| ----- | ------------ | ------------------------- | ------- | ----------- | ------------------------------------------------------------ |
+| **1** |              | **lcf-check-in-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1* |
+| **2** | **R12D01**   | **loan**                  | **1**   |             | See E05 (Type changed in 1.2.0)                              |
+| 3     | R12D04       | return-location-ref       | 0-1     | anyURI      |                                                              |
+| 4     | R12D05       | media-warning             | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW)                                  |
+| 5     | R12D06       | special-attention         | 0-1     | Code        | [SPA](LCF-CodeLists.md#SPA)                                  |
+| 6     | R12D07       | special-attention-note    | 0-1     | string      |                                                              |
+| 7     | R12D08       | charge-ref                | 0-n     | anyURI      |                                                              |
 
 *Example of a Response XML payload:*
 
