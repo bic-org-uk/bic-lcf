@@ -739,16 +739,16 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
 ### <a id="WKD"></a>WKD Days of the week *(Added in v1.2.0)*
 
-  *Code ID*      |*Code value*      |*Definition*   |*Notes*
-  -------------- |----------------- |-------------- |----------------------------------
-  WKD01         |00                |Unspecified   | Default
-  WKD02         |01                |Monday    |
-  WKD03         |02                |Tuesday    |
-  WKD04         |03                |Wednesday    |
-  WKD05         |04                |Thursday    |
-  WKD06         |05                |Friday    |
-  WKD07         |06                |Saturday    |
-  WKD08         |07                |Sunday    |
-  WKD09         |11                |Weekdays (Monday to Friday inclusive)    |
+  *Code ID*     |*Code value*      |*Definition*   |*Notes*
+  ------------- |----------------- |-------------- |----------------------------------
+  WKD01         |00                |Every day      | Default
+  WKD02         |01                |Monday         |
+  WKD03         |02                |Tuesday        |
+  WKD04         |03                |Wednesday      |
+  WKD05         |04                |Thursday       |
+  WKD06         |05                |Friday         |
+  WKD07         |06                |Saturday       |
+  WKD08         |07                |Sunday         |
+  WKD09         |11                |Weekdays (Monday to Friday inclusive) |
   WKD10         |12                |Weekends (Saturday and Sunday) |
   
