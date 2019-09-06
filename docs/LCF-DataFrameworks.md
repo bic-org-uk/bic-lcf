@@ -645,15 +645,18 @@ A library authority or institution.
 | *E14C04*   | *Associated location*      |           | 0-n      |            | A location associated with this authority/institution.                                                                                         |
 | E14D04.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
 | E14D04.2   | Location reference         |           | 1        | String     |                                |
-| *E14C04.3* | Library opening/closing times |        | 0-n      |            | Only to be used for location association types LAT04 or LAT05<br/>See Notes below on interpretation of repetitions of this composite element<br/>*Added in v1.2.0*    |
-| E14D04.3.1 | Day(s) of the week         |           | 0-n      | Code       | LCF code list **[WKD](LCF-CodeLists.md#WKD)**   |
-|*E14C04.3.2*| Season                     |           | 0-n      |            |                                    |
-|E14D04.3.2.1| Season name                |           | 1        | String     |                                 |
-|E14D04.3.2.2| Season start date inclusive|           | 1        | Date       |                                 |
-|E14D04.32.3 | Season end date inclusive  |           | 1        | Date       |                                 |
-| E14D04.3.3 | Library opening time       |           | 1        | Time       |                                 |
-| E14D04.3.4 | Library closing time       |           | 1        | Time       |                                 |
-| E15D04.3.5 | Staffed / un-staffed       |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
+| *E14C04.3* | Library location service period |      | 0-n      |            | Only to be used for location association types LAT04 or LAT05<br/>See Notes 1-3 below on interpretation of repetitions of this composite element<br/>*Added in v1.2.0*    |
+| E14D04.3.1 | Period name                |           | 0-1      | String     |                                   |
+| E14D04.3.2 | Period start date inclusive |          | 1        | Date       |                                 |
+| E14D04.3.3 | Period end date inclusive  |           | 1        | Date       |                                 |
+|*E14C04.3.4*| Library closed             |           | 0-1      |            | Explicit statement that the library location is closed on the specified days in the service period. |
+|E14D04.3.4.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the library location is closed on all days of the week during the specified service period. |
+|*E14C04.3.5*| Library open               |           | 0-n      |            | Explicit statement that the library location is open for at least one time period on the specified days of the service period. See Note 4 below on interpretation of repetitions of this composite element. |
+|E14D04.3.5.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the open time-period(s) apply to all days of the week during the specified service period. |
+|*E15C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
+|E15D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
+|E15D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
+|E15D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
 | *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
 | E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[CAT](LCF-CodeLists.md#CAT)**          |
 | E14D05.2   | Contact name               |           | 1        | String     |                                |
@@ -666,13 +669,17 @@ A library authority or institution.
 | E14D07.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E14D07.3   | Note text                  |            | 1       | String     |                                |
 
-**Notes on interpretation of repeated instances of E14C04.3 Library opening/closing times**
+**Notes on interpretation of repeated instances of E14C04.3 Library location service period**
 
-1. If instances of E14C04.3 don't overlap in their scope, i.e. they are mutually exclusive, all are applicable.
+1. If the period start/end dates of instances of E14C04.3 do not overlap, i.e. they are mutually exclusive, all are applicable.
 
-2. If the scope of one instance is wholly contained within the scope of another instance, the instance with the wider scope is overridden by the instance with the narrow scope to the extent of the scope of the latter. An example would be to specify opening and closing times for weekdays in one instance and different opening and closing times for Wednesdays in a second instance. Another example would be to specify opening and closing times for an academic term in one instance and different times for a specific week of that term in a second instance.
+2. If the date period of one instance of E14C04.3 is wholly contained within the date period of another instance, the instance with the wider scope is overridden by the instance with the narrow scope to the extent of the scope of the latter. An example would be to specify opening and closing times for an academic term in one instance and different times for a specific week of that term in a second instance.
 
-3. If the scope of two instances overlap, but the scope or neither instance is wholly contained within the scope of the other instance, the repeated instances cannot be interpreted unambiguously and the terminal application should ignore the library opening/closing times.
+3. If the date periods of two or more instances of E14C04.3 overlap, but the date period of any instance is not wholly contained within the date period of another instance, the instances cannot be interpreted unambiguously and these instances should be ignored.
+
+4. If the days of the week of two or more instances of E14C04.3.4 and E14C04.3.5 overlap, the instances cannot be interpreted unambiguously and these instances should be ignored.
+
+5.   If the time periods of two or more instances of E14C04.3.5<b><i>.2 in the same instance of E14C04.3.5</i></b> overlap, the instances cannot be interpreted unambiguously and these instances should be ignored.
 
 ***
 
