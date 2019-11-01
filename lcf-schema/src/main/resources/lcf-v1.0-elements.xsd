@@ -94,6 +94,7 @@
             <xs:sequence>
                 <xs:element name="association-type" type="locationAssociationType"/>
                 <xs:element ref="location-ref"/>
+                <xs:element ref="library-opening-closing"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -159,6 +160,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="closing-time" type="xs:time"/>
     <xs:element name="communication-type" type="communicationType">
         <xs:annotation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">Value from the CMT list, which determines how the locator multiplicity should work. </xs:documentation>
@@ -188,6 +190,7 @@
     <xs:element name="cover-art" type="xs:anyURI"/>
     <xs:element name="creation-date" type="xs:dateTime"/>
     <xs:element name="date-of-birth" type="xs:date"/>
+    <xs:element name="days" type="daysOfTheWeek"/>
     <xs:element name="deposit-balance">
         <xs:complexType>
             <xs:group ref="pecuniaryGroup"/>
@@ -253,6 +256,19 @@
     <xs:element name="items-in-stock" type="xs:int"/>
     <xs:element name="language" type="iso639LanguageCode"/>
     <xs:element name="lead-patron-ref" type="lcfEntityReference"/>
+    <xs:element name="library-opening-closing">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="days" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="season" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="opening-time"/>                
+                <xs:element ref="closing-time"/>  
+                <xs:element ref="staffed" minOccurs="0"/>              
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="library-status" type="libraryStatutoryStatus"/>
+    <xs:element name="library-type" type="libraryType"/>
     <xs:element name="link" type="nonEmptyString"/>
     <xs:element name="link-type" type="resourceAccessLinkType"/>
     <xs:element name="loan-fee">
@@ -323,6 +339,7 @@
     <xs:element name="note-type" type="noteType"/>
     <xs:element name="on-loan-items" type="xs:int"/>
     <xs:element name="on-loan-ref" type="lcfEntityReference"/>
+    <xs:element name="opening-time" type="xs:time"/>
     <xs:element name="other-description" type="nonEmptyString"/>
     <xs:element name="other-manifestation-in-series-ref" type="lcfEntityReference"/>
     <xs:element name="overdue-items" type="xs:int"/>
@@ -364,6 +381,15 @@
     <xs:element name="return-location-ref" type="lcfEntityReference"/>
     <xs:element name="scheme-code" type="nonEmptyString"/>
     <xs:element name="scheme-name" type="nonEmptyString"/>
+    <xs:element name="season">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="season-name" type="xs:string"/>
+                <xs:element name="start-date" type="xs:date"/>
+                <xs:element name="end-date" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="security-desensitize" type="securityDesensitize"/>
     <xs:element name="series">
         <xs:complexType>
@@ -374,6 +400,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="staffed" type="staffedUnstaffed"/>
     <xs:element name="start-date" type="xs:dateTime"/>
     <xs:element name="subtitle" type="nonEmptyString"/>
     <xs:element name="suspension-period">
