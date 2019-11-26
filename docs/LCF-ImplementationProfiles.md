@@ -66,7 +66,6 @@ This profile has the following function groups:
 | List checked-out items (loans) |             |                      |      *X*      |                |                   |
 | List reserved items    |                     |                      |               |      *X*       |                   |
 | Make payment           |                     |                      |               |                |        *X*        |
-|------------------------|---------------------|----------------------|---------------|----------------|-------------------|
 
 #### P02 Patron information maintenance
 
@@ -85,4 +84,3 @@ This profile has the following function groups:
 | Delete contact record  |         *X*         |                      |               |
 | List reserved items    |                     |          *X*         |               |
 | Cancel reservation     |                     |          *X*         |               |
-|------------------------|---------------------|----------------------|---------------|
