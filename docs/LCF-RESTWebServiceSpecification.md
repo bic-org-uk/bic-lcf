@@ -12,9 +12,9 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version 1.2.0
+### Version x.x.0
 
-### 23 December 2019
+### DRAFT
 
 ---
 
