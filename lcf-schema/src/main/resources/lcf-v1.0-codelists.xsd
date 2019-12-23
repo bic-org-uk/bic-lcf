@@ -13,7 +13,7 @@
     <!-- LCF Codelists -->
 
     <xs:annotation>
-        <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Issue">4</xs:documentation>
+        <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Issue">5</xs:documentation>
     </xs:annotation>
 
     <xs:simpleType name="authorisationCode">
