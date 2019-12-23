@@ -1,5 +1,5 @@
 ---
-title: LCF v1.1.0 Implementation Profiles
+title: LCF v1.2.0 Implementation Profiles
 menu: Implementation Profiles
 weight: 6
 ---
@@ -12,9 +12,9 @@ weight: 6
 
 ## Implementation Profiles
 
-### Issue 1
+### Issue 2
 
-### 12 July 2018
+### 23 December 2019
 
 ---
 
@@ -23,6 +23,27 @@ weight: 6
 This document defines implementation profiles for the LCF data communication framework.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+
+#### P00 Core LMS Profile
+*(Added in Issue 2)*
+
+This profile defines which of the core functions by entity type need to be supported by an LMS.
+
+| Core&nbsp;function:       | 01<br/>Retrieve/View entity instance information | 02<br/>Retrieve entity instance list | 03<br/>Create entity instance | 04<br/>Modify entity instance | 05</br>Delete entity instance|
+|---------------------------|----|----|----|----|----|
+| E01<br/>Manifestation     |  y |  y |    |    |    |
+| E02<br/>Item              |  y |  y |    |  y |    |
+| E03<br/>Patron            |  y |  y |  y |  y |  y |
+| E04<br/>Location          |  y |  y |    |    |    |
+| E05<br/>Loan              |  y |  y |    |    |    |
+| E06<br/>Reservation       |  y |  y |  y |    |  y |
+| E07<br/>Charge            |  y |  y |  y |    |    |
+| E08<br/>Payment           |  y |  y |  y |    |    |
+| E09<br/>Contact           |  y |  y |  y |  y |    |
+| E13<br/>Authorization     |  y |  y |    |    |    |
+| E14<br/>Authority/Inst.   |  y |  y |    |    |    |
+| E15<br/>Message/alert     |  y |  y |    |    |    |
+
 
 #### P01 Self Issue
 
@@ -45,7 +66,6 @@ This profile has the following function groups:
 | List checked-out items (loans) |             |                      |      *X*      |                |                   |
 | List reserved items    |                     |                      |               |      *X*       |                   |
 | Make payment           |                     |                      |               |                |        *X*        |
-|------------------------|---------------------|----------------------|---------------|----------------|-------------------|
 
 #### P02 Patron information maintenance
 
@@ -64,4 +84,3 @@ This profile has the following function groups:
 | Delete contact record  |         *X*         |                      |               |
 | List reserved items    |                     |          *X*         |               |
 | Cancel reservation     |                     |          *X*         |               |
-|------------------------|---------------------|----------------------|---------------|

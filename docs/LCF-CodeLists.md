@@ -1,5 +1,5 @@
 ---
-title: LCF v1.1.0 Code Lists
+title: LCF v1.2.0 Code Lists
 menu: Code Lists
 weight: 2
 ---
@@ -12,13 +12,13 @@ weight: 2
 
 ## Code Lists
 
-### Issue 3
+### Issue 4
 
-### 31 March 2019
+### 23 December 2019
 
 ---
 
-This document defines code lists for use with LCF version 1.1.0.
+This document defines code lists for use with LCF version 1.2.0.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
@@ -59,8 +59,11 @@ The code lists defined are:
 -   [LCS Library classification scheme](#LCS)
 -   [LKT Resource access link type](#LKT) *(added in v1.0.1)*
 -   [LOI Location identification scheme](#LOI)
+-   [LOP Location purpose](#LOP) *(added in v1.2.0)*
 -   [LOS Loan status](#LOS)
 -   [LOT Location type](#LOT)
+-   [LST Library statutory status](#LST) *(added in v1.2.0)*
+-   [LTY Library type](#LTY) *(added in v1.2.0)*
 -   [MAC Message/alert display/delivery constraints](#MAC) *(added in v1.0.1)*
 -   [MAD Message/alert delivery status](#MAD) *(added in v1.0.1)*
 -   [MAP Message/alert priority](#MAP) *(added in v1.0.1)*
@@ -91,9 +94,11 @@ The code lists defined are:
 -   [SCD Security desensitization flag](#SCD)
 -   [SEL Selection criterion](#SEL) *(added in v1.0.1)*
 -   [SPA Special attention required flag](#SPA)
+-   [STA Staffed / un-staffed](#STA) *(added in v1.2.0)*
 -   [TFT Text format](#TFT)
 -   [TTL Title type](#TTL)
 -   [UNC Unnamed contributor type](#UNC)
+-   [WKD Days of the week](#WKD) *(added in v1.2.0)*
 
 ### <a id="AAT"></a>AAT Library authority/institution association type *(added in v1.0.1)*
 
@@ -332,6 +337,15 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOI04       |04             |URI            |*Added in v1.0.1*
   LOI05       |05             |UPRN           |*Added in v1.0.1*
 
+### <a id="LOP"></a>LOP Location purpose *(added in v1.2.0)*
+
+  *Code ID*   |*Code value*   |*Definition*   |*Notes*
+  ----------- |-------------- |-------------- |---------
+  LOP01       |01             |May be selected by a patron as their home location          |
+  LOP02       |02             |May be selected by a patron as a preferred collection point |
+  LOP03       |03             |A collection point, but not selectable as preferred         |
+  LOP04       |04             |A return/drop-off point                                     |
+
 ### <a id="LOS"></a>LOS Loan status
 
  *Code ID*                                          |*Code value*   |*Definition*                           |*Notes*
@@ -356,6 +370,25 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
   LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added in v1.0.1*
+  
+### <a id="LST"></a>LST Library statutory status *(added in v1.2.0)*
+
+  *Code ID*    |*Code value*    |*Definition*                       |*Notes*
+  ------------ | -------------- |-----------------------------------|----------------------------------
+  LST01        | 01             | Statutory provision               |
+  LST02        | 02             | Non-statutory provision           |
+
+### <a id="LTY"></a>LTY Library type *(added in v1.2.0)*
+
+  *Code ID*    |*Code value*    |*Definition*                                                         |*Notes*
+  -------------| ---------------|-------------------------------------------------------------------  |----------------------------------
+  LTY01        | LAL            | Local authority run (funded, run and managed by local authority staff but may be augmented by volunteers)                                                  |
+  LTY02        | LAL-           | Local authority run (funded and managed by the local authority but unstaffed) |
+  LTY03        | CL             | Commissioned library (commissioned and funded by a local authority but delivered by a contracted third party)                                                       |
+  LTY04        | CRL            | Community run libraries (some ongoing support, eg funding, stock, guidance from the local authority)                                                                |
+  LTY05        | CRL+           | Community run libraries (paid staff may be involved in the day to day running of the library)                                                                      |
+  LTY06        | ICL            | Independent community library (outside the local authority, staffed only by volunteers)                                                                            |
+  LTY07        | ICL+           | Independent community library (outside the local authority with paid staff) |
   
 ### <a id="MAC"></a>MAC Message/alert display/delivery constraints *(added in v1.0.1)*
 
@@ -486,7 +519,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PGP01       |01             |Patron member of group           |
   PGP02       |02             |Lead patron of group             |
 
-### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) - *Added in v1.0.1*
+### <a id="PNI"></a>PNI Patron identification scheme (based upon ONIX Code List 44) *(Added in v1.0.1)*
 
   *Code ID*   |*Code value*   |*Definition*           |*Notes*
   ----------- |-------------- |---------------------- |--------------------------------------------------
@@ -635,7 +668,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SCD02       |01             |Item security should normally be desensitized / removed on check-out       |
   SCD03       |02             |Item security should not normally be desensitized / removed on check-out   |
 
-### <a id="SEL"></a>SEL Selection criterion - *Added in v1.0.1*
+### <a id="SEL"></a>SEL Selection criterion *(Added in v1.0.1)*
 
   *Code ID*   |*Code value*   |*Alpha value*          |*Definition*                |*Notes*
   ----------- |-------------- |---------------------- |--------------------------- |----------------
@@ -655,6 +688,17 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   SEL14       |28             |paid-date              |Date charge paid in full    | See E07D16
   SEL15       |29             |payment-date           |Date payment made           | See E08D06
   SEL16       |30             |patron-expiration-date |Date patron account expired | See E03D30
+  SEL17       |31             |patron-barcode-id      |Patron barcode ID           | See E03D26
+  SEL18       |32             |alt-patron-id          |Patron alternative ID       | See E03D27.3
+  SEL19       |33             |alt-patron-id-type     |Patron alt. ID type         | See E03D27.1
+  SEL20       |34             |alt-manifestation-id   |Manifestation alt. ID       | See E01D02.3
+  SEL21       |35             |alt-manifestation-id-type|Manifestation alt. ID type| See E01D02.1
+  SEL22       |36             |alt-item-id            |Item alt. ID                | See E02D02.3
+  SEL23       |37             |alt-item-id-type       |Item alt. ID type           | See E02D02.1
+  SEL24       |38             |alt-location-id        |Location alt. ID            | See E04D02.3
+  SEL25       |39             |alt-location-id-type   |Location alt. ID type       | See E04D02.1
+  SEL26       |40             |alt-authority-id       |Authority alt. ID           | See E14D02.3
+  SEL27       |41             |alt-authority-id-type  |Authority alt. ID type      | See E14D02.1
 
 ### <a id="SPA"></a>SPA Special attention required flag
 
@@ -662,6 +706,15 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |----------------------------------------------- |---------
   SPA01       |01             |Item does not require special attention         |
   SPA02       |02             |Item requires special attention (unspecified)   |
+
+### <a id="STA"></a>STA Staffed / un-staffed *(Added in v1.2.0)*
+
+  *Code ID*      |*Code value*      |*Definition*   |*Notes*
+  -------------- |----------------- |-------------- |----------------------------------
+  STA01            |00                |Unspecified   | Default
+  STA02            |01                |Staffed          | 
+  STA03            |02                |Un-staffed    | 
+  STA04            |03                |Staffed with voluntary staff | 
 
 ### <a id="TFT"></a>TFT Text format
 
@@ -694,3 +747,19 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   UNC01       |01             |Unknown        |ONIX code ‘01’
   UNC02       |02             |Anonymous      |ONIX code ‘02’
   UNC03       |03             |et al.         |ONIX code ‘03’
+
+### <a id="WKD"></a>WKD Days of the week *(Added in v1.2.0)*
+
+  *Code ID*     |*Code value*      |*Definition*   |*Notes*
+  ------------- |----------------- |-------------- |----------------------------------
+  WKD01         |00                |Every day      | Default
+  WKD02         |01                |Monday         |
+  WKD03         |02                |Tuesday        |
+  WKD04         |03                |Wednesday      |
+  WKD05         |04                |Thursday       |
+  WKD06         |05                |Friday         |
+  WKD07         |06                |Saturday       |
+  WKD08         |07                |Sunday         |
+  WKD09         |11                |Weekdays (Monday to Friday inclusive) |
+  WKD10         |12                |Weekends (Saturday and Sunday) |
+  

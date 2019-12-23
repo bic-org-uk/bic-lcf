@@ -1,5 +1,5 @@
 ---
-title: LCF v1.1.0 Information Entities XML bindings
+title: LCF v1.2.0 Information Entities XML bindings
 menu: Information Entities XML bindings
 weight: 3
 ---
@@ -12,9 +12,9 @@ weight: 3
 
 ## Information Entities XML bindings
 
-### Version 1.1.0
+### Version 1.2.0
 
-### 31 March 2019
+### 23 December 2019
 
 ---
 
@@ -32,7 +32,7 @@ Data elements must be non-empty when included, as well as conforming to the spec
 
 Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item and Patron entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal.
 
-An XML schema that corresponds to this specification is available at [https://github.com/bic-org-uk/bic-lcf/tree/v1.1.0/lcf-schema/src/main/resources](https://github.com/bic-org-uk/bic-lcf/tree/v1.1.0/lcf-schema/src/main/resources).
+An XML schema that corresponds to this specification is available at [https://github.com/bic-org-uk/bic-lcf/tree/v1.1.0/lcf-schema/src/main/resources](https://github.com/bic-org-uk/bic-lcf/tree/v1.2.0/lcf-schema/src/main/resources).
 
 E01 MANIFESTATION
 -----------------
@@ -80,7 +80,7 @@ E01 MANIFESTATION
 |  39    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
 |  40    | E01D14.2     | amount                           | 1       | decimal     |         |
 |  41    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
-|  42    | E01D15       | patrons-in-hold-queue            |0-1R[1](#Notes)                                                 | int         |         |
+|  42    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
 |  43    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
 | **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
 |  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
@@ -178,7 +178,7 @@ E03 PATRON
 |  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
 |  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0*                 |
 |  15   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
-|  16   | E03C24       | card-status-info            | 0-nR    |             | *Added in v1.0.1*                 |
+|  16   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0*                 |
 |  17   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
 |  18   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
 |  19   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
@@ -233,15 +233,16 @@ E04 LOCATION
 |   6   | E04D02.3     | value                       | 1       | string      |         |
 |   7   | E04D03       | name                        | 0-1     | string      |         |
 |   8   | E04D04       | location-type               | 0-1     | Code        | [LOT](LCF-CodeLists.md#LOT)     |
-|   9   | E04D05       | description                 | 0-1     | string      |         |
-|  10   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
-|  11   | E04C08       | associated-location         | 0-n     |             |         |
-|  12   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
-|  13   | E04D08.2     | location-ref                | 1       | string      |         |
-|  14   | E04C06       | note                        | 0-n     |             |         |
-|  15   | E04D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  16   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
-|  17   | E04D06.3     | note-text                   | 1       | string      |         |
+|   9   | E04D09       | location-purpose            | 0-n     | Code        | [LOP](LCF-CodeLists.md#LOP)<br/>*Added in v1.2.0*    |
+|  10   | E04D05       | description                 | 0-1     | string      |         |
+|  11   | E04D07       | contact-ref                 | 0-n     | string      | *Added in v1.0.1*                  |
+|  12   | E04C08       | associated-location         | 0-n     |             |         |
+|  13   | E04D08.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
+|  14   | E04D08.2     | location-ref                | 1       | string      |         |
+|  15   | E04C06       | note                        | 0-n     |             |         |
+|  16   | E04D06.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  17   | E04D06.2     | date-time                   | 0-1     | dateTime    |         |
+|  18   | E04D06.3     | note-text                   | 1       | string      |         |
 
 E05 LOAN
 --------
@@ -367,7 +368,7 @@ E09 CONTACT
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
 |  11  | D09D07.3     | note-text                    | 1       | string      |         |
 
-E10 TITLE CLASSIFICATION SCHEME
+E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 -------------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
@@ -380,7 +381,7 @@ E10 TITLE CLASSIFICATION SCHEME
 |   6   | E10D03,2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E10D03.3     | note-text                   | 1       | string      |         |
 
-E11 TITLE CLASSIFICATION TERM
+E11 TITLE CLASSIFICATION TERM *(DEPRECATED in v1.2.0)*
 -----------------------------
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
@@ -437,20 +438,34 @@ E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 |   5   | E14D02.2     | type-name                   | 0-1     | string      |         |
 |   6   | E14D02.3     | value                       | 1       | string      |         |
 | **7** | **E14D03**   | **name**                    | 1       | string      |         |
-|   8   | E14C04       | associated-location         | 0-n     |             |         |
-|   9   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT) |
-|  10   | E14D04.2     | location-ref                | 1       | string      |         |
-|  11   | E14C05       | associated-contact          | 0-n     |             |         |
-|  12   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists.md#CAT) |
-|  13   | E14D05.2     | contact-name                | 1       | string      |         |
-|  14   | E14D05.3     | contact-ref                 | 1       | string      |         |
-|  15   | E14C06       | associated-authority        | 0-n     |             |         |
-|  16   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists.md#AAT) |
-|  17   | E14D06.2     | authority-ref               | 1       | string      |         |
-|  20   | E14C07       | note                        | 0-n     |             |         |
-|  21   | E14D07.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
-|  22   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
-|  23   | E14D07.3     | note-text                   | 1       | string      |         |
+|   8   | E14D08       | library-statutory-status    | 0-1     | Code        | [LST](LCF-CodeLists.md#LST)<br/>*Added in v1.2.0*     |
+|   9   | E14D09       | library-type                | 0-1     | Code        | [LTY](LCF-CodeLists.md#LTY)<br/>*Added in v1.2.0*     |
+|  10   | E14C04       | associated-location         | 0-n     |             |         |
+|  11   | E14D04.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT) |
+|  12   | E14D04.2     | location-ref                | 1       | string      |         |
+|  13   | E14C04.3     | library-location-service-period | 0-n |             | *Added in v1.2.0*    |
+|  14   | E14D04.3.1   | period-name                 | 0-1     | string      |                                    |
+|  15   | E14D04.3.2   | start-date                  | 1       | date        |                                    |
+|  16   | E14D04.3.3   | end-date                    | 1       | date        |                                    |
+|  17   | E14C04.3.4   | closed                      | 0-1     |             |                                    |
+|  18   | E14D04.3.4.1 | days                        | 0-1     | List        | [WKD](LCF-CodeLists.md#WKD) |
+|  19   | E14C04.3.5   | open                        | 0-n     |             |                                    |
+|  20   | E14D04.3.5.1 | days                        | 0-1     | List        | [WKD](LCF-CodeLists.md#WKD) |
+|  21   | E14C04.3.5.2 | open-time-period            | 1-n     |             |                                    |
+|  22   | E14D04.3.5.2.1 | start-time                | 1       | time        |                                    |
+|  23   | E14D04.3.5.2.2 | end-time                  | 1       | time        |                                    |
+|  24   | E15D04.3.5.2.3 | staffed                   | 0-1     | Code      | [STA](LCF-CodeLists.md#STA) |
+|  25   | E14C05       | associated-contact          | 0-n     |             |         |
+|  26   | E14D05.1     | association-type            | 1       | Code        | [CAT](LCF-CodeLists.md#CAT) |
+|  27   | E14D05.2     | contact-name                | 1       | string      |         |
+|  28   | E14D05.3     | contact-ref                 | 1       | string      |         |
+|  29   | E14C06       | associated-authority        | 0-n     |             |         |
+|  30   | E14D06.1     | association-type            | 1       | Code        | [AAT](LCF-CodeLists.md#AAT) |
+|  31   | E14D06.2     | authority-ref               | 1       | string      |         |
+|  32   | E14C07       | note                        | 0-n     |             |         |
+|  33   | E14D07.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
+|  34   | E14D07.2     | date-time                   | 0-1     | dateTime    |         |
+|  35   | E14D07.3     | note-text                   | 1       | string      |         |
 
 E15 MESSAGE / ALERT *(added in v1.0.1)*
 ---------------------------------
@@ -459,24 +474,38 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **message-alert<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                     |       |             | **Top-level&nbsp;element**<br/>                                |
 |   2   | E15D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
-|   3   | E15D02       | authority-ref               | 0-1     | String      |         |
+|   3   | E15D02       | authority-ref               | 0-1     | string      |         |
 | **4** | **E15D03**   | **message-type**            | **1**   | **Code**    | **[MAT](LCF-CodeLists.md#MAT)** |
 |   5   | E15D04       | priority                    | 0-1     | Code        | [MAP](LCF-CodeLists.md#MAP) |
 |   6   | E15D05       | display-type                | 0-1     | Code        | [MGT](LCF-CodeLists.md#MGT) |
 |   7   | E15D06       | display-constraint          | 0-1     | Code        | [MAC](LCF-CodeLists.md#MAC) |
-|   8   | E15D07       | start-date                  | 0-1     | DateTime    |         |
-|   9   | E15D08       | end-date                    | 0-1     | DateTime    |         |
+|   8   | E15D07       | start-date                  | 0-1     | dateTime    |         |
+|   9   | E15D08       | end-date                    | 0-1     | dateTime    |         |
 |  10   | E15D09       | audience                    | 0-1     | Code        | [MAU](LCF-CodeLists.md#MAU) |
-|  11   | E15D10       | patron-category             | 0-n     | String      |         |
-|  12   | E15D11       | patron-ref                  | 0-n     | String      |         |
-|  13   | E15D14       | loan-ref                    | 0-n     | String      | *Added in v1.1.0* |
-|  14   | E15D15       | reservation-ref             | 0-n     | String      | *Added in v1.1.0* |
-|  15   | **E15D12.1** | message-format              | **1**   | Code        | **[TFT](LCF-CodeLists.md#TFT)** |
-|  16   | **E15D12.2** | text                        | **1**   | String      |         |
-|  17   | E15C13       | note                        | 0-n     |             |         |
-|  18   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
-|  19   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
-|  20   | E15D13.3     | note-text                   | 1       | string      |         |
+|  11   | E15D10       | patron-category             | 0-n     | string      |         |
+|  12   | E15D11       | patron-ref                  | 0-n     | string      |         |
+|  13   | E15D14       | loan-ref                    | 0-n     | string      | *Added in v1.1.0* |
+|  14   | E15D15       | reservation-ref             | 0-n     | string      | *Added in v1.1.0* |
+|  15   | **E15C12**   | **message-text**            | **1-n** |             | *Corrected in v1.2.0* |
+|  16   | **E15D12.1** | **message-format**          | **1**   | Code        | **[TFT](LCF-CodeLists.md#TFT)** |
+|  17   | **E15D12.2** | **text**                    | **1**   | string      |         |
+|  18   | E15C13       | note                        | 0-n     |             |         |
+|  19   | E15D13.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
+|  20   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
+|  21   | E15D13.3     | note-text                   | 1       | string      |         |
+|  21   | E15C16       | delivery-summary            | 0-1     |             | *Added in v1.2.0*              |
+|  22   | E15D16.1     | delivered                   | 0-1     | Integer     |         |
+|  23   | E15D16.2     | acknowledged                | 0-1     | Integer     |         |
+|  24   | E15C16.3     | delivery-to-patron-category | 0-n     |             |         |
+|  25   | E15D16.3.1   | category-name               | 1       | String      |         |
+|  26   | E15D16.3.2   | total-patrons-in-category   | 0-1     | Integer     |         |
+|  27   | E15D16.3.3   | delivered                   | 0-1     | Integer     |         |
+|  28   | E15D16.3.4   | acknowledged                | 0-1     | Integer     |         |
+|  29   | E15C16.4     | delivery-to-related-patrons | 0-n     |             |         |
+|  30   | E15D16.4.1   | total-related-patrons       | 0-1     | Integer     |         |
+|  31   | E15D16.4.2   | delivered                   | 0-1     | Integer     |         |
+|  32   | E15D16.4.3   | acknowledged                | 0-1     | Integer     |         |
+
 
 EXCEPTION CONDITIONS
 --------------------
