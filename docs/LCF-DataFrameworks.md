@@ -12,7 +12,7 @@ weight: 1
 
 ### Version 1.2.0
 
-### DRAFT
+### 23 December 2019
 
 ---
 
