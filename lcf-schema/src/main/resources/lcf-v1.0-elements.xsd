@@ -266,7 +266,7 @@
     <xs:element name="library-location-service-period">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="period" minOccurs="0"/>
+                <xs:element ref="period-name" minOccurs="0"/>
                 <xs:element ref="start-date"/>
                 <xs:element ref="end-date"/>
                 <xs:element ref="closed" minOccurs="0"/>
@@ -350,7 +350,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="days" minOccurs="0"/>
-                <xs:element ref="open-time-period"> maxOccurs="unbounded"/>
+                <xs:element ref="open-time-period" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -362,7 +362,7 @@
                 <xs:element ref="staffed" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
-    <xs:element>
+    </xs:element>
     <xs:element name="other-description" type="nonEmptyString"/>
     <xs:element name="other-manifestation-in-series-ref" type="lcfEntityReference"/>
     <xs:element name="overdue-items" type="xs:int"/>
@@ -387,6 +387,7 @@
     <xs:element name="payment-ref" type="lcfEntityReference"/>
     <xs:element name="payment-status" type="paymentStatus"/>
     <xs:element name="payment-type" type="paymentType"/>
+    <xs:element name="period-name" type="xs:string"/>
     <xs:element name="pickup-date" type="xs:dateTime"/>
     <xs:element name="pickup-institution-ref" type="lcfEntityReference"/>
     <xs:element name="pickup-location-ref" type="lcfEntityReference"/>
