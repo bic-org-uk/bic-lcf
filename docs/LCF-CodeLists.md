@@ -12,13 +12,13 @@ weight: 2
 
 ## Code Lists
 
-### Issue 4
+### Issue 5
 
-### 23 December 2019
+### DRAFT
 
 ---
 
-This document defines code lists for use with LCF version 1.2.0.
+This document defines code lists for use with LCF version x.x.0.
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
