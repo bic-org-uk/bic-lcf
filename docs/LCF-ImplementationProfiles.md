@@ -14,7 +14,7 @@ weight: 6
 
 ### Issue 2
 
-### DRAFT
+### 23 December 2019
 
 ---
 
@@ -25,7 +25,7 @@ This document defines implementation profiles for the LCF data communication fra
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
 
 #### P00 Core LMS Profile
-*(Added in v1.2.0)*
+*(Added in Issue 2)*
 
 This profile defines which of the core functions by entity type need to be supported by an LMS.
 
