@@ -171,7 +171,7 @@ E03 PATRON
 |   6   | E03D27.2     | type-name                   | 0-1     | String      |         |
 |   7   | E03D27.3     | value                       | 1       | String      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
-|   9   | E03C36       | structured-name             | 0-1     |             | *Added in vx.x.x*                 |
+|   9   | E03C36       | structured-name             | 0-1     |             | *Added in vx.x.0*                 |
 |  10   | E03D36.1     | title-before-names          | 0-1     | string      |                                   |
 |  11   | E03D36.2     | names-before-key            | 0-1     | string      |                                   |
 |  12   | E03D36.3     | prefix-to-key               | 0-1     | string      |                                   |
