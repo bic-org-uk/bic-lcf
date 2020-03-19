@@ -168,57 +168,66 @@ E03 PATRON
 |   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added in v1.0.1*                 |
 |   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added in v1.0.1*                 |
 |   5   | E03D27.1     | patron-id-type              | 1       | Code        | **[PNI](LCF-CodeLists.md#PNI)** |
-|   6   | E02D27.2     | type-name                   | 0-1     | String      |         |
-|   7   | E02D27.3     | value                       | 1       | String      |         |
+|   6   | E03D27.2     | type-name                   | 0-1     | String      |         |
+|   7   | E03D27.3     | value                       | 1       | String      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
-|   9   | E03D02       | contact-ref                 | 0-n     | string      |         |
-|  10   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added in v1.0.1*                                                                                |
-|  11   | E03C03       | associated-location         | 0-n     |             |         |
-|  12   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
-|  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
-|  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0*                 |
-|  15   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
-|  16   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0*                 |
-|  17   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
-|  18   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
-|  19   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
-|  20   | E03D29       | patron-tag                  | 0-n     | string      | *Added in v1.0.1*                 |
-|  21   | E03D32       | authorisation-ref           | 0-n     | string      | *Added in v1.0.1*                 |
-|  22   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added in v1.0.1*                 |
-|  23   | E03C33       | associated-patron-group     | 0-n     |             | *Added in v1.0.1*                 |
-|  24   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |
-|  25   | E03D33.5     | group-type                  | 0-1     | String      |         |
-|  26   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
-|  27   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
-|  28   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
-|  29   | E03D07       | loan-ref                    | 0-nR    | string      |         |
-|  30   | E03D08       | on-loan-items               | 0-1R    | int         |         |
-|  31   | E03D09       | loan-items-limit            | 0-1     | int         |         |
-|  32   | E03D10       | overdue-items               | 0-1R    | int         |         |
-|  33   | E03D11       | overdue-items-limit         | 0-1     | int         |         |
-|  34   | E03D12       | recalled-items              | 0-1R    | int         |         |
-|  35   | E03D13       | fees-due-items              | 0-1R    | int         |         |
-|  36   | E03D14       | fines-due-items             | 0-1R    | int         |         |
-|  37   | E03D15       | reservation-ref             | 0-nR    | string      |         |
-|  38   | E03D16       | available-hold-items        | 0-1R    | int         |         |
-|  39   | E03D17       | unavailable-hold-items      | 0-1R    | int         |         |
-|  40   | E03D18       | hold-items-limit            | 0-1     | int         |         |
-|  41   | E03D19       | charge-ref                  | 0-nR    | string      |         |
-|  42   | E03C20       | charge-limit                | 0-n     |             |         |
-|  43   | E03D20.1     | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)   |
-|  44   | E03D20.2     | amount                      | 1       | decimal     |         |
-|  45   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
-|  46   | E03C31       | deposit-balance             | 0-1     |             | *Added in v1.0.1*                |
-|  47   | E03D31.1     | amount                      | 1       | decimal     |         |
-|  48   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
-|  49   | E03C34       | associated-message          | 0-n     |             |         |
-|  50   | E03D34.1     | message-ref                 | 1       | string      |         |
-|  51   | E03D34.2     | delivery-status             | 1       | Code        | [MAD](LCF-CodeLists.md#MAD)   |
-|  52   | E03C21       | note                        | 0-n     |             |         |
-|  53   | E03D21.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)   |
-|  54   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
-|  55   | E03D21.3     | note-text                   | 1       | string      |         |
-|  56   | E03D25       | date-of-birth               | 0-1     | date        | *Added in v1.0.1*                |
+|   9   | E03C36       | structured-name             | 0-1     |             | *Added in vx.x.x*                 |
+|  10   | E03D36.1     | title-before-names          | 0-1     | string      |                                   |
+|  11   | E03D36.2     | names-before-key            | 0-1     | string      |                                   |
+|  12   | E03D36.3     | prefix-to-key               | 0-1     | string      |                                   |
+|  13   | E03D36.4     | key-names                   | 1       | string      |                                   |
+|  14   | E03D36.5     | names-after-key             | 0-1     | string      |                                   |
+|  15   | E03D36.6     | suffix-to-key               | 0-1     | string      |                                   |
+|  16   | E03D36.7     | letters-after-names         | 0-1     | string      |                                   |
+|  17   | E03D36.8     | titles-after-names          | 0-1     | string      |                                   |
+|  18   | E03D02       | contact-ref                 | 0-n     | string      |         |
+|  19   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added in v1.0.1* |
+|  20   | E03C03       | associated-location         | 0-n     |             |         |
+|  21   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
+|  22   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
+|  23   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0* |
+|  24   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
+|  25   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0* |
+|  26   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
+|  27   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
+|  28   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
+|  29   | E03D29       | patron-tag                  | 0-n     | string      | *Added in v1.0.1*                 |
+|  30   | E03D32       | authorisation-ref           | 0-n     | string      | *Added in v1.0.1*                 |
+|  31   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added in v1.0.1*                 |
+|  32   | E03C33       | associated-patron-group     | 0-n     |             | *Added in v1.0.1*                 |
+|  33   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |
+|  34   | E03D33.5     | group-type                  | 0-1     | String      |         |
+|  35   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
+|  36   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
+|  37   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
+|  38   | E03D07       | loan-ref                    | 0-nR    | string      |         |
+|  39   | E03D08       | on-loan-items               | 0-1R    | int         |         |
+|  40   | E03D09       | loan-items-limit            | 0-1     | int         |         |
+|  41   | E03D10       | overdue-items               | 0-1R    | int         |         |
+|  42   | E03D11       | overdue-items-limit         | 0-1     | int         |         |
+|  43   | E03D12       | recalled-items              | 0-1R    | int         |         |
+|  44   | E03D13       | fees-due-items              | 0-1R    | int         |         |
+|  45   | E03D14       | fines-due-items             | 0-1R    | int         |         |
+|  46   | E03D15       | reservation-ref             | 0-nR    | string      |         |
+|  47   | E03D16       | available-hold-items        | 0-1R    | int         |         |
+|  48   | E03D17       | unavailable-hold-items      | 0-1R    | int         |         |
+|  49   | E03D18       | hold-items-limit            | 0-1     | int         |         |
+|  50   | E03D19       | charge-ref                  | 0-nR    | string      |         |
+|  51   | E03C20       | charge-limit                | 0-n     |             |         |
+|  52   | E03D20.1     | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)   |
+|  53   | E03D20.2     | amount                      | 1       | decimal     |         |
+|  54   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
+|  55   | E03C31       | deposit-balance             | 0-1     |             | *Added in v1.0.1*                |
+|  56   | E03D31.1     | amount                      | 1       | decimal     |         |
+|  57   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
+|  58   | E03C34       | associated-message          | 0-n     |             |         |
+|  59   | E03D34.1     | message-ref                 | 1       | string      |         |
+|  60   | E03D34.2     | delivery-status             | 1       | Code        | [MAD](LCF-CodeLists.md#MAD)   |
+|  61   | E03C21       | note                        | 0-n     |             |         |
+|  62   | E03D21.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)   |
+|  63   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
+|  64   | E03D21.3     | note-text                   | 1       | string      |         |
+|  65   | E03D25       | date-of-birth               | 0-1     | date        | *Added in v1.0.1*                |
 
 E04 LOCATION
 ------------
