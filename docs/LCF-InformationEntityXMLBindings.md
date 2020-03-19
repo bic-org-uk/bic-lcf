@@ -165,11 +165,11 @@ E03 PATRON
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **patron<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E03D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
-|   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added in v1.0.1*                 |
+|   3   | E03D26       | barcode-id                  | 0-1     | string      | *Added in v1.0.1*                 |
 |   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added in v1.0.1*                 |
 |   5   | E03D27.1     | patron-id-type              | 1       | Code        | **[PNI](LCF-CodeLists.md#PNI)** |
-|   6   | E02D27.2     | type-name                   | 0-1     | String      |         |
-|   7   | E02D27.3     | value                       | 1       | String      |         |
+|   6   | E02D27.2     | type-name                   | 0-1     | string      |         |
+|   7   | E02D27.3     | value                       | 1       | string      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
 |   9   | E03D02       | contact-ref                 | 0-n     | string      |         |
 |  10   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added in v1.0.1*                                                                                |
@@ -187,10 +187,10 @@ E03 PATRON
 |  22   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added in v1.0.1*                 |
 |  23   | E03C33       | associated-patron-group     | 0-n     |             | *Added in v1.0.1*                 |
 |  24   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |
-|  25   | E03D33.5     | group-type                  | 0-1     | String      |         |
-|  26   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
-|  27   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
-|  28   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
+|  25   | E03D33.5     | group-type                  | 0-1     | string      |         |
+|  26   | E03D33.2     | patron-group-id             | 0-1     | string      |         |
+|  27   | E03D33.3     | lead-patron-ref             | 0-n     | string      |         |
+|  28   | E03D33.4     | patron-ref                  | 0-n     | string      |         |
 |  29   | E03D07       | loan-ref                    | 0-nR    | string      |         |
 |  30   | E03D08       | on-loan-items               | 0-1R    | int         |         |
 |  31   | E03D09       | loan-items-limit            | 0-1     | int         |         |
@@ -366,7 +366,7 @@ E09 CONTACT
 |   8  | E09C07       | note                         | 0-n     |             |         |
 |   9  | E09D07.1     | note-type                    | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
-|  11  | D09D07.3     | note-text                    | 1       | string      |         |
+|  11  | E09D07.3     | note-text                    | 1       | string      |         |
 
 E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 -------------------------------
@@ -494,17 +494,17 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |  20   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
 |  21   | E15D13.3     | note-text                   | 1       | string      |         |
 |  21   | E15C16       | delivery-summary            | 0-1     |             | *Added in v1.2.0*              |
-|  22   | E15D16.1     | delivered                   | 0-1     | Integer     |         |
-|  23   | E15D16.2     | acknowledged                | 0-1     | Integer     |         |
+|  22   | E15D16.1     | delivered                   | 0-1     | int         |         |
+|  23   | E15D16.2     | acknowledged                | 0-1     | int         |         |
 |  24   | E15C16.3     | delivery-to-patron-category | 0-n     |             |         |
-|  25   | E15D16.3.1   | category-name               | 1       | String      |         |
-|  26   | E15D16.3.2   | total-patrons-in-category   | 0-1     | Integer     |         |
-|  27   | E15D16.3.3   | delivered                   | 0-1     | Integer     |         |
-|  28   | E15D16.3.4   | acknowledged                | 0-1     | Integer     |         |
+|  25   | E15D16.3.1   | category-name               | 1       | string      |         |
+|  26   | E15D16.3.2   | total-patrons-in-category   | 0-1     | int         |         |
+|  27   | E15D16.3.3   | delivered                   | 0-1     | int         |         |
+|  28   | E15D16.3.4   | acknowledged                | 0-1     | int         |         |
 |  29   | E15C16.4     | delivery-to-related-patrons | 0-n     |             |         |
-|  30   | E15D16.4.1   | total-related-patrons       | 0-1     | Integer     |         |
-|  31   | E15D16.4.2   | delivered                   | 0-1     | Integer     |         |
-|  32   | E15D16.4.3   | acknowledged                | 0-1     | Integer     |         |
+|  30   | E15D16.4.1   | total-related-patrons       | 0-1     | int         |         |
+|  31   | E15D16.4.2   | delivered                   | 0-1     | int         |         |
+|  32   | E15D16.4.3   | acknowledged                | 0-1     | int         |         |
 
 
 EXCEPTION CONDITIONS
