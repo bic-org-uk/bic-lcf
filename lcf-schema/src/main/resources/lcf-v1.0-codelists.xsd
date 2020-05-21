@@ -908,22 +908,6 @@
             </xs:enumeration>            
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="manifestationIDType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNI</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation identification scheme</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">based upon ONIX Code List 5</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="05"/>
-            <xs:enumeration value="14"/>
-            <xs:enumeration value="17"/>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="manifestationStatus">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNS</xs:appinfo>
@@ -1680,22 +1664,6 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="titleType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">TTL</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Title type</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Based upon ONIX Code List 15</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="00"/>
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="05"/>
-            <xs:enumeration value="11"/>
-            <xs:enumeration value="13"/>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="textFormat">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">TFT</xs:appinfo>
@@ -1762,19 +1730,6 @@
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Added in v1.0.1</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="unnamedContributorType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">UNC</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Unnamed contributor type</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Based upon ONIX Code List 11</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="daysOfTheWeek">
