@@ -653,10 +653,10 @@ A library authority or institution.
 |E14D04.3.4.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the library location is closed on all days of the week during the specified service period. |
 |*E14C04.3.5*| Library open               |           | 0-n      |            | Explicit statement that the library location is open for at least one time period on the specified days of the service period. See Note 4 below on interpretation of repetitions of this composite element. |
 |E14D04.3.5.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the open time-period(s) apply to all days of the week during the specified service period. |
-|*E15C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
-|E15D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
-|E15D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
-|E15D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
+|*E14C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
+|E14D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
+|E14D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
+|E14D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
 | *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
 | E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[CAT](LCF-CodeLists.md#CAT)**          |
 | E14D05.2   | Contact name               |           | 1        | String     |                                |
