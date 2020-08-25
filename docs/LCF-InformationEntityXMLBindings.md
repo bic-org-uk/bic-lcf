@@ -342,10 +342,11 @@ E08 PAYMENT
 |   9   | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                                                                   |
 |  10   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
 |  11   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
-|  12   | E08C11       | note                        | 0-n     |             |         |
-|  13   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  14   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
-|  15   | E08D11.3     | note-text                   | 1       | string      |         |
+|  12   | E08D12       | authorisation-ref           | 0-1     | string      | *(Added in vx.x.0)*    |
+|  13   | E08C11       | note                        | 0-n     |             |         |
+|  14   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  15   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
+|  16   | E08D11.3     | note-text                   | 1       | string      |         |
 
 E09 CONTACT
 -----------
