@@ -497,6 +497,7 @@ An identified payment made by a patron to settle one or more charges.
 | E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
 | E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)**          |
 | E08D10     | Transaction reference      |            | 0-1     | String     |                                |
+| E08D12     | Authorisation reference    |            | 0-1     | String     | Reference to an authorisation entity - see E13<br/>*(Added in vx.x.0)* |
 | *E08C11*   | *Payment note*             |            | 0-n     | String     |A note attached to this payment.|
 | E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E08D11.2   | Note date-time             |            | 0-1     | DateTime   |                                |
