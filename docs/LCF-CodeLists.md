@@ -82,6 +82,7 @@ The code lists defined are:
 -   [PNI Patron identification scheme](#PNI) *(added in v1.0.1)*
 -   [PNS Patron status condition type](#PNS)
 -   [PNT Patron detailed information type](#PNT)
+-   [PYP Payment purpose](#PYP) *(added in vx.x.0.)*
 -   [PYS Payment status](#PYS)
 -   [PYT Payment type](#PYT)
 -   [RDN Reason for inability to approve request](#RDN)
@@ -556,6 +557,13 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNT09       |14             |Unavailable hold items             |
   PNT10       |15             |Fees, other than fines, owed       |
   PNT11       |16             |Fines owed                         |
+
+### <a id="PYP"></a>PYP Payment purpose *(Added in vx.x.0)*
+
+  *Code ID*   |*Code value*   |*Definition*                      |*Notes*
+  ----------- |-------------- |--------------------------------- |--------------------------------------------------------------------
+  PYP01       |00             |To credit the Patron's account    |Credit may be with reference to specific charges.
+  PYP02       |02             |To make a donation                |Donation must be with reference to a specific authority/institution.
 
 ### <a id="PYS"></a>PYS Payment status
 
