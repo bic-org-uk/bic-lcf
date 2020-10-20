@@ -286,9 +286,18 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D26     | Barcode identifier         |           | 0-1      | String     | The identifier on the patron's library card. Mandatory unless the LCF entity identifier is the same identifier.<br/>*Added in v1.0.1*            |
 | *E03C27*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this patron.<br/>*Added in v1.0.1*                                                |
 | E03D27.1   | Identifier type            |           | 1        | Code       | LCF code list **[PNI](LCF-CodeLists.md#PNI)**<br/>The identification scheme.                                                                                         |
-| E02D27.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
-| E02D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| E03D27.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| E03D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E03D22** | **Name**                   | **AE**    | **1**    | **String** | **Name of primary contact for this patron.**<br/>*Added in v1.0.1*                                                                                   |
+| *E03C36*   | Structured name            |           | 0-1      |            | Name of primary contact in structure form, following the model provided by ONIX. Only for use with personal names. Note that, for display purposes, structured names would normally be re-assembled in the order specified here.<br/>*Added in vx.x.0*   |
+| E03D36.1   | Title before names         |           | 0-1      | String     | Qualifications and/or titles preceding a person’s names, eg ‘Professor’ or ‘HRH Prince’ or ‘Saint’.                                        |
+| E03D36.2   | Names before key           |           | 0-1      | String     | Name(s) and/or initial(s) preceding a person’s key name(s), eg 'James J.'                                                                   |
+| E03D36.3   | Prefix to key              |           | 0-1      | String     | A prefix which precedes the key name(s) but which is not to be treated as part of the key name, eg ‘van’ in Ludwig van Beethoven. This element may also be used for titles that appear after given names and before key names, eg ‘Lord’ in Alfred, Lord Tennyson.                    |
+| E03D36.4   | Key names                  |           | 1        | String     | Key name(s), ie the name elements normally used to open an entry in an alphabetical list, eg ‘Smith’ or ‘Garcia Marquez’ or ‘Madonna’ or ‘Francis de Sales’ (in Saint Francis de Sales).  |
+| E03D36.5   | Names after key            |           | 0-1      | String     | Name suffix, or name(s) following a person’s key name(s), eg ‘Ibrahim’ (in Anwar Ibrahim).                                                |
+| E03D36.6   | Suffix to key              |           | 0-1      | String     | A suffix following a person’s key name(s), eg ‘Jr’ or ‘III’.                                                                                   |
+| E03D36.7   | Letters after names        |           | 0-1      | String     | Qualifications and honors following a person’s names, eg ‘CBE FRS’.                                                                            |
+| E03D36.8   | Titles after names         |           | 0-1      | String     | Titles following a person’s names, eg ‘Duke of Edinburgh’.                                                                              |
 | E03D02     | Contact reference          |           | 0-n      | String     | Contact details for this patron<br/>*Repeatable in v1.0.1*                                                                                 |
 | E03D23     | Language                   |           | 0-1      | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added in v1.0.1*                              |
 | *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
@@ -487,18 +496,20 @@ An identified payment made by a patron to settle one or more charges.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                                                              |
+| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                |
 | **E08D02** | **Patron reference**       |            | **1**   | **String** |                                |
-| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                           |
-| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                             |
-| E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.*                                                                                            |
-| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                    |
+| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                   |
+| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                                                      |
+| E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.* |
+| E08D12     | Payment purpose            |            | 0-1     | Code       | LCF code list [PYP](LCF-CodeLists.md#PYP)<br/>The purpose of the payment.<br/>*(Added in vx.x.0)*                                                                |
+| E08D13     | Beneficiary institution    |            | 0-1     | String     | Authority/institution to benefit from a donation. Must be included if the payment purpose is to make a donation.<br/>*(Added in vx.x.0)*                              |
+| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                                          |
 | **E08D07** | **Payment amount**         | **BV**     | **1**   | **Value**  | **Currency value**             |
-| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)**          |
+| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                                            |
+| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)** |
 | E08D10     | Transaction reference      |            | 0-1     | String     |                                |
 | *E08C11*   | *Payment note*             |            | 0-n     | String     |A note attached to this payment.|
-| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
+| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)** |
 | E08D11.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E08D11.3   | Note text                  |            | 1       | String     |                                |
 
