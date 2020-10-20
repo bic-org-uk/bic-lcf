@@ -171,7 +171,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
 | **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                          |
 | *E01C02*   | *Additional identifier*    |           | 1-n      |            | Composite element containing details of an additional identifier for the manifestation.                                                             |
-| E01D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[MNI](LCF-CodeLists.md#MNI)**          |
+| E01D02.1   | Identifier type            |           | 1        | Code       | Manifestation identifier type from ONIX Code List 5[\[5\]](#Notes).<br/>*LCF Code List MNI deleted in vx.x.0*          |
 | E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
 | E01D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | *E01C03*   | *Media type / format*      | CK        | 0-n      |            |                                |
@@ -179,16 +179,16 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D03.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme                                                                                                         |
 | E01D03.3   | Scheme code                |           | 1        | String     | Code from the specified scheme |
 | *E01C04*   | *Title*                    | AJ        | 0-n      |            | Composite element containing a title of the manifestation. Repeatable for multiple types of title (e.g. full title, abbreviated title)              |
-| E01D04.1   | Title type                 |           | 1        | Code       | LCF code list **[TTL](LCF-CodeLists.md#TTL)**          |
+| E01D04.1   | Title type                 |           | 1        | Code       | Manifestation title type from ONIX Code List 15[\[5\]](#Notes).<br/>*Specific LCF Code List TTL deleted in vx.x.0*              |
 | E01D04.2   | Title text                 |           | 1        | String     |                                |
 | E01D04.3   | Subtitle                   |           | 0-1      | String     |                                |
 | *E01C05*   | *Contributor*              |           | 0-n      |            | Composite element containing author or other contributor. Repeatable for multiple contributors.                                                    |
 | E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[\[5\]](#Notes).                                                                        |
 | E01D05.2   | Contributor name           |           | 0-1      | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                  |
-| E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | LCF code list **[UNC](LCF-CodeLists.md#UNC)**          |
+| E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | Unnamed contributor(s) type from ONIX Code List 19[\[5\]](#Notes).<br/>*Specific LCF Code List UNC deleted in vx.x.0*          |
 | *E01C06*   | *Series*                   |           | 0-1      |            | Composite element containing information about a series of which this manifestation is a member.                                            |
 | *E01C06.1* | *Series title*             |           | 0-n      |            | Composite element containing the title of the series. Repeatable for multiple types of title.                                                   |
-| E01D06.1.1 | Title type                 |           | 1        | Code       | LCF code list **[TTL](LCF-CodeLists.md#TTL)**          |
+| E01D06.1.1 | Title type                 |           | 1        | Code       | Series title type from ONIX Code List 15[\[5\]](#Notes).<br/>*Specific LCF Code List TTL deleted in vx.x.0*          |
 | E01D06.1.2 | Title text                 |           | 1        | String     |                                |
 | E01D06.1.3 | Subtitle                   |           | 0-1      | String     |                                |
 | E01D06.2   | Volume or part             |           | 0-1      | String     | Volume or part number within series                                                                                                         |

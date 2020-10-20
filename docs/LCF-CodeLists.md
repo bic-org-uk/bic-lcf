@@ -73,7 +73,7 @@ The code lists defined are:
 -   [MEW Media warning flag](#MEW)
 -   [MGT Message display type](#MGT)
 -   [MND Manifestation detailed information type](#MND)
--   [MNI Manifestation identification scheme](#MNI)
+-   MNI Manifestation identification scheme *(removed in vx.x.0)*
 -   [MNS Manifestation status](#MNS)
 -   [MOT Entity modification type](#MOT)
 -   [NOT Note type](#NOT)
@@ -97,8 +97,8 @@ The code lists defined are:
 -   [SPA Special attention required flag](#SPA)
 -   [STA Staffed / un-staffed](#STA) *(added in v1.2.0)*
 -   [TFT Text format](#TFT)
--   [TTL Title type](#TTL)
--   [UNC Unnamed contributor type](#UNC)
+-   TTL Title type *(removed in vx.x.0)*
+-   UNC Unnamed contributor type *(removed in vx.x.0)*
 -   [WKD Days of the week](#WKD) *(added in v1.2.0)*
 
 ### <a id="AAT"></a>AAT Library authority/institution association type *(added in v1.0.1)*
@@ -472,16 +472,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MND07       |07             |Manifestation loan characteristics            |Element E01C13
   MND08       |08             |Item check-out restrictions and fees          |Elements E01C14 and E01C15
 
-### <a id="MNI"></a>MNI Manifestation identification scheme (based upon ONIX Code List 5)
-
-  *Code ID*   |*Code value*   |*Definition*           |*Notes*
-  ----------- |-------------- |---------------------- |--------------------------------------------------
-  MNI01       |01             |Proprietary            |ONIX code ‘01’
-  MNI02       |02             |ISBN-10                |ONIX code ‘02’ – 10-digit ISBN
-  MNI03       |03             |GTIN-13                |ONIX code ‘03’ – normally used for 13-digit ISBN
-  MNI04       |05             |ISMN                   |ONIX code ‘05’
-  MNI05       |14             |GTIN-14                |ONIX code ‘14’
-  MNI06       |17             |Legal deposit number   |ONIX code ‘17’
+### MNI Manifestation identification scheme (based upon ONIX Code List 5) *(removed in vx.x.0)*
 
 ### <a id="MNS"></a>MNS Manifestation status
 
@@ -737,24 +728,9 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   TFT07       |14             |MarkDown                                        |
   TFT08       |04             |Plain text, encoding specified at message level | *Added in v1.0.1*
 
-### <a id="TTL"></a>TTL Title type (based upon ONIX Code List 15)
+### TTL Title type (based upon ONIX Code List 15) *(removed in vx.x.0)*
 
-  *Code ID*   |*Code value*   |*Definition*                 |*Notes*
-  ----------- |-------------- |---------------------------- |----------------
-  TTL01       |00             |Undefined                    |ONIX code ‘00’
-  TTL02       |01             |Title on item                |ONIX code ‘01’
-  TTL03       |03             |Title in original language   |ONIX code ‘03’
-  TTL04       |05             |Abbreviated title            |ONIX code ‘05’
-  TTL05       |11             |Alternative title on cover   |ONIX code ‘11’
-  TTL06       |13             |Expanded title               |ONIX code ‘13’
-
-### <a id="UNC"></a>UNC Unnamed contributor type (based upon ONIX Code List 19)
-
-  *Code ID*   |*Code value*   |*Definition*   |*Notes*
-  ----------- |-------------- |-------------- |----------------
-  UNC01       |01             |Unknown        |ONIX code ‘01’
-  UNC02       |02             |Anonymous      |ONIX code ‘02’
-  UNC03       |03             |et al.         |ONIX code ‘03’
+### UNC Unnamed contributor type (based upon ONIX Code List 11) *(removed in vx.x.0)*
 
 ### <a id="WKD"></a>WKD Days of the week *(Added in v1.2.0)*
 
