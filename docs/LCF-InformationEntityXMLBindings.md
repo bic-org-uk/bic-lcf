@@ -338,10 +338,10 @@ E07 CHARGE
 E08 PAYMENT
 -----------
 
-|        | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
-|--------|--------------|-----------------------------|---------|-------------|---------|
-|  **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"** |      |        | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                                    |
-|    2   | E08D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                                                                 |
+|       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
+|-------|--------------|-----------------------------|---------|-------------|---------|
+|  **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
+|    2   | E08D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
 |  **3** | **E08D02**   | **patron-ref**              | **1**   | **string**  |         |
 |  **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **[PYT](LCF-CodeLists.md#PYT)** |
 |    5   | E08D04       | description                 | 0-1     | string      |         |
@@ -350,13 +350,14 @@ E08 PAYMENT
 |    8   | E08D13       | beneficiary-ref             | 0-1     | string      | *Added in vx.x.0*               |
 |    9   | E08D06       | payment-date                | 0-1     | dateTime    |         |
 | **10** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
-|   11   | E08D08       | currency                    | 0-1     | Code        | ISO currency code               |
+|   11   | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                                                                   |
 |   12   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
 |   13   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
-|   14   | E08C11       | note                        | 0-n     |             |         |
-|   15   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|   16   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
-|   17   | E08D11.3     | note-text                   | 1       | string      |         |
+|   14   | E08D12       | authorisation-ref           | 0-1     | string      | *(Added in vx.x.0)*    |
+|   15   | E08C11       | note                        | 0-n     |             |         |
+|   16   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|   17   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
+|   18   | E08D11.3     | note-text                   | 1       | string      |         |
 
 E09 CONTACT
 -----------
