@@ -951,9 +951,9 @@ This implies that the terminal application must provide sufficient information i
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R11D01     | Loan reference             |            | 0-1     | String    | LCF entity identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                        |
-|*R11C02*    |*Loan entity record*        |            | 0-1     |           | See E05                         |
-| R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[MEW](LCF-CodeLists.md#MEW)**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
-| R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[SCD](LCF-CodeLists.md#SCD)**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
+| *R11C02*     | Loan entity record         |            | 0-1     |           | See E05                         |
+| R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[MEW](LCF-CodeLists.md#MEW)**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices.<br/>*Description modified in vx.x.0*                        |
+| R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[SCD](LCF-CodeLists.md#SCD)**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out.<br/>*Description modified in vx.x.0*                                  |
 | R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan. |
 | R11D06     | Digital content access link |   | 0-1     | String    | Non-persistent link to be used by the patron to access checked-out digital content<br/>*Added in v1.0.1*                                                |
 
