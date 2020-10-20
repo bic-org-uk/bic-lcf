@@ -206,13 +206,9 @@ The LCF element R00D07 should be carried by a custom field 'lcf-version' in the 
 
     lcf-version: 1.2.0
 
-#### 
+# Core functions
 
-Core functions
-==============
-
-01 Retrieve entity item information 
-------------------------------------
+## 01 Retrieve entity item information 
 
 The request is formulated using the HTTP GET method.
 
@@ -237,8 +233,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 
 If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
-02 Retrieve entity instance list
---------------------------------
+## 02 Retrieve entity instance list
 
 The request is formulated using the HTTP GET method.
 
@@ -326,8 +321,7 @@ NOTE – LCF element R02C07 is not implemented.
 
 If the request is unsuccessful, i.e. the server is unable to process the request, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
-03 Create entity item
----------------------
+## 03 Create entity item
 
 The request is formulated using the HTTP POST method. The payload is an XML document that conforms to one of the LCF information entity XML schemas.
 
@@ -353,8 +347,7 @@ If the request is successful, the HTTP response should include status code 201 (
 
 If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
-04 Modify entity item
----------------------
+## 04 Modify entity item
 
 The request is formulated using the HTTP PUT method. The payload is an XML document that conforms to one of the LCF information entity XML schemas.
 
@@ -377,8 +370,7 @@ NOTE – This function replaces the entity item identified in the request with t
 
 If the request is successful, the HTTP response should include status code 200 (OK) and may additionally contain an XML payload that conforms to the LCF information entity XML schema for the specified entity type.
 
-05 Delete entity item
----------------------
+## 05 Delete entity item
 
 The request is formulated using the HTTP DELETE method.
 
@@ -399,15 +391,11 @@ The request is formulated using the HTTP DELETE method.
 
 If the request is successful, the HTTP response must include the status code 204 (No content) and no payload.
 
-Circulation functions
-=====================
+# Circulation functions
 
-11 Check-out / renewal
-----------------------
+## 11 Check-out / renewal
 
 The difference between a check-out and renewal is that in the latter case an existing, active loan of the same item to the same patron must exist. It should not be necessary for the terminal application to know whether an item is already on loan to the patron in question, because the LMS will be able to determine whether this is the case or not. A single function will therefore normally suffice.
-
-#### Request
 
 The request is formulated using the HTTP POST method.
 
@@ -439,15 +427,15 @@ In the case of a renewal, the creation of a new loan may be more readily perform
 
 It is assumed that the other record functions (check that copy can be loaned, check patron status, cancel reservation if any, create charge record if appropriate, update patron and copy records) are performed on the server side. If any of these functions have to be done manually by the terminal application client, a sequence of basic retrieval, modification and deletion functions may be used for this purpose.
 
-#### Response
+### Response
 
 The response to a check-out or renewal may be the same response as for creating any entity, i.e. status code 201 (Created) and a Location field in the HTTP header, or it may contain an XML payload that conforms to the following schema. The advantage of including the XML payload in the response is that the terminal application will thereby be alerted by the inclusion of any of R11D03 – R11D05 in the response, rather than having to retrieve the newly-created loan in order to determine whether or not sensitive media are involved or security needs de-sensitization, or what charge has been made for the loan.
 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
 | **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                  |
-| ~~2~~ | ~~R11D01~~   | ~~loan-ref~~                             | ~~0-1~~ | ~~anyURI~~  | ~~One of R11D01, R11C02 or R11D03 must be included in the response.~~ (Removed in 1.2.0)                                              |
-| **3** | **R12C09**   | **loan**                                 | **1** |             | **See E05 (Cardinality changed in 1.2.0)** |
+| ~~2~~ | ~~R11D01~~   | ~~loan-ref~~                             | ~~0-1~~ | ~~anyURI~~  | ~~One of R11D01, R11C02 or R11D03 must be included in the response.~~ <br/>*Removed in v1.2.0*                                              |
+| **3** | **R11C02**   | **loan**                                 | **1** |             | **See E05**<br/>*Cardinality changed in v1.2.0* |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW) – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [SCD](LCF-CodeLists.md#SCD) – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
@@ -472,10 +460,9 @@ This also presumes that other record modifications (reset patron and item record
 
 It is implementation-defined as to whether cancellation of a renewal should reset all records as they were prior to the renewal, or treat the cancellation of the renewal as being the same as a check-in.
 
-12 Check-in
------------
+## 12 Check-in
 
-#### Request
+### Request
 
 The check-in function involves modification of a loan, using function 04 above, to change the status of the loan to '08' (checked in). The loan is first retrieved, then modified, e.g.
 
@@ -493,14 +480,14 @@ The check-in function involves modification of a loan, using function 04 above, 
 
 This presumes that a number of consequential functions are performed server-side.
 
-#### Response
+### Response
 
 A check-in response may be the same response as for modifying any entity, or may contain an XML message that conforms to the following schema. The advantage of including the XML payload in the response is that the terminal application will thereby be alerted by the inclusion of any of R12D04 – R12D08 in the response.
 
 |       | *Element ID* | *XML structure*           | *Card.* | *Data type* | *Notes*                                                      |
 | ----- | ------------ | ------------------------- | ------- | ----------- | ------------------------------------------------------------ |
 | **1** |              | **lcf-check-in-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1* |
-| **2** | **R12D01**   | **loan**                  | **1**   |             | See E05 (Type changed in 1.2.0)                              |
+| **2** | **R12D01**   | **loan**                  | **1**   |             | See E05<br/>*Type changed in v1.2.0*                              |
 | 3     | R12D04       | return-location-ref       | 0-1     | anyURI      |                                                              |
 | 4     | R12D05       | media-warning             | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW)                                  |
 | 5     | R12D06       | special-attention         | 0-1     | Code        | [SPA](LCF-CodeLists.md#SPA)                                  |
@@ -520,10 +507,9 @@ A check-in response may be the same response as for modifying any entity, or may
 
 Cancellation of check-in involves modifying all records affected by the check-in process, to reset them as they were prior to the check-in function being performed. As a minimum, the terminal application will need to reset the status of the loan to '01' (on loan to patron), which could trigger the server/LMS to roll back changes made to other records (item, patron, charge).
 
-13 Patron payment
------------------
+## 13 Patron payment
 
-#### Request
+### Request
 
 Making a patron payment involves creating a payment record, assuming that all consequent modifications to charge and patron records are server-side functions.
 
@@ -531,16 +517,15 @@ Making a patron payment involves creating a payment record, assuming that all co
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
-#### Response *(Revised in v1.0.1)*
+### Response *(Revised in v1.0.1)*
 
 The response depends upon whether there is a need for a two-phase transaction process or not. If the LMS has to authorise payment before the transaction can proceed, a HTTP response 202 will be sent in response to the initial POST, which must be repeated with authorisation reference and transaction reference included in the Payment record.
 
 If the LMS does not have to authorise payment, the response is the same as for creating any entity - see function 03.
 
-14 Block patron account
------------------------
+## 14 Block patron account
 
-#### Request
+### Request
 
 Blocking a patron account involves a change to the status of a patron and therefore a modification to a specific patron record. No other functions are involved. Normally the patron record would need to be retrieved, then modified, i.e.:
 
@@ -550,14 +535,13 @@ Blocking a patron account involves a change to the status of a patron and theref
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
-#### Response
+### Response
 
 The response is the same as for modifying any entity – see function 04 above.
 
-15 Un-block patron account
---------------------------
+## 15 Un-block patron account
 
-#### Request
+### Request
 
 Un-blocking a patron account, as with blocking, involves a change in the status of a patron and therefore a modification to a specific patron record, having first retrieved the record. No other functions are involved.
 
@@ -567,14 +551,13 @@ Un-blocking a patron account, as with blocking, involves a change in the status 
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
-#### Response
+### Response
 
 The response is the same as for modifying any entity – see function 04 above.
 
-16 Reserve manifestation / item
--------------------------------
+## 16 Reserve manifestation / item
 
-#### Request
+### Request
 
 The request is formulated using the HTTP POST method.
 
@@ -602,15 +585,14 @@ If a charge is applicable, the response may report an exception unless the 'char
 
 An XML document that conforms to the XML schema for a reservation entity (E06) must be uploaded with the request.
 
-#### Response
+### Response
 
 The response is the same as for creating any entity – see function 03 above. *[Changed in v1.0.1.]*
 
-17 Set/reset patron password
-----------------------------
+## 17 Set/reset patron password
 *[Added in v1.0.1]*
 
-#### Request
+### Request
 
 Setting or resetting a patron password involves modification of a property of a patron that is not stored as part of the corresponding patron entity. No other functions are involved.
 
@@ -624,16 +606,15 @@ To reset an existing patron password:
 
 The payload of the POST or PUT request is a plain text string containing the encrypted password.
 
-#### Response
+### Response
 
 If the request is successful, the HTTP response should include status code 200 (OK).
 
 
-18 Set/reset patron PIN
-----------------------------
+## 18 Set/reset patron PIN
 *[Added in v1.0.1]*
 
-#### Request
+### Request
 
 Setting or resetting a patron PIN involves modification of a property of a patron that may or may not be stored as part of the corresponding patron entity. No other functions are involved.
 
@@ -647,36 +628,31 @@ To reset an existing patron password:
 
 The payload of the POST or PUT request is a plain text string containing the encrypted PIN.
 
-#### Response
+### Response
 
 If the request is successful, the HTTP response should include status code 200 (OK).
 
-Stock management functions
-==========================
+# Stock management functions
 
-21 Retrieve location list
--------------------------
+## 21 Retrieve location list
 
 This function is the same as core function 02, applied to the retrieval of a list of location entities, for example:
 
     GET http://192.168.0.99:80/lcf/1.0/locations?{selection-criteria}
 
-22 Retrieve title classification scheme list
---------------------------------------------
+## 22 Retrieve title classification scheme list
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification scheme entities, for example:
 
     GET http://192.168.0.99:80/lcf/1.0/class-schemes
 
-23 Retrieve title classification list
--------------------------------------
+## 23 Retrieve title classification list
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification code entities, for example:
 
     GET http://192.168.0.99:80/lcf/1.0/class-codes?scheme=xxxxx
 
-24 Retrieve (stock) item list
------------------------------
+## 24 Retrieve (stock) item list
 
 This function combines the core functions for retrieval of a list of manifestations and list of items. A list of titles is first retrieved matching selection criteria that relate to titles. This list, coupled with further selection criteria that relate to copies, is used to retrieve a list of copies. The two can be combined in a single request that includes both manifestation-specific and copy-specific selection criteria.
 
@@ -688,8 +664,7 @@ The following selects all items that are copies of the same manifestation, for a
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?{all-selection-criteria}
 
-25 Retrieve selection criterion type list
------------------------------------------
+## 25 Retrieve selection criterion type list
 \[*Deprecated in v1.2.0*\]
 
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
@@ -700,8 +675,7 @@ The following selects all items that are copies of the same manifestation, for a
 
 NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
-26 Retrieve list of available items at a specific location
-----------------------------------------------------------
+## 26 Retrieve list of available items at a specific location
 \[*Deprecated in v1.2.0*\]
 
 The following selects all items that are available to be borrowed (circulation-status = '03') and are at a specific location 'shelf1':
@@ -710,10 +684,9 @@ The following selects all items that are available to be borrowed (circulation-s
 
 NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
-31 Apply charge to patron account
----------------------------------
+## 31 Apply charge to patron account
 
-#### Request
+### Request
 
 The request is formulated using the HTTP POST method to create a charge.
 

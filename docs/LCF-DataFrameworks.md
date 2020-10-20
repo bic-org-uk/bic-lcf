@@ -664,10 +664,10 @@ A library authority or institution.
 |E14D04.3.4.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the library location is closed on all days of the week during the specified service period. |
 |*E14C04.3.5*| Library open               |           | 0-n      |            | Explicit statement that the library location is open for at least one time period on the specified days of the service period. See Note 4 below on interpretation of repetitions of this composite element. |
 |E14D04.3.5.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the open time-period(s) apply to all days of the week during the specified service period. |
-|*E15C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
-|E15D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
-|E15D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
-|E15D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
+|*E14C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
+|E14D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
+|E14D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
+|E14D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
 | *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
 | E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[CAT](LCF-CodeLists.md#CAT)**          |
 | E14D05.2   | Contact name               |           | 1        | String     |                                |
@@ -950,7 +950,7 @@ This implies that the terminal application must provide sufficient information i
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R11D01     | Loan reference             |            | 0-1     | String    | LCF entity identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                        |
-| R11C02     | Loan entity record         |            | 0-1     |           | See E05                         |
+|*R11C02*    |*Loan entity record*        |            | 0-1     |           | See E05                         |
 | R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[MEW](LCF-CodeLists.md#MEW)**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
 | R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[SCD](LCF-CodeLists.md#SCD)**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
 | R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan. |
@@ -986,7 +986,7 @@ The check-in function, if successfully executed, causes an LMS to perform a numb
 | Id         | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R12D01     | Loan reference             |            | 0-1     | String    |                                 |
-| R12C09     | Loan entity record         |            | 0-1     |           | See E05 *Added in v1.2.0*       |
+|*R12C09*    |*Loan entity record*        |            | 0-1     |           | See E05 *Added in v1.2.0*       |
 | R12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
 | R12D03     | Item reference             | AB         | 0-1     | String    |                                 |
 | R12D04     | Item return location reference| CL      | 0-1     | String    | LCF entity identifier for return location, e.g. sort bin.                                                                                       |
@@ -1101,7 +1101,7 @@ The reserve function, if successfully executed, causes an LMS to perform a numbe
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R16D01     | Reservation reference      |            | 0-1     | String    | Either a reservation reference or a copy of the reservation record must be included in the response.                                               |
-| R16C02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
+|*R16C02*    |*Reservation entity record* |            | 0-1     |           | See E06.                        |
 | R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LCF entity identifier for the charge associated with reservation of this manifestation or item.                                                     |
 
 ### <a name="f17"></a> 17 Set/reset patron password
