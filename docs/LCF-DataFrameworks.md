@@ -487,18 +487,20 @@ An identified payment made by a patron to settle one or more charges.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                                                              |
+| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                |
 | **E08D02** | **Patron reference**       |            | **1**   | **String** |                                |
-| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                           |
-| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                             |
-| E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.*                                                                                            |
-| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                    |
+| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                   |
+| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                                                      |
+| E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.* |
+| E08D12     | Payment purpose            |            | 0-1     | Code       | LCF code list [PYP](LCF-CodeLists.md#PYP)<br/>The purpose of the payment.<br/>*(Added in vx.x.0)*                                                                |
+| E08D13     | Beneficiary institution    |            | 0-1     | String     | Authority/institution to benefit from a donation. Must be included if the payment purpose is to make a donation.<br/>*(Added in vx.x.0)*                              |
+| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                                          |
 | **E08D07** | **Payment amount**         | **BV**     | **1**   | **Value**  | **Currency value**             |
-| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)**          |
+| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                                            |
+| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)** |
 | E08D10     | Transaction reference      |            | 0-1     | String     |                                |
 | *E08C11*   | *Payment note*             |            | 0-n     | String     |A note attached to this payment.|
-| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
+| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)** |
 | E08D11.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E08D11.3   | Note text                  |            | 1       | String     |                                |
 
