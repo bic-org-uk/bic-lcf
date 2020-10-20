@@ -748,7 +748,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   TTL05       |11             |Alternative title on cover   |ONIX code ‘11’
   TTL06       |13             |Expanded title               |ONIX code ‘13’
 
-### <a id="UNC"></a>UNC Unnamed contributor type (based upon ONIX Code List 11)
+### <a id="UNC"></a>UNC Unnamed contributor type (based upon ONIX Code List 19)
 
   *Code ID*   |*Code value*   |*Definition*   |*Notes*
   ----------- |-------------- |-------------- |----------------
