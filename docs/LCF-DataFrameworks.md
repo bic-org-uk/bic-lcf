@@ -920,7 +920,7 @@ Circulation management functions
 
 The check-out / renewal function, if successfully executed, causes an LMS to perform a number of consequential actions to create, delete or modify various entity records. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record creation, modification or deletion actions might be performed by an LMS:
 
--   Unless this is a confirmation or cancellation of check-out or renewal, an LMS would typically retrieve the patron, item and manifestation records to check the patron’s status and ensure that check-out is permitted and to check for any applicable fees.
+-   Unless this is a confirmation (request type RQT02) or cancellation (request type RQT03) of check-out or renewal, an LMS would typically retrieve the patron, item and manifestation records to check the patron’s status and ensure that check-out is permitted and to check for any applicable fees. An LMS may not block a confirmation request (equivalent to "no block" in SIP2). *(Modified in vx.x.0)*
 
 -   If check-out / renewal is to proceed, an LMS would create a loan record for the specified patron and item and, in the case of renewal, modify or delete the existing loan record. If cancelling a check-out or renewal, an LMS would retrieve and either delete or modify the loan record.
 
@@ -964,7 +964,7 @@ This implies that the terminal application must provide sufficient information i
 
 The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification or creation actions might be performed by an LMS:
 
--   The LMS would retrieve the item record and modify to update circulation status and location.
+-   Unless this is a cancellation (request type RQT03) of check-out or renewal, the LMS would retrieve the item record and modify to update circulation status and location. An LMS may not block a confirmation request (equivalent to "no block" in SIP2). *(Modified in vx.x.0)*
 
 -   The LMS would retrieve the loan record for this item and modify it to update its status.
 
