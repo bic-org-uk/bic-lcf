@@ -169,54 +169,61 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*[\[3\]](#Notes)                                                    | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                          |
-| *E01C02*   | *Additional identifier*    |           | 1-n      |            | Composite element containing details of an additional identifier for the manifestation.                                                             |
-| E01D02.1   | Identifier type            |           | 1        | Code       | Manifestation identifier type from ONIX Code List 5[\[5\]](#Notes).<br/>*LCF Code List MNI deleted in vx.x.0*          |
-| E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                                      |
+| *E01C02*   | *Additional identifier*    |           | 1-n      |            | Composite element containing details of an additional identifier for the manifestation. |
+| E01D02.1   | Identifier type            |           | 1        | Code       | Manifestation identifier type from ONIX Code List 5[\[5\]](#Notes).<br/>*LCF Code List MNI deleted in vx.x.0*                                                                                             |
+| E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme. |
 | E01D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| E01D22     | Manifestation type         |           | 0-1      | Code       | LCF code list **[MNT](LCF-CodeLists.md#MNT)**<br/>*Added vx.x.0*                 |
 | *E01C03*   | *Media type / format*      | CK        | 0-n      |            |                                |
-| E01D03.1   | Media type / format scheme |           | 1        | Code       | LCF code list **[MES](LCF-CodeLists.md#MES)**<br/>Allowed values to include ONIX code lists 150 and 175, SIP2 media type and proprietary                                 |
-| E01D03.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme                                                                                                         |
+| E01D03.1   | Media type / format scheme |           | 1        | Code       | LCF code list **[MES](LCF-CodeLists.md#MES)**<br/>Allowed values to include ONIX code lists 150 and 175, SIP2 media type and proprietary                                                                       |
+| E01D03.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme |
 | E01D03.3   | Scheme code                |           | 1        | String     | Code from the specified scheme |
-| *E01C04*   | *Title*                    | AJ        | 0-n      |            | Composite element containing a title of the manifestation. Repeatable for multiple types of title (e.g. full title, abbreviated title)              |
-| E01D04.1   | Title type                 |           | 1        | Code       | Manifestation title type from ONIX Code List 15[\[5\]](#Notes).<br/>*Specific LCF Code List TTL deleted in vx.x.0*              |
+| *E01C04*   | *Title*                    | AJ        | 0-n      |            | Composite element containing a title of the manifestation. Repeatable for multiple types of title (e.g. full title, abbreviated title)                                                                     |
+| E01D04.1   | Title type                 |           | 1        | Code       | Manifestation title type from ONIX Code List 15[\[5\]](#Notes).<br/>*Specific LCF Code List TTL deleted in vx.x.0*                                                                                             |
 | E01D04.2   | Title text                 |           | 1        | String     |                                |
 | E01D04.3   | Subtitle                   |           | 0-1      | String     |                                |
-| *E01C05*   | *Contributor*              |           | 0-n      |            | Composite element containing author or other contributor. Repeatable for multiple contributors.                                                    |
-| E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[\[5\]](#Notes).                                                                        |
-| E01D05.2   | Contributor name           |           | 0-1      | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                  |
-| E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | Unnamed contributor(s) type from ONIX Code List 19[\[5\]](#Notes).<br/>*Specific LCF Code List UNC deleted in vx.x.0*          |
+| *E01C05*   | *Contributor*              |           | 0-n      |            | Composite element containing author or other contributor. Repeatable for multiple contributors. |
+| E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[\[5\]](#Notes). |
+| E01D05.2   | Contributor name           |           | 0-1      | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                                                                         |
+| E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | Unnamed contributor(s) type from ONIX Code List 19[\[5\]](#Notes).<br/>*Specific LCF Code List UNC deleted in vx.x.0*                                                                                         |
 | *E01C06*   | *Series*                   |           | 0-1      |            | Composite element containing information about a series of which this manifestation is a member.                                            |
-| *E01C06.1* | *Series title*             |           | 0-n      |            | Composite element containing the title of the series. Repeatable for multiple types of title.                                                   |
-| E01D06.1.1 | Title type                 |           | 1        | Code       | Series title type from ONIX Code List 15[\[5\]](#Notes).<br/>*Specific LCF Code List TTL deleted in vx.x.0*          |
+| *E01C06.1* | *Series title*             |           | 0-n      |            | Composite element containing the title of the series. Repeatable for multiple types of title. |
+| E01D06.1.1 | Title type                 |           | 1        | Code       | Series title type from ONIX Code List 15[\[5\]](#Notes).<br/>*Specific LCF Code List TTL deleted in vx.x.0*                                                                                             |
 | E01D06.1.2 | Title text                 |           | 1        | String     |                                |
 | E01D06.1.3 | Subtitle                   |           | 0-1      | String     |                                |
-| E01D06.2   | Volume or part             |           | 0-1      | String     | Volume or part number within series                                                                                                         |
-| E01D06.3   | Other manifestation within series|     | 0-n      | String     | The LCF identifier of another manifestation entity in the same series. Repeatable if there is more than one other manifestation in the same series.                                                                                                        |
+| E01D06.2   | Volume or part             |           | 0-1      | String     | Volume or part number within series |
+| E01D06.3   | Other manifestation within series|     | 0-n      | String     | The LCF identifier of another manifestation entity in the same series. Repeatable if there is more than one other manifestation in the same series.                                                          |
 | E01D07     | Edition statement          |           | 0-1      | String     | Edition of the item            |
-| E01D08     | Publisher name             |           | 0-1      | String     | Name of the publisher of the manifestation                                                                                                  |
-| E01D09     | Year of publication        |           | 0-1      | YYYY       | Year of publication of the manifestation                                                                                                  |
+| E01D08     | Publisher name             |           | 0-1      | String     | Name of the publisher of the manifestation |
+| E01D09     | Year of publication        |           | 0-1      | YYYY       | Year of publication of the manifestation |
+| E01D23     | Serial holding statement   |           | 0-1      | String     | Description of the library's holding of a serial title. May only be included if the manifestation type (E01D22) is specified to be 'Serial title' (MNT02).<br/>*Added vx.x.0* |
+| E01D25     | Serial issue enumeration   |           | 0-1      | String     | Numbers associated with a serial issue, as they appear on the title page; typically a volume and/or issue number. May only be included if the manifestation type (E01D22) is specified to be 'Serial issue' (MNT03).<br/>*Added vx.x.0*  |
+| E01D26     | Serial issue chronology    |           | 0-1      | String     | Dates, periods or seasons associated with a serial issue, as they appear on the title page, for example the year for an annual publication. May only be included if the manifestation type (E01D22) is specified to be 'Serial issue' (MNT03).<br/>*Added vx.x.0*  |
 | *E01C10*   | *Classification*           |           | 0-n      |            |                                |
 | E01D10.1   | Classification scheme      |           | 1        | Code       | LCF code list **[LCS](LCF-CodeLists.md#LCS)**          |
-| E01D10.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme                                                                                                         |
+| E01D10.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme |
 | E01D10.3   | Scheme code                |           | 1        | String     |                                |
-| E01D11     | Item cover art             |           | 0-n      | URI        | URI reference to cover art resource                                                                                                       |
-| E01D12     | Other description          |           | 0-1      | String     | Other descriptive information about the manifestation.                                                                                             |
-| *E01C13*   | *Check-out restriction*    |           | 0-n      |            | Composite element containing details of a restriction on check-out of this manifestation. Repeatable for multiple restriction types.                |
-| E01D13.1   | Restriction type           |           | 1        | Code       | LCF code list **[CRT](LCF-CodeLists.md#CRT)**<br/>The type of restriction imposed.                                                                                        |
-| E01D13.2   | Restriction code / value   |           | 1        | String     | Restriction value of the specified type.                                                                                                          |
-| E01D13.3   | Restriction note           |           | 0-1      | String     | Free-text note or description of the restriction.                                                                                                   |
-| *E01C14*   | *Check-out fee*            | BO        | 0-n      |            | Composite element containing details of any fee required to check out this manifestation. Repeatable if there are fees of different types. NOTE – Infrequently used, as fees are rarely fixed for an individual manifestation and must be calculated at check-out time, based upon a variety of factors.                                                                         |
+| E01D11     | Item cover art             |           | 0-n      | URI        | URI reference to cover art resource |
+| E01D12     | Other description          |           | 0-1      | String     | Other descriptive information about the manifestation. |
+| *E01C24*   |*Associated manifestation*  |           | 0-n      |            | *Added vx.x.0*                 |
+| E01D24.1   | Manifestation association type|        | 1        | Code       | LCF code list **[MNA](LCF-CodeLists.md#MNA)**              |
+| E01D24.2   | Manifestation reference    |           | 1-n      | String     |                                |
+| *E01C13*   | *Check-out restriction*    |           | 0-n      |            | Composite element containing details of a restriction on check-out of this manifestation. Repeatable for multiple restriction types.                                                                     |
+| E01D13.1   | Restriction type           |           | 1        | Code       | LCF code list **[CRT](LCF-CodeLists.md#CRT)**<br/>The type of restriction imposed. |
+| E01D13.2   | Restriction code / value   |           | 1        | String     | Restriction value of the specified type. |
+| E01D13.3   | Restriction note           |           | 0-1      | String     | Free-text note or description of the restriction. |
+| *E01C14*   | *Check-out fee*            | BO        | 0-n      |            | Composite element containing details of any fee required to check out this manifestation. Repeatable if there are fees of different types. NOTE – Infrequently used, as fees are rarely fixed for an individual manifestation and must be calculated at check-out time, based upon a variety of factors.                                                                               |
 | E01D14.1   | Fee type                   | BT        | 1        | Code       | LCF code list **[CHT](LCF-CodeLists.md#CHT)**          |
 | E01D14.2   | Fee amount                 | BV        | 1        | Value      | Currency value                 |
-| E01D14.3   | Fee currency               | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E01D15     | Number of patrons in hold queue | CF   | 0-1R[\[6\]](#Notes)                                                    | Integer    |                                |
-| E01D16     | Manifestation record reference  |      | 0-1      | String     | A reference (e.g. URI or query string) for retrieving a catalogue record for this manifestation from the LMS or online catalogue.             |
+| E01D14.3   | Fee currency               | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’ |
+| E01D15     | Number of patrons in hold queue | CF   | 0-1R[\[6\]](#Notes) | Integer |                        |
+| E01D16     | Manifestation record reference  |      | 0-1      | String     | A reference (e.g. URI or query string) for retrieving a catalogue record for this manifestation from the LMS or online catalogue.                                                                              |
 | **E01D17** | **Manifestation status**   |           | **1**    | **Code**   | LCF code list **[MNS](LCF-CodeLists.md#MNS)**          |
 | E01D18     | Number of copies in stock / holding |  | 0-1R     | Integer    |                                |
-| E01D19     | Item reference             |           | 0-nR     | String     | Reference to an item that is a copy of this manifestation                                                                                          |
-| E01D20     | Reservation reference      |           | 0-nR     | String     | If this manifestation has been reserved, a reference to the reservation record in the hold queue. Repeatable if there are multiple reservations in the “hold queue”.                                                                                              |
-| *E01C21*   | *Manifestation note*       |           | 0-n      |            | A note attached to the LMS record for this title.                                                                                                |
+| E01D19     | Item reference             |           | 0-nR     | String     | Reference to an item that is a copy of this manifestation |
+| E01D20     | Reservation reference      |           | 0-nR     | String     | If this manifestation has been reserved, a reference to the reservation record in the hold queue. Repeatable if there are multiple reservations in the “hold queue”.                                      |
+| *E01C21*   | *Manifestation note*       |           | 0-n      |            | A note attached to the LMS record for this title. |
 | E01D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E01D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
 | E01D21.3   | Note text                  |           | 1        | String     |                                |
