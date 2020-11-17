@@ -617,7 +617,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   *Code ID*   |*Code value*   |*Definition*                                               |*Notes*
   ----------- |-------------- |--------------------- |----------------------------------------------
   RQT01       |01             |New request                                                |
-  RQT02       |02             |Confirmation request                                       |LMS may not block request, as the action has already been performed. This request type implements the SIP2 "no block" flag for check-out and check-in requests, typically made to confirm a check-out or check-in that has been performed when the terminal was off-line.
+  RQT02       |02             |Confirmation request                                       |LMS may not block request, as the action has already been performed. This request type implements the SIP2 "no block" flag for check-out and check-in requests, typically made to confirm a check-out or check-in that has been performed when the terminal was off-line.<br/>*(Modified in vx.x.0)*
   RQT03       |03             |Cancel previous request                                    |Cancels a previous request. If there was no previous request or too long a pause since the previous request, the response should contain exception condition code EXC03. Approximately equivalent to use of SIP 2 field BI to indicate cancelation.
   RQT04       |04             |Loan / renewal or reservation fee quotation request only   |Not a loan / renewal or reservation request or confirmation, but simply a request for a loan / renewal or reservation fee quotation
 
