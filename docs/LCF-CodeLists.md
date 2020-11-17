@@ -461,7 +461,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MGT02       |02             |Single line of message (e.g. for printing)   |
   MGT03       |03             | System message (not normally for display)   |
 
-#### MNA Manifestation association type *(Added vx.x.0)*
+### <a id="MNA"></a>MNA Manifestation association type *(Added vx.x.0)*
 
   *Code ID*   |*Code value*   |*Definition*      |*Notes*
   ----------- |-------------- |----------------- |--------------------------------------------------------------|
@@ -498,7 +498,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MNS03       |03             |In stock / holding and not available for loan   |e.g. Reading Room only
   MNS04       |04             |Withdrawn from stock / holding                  |
 
-#### MNT Manifestation type *(Added vx.x.0)*
+### <a id="MNT">MNT Manifestation type *(Added vx.x.0)*
 
   *Code ID*   |*Code value*   |*Definition*      |*Notes*
   ----------- |-------------- |----------------- |--------------------------------------------------------------|
