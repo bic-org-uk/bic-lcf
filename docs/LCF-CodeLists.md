@@ -72,9 +72,11 @@ The code lists defined are:
 -   [MES Media type / format scheme](#MES)
 -   [MEW Media warning flag](#MEW)
 -   [MGT Message display type](#MGT)
+-   [MNA Manifestation association type](#MNA) *(Added vx.x.0)*
 -   [MND Manifestation detailed information type](#MND)
 -   MNI Manifestation identification scheme *(removed in vx.x.0)*
 -   [MNS Manifestation status](#MNS)
+-   [MNT Manifestation type](#MNT) *(Added vx.x.0)*
 -   [MOT Entity modification type](#MOT)
 -   [NOT Note type](#NOT)
 -   [PCS Patron’s library card status](#PCS)
@@ -459,6 +461,19 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MGT02       |02             |Single line of message (e.g. for printing)   |
   MGT03       |03             | System message (not normally for display)   |
 
+### <a id="MNA"></a>MNA Manifestation association type *(Added vx.x.0)*
+
+  *Code ID*   |*Code value*   |*Definition*      |*Notes*
+  ----------- |-------------- |----------------- |--------------------------------------------------------------|
+  MNA01       | 01            | Has&nbsp;alternative&nbsp;edition | Not for use with serial titles, serial issues or bound sets
+  MNA02       | 02            | Has earlier edition | Not for use with serial titles, serial issues or bound sets
+  MNA03       | 03            | Has later edition | Not for use with serial titles, serial issues or bound sets
+  MNA04       | 04            | Has same edition, title or set in alternative media / format | 
+  MNA05       | 21            | Has serial title | For use with serial issues only. Only one associated manifestation may have this association type.
+  MNA06       | 22            | Has serial issue | For use with serial titles only.
+  MNA07       | 31            | Has bound set | For use with members of bound sets only. Only one associated manifestation may have this association type.
+  MNA08       | 32            | Has bound set member | For use with bound sets only.
+  
 ### <a id="MND"></a>MND Manifestation detailed information type
 
   *Code ID*   |*Code value*   |*Definition*                                  |*Notes*
@@ -482,6 +497,16 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MNS02       |02             |In stock / holding and available for loan       |
   MNS03       |03             |In stock / holding and not available for loan   |e.g. Reading Room only
   MNS04       |04             |Withdrawn from stock / holding                  |
+
+### <a id="MNT">MNT Manifestation type *(Added vx.x.0)*
+
+  *Code ID*   |*Code value*   |*Definition*      |*Notes*
+  ----------- |-------------- |----------------- |--------------------------------------------------------------|
+  MNT01       | 01            | Non-serial title | Default value
+  MNT02       | 02            | Serial title     |
+  MNT03       | 03            | Serial issue     |
+  MNT04       | 04            | Member of a bound set of manifestations  | 
+  MNT05       | 05            | A bound set of manifestations | Typically, a set of titles bound together in a library binding, e.g. a run of periodicals.  |  
 
 ### <a id="MOT"></a>MOT Entity modification type
 

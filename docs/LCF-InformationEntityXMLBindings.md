@@ -45,51 +45,58 @@ E01 MANIFESTATION
 |   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | [MNI](LCF-CodeLists.md#MNI)     |
 |   5    | E01D02.2     | type-name                        | 0-1     | string      |         |
 |   6    | E01D02.3     | value                            | 1       | string      |         |
-|   7    | E01C03       | media-type                       | 0-n     |             |         |
-|   8    | E01D03.1     | media-type-scheme                | 1       | Code        | [MES](LCF-CodeLists.md#MES)     |
-|   9    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
-|  10    | E01D03.3     | scheme-code                      | 1       | string      |         |
-|  11    | E01C04       | title                            | 0-n     |             |         |
-|  12    | E01D04.1     | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
-|  13    | E01D04.2     | title-text                       | 1       | string      |         |
-|  14    | E01D04.3     | subtitle                         | 0-1     | string      |         |
-|  15    | E01C05       | contributor                      | 0-n     |             |         |
-|  16    | E01D05.1     | contributor-role                 | 1       | Code        | ONIX code list 17                                                                                           |
-|  17    | E01D05.2     | contributor-name                 | 0-1     | string      | Either a contributor name or an unnamed contributor code must be included in each contributor composite.                     |
-|  18    | E01D05.3     | unnamed-contributor              | 0-1     | Code        | [UNC](LCF-CodeLists.md#UNC)     |
-|  19    | E01C06       | series                           | 0-1     |             |         |
-|  20    | E01C06.1     | title                            | 0-n     |             |         |
-|  21    | E01D06.1.1   | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
-|  22    | E01D06.1.2   | title-text                       | 1       | string      |         |
-|  23    | E01D06.1.3   | subtitle                         | 0-1     | string      |         |
-|  24    | E01D06.2     | volume-or-part                   | 0-1     | string      |         |
-|  25    | E01D06.3     | other-manifestation-in-series-ref| 0-n     | string      | *Renamed in v1.0.1* |
-|  26    | E01D07       | edition-statement                | 0-1     | string      |         |
-|  27    | E01D08       | publisher-name                   | 0-1     | string      |         |
-|  28    | E01D09       | year-of-publication              | 0-1     | year        |         |
-|  29    | E01C10       | classification                   | 0-n     |             |         |
-|  30    | E01D10.1     | class-scheme-ref                 | 1       | string      |         |
-|  31    | E01D10.2     | class-term-ref                   | 1       | string      |         |
-|  32    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
-|  33    | E01D12       | description                      | 0-1     | string      |         |
-|  34    | E01C13       | loan-restriction                 | 0-n     |             |         |
-|  35    | E01D13.1     | restriction-type                 | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
-|  36    | E01D13.2     | value                            | 1       | string      |         |
-|  37    | E01D13.3     | note                             | 0-1     | string      |         |
-|  38    | E01C14       | loan-fee                         | 0-n     |             |         |
-|  39    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
-|  40    | E01D14.2     | amount                           | 1       | decimal     |         |
-|  41    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
-|  42    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
-|  43    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
-| **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
-|  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
-|  46    | E01D19       | item-ref                         | 0-nR    | string      |         |
-|  47    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
-|  48    | E01C21       | note                             | 0-n     |             |         |
-|  49    | E01D21.1     | note-type                        | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  50    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
-|  51    | E01D21.3     | note-text                        | 1       | string      |         |
+|   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)     |
+|   8    | E01C03       | media-type                       | 0-n     |             |         |
+|   9    | E01D03.1     | media-type-scheme                | 1       | Code        | [MES](LCF-CodeLists.md#MES)     |
+|  10    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
+|  11    | E01D03.3     | scheme-code                      | 1       | string      |         |
+|  12    | E01C04       | title                            | 0-n     |             |         |
+|  13    | E01D04.1     | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
+|  14    | E01D04.2     | title-text                       | 1       | string      |         |
+|  15    | E01D04.3     | subtitle                         | 0-1     | string      |         |
+|  16    | E01C05       | contributor                      | 0-n     |             |         |
+|  17    | E01D05.1     | contributor-role                 | 1       | Code        | ONIX code list 17                                                                                           |
+|  18    | E01D05.2     | contributor-name                 | 0-1     | string      | Either a contributor name or an unnamed contributor code must be included in each contributor composite.                     |
+|  19    | E01D05.3     | unnamed-contributor              | 0-1     | Code        | [UNC](LCF-CodeLists.md#UNC)     |
+|  20    | E01C06       | series                           | 0-1     |             |         |
+|  21    | E01C06.1     | title                            | 0-n     |             |         |
+|  22    | E01D06.1.1   | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
+|  23    | E01D06.1.2   | title-text                       | 1       | string      |         |
+|  24    | E01D06.1.3   | subtitle                         | 0-1     | string      |         |
+|  25    | E01D06.2     | volume-or-part                   | 0-1     | string      |         |
+|  26    | E01D06.3     | other-manifestation-in-series-ref| 0-n     | string      | *Renamed in v1.0.1* |
+|  27    | E01D07       | edition-statement                | 0-1     | string      |         |
+|  28    | E01D08       | publisher-name                   | 0-1     | string      |         |
+|  29    | E01D09       | year-of-publication              | 0-1     | year        |         |
+|  30    | E01D23       | serial-holding-statement         | 0-1     | string      |         |
+|  31    | E01D25       | serial-issue-enumeration         | 0-1     | string      |         |
+|  32    | E01D26       | serial-issue-chronology          | 0-1     | string      |         |
+|  33    | E01C10       | classification                   | 0-n     |             |         |
+|  34    | E01D10.1     | class-scheme-ref                 | 1       | string      |         |
+|  35    | E01D10.2     | class-term-ref                   | 1       | string      |         |
+|  36    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
+|  37    | E01D12       | description                      | 0-1     | string      |         |
+|  38    | E01C24       | associated-manifestation         | 0-n     |             |         |
+|  39    | E01D24.1     | association-type                 | 1       | Code        | [MNA](LCF-CodeLists.md#MNA)     |
+|  40    | E01D24.2     | manifestation-ref                | 1       | string      |         |
+|  41    | E01C13       | loan-restriction                 | 0-n     |             |         |
+|  42    | E01D13.1     | restriction-type                 | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
+|  43    | E01D13.2     | value                            | 1       | string      |         |
+|  44    | E01D13.3     | note                             | 0-1     | string      |         |
+|  45    | E01C14       | loan-fee                         | 0-n     |             |         |
+|  46    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
+|  47    | E01D14.2     | amount                           | 1       | decimal     |         |
+|  48    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
+|  49    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
+|  50    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
+| **51** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
+|  52    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
+|  53    | E01D19       | item-ref                         | 0-nR    | string      |         |
+|  54    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
+|  55    | E01C21       | note                             | 0-n     |             |         |
+|  56    | E01D21.1     | note-type                        | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  57    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
+|  58    | E01D21.3     | note-text                        | 1       | string      |         |
 
 *Example of a manifestation*
 
