@@ -508,8 +508,9 @@ An identified payment made by a patron to settle one or more charges.
 | **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                   |
 | E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                                                      |
 | E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.* |
-| E08D12     | Payment purpose            |            | 0-1     | Code       | LCF code list [PYP](LCF-CodeLists.md#PYP)<br/>The purpose of the payment.<br/>*(Added in vx.x.0)*                                                                |
-| E08D13     | Beneficiary institution    |            | 0-1     | String     | Authority/institution to benefit from a donation. Must be included if the payment purpose is to make a donation.<br/>*(Added in vx.x.0)*                              |
+| E08D15     | Deposit type               |            | 0-1     | Code       | Payment made as a deposit against current or future charges of this type.<br/>**LCF code list [CHT](LCF-CodeLists.md#CHT)**<br/>*Added in vx.x.0*                 |
+| E08D13     | Payment purpose            |            | 0-1     | Code       | LCF code list [PYP](LCF-CodeLists.md#PYP)<br/>The purpose of the payment.<br/>*(Added in vx.x.0)*                                                                |
+| E08D14     | Beneficiary institution    |            | 0-1     | String     | Authority/institution to benefit from a donation. Must be included if the payment purpose is to make a donation.<br/>*(Added in vx.x.0)*                              |
 | E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                                          |
 | **E08D07** | **Payment amount**         | **BV**     | **1**   | **Value**  | **Currency value**             |
 | E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                                            |
@@ -1019,6 +1020,7 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 | **Q13D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list [RQT](LCF-CodeLists.md#RQT)** |
 | **Q13D02** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
 | Q13D03     | Charge reference           |            | 0-n     | String    | Charge(s) against which to set this payment. If omitted, the LMS determines the charges against which to set the payment.                          |
+| Q13D09     | Deposit type               |            | 0-1     | Code      | Deposit made against future charges of this type.<br/>**LCF code list [CHT](LCF-CodeLists.md#CHT)**<br/>*Added in vx.x.0*                 |
 | **Q13D04** | **Payment type**           |            | **1**   | **Code**  | **LCF code list [PYT](LCF-CodeLists.md#PYT)**           |
 | Q13D05     | Payment type description   |            | 0-1     | String    | Further information on method of payment                                                                                                        |
 | **Q13D06** | **Payment amount**         |            | **1**   | **Value** | **Currency value.**             |
@@ -1032,6 +1034,7 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 | R13D01     | Patron reference           | AA         | 0-1     | String    | *Cardinality changed in v1.2.0* |
 | R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                                 |
 | R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                      |
+| R13D05     | Deposit type               |            | 0-1     | Code      | Mandatory if a deposit payment is accepted or confirmed against current or future charges of the specified type.<br/>*Added in vx.x.0*                 |
 | R13D04     | Authorisation reference    |            | 0-1     | String    | Reference to an authorisation entity when the LMS needs to authorise that a payment transaction can proceed. The authorisation must be of type AUT02.<br/>*Added in v1.0.1*                     |
 
 ### <a name="f14"></a> 14 Block patron account

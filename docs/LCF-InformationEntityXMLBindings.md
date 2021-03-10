@@ -353,18 +353,19 @@ E08 PAYMENT
 |  **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **[PYT](LCF-CodeLists.md#PYT)** |
 |    5   | E08D04       | description                 | 0-1     | string      |         |
 |    6   | E08D05       | charge-ref                  | 0-n     | string      | *Non-mandatory in v1.0.1* |
-|    7   | E08D12       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in vx.x.0* |
-|    8   | E08D13       | beneficiary-ref             | 0-1     | string      | *Added in vx.x.0*               |
-|    9   | E08D06       | payment-date                | 0-1     | dateTime    |         |
-| **10** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
-|   11   | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                                                                   |
-|   12   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
-|   13   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
-|   14   | E08D12       | authorisation-ref           | 0-1     | string      | *(Added in vx.x.0)*    |
-|   15   | E08C11       | note                        | 0-n     |             |         |
-|   16   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|   17   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
-|   18   | E08D11.3     | note-text                   | 1       | string      |         |
+|    7   | E08D15       | deposit-type                | 0-1     | Code        | **[CHT](LCF-CodeLists.md#CHT)**<br/>*Added in vx.x.0* |
+|    8   | E08D13       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in vx.x.0* |
+|    9   | E08D14       | beneficiary-ref             | 0-1     | string      | *Added in vx.x.0*               |
+|   10   | E08D06       | payment-date                | 0-1     | dateTime    |         |
+| **11** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
+|   12   | E08D08       | currency                    | 0-1     | Code        | ISO currency code |
+|   13   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
+|   14   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
+|   15   | E08D12       | authorisation-ref           | 0-1     | string      | *(Added in vx.x.0)*    |
+|   16   | E08C11       | note                        | 0-n     |             |         |
+|   17   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|   18   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
+|   19   | E08D11.3     | note-text                   | 1       | string      |         |
 
 E09 CONTACT
 -----------
