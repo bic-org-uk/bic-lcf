@@ -406,14 +406,14 @@ The request is formulated using the HTTP POST method.
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/loans**            |                       | **1**   |             |              |
-| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
-| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
+| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           | Implements request type RQT02 confirmation request.<br/>*(Added in vx.x.0)*             |
+| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. |
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans
 
-Request to confirm a new check-out, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
+Request to confirm a new check-out, which the LMS may not normally deny (equivalent to the SIP2 "no block" flag) *(Modified in vx.x.0)*, is indicated by including the 'confirmation' parameter in the request, e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans?confirmation=Y
 
@@ -485,6 +485,8 @@ The check-in function involves modification of a loan, using function 04 above, 
     PUT http://192.168.0.99:80/lcf/1.0/loans/1234567654
 
 This presumes that a number of consequential functions are performed server-side.
+
+Note that the query parameter `confirmation=Y`, specified above for check-out requests, may also be used with check-in requests. *(Added in vx.x.0)*
 
 ### Response
 
