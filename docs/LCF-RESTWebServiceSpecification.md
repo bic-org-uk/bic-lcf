@@ -397,6 +397,16 @@ If the request is successful, the HTTP response must include the status code 204
 
 The difference between a check-out and renewal is that in the latter case an existing, active loan of the same item to the same patron must exist. It should not be necessary for the terminal application to know whether an item is already on loan to the patron in question, because the LMS will be able to determine whether this is the case or not. A single function will therefore normally suffice.
 
+NOTE – *(added in vx.x.0)* This REST web service implementation of the LCF Data Framework does not implement a mechanism for specifying the type of a renewal, which in the Data Framework is represented by element Q11D02. In the Data Framework this element serves two purposes: 
+
+  -  to indicate if the request is to renew all items checked out to that patron; 
+  
+  -  to indicate whether the request is being made by the patron directly or by a third party. 
+  
+Renewal of a large number of loan items in a single request would place an arbitrarily large processing burden on the server, obliging the server to check and update the status of all the patron's loans before responding to the request, which could involve an unacceptable response-time. For this reason the ability to renew all items on loan is not supported. To renew all a patron's loans, the terminal client must retrieve a list of all the patron's loans and request renewal of each in turn.
+
+In a REST web service implementation it is not necessary to have a separate element or parameter to indicate whether it is the patron or a third party making the request, because this is already indicated by ensuring that the user making the request is authenticated in the request header.
+
 The request is formulated using the HTTP POST method.
 
 ### Format for request URI 
