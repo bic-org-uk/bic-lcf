@@ -315,7 +315,8 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LAT04       |04             |Main location of authority/institution                     |*Added in v1.0.1*
   LAT05       |05             |Other location of authority/institution                    |*Added in v1.0.1*
   LAT06       |06             |Website of library authority/institution, branch or section|*Added in v1.0.1*
-
+  LAT07       |07             |Possible collection point                                  |May be used to associate a manifestation or item with a specific location used for collection<br/>*Added in vx.x.0*
+  
 ### <a id="LCS"></a>LCS Library classification scheme
 
   *Code ID*   |*Code value*   |*Definition*                         |*Notes*
