@@ -206,6 +206,9 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | E01D10.3   | Scheme code                |           | 1        | String     |                                |
 | E01D11     | Item cover art             |           | 0-n      | URI        | URI reference to cover art resource |
 | E01D12     | Other description          |           | 0-1      | String     | Other descriptive information about the manifestation. |
+| E01C27     | *Associated location*      |           | 0-n      |            | *Added vx.x.0*                 |
+| E01D27.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
+| E01D27.2   | Location reference         |           | 1        | String      |                                        |
 | *E01C24*   |*Associated manifestation*  |           | 0-n      |            | *Added vx.x.0*                 |
 | E01D24.1   | Manifestation association type|        | 1        | Code       | LCF code list **[MNA](LCF-CodeLists.md#MNA)**              |
 | E01D24.2   | Manifestation reference    |           | 1-n      | String     |                                |
