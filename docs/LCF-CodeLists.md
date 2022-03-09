@@ -457,7 +457,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
   *Code ID*   |*Code value*   |*Definition*                                 |*Notes*
   ----------- |-------------- |-------------------------------------------- |---------
-  MGT01       |01             |Whole message (e.g. for screen display)      |
+  MGT01       |01             |Whole message (e.g. for screen display), not requiring acknowledgement | Revised in Issue 5*
   MGT02       |02             |Single line of message (e.g. for printing)   |
   MGT03       |03             | System message (not normally for display)   |
   MGT04       |04             | Whole message, requires acknowledgement     | *Added in Issue 5*
