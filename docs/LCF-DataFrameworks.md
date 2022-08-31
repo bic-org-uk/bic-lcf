@@ -639,6 +639,7 @@ A patron authorisation code: either a standard code from LCF code list [AUT](LCF
 | E13D04.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E13D04.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E13D04.3   | Note text                  |            | 1       | String     |                                |
+| E13D05     | Location reference         |            | 0-n     | String     | Location associated with this authorisation type (e.g. AUT03)<br/>*Added in vx.x.0* |
 
 ***
 

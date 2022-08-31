@@ -445,6 +445,7 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |   5   | E13D04.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |   6   | E13D04.2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E13D04.3     | note-text                   | 1       | string      |         |
+|   8   | E13D05       | location-ref                | 0-n     | string      | *Added in vx.x.0* |
 
 E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 ---------------------------------
