@@ -76,27 +76,30 @@ E01 MANIFESTATION
 |  35    | E01D10.2     | class-term-ref                   | 1       | string      |         |
 |  36    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
 |  37    | E01D12       | description                      | 0-1     | string      |         |
-|  38    | E01C24       | associated-manifestation         | 0-n     |             |         |
-|  39    | E01D24.1     | association-type                 | 1       | Code        | [MNA](LCF-CodeLists.md#MNA)     |
-|  40    | E01D24.2     | manifestation-ref                | 1       | string      |         |
-|  41    | E01C13       | loan-restriction                 | 0-n     |             |         |
-|  42    | E01D13.1     | restriction-type                 | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
-|  43    | E01D13.2     | value                            | 1       | string      |         |
-|  44    | E01D13.3     | note                             | 0-1     | string      |         |
-|  45    | E01C14       | loan-fee                         | 0-n     |             |         |
-|  46    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
-|  47    | E01D14.2     | amount                           | 1       | decimal     |         |
-|  48    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
-|  49    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
-|  50    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
-| **51** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
-|  52    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
-|  53    | E01D19       | item-ref                         | 0-nR    | string      |         |
-|  54    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
-|  55    | E01C21       | note                             | 0-n     |             |         |
-|  56    | E01D21.1     | note-type                        | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  57    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
-|  58    | E01D21.3     | note-text                        | 1       | string      |         |
+|  38    | E01C27       | associated-location              | 0-n     |             |         |
+|  39    | E01DXX.1     | association-type                 | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)     |
+|  40    | E01DXX.2     | location-ref                     | 1       | string      |         |
+|  41    | E01C24       | associated-manifestation         | 0-n     |             |         |
+|  42    | E01D24.1     | association-type                 | 1       | Code        | [MNA](LCF-CodeLists.md#MNA)     |
+|  43    | E01D24.2     | manifestation-ref                | 1       | string      |         |
+|  44    | E01C13       | loan-restriction                 | 0-n     |             |         |
+|  45    | E01D13.1     | restriction-type                 | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
+|  46    | E01D13.2     | value                            | 1       | string      |         |
+|  47    | E01D13.3     | note                             | 0-1     | string      |         |
+|  48    | E01C14       | loan-fee                         | 0-n     |             |         |
+|  49    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
+|  50    | E01D14.2     | amount                           | 1       | decimal     |         |
+|  51    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code               |
+|  52    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
+|  53    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
+| **54** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
+|  55    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
+|  56    | E01D19       | item-ref                         | 0-nR    | string      |         |
+|  57    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
+|  58    | E01C21       | note                             | 0-n     |             |         |
+|  59    | E01D21.1     | note-type                        | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  60    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
+|  61    | E01D21.3     | note-text                        | 1       | string      |         |
 
 *Example of a manifestation*
 
