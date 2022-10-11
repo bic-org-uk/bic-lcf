@@ -567,6 +567,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   PNS14       |14             |Too many items billed                         |
   PNS15       |15             |Blocked from PC use only                      |Allowed to borrow items
   PNS16       |16             |Account expired                               |*Added in v1.0.1*
+  PNS17       |17             |Pending patron                                |To support patron self-registration<br/>*Added in vx.x.0*
 
 ### <a id="PNT"></a>PNT Patron detailed information type
 
