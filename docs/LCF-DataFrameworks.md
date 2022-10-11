@@ -794,7 +794,8 @@ The following data elements and composites are typically used for control of mes
 | R00D05.3   | Element reference          |            | 0-1     | String    | A reference (e.g. the LCF element ID) that uniquely identifies the element in the request payload that generated the exception condition.            |
 | *R00C06*   | *Response message*         | AF / AG    | 0-n     |           | Composite element containing text to display or print on terminal.                                                                                  |
 | R00D06.1   | Message display type       |            | 1       | Code      | LCF code list **[MGT](LCF-CodeLists.md#MGT)**           |
-| R00D06.2   | Message to display         |            | 1-n     | String    | Repeatable if display type is ‘single line’                                                                                                          |
+| R00D06.2   | Message to display         |            | 1-n     | String    | Repeatable if display type is ‘single line’             |
+| R00D06.3   | Acknowledgement code       |            | 0-1     | String    | Library-specific code to be included in a repeat request, for the request to be accepted; only included if R00D05.2 contains '10'  (request requires acknowledgement)<br/>*Added in vx.x.0* |
 
 Core functions
 --------------

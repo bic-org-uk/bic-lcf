@@ -457,9 +457,10 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
   *Code ID*   |*Code value*   |*Definition*                                 |*Notes*
   ----------- |-------------- |-------------------------------------------- |---------
-  MGT01       |01             |Whole message (e.g. for screen display)      |
+  MGT01       |01             |Whole message (e.g. for screen display), not requiring acknowledgement | Revised in Issue 5*
   MGT02       |02             |Single line of message (e.g. for printing)   |
   MGT03       |03             | System message (not normally for display)   |
+  MGT04       |04             | Whole message, requires acknowledgement     | *Added in Issue 5*
 
 ### <a id="MNA"></a>MNA Manifestation association type *(Added vx.x.0)*
 
@@ -625,6 +626,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RDN07                                              |07             |Charge status exception – over-payment                            |
   RDN08   |08             |Unable to accept payment – see message                            |Further information, if any, should be conveyed in response message.
   RDN09                                              |09             |Unable to accept some/all payment items in request – see detail   
+  RDN10                                              |10             |Request requires acknowledgement - see response message           |*Added in Issue 5*
 
 ### <a id="RNQ"></a>RNQ Renewal request type
 
