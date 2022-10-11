@@ -94,6 +94,8 @@ where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D0
 
 **C** Public Key Infrastructure (PKI) authentication.
 
+**D** Other standard terminal authentication methods, such as bearer token authentication.
+
 #### 2. Patron Authentication *(updated for 1.2.0)*
 
 In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
@@ -131,7 +133,9 @@ For example:
 
 Implementers are reminded that, even when using HTTPS, query parameters may be stored as clear text in web server logs, so method B may not be sufficiently secure for most requirements.
 
-For either method the normal HTTP response status codes would apply:
+**C** Other standard terminal authentication methods, such as bearer token authentication.
+
+For each choice of patron authentication method the normal HTTP response status codes would apply:
 
 - 200 (OK), with the requested resource in the body of the response, indicating that the patron authentication has succeeded &ndash; if the patron does not have any access rights or privileges, the response body would typically contain an empty list
 - 401 (Unauthorized), indicating that terminal application authentication has not been provided or has failed
