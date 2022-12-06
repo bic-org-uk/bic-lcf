@@ -170,7 +170,7 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*[\[3\]](#Notes)                                                    | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
 | **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                                      |
-| *E01C02*   | *Additional identifier*    |           | 1-n      |            | Composite element containing details of an additional identifier for the manifestation. |
+| *E01C02*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for the manifestation.<br/>*Made non-mandatory in vx.x.0* |
 | E01D02.1   | Identifier type            |           | 1        | Code       | Manifestation identifier type from ONIX Code List 5[\[5\]](#Notes).<br/>*LCF Code List MNI deleted in vx.x.0*                                                                                             |
 | E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme. |
 | E01D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
