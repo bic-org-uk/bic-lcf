@@ -424,7 +424,7 @@ The request is formulated using the HTTP POST method.
 | **3** |              | **/loans**            |                       | **1**   |             |              |
 | 4     | Q11D01       |                       | confirmation          | 0-1     | Y           | Implements request type RQT02 confirmation request.<br/>*(Added in vx.x.0)*             |
 | 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in vx.x.0*|
-| 6     | Q00D10       |                       | acknowledgement-code | 0-1      | String      | This query parameter is included in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and the exception response message contained this string in the acknowledgement code element (R00D06.3).<br/>*Added in vx.x.0*|
+| 6     | Q00D10       |                       | acknowledgement-code | 0-1      | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in vx.x.0*|
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
@@ -477,9 +477,9 @@ The response to a check-out or renewal may be the same response as for creating 
 
 A exception condition response may be used to convey a warning message to the terminal user, which the user must acknowledge before the request can be accepted. Here are two examples of situations where this could apply:
 
-_Example 1: Item being checked out has been checked out previously to the same patron_
+_Example 1: Title being checked out has been checked out previously to the same patron_
 
-A library may wish to warn the user that the item being checked out (or reserved) has previously been lent to the same patron. The initial request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
+A library may wish to warn the user that the title being checked out (or reserved) has previously been lent to the same patron. The initial request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
 
 ```
 <exception-condition>
@@ -487,7 +487,7 @@ A library may wish to warn the user that the item being checked out (or reserved
   <reason-denied>10</reason-denied>
   <message>
     <message-type>04</message-type>
-    <message-text>Item xxx lent previously to this patron</message-text>
+    <message-text>Title xxx lent previously to this patron</message-text>
     <acknowledgement-code>ack123456</acknowledgement-code>
   </message>
 </exception-condition>
@@ -498,9 +498,9 @@ This response would require that the client repeat the request with the acknowle
     POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack123456
 
 
-_Example 2: Item being checked out will incur the specified charge_
+_Example 2: Title being checked out will incur the specified charge_
 
-A library may wish to warn the user that the item being checked out will incur a charge, and specify the amount of the charge. The initial check-out request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
+A library may wish to warn the user that the title being checked out will incur a charge, and specify the amount of the charge. The initial check-out request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
 
 ```
 <exception-condition>
@@ -508,7 +508,7 @@ A library may wish to warn the user that the item being checked out will incur a
   <reason-denied>10</reason-denied>
   <message>
     <message-type>04</message-type>
-    <message-text>A charge is applicable for the item(s) being checked out as specified.</message-text>
+    <message-text>A charge is applicable for the title(s) being checked out as specified.</message-text>
     <acknowledgement-code>ack987654</acknowledgement-code>
     <applicable-charge>
       <charge-type>06</charge-type>
@@ -522,6 +522,35 @@ This response would require that the client repeat the request with the acknowle
 
     POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack987654
     
+_Example 3: Title being checked out has been lent previously to the same patron and also will incur a loan charge_
+
+In this example both the exception conditions of the first two examples have occurred. The initial check-out request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
+
+```
+<exception-condition>
+  <condition-type>07</condition-type>
+  <reason-denied>10</reason-denied>
+  <message>
+    <message-type>04</message-type>
+    <message-text>Title xxx lent previously to this patron</message-text>
+    <acknowledgement-code>ack123456</acknowledgement-code>
+  </message>
+  <message>
+    <message-type>04</message-type>
+    <message-text>A charge is applicable for the loan of title xxx.</message-text>
+    <acknowledgement-code>ack987654</acknowledgement-code>
+    <applicable-charge>
+      <charge-type>06</charge-type>
+      <charge-amount>nn.nn</charge-amount>
+    </applicable-charge>
+  </message>
+</exception-condition>
+```
+
+This response would require that the client repeat the request with both the acknowledgement codes included in the string value of query parameter `acknowledgement-code` in the request, e.g.
+
+    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack123456,ack987654
+
 ### Cancel check-out / renewal
 
 In the case of a new check-out, a cancellation is simply a deletion of a loan, using LCF function 05 (see above), e.g.:
@@ -652,7 +681,9 @@ The request is formulated using the HTTP POST method.
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/reservations**     |                       | **1**   |             |              |
 | 4     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
-| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                |
+| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in vx.x.0*|
+| 6     | Q00D10       |                       | acknowledgement-code  | 0-1     | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in vx.x.0*|
+                             |
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
