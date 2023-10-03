@@ -544,7 +544,13 @@ EXCEPTION CONDITIONS
 |   6   | R00C06       | message                     | 0-n     |             |         |
 |   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists.md#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
-
+|   9   | R00D06.3     | acknowledgement-code        | 0-1     | string      |  *Added in vx.x.0*       |
+|  10   | R00C06.4     | applicable-charge           | 0-1     |             |  *Added in vx.x.0*       |
+|  11   | R00D06.4.1   | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)     |
+|  12   | R00D06.4.2   | description                 | 0-1     | string      |         |
+|  13   | R00D06.4.3   | payment-due-date            | 0-1     | dateTime    |         |
+|  14   | R00D06.4.4   | charge-amount               | 1       | decimal     |         |
+|  15   | R00D06.4.5   | currency                    | 0-1     | Code        | ISO currency code        |
 ___
 
 
