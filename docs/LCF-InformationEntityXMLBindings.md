@@ -12,7 +12,7 @@ weight: 3
 
 ## Information Entities XML bindings
 
-### Version x.x.0
+### Version 1.3.0
 
 ### DRAFT
 
@@ -22,7 +22,7 @@ This document specifies XML bindings for the information entities defined in ver
 
 This document also specifies a standard XML binding for the data framework for communicating exception conditions in LCF response messages.
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
 The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0". This namespace will be used for all 1.x.x versions of this specification. From Version 1.1.0 onwards, wherever possible, the XML Bindings will be backwards compatible with earlier versions within the same Major version, for example, by only introducing optional, non-mandatory elements. However, clients and servers must be prepared to receive XML messages that might contain optional but unknown elements introduced in a newer versions, the contents of these elements being safe to ignore.
 
@@ -41,11 +41,11 @@ E01 MANIFESTATION
 |--------|--------------|----------------------------------|---------|-------------|---------|
 | **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                       |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                 |
 |   2    | E01D01       | identifier                       | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
-|   3    | E01C02       | additional-manifestation-id      | 0-n     |             |         |
+|   3    | E01C02       | additional-manifestation-id      | 0-n     |             | *Made non-mandatory in v1.3.0*        |
 |   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | [MNI](LCF-CodeLists.md#MNI)     |
 |   5    | E01D02.2     | type-name                        | 0-1     | string      |         |
 |   6    | E01D02.3     | value                            | 1       | string      |         |
-|   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)     |
+|   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)<br/>*Added in v1.3.0*     |
 |   8    | E01C03       | media-type                       | 0-n     |             |         |
 |   9    | E01D03.1     | media-type-scheme                | 1       | Code        | [MES](LCF-CodeLists.md#MES)     |
 |  10    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
@@ -68,18 +68,18 @@ E01 MANIFESTATION
 |  27    | E01D07       | edition-statement                | 0-1     | string      |         |
 |  28    | E01D08       | publisher-name                   | 0-1     | string      |         |
 |  29    | E01D09       | year-of-publication              | 0-1     | year        |         |
-|  30    | E01D23       | serial-holding-statement         | 0-1     | string      |         |
-|  31    | E01D25       | serial-issue-enumeration         | 0-1     | string      |         |
-|  32    | E01D26       | serial-issue-chronology          | 0-1     | string      |         |
+|  30    | E01D23       | serial-holding-statement         | 0-1     | string      | *Added in v1.3.0*        |
+|  31    | E01D25       | serial-issue-enumeration         | 0-1     | string      | *Added in v1.3.0*        |
+|  32    | E01D26       | serial-issue-chronology          | 0-1     | string      | *Added in v1.3.0*        |
 |  33    | E01C10       | classification                   | 0-n     |             |         |
 |  34    | E01D10.1     | class-scheme-ref                 | 1       | string      |         |
 |  35    | E01D10.2     | class-term-ref                   | 1       | string      |         |
 |  36    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
 |  37    | E01D12       | description                      | 0-1     | string      |         |
-|  38    | E01C27       | associated-location              | 0-n     |             |         |
+|  38    | E01C27       | associated-location              | 0-n     |             | *Added in v1.3.0*        |
 |  39    | E01DXX.1     | association-type                 | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)     |
 |  40    | E01DXX.2     | location-ref                     | 1       | string      |         |
-|  41    | E01C24       | associated-manifestation         | 0-n     |             |         |
+|  41    | E01C24       | associated-manifestation         | 0-n     |             | *Added in v1.3.0*        |
 |  42    | E01D24.1     | association-type                 | 1       | Code        | [MNA](LCF-CodeLists.md#MNA)     |
 |  43    | E01D24.2     | manifestation-ref                | 1       | string      |         |
 |  44    | E01C13       | loan-restriction                 | 0-n     |             |         |
@@ -181,7 +181,7 @@ E03 PATRON
 |   6   | E02D27.2     | type-name                   | 0-1     | string      |         |
 |   7   | E02D27.3     | value                       | 1       | string      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
-|   9   | E03C36       | structured-name             | 0-1     |             | *Added in vx.x.0*<br/>NOTE: At the next major revision of LCF it is proposed to make this element mandatory in server responses.                 |
+|   9   | E03C36       | structured-name             | 0-1     |             | *Added in v1.3.0*<br/>*NOTE: At the next major revision of LCF it is proposed to make this element mandatory in server responses.*                 |
 |  10   | E03D36.1     | title-before-names          | 0-1     | string      |                                   |
 |  11   | E03D36.2     | names-before-key            | 0-1     | string      |                                   |
 |  12   | E03D36.3     | prefix-to-key               | 0-1     | string      |                                   |
@@ -195,7 +195,7 @@ E03 PATRON
 |  20   | E03C03       | associated-location         | 0-n     |             |         |
 |  21   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
 |  22   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
-|  23   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0*                 |
+|  23   | E03D35       | home-institution-ref        | 0-1     | string      | *Added in v1.0.1*<br/>*ID corrected in v1.1.0*                 |
 |  24   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
 |  25   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0*                 |
 |  26   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
@@ -356,15 +356,15 @@ E08 PAYMENT
 |  **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **[PYT](LCF-CodeLists.md#PYT)** |
 |    5   | E08D04       | description                 | 0-1     | string      |         |
 |    6   | E08D05       | charge-ref                  | 0-n     | string      | *Non-mandatory in v1.0.1* |
-|    7   | E08D15       | deposit-type                | 0-1     | Code        | **[CHT](LCF-CodeLists.md#CHT)**<br/>*Added in vx.x.0* |
-|    8   | E08D13       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in vx.x.0* |
-|    9   | E08D14       | beneficiary-ref             | 0-1     | string      | *Added in vx.x.0*               |
+|    7   | E08D15       | deposit-type                | 0-1     | Code        | **[CHT](LCF-CodeLists.md#CHT)**<br/>*Added in v1.3.0* |
+|    8   | E08D13       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in v1.3.0* |
+|    9   | E08D14       | beneficiary-ref             | 0-1     | string      | *Added in v1.3.0*               |
 |   10   | E08D06       | payment-date                | 0-1     | dateTime    |         |
 | **11** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
 |   12   | E08D08       | currency                    | 0-1     | Code        | ISO currency code |
 |   13   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
 |   14   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
-|   15   | E08D12       | authorisation-ref           | 0-1     | string      | *(Added in vx.x.0)*    |
+|   15   | E08D12       | authorisation-ref           | 0-1     | string      | *(Added in v1.3.0)*    |
 |   16   | E08C11       | note                        | 0-n     |             |         |
 |   17   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |   18   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
@@ -448,7 +448,7 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |   5   | E13D04.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |   6   | E13D04.2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E13D04.3     | note-text                   | 1       | string      |         |
-|   8   | E13D05       | location-ref                | 0-n     | string      | *Added in vx.x.0* |
+|   8   | E13D05       | location-ref                | 0-n     | string      | *Added in v1.3.0* |
 
 E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 ---------------------------------
@@ -544,8 +544,8 @@ EXCEPTION CONDITIONS
 |   6   | R00C06       | message                     | 0-n     |             |         |
 |   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists.md#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
-|   9   | R00D06.3     | acknowledgement-code        | 0-1     | string      |  *Added in vx.x.0*       |
-|  10   | R00C06.4     | applicable-charge           | 0-1     |             |  *Added in vx.x.0*       |
+|   9   | R00D06.3     | acknowledgement-code        | 0-1     | string      |  *Added in v1.3.0*       |
+|  10   | R00C06.4     | applicable-charge           | 0-1     |             |  *Added in v1.3.0*       |
 |  11   | R00D06.4.1   | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)     |
 |  12   | R00D06.4.2   | description                 | 0-1     | string      |         |
 |  13   | R00D06.4.3   | payment-due-date            | 0-1     | dateTime    |         |
