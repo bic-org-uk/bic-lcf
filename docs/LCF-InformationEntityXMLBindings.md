@@ -1,5 +1,5 @@
 ---
-title: LCF v1.2.0 Information Entities XML bindings
+title: LCF v1.3.0 Information Entities XML bindings
 menu: Information Entities XML bindings
 weight: 3
 ---
