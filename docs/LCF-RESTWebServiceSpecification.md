@@ -1,5 +1,5 @@
 ---
-title: LCF v1.2.0 REST Web Services Implementation
+title: LCF v1.3.0 REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
@@ -12,7 +12,7 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version x.x.0
+### Version 1.3.0
 
 ### DRAFT
 
@@ -20,7 +20,7 @@ weight: 4
 
 This document defines a binding of the LCF data communication framework to the HTTP[\[1\]](#Notes) protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[\[2\]](#Notes)) design principles.
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
 ### General principles
 
@@ -59,7 +59,7 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 ### Implementation notes
 
-#### 1. Terminal Application Authentication *(updated for v1.2.0)*
+#### 1. Terminal Application Authentication *(updated in v1.2.0)*
 
 LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. Where a RESTful web service implementation of LCF requires authentication of the Service Terminal, it may use any of the following methods, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
@@ -96,7 +96,7 @@ where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D0
 
 **D** Other standard terminal authentication methods, such as bearer token authentication.
 
-#### 2. Patron Authentication *(updated for 1.2.0)*
+#### 2. Patron Authentication *(updated in v1.2.0)*
 
 In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
 
@@ -142,7 +142,7 @@ For each choice of patron authentication method the normal HTTP response status 
 - 403 (Forbidden), indicating that patron authentication has not been provided or has failed
 - 404 (Not Found), indicating that the specified patron ID does not exist.
 
-#### 3. Determining if an Operation requires Authentication *(added in 1.2.0)*
+#### 3. Determining if an Operation requires Authentication *(added in v1.2.0)*
 
 The client should attempt the operation with no authentication information (neither terminal authentication via HTTP Basic nor user authentication via lcf-patron-credential HTTP header) 
 
@@ -154,7 +154,7 @@ A response of 403 means that patron authentication is required.
 
 Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
 
-#### 4. Patron Authorisation (Access Rights and Privileges) *(added in 1.2.0)*
+#### 4. Patron Authorisation (Access Rights and Privileges) *(added in v1.2.0)*
 
 A request for the Authorisations for a specific Patron is initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations.
 
@@ -200,13 +200,13 @@ Date and time stamps should be carried as HTTP parameters and the LCF elements Q
 
 In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if it is valid to include a payload with the specific HTTP response status code.
 
-NOTE – *(Added in vx.x.0)* See [11 Checkout/renewal](#checkout) for examples of the use of exception conditions to require a client to repeat a request with an acknowledgement code.
+NOTE – *(Added in v1.3.0)* See [11 Checkout/renewal](#checkout) for examples of the use of exception conditions to require a client to repeat a request with an acknowledgement code.
 
 #### 8. Encoding rules in URI query parts 
 
 The URI syntax rules don't allow certain characters in query parts, including the space character. Although these rules allow a space character to be represented by a '+' sign, it is recommended that all non-allowed characters should always be encoded using percent encoding, i.e. '%' followed by hexadecimal digits representing the character's Unicode character number.
 
-#### 9. Reporting LCF version in responses *(Added in v1.2.0)*
+#### 9. Reporting LCF version in responses *(added in v1.2.0)*
 
 The LCF element R00D07 should be carried by a custom field 'lcf-version' in the HTTP(S) response header, e.g.
 
@@ -403,7 +403,7 @@ If the request is successful, the HTTP response must include the status code 204
 
 The difference between a check-out and renewal is that in the latter case an existing, active loan of the same item to the same patron must exist. It should not be necessary for the terminal application to know whether an item is already on loan to the patron in question, because the LMS will be able to determine whether this is the case or not. A single function will therefore normally suffice.
 
-NOTE – *(added in vx.x.0)* This REST web service implementation of the LCF Data Framework does not implement a mechanism for specifying the type of a renewal, which in the Data Framework is represented by element Q11D02. In the Data Framework this element serves two purposes: 
+NOTE – *(added in v1.3.0)* This REST web service implementation of the LCF Data Framework does not implement a mechanism for specifying the type of a renewal, which in the Data Framework is represented by element Q11D02. In the Data Framework this element serves two purposes: 
 
   -  to indicate if the request is to renew all items checked out to that patron; 
   
@@ -422,15 +422,15 @@ The request is formulated using the HTTP POST method.
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/loans**            |                       | **1**   |             |              |
-| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           | Implements request type RQT02 confirmation request.<br/>*(Added in vx.x.0)*             |
-| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in vx.x.0*|
-| 6     | Q00D10       |                       | acknowledgement-code | 0-1      | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in vx.x.0*|
+| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           | Implements request type RQT02 confirmation request.<br/>*Added in v1.3.0*             |
+| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in v1.3.0*|
+| 6     | Q00D10       |                       | acknowledgement-code | 0-1      | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in v1.3.0*|
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans
 
-Request to confirm a new check-out, which the LMS may not normally deny (equivalent to the SIP2 "no block" flag) *(Modified in vx.x.0)*, is indicated by including the 'confirmation' parameter in the request, e.g.
+Request to confirm a new check-out, which the LMS may not normally deny (equivalent to the SIP2 "no block" flag) *(Modified in v1.3.0)*, is indicated by including the 'confirmation' parameter in the request, e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans?confirmation=Y
 
@@ -473,7 +473,7 @@ The response to a check-out or renewal may be the same response as for creating 
      <sensitive-media-warning>00</sensitive-media-warning>
     </lcf-check-out-response>
 
-#### <a name="checkout"></a>Exception condition response when check-out request requires an acknowledgement code *(Added in vx.x.0)*
+#### <a name="checkout"></a>Exception condition response when check-out request requires an acknowledgement code *(added in v1.3.0)*
 
 A exception condition response may be used to convey a warning message to the terminal user, which the user must acknowledge before the request can be accepted. Here are two examples of situations where this could apply:
 
@@ -583,7 +583,7 @@ The check-in function involves modification of a loan, using function 04 above, 
 
 This presumes that a number of consequential functions are performed server-side.
 
-Note that the query parameter `confirmation=Y`, specified above for check-out requests, may also be used with check-in requests. *(Added in vx.x.0)*
+Note that the query parameter `confirmation=Y`, specified above for check-out requests, may also be used with check-in requests. *(Added in v1.3.0)*
 
 ### Response
 
@@ -681,8 +681,8 @@ The request is formulated using the HTTP POST method.
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/reservations**     |                       | **1**   |             |              |
 | 4     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
-| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in vx.x.0*|
-| 6     | Q00D10       |                       | acknowledgement-code  | 0-1     | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in vx.x.0*|
+| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in v1.3.0*|
+| 6     | Q00D10       |                       | acknowledgement-code  | 0-1     | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in v1.3.0*|
                              |
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
@@ -703,7 +703,7 @@ An XML document that conforms to the XML schema for a reservation entity (E06) m
 
 The response is the same as for creating any entity – see function 03 above. *[Changed in v1.0.1.]*
 
-NOTE – *(added in vx.x.0)* See [11 Checkout/renewal](#checkout) for examples of the use of exception conditions to require a client to repeat a request with an acknowledgement code. These can equally be used in response to reservation requests as in response to check-out requests.
+NOTE – *(added in v1.3.0)* See [11 Checkout/renewal](#checkout) for examples of the use of exception conditions to require a client to repeat a request with an acknowledgement code. These can equally be used in response to reservation requests as in response to check-out requests.
 
 ## 17 Set/reset patron password
 *[Added in v1.0.1]*
