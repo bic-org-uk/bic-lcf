@@ -1,5 +1,5 @@
 ---
-title: LCF vx.x.0 Implementation Profiles
+title: LCF Implementation Profiles Issue 3
 menu: Implementation Profiles
 weight: 6
 ---
@@ -22,7 +22,7 @@ weight: 6
 
 This document defines implementation profiles for the LCF data communication framework.
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
 #### P00 Core LMS Profile
 *(Added in Issue 2, substantially revised in Issue 3)*
