@@ -6,7 +6,7 @@
 
     <!--
     The use of this document is subject to license terms and conditions that can be found at
-    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    https://bic.org.uk/resources/license-to-use-bic-standards/
     -->
 
 
@@ -207,6 +207,7 @@
             <xs:enumeration value="ZWL"/>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="iso639LanguageCode">
         <xs:restriction base="xs:string">
             <xs:enumeration value="aar"/>
