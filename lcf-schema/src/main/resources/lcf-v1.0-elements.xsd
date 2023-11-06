@@ -94,7 +94,15 @@
             <xs:sequence>
                 <xs:element name="association-type" type="locationAssociationType"/>
                 <xs:element ref="location-ref"/>
-                <xs:element ref="library-location-service-period"/>
+                <xs:element ref="library-location-service-period" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="associated-manifestation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="association-type" type="manifestationAssociationType"/>
+                <xs:element ref="manifestation-ref"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -125,6 +133,7 @@
     <xs:element name="authority-ref" type="lcfEntityReference"/>
     <xs:element name="available-hold-items" type="xs:int"/>
     <xs:element name="barcode-id" type="nonEmptyString"/>
+    <xs:element name="beneficiary-ref" type="lcfEntityReference"/>
     <xs:element name="blocked-card-message" type="nonEmptyString"/>
     <xs:element name="card-status" type="cardStatus"/>
     <xs:element name="card-status-info">
@@ -236,6 +245,7 @@
     <xs:element name="description" type="nonEmptyString"/>
     <xs:element name="display-constraint" type="messageAlertDisplayConstraint"/>
     <xs:element name="display-type" type="messageDisplayType"/>
+	<xs:element name="deposit-type" type="chargeType"/>
     <xs:element name="due-amount" type="xs:decimal"/>
     <xs:element name="due-date-time" type="xs:dateTime"/>
     <xs:element name="edition-statement" type="nonEmptyString"/>
@@ -261,8 +271,10 @@
     <xs:element name="item-id-type" type="copyIDType"/>
     <xs:element name="item-ref" type="lcfEntityReference"/>
     <xs:element name="items-in-stock" type="xs:int"/>
+	<xs:element name="key-names" type="nonEmptyString"/>
     <xs:element name="language" type="iso639LanguageCode"/>
     <xs:element name="lead-patron-ref" type="lcfEntityReference"/>
+	<xs:element name="letters-after-names" type="nonEmptyString"/>
     <xs:element name="library-location-service-period">
         <xs:complexType>
             <xs:sequence>
@@ -274,7 +286,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="library-status" type="libraryStatutoryStatus"/>
+    <xs:element name="library-statutory-status" type="libraryStatutoryStatus"/>
     <xs:element name="library-type" type="libraryType"/>
     <xs:element name="link" type="nonEmptyString"/>
     <xs:element name="link-type" type="resourceAccessLinkType"/>
@@ -307,6 +319,7 @@
     <xs:element name="manifestation-record" type="nonEmptyString"/>
     <xs:element name="manifestation-ref" type="lcfEntityReference"/>
     <xs:element name="manifestation-status" type="manifestationStatus"/>
+	<xs:element name="manifestation-type" type="manifestationType"/>
     <xs:element name="media-type">
         <xs:complexType>
             <xs:sequence>
@@ -333,6 +346,8 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes">The full name of the person or Institution being modelled as this 'patron'.</xs:documentation>
         </xs:annotation>
     </xs:element>
+	<xs:element name="names-after-key" type="nonEmptyString"/>
+	<xs:element name="names-before-key" type="nonEmptyString"/>
     <xs:element name="note">
         <xs:complexType>
             <xs:sequence>
@@ -384,10 +399,12 @@
     <xs:element name="patrons-in-hold-queue" type="xs:int"/>
     <xs:element name="payment-date" type="xs:dateTime"/>
     <xs:element name="payment-due-date" type="xs:dateTime"/>
+	<xs:element name="payment-purpose" type="paymentPurpose"/>
     <xs:element name="payment-ref" type="lcfEntityReference"/>
     <xs:element name="payment-status" type="paymentStatus"/>
     <xs:element name="payment-type" type="paymentType"/>
     <xs:element name="period-name" type="xs:string"/>
+	<xs:element name="prefix-to-key" type="nonEmptyString"/>
     <xs:element name="pickup-date" type="xs:dateTime"/>
     <xs:element name="pickup-institution-ref" type="lcfEntityReference"/>
     <xs:element name="pickup-location-ref" type="lcfEntityReference"/>
@@ -415,6 +432,9 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="security-desensitize" type="securityDesensitize"/>
+	<xs:element name="serial-holding-statement" type="nonEmptyString"/>
+	<xs:element name="serial-issue-chronology" type="nonEmptyString"/>
+	<xs:element name="serial-issue-enumeration" type="nonEmptyString"/>	
     <xs:element name="series">
         <xs:complexType>
             <xs:sequence>
@@ -427,7 +447,22 @@
     <xs:element name="staffed" type="staffedUnstaffed"/>
     <xs:element name="start-date" type="xs:dateTime"/>
     <xs:element name="start-time" type="xs:time"/>
+	<xs:element name="structured-name">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titles-before-names" minOccurs="0"/>
+                <xs:element ref="names-before-key" minOccurs="0"/>
+                <xs:element ref="prefix-to-key" minOccurs="0"/>
+                <xs:element ref="key-names"/>
+                <xs:element ref="names-after-key" minOccurs="0"/>
+                <xs:element ref="suffix-to-key" minOccurs="0"/>
+                <xs:element ref="letters-after-names" minOccurs="0"/>
+                <xs:element ref="titles-after-names" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="subtitle" type="nonEmptyString"/>
+	<xs:element name="suffix-to-key" type="nonEmptyString"/>
     <xs:element name="suspension-period">
         <xs:complexType>
             <xs:sequence>
@@ -449,6 +484,8 @@
     </xs:element>
     <xs:element name="title-text" type="nonEmptyString"/>
     <xs:element name="title-type" type="titleType"/>
+	<xs:element name="titles-after-names" type="nonEmptyString"/>
+	<xs:element name="titles-before-names" type="nonEmptyString"/>
     <xs:element name="total-patrons-in-category" type="xs:int"/>
     <xs:element name="total-related-patrons" type="xs:int"/>
     <xs:element name="transaction-reference" type="nonEmptyString"/>

@@ -16,7 +16,6 @@
         <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Issue">5</xs:documentation>
     </xs:annotation>
 
-
     <xs:simpleType name="authorityAssociationType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">AAT</xs:appinfo>
@@ -1220,13 +1219,30 @@
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MGT04</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Whole message,requires acknowledgement</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Added is Issue 5</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Added in Issue 5</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>			
         </xs:restriction>
     </xs:simpleType>
 	
-<!-- MNA -->
+	<xs:simpleType name="manifestationAssociationType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNA</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation association type</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes">Added in Issue 5</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="21"/>
+            <xs:enumeration value="22"/>
+            <xs:enumeration value="31"/>
+            <xs:enumeration value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 <!-- MND -->
 	
@@ -1245,7 +1261,21 @@
         </xs:restriction>
     </xs:simpleType>
 	
-<!-- MNT -->
+	<xs:simpleType name="manifestationType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation type</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes">Added in Issue 5</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="05"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 <!-- MOT -->	
 	
@@ -1352,7 +1382,18 @@
 	
 <!-- PNT -->
 
-<!-- PYP -->	
+    <xs:simpleType name="paymentPurpose">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PYP</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Payment purpose</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes">Added in Issue 5</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+        </xs:restriction>
+    </xs:simpleType>
 	
     <xs:simpleType name="paymentStatus">
         <xs:annotation>
@@ -1415,7 +1456,7 @@
 
 <!-- RST -->
 
-<!-- RCQ -->	
+<!-- RVQ -->	
 	
     <xs:simpleType name="reservationStatus">
         <xs:annotation>
