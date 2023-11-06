@@ -23,7 +23,7 @@
     </jaxb:bindings>
 
     <!-- This is required in order to ensure Java naming follows schema naming for ONIX Codelist List 17 -->
-    <jaxb:bindings schemaLocation="lcf-v1.0-onix-codelists.xsd" node="/xs:schema/xs:simpleType[@name='List17']">
+    <jaxb:bindings schemaLocation="ONIX_BookProduct_CodeLists.xsd" node="/xs:schema/xs:simpleType[@name='List17']">
         <jaxb:typesafeEnumClass name="contributorRole"/>
     </jaxb:bindings>
 
