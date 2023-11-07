@@ -6,7 +6,7 @@
 
     <!--
     The use of this document is subject to license terms and conditions that can be found at
-    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    https://bic.org.uk/resources/license-to-use-bic-standards/
     -->
 
 
@@ -16,6 +16,31 @@
         <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Issue">5</xs:documentation>
     </xs:annotation>
 
+    <xs:simpleType name="authorityAssociationType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">AAT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Library authority/institution association type</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">AAT01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Is member of consortium</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">AAT01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Has member of consortium</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+	
     <xs:simpleType name="authorisationCode">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">AUT</xs:appinfo>
@@ -47,43 +72,32 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="authorityAssociationType">
+
+    <xs:simpleType name="contactAssociationType">
         <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">AAT</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Library authority/institution association type</xs:documentation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CAT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Contact association type</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="01">
                 <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">AAT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Is member of consortium</xs:documentation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">CAT01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Primary contact for authority/institution</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="02">
                 <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">AAT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Has member of consortium</xs:documentation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">CAT01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Alternative contact for authority/institution</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="cardStatus">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PCS</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Patron's library card status</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-        </xs:restriction>
-    </xs:simpleType>
+	
     <xs:simpleType name="chargeStatus">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CHS</xs:appinfo>
@@ -122,6 +136,7 @@
             </xs:enumeration>           
         </xs:restriction>
     </xs:simpleType>
+
     <xs:simpleType name="chargeType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CHT</xs:appinfo>
@@ -227,6 +242,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="circulationStatusCode">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CIS</xs:appinfo>
@@ -253,6 +269,7 @@
             <xs:enumeration value="16"/>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="communicationType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CMT</xs:appinfo>
@@ -272,34 +289,11 @@
             <xs:enumeration value="16"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="contactAssociationType">
+
+    <xs:simpleType name="loanRestrictionType">
         <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CAT</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Contact association type</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">CAT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Primary contact for authority/institution</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">CAT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Alternative contact for authority/institution</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="copyIDType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">IMI</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Item identification scheme</xs:documentation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CRT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Check-out restriction type</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
         </xs:annotation>
@@ -307,6 +301,11 @@
             <xs:enumeration value="01"/>
         </xs:restriction>
     </xs:simpleType>
+
+<!-- DTM -->
+
+<!-- ECR -->
+	
     <xs:simpleType name="entityType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">ENT</xs:appinfo>
@@ -415,6 +414,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="exceptionConditionType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">EXC</xs:appinfo>
@@ -434,30 +434,21 @@
             <xs:enumeration value="09"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="institutionIDType">
+	
+<!-- IMD -->	
+
+    <xs:simpleType name="copyIDType">
         <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">INS</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Institution identification scheme</xs:documentation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">IMI</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Item identification scheme</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">INS01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Proprietary scheme</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Other codes to be defined</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">INS01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">ISIL</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
+            <xs:enumeration value="01"/>
         </xs:restriction>
-    </xs:simpleType>
+    </xs:simpleType>	
+
     <xs:simpleType name="itemMediaType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">IMT</xs:appinfo>
@@ -608,50 +599,32 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="libraryClassificationScheme">
+	
+    <xs:simpleType name="institutionIDType">
         <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LCS</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Library classification scheme</xs:documentation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">INS</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Institution identification scheme</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">INS01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Proprietary scheme</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Other codes to be defined</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">INS01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">ISIL</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="loanRestrictionType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">CRT</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Check-out restriction type</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="loanStatusCode">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LOS</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Loan status</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="04"/>
-            <xs:enumeration value="05"/>
-            <xs:enumeration value="06"/>
-            <xs:enumeration value="07"/>
-            <xs:enumeration value="08"/>
-            <xs:enumeration value="09"/>
-            <xs:enumeration value="10"/>
-            <xs:enumeration value="11"/>
-        </xs:restriction>
-    </xs:simpleType>
+	
     <xs:simpleType name="locationAssociationType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LAT</xs:appinfo>
@@ -702,8 +675,54 @@
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Added in v1.0.1</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="07">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">LAT07</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Possible collection point</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">May be used to associate a manifestation or item with a specific location used for collection. Added in v1.3.0</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
+    <xs:simpleType name="libraryClassificationScheme">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LCS</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Library classification scheme</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="resourceAccessLinkType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LKT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Resource access link type</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">LKT01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Direct link to resource</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">LKT02</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Indirect link to resource</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="locationIDType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LOI</xs:appinfo>
@@ -749,6 +768,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="locationPurpose">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LOP</xs:appinfo>
@@ -787,6 +807,29 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:simpleType name="loanStatusCode">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LOS</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Loan status</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="05"/>
+            <xs:enumeration value="06"/>
+            <xs:enumeration value="07"/>
+            <xs:enumeration value="08"/>
+            <xs:enumeration value="09"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="11"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
     <xs:simpleType name="locationType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LOT</xs:appinfo>
@@ -825,6 +868,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="libraryStatutoryStatus">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LST</xs:appinfo>
@@ -849,6 +893,7 @@
             </xs:enumeration>            
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="libraryType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LTY</xs:appinfo>
@@ -908,20 +953,182 @@
             </xs:enumeration>            
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="manifestationStatus">
+
+    <xs:simpleType name="messageAlertDisplayConstraint">
         <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNS</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation status</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAC</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert display/delivery constraints</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="01"/>
-            <xs:enumeration value="02"/>
-            <xs:enumeration value="03"/>
-            <xs:enumeration value="04"/>
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAC01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Display/deliver between from/until dates</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">If no 'until' date is specified, display indefinitely</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAC02</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Display/deliver until acknowledged</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAC03</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Not for display/delivery - inactive</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:simpleType name="messageAlertDeliveryStatus">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAD</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert delivery status</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAD01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Not yet delivered</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAD02</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Delivered, not acknowledged</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAD03</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Delivered, acknowledged</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+	
+    <xs:simpleType name="messageAlertPriority">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAP</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert priority</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAP01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">High priority</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAP02</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Medium priority</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAP03</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Low priority</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+	
+    <xs:simpleType name="messageAlertType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert type </xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Action required</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT02</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Institution information</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">e.g. opening hours, closures</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT03</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Collection information</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">e.g. acquisitions, disposals</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="04">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT04</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Patron account information</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="messageAlertAudience">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAU</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert audience</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU01</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">All patrons</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="02">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU02</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Specified patrons and categories</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="03">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU03</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Patrons related to specified loans. Added in v1.1.0</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="04">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU04</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Patrons related to specified reservations. Added in v1.1.0</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+
     <xs:simpleType name="mediaTypeScheme">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MES</xs:appinfo>
@@ -964,6 +1171,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="mediaWarningFlag">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MEW</xs:appinfo>
@@ -977,175 +1185,7 @@
             <xs:enumeration value="02"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="messageAlertDeliveryStatus">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAD</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert delivery status</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAD01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Not yet delivered</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAD02</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Delivered, not acknowledged</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAD03</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Delivered, acknowledged</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="messageAlertDisplayConstraint">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAC</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert display/delivery constraints</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAC01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Display/deliver between from/until dates</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">If no 'until' date is specified, display indefinitely</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAC02</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Display/deliver until acknowledged</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAC03</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Not for display/delivery - inactive</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="messageAlertAudience">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAU</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert audience</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">All patrons</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU02</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Specified patrons and categories</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU03</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Patrons related to specified loans. Added in v1.1.0</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="04">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAU04</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Patrons related to specified reservations. Added in v1.1.0</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="messageAlertPriority">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAP</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert priority</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAP01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">High priority</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAP02</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Medium priority</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAP03</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Low priority</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="messageAlertType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MAT</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Message/alert type </xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Action required</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT02</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Institution information</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">e.g. opening hours, closures</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="03">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT03</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Collection information</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">e.g. acquisitions, disposals</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="04">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MAT04</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Patron account information</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
+	
     <xs:simpleType name="messageDisplayType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MGT</xs:appinfo>
@@ -1157,8 +1197,8 @@
             <xs:enumeration value="01">
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MGT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Whole message (e.g. for screen display)</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Whole message (e.g. for screen display), not requiring acknowledgement</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Revised in Issue 5</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="02">
@@ -1175,8 +1215,70 @@
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="04">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">MGT04</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Whole message,requires acknowledgement</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Added in Issue 5</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>			
         </xs:restriction>
     </xs:simpleType>
+	
+	<xs:simpleType name="manifestationAssociationType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNA</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation association type</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes">Added in Issue 5</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="21"/>
+            <xs:enumeration value="22"/>
+            <xs:enumeration value="31"/>
+            <xs:enumeration value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+<!-- MND -->
+	
+	<xs:simpleType name="manifestationStatus">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNS</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation status</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+	<xs:simpleType name="manifestationType">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">MNT</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Manifestation type</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes">Added in Issue 5</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="04"/>
+            <xs:enumeration value="05"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+<!-- MOT -->	
+	
     <xs:simpleType name="noteType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">NOT</xs:appinfo>
@@ -1194,6 +1296,21 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
+	<xs:simpleType name="cardStatus">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PCS</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Patron's library card status</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
     <xs:simpleType name="patronGroupAssociationType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PGP</xs:appinfo>
@@ -1218,6 +1335,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="patronIdentificationScheme">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PNI</xs:appinfo>
@@ -1233,6 +1351,7 @@
             <xs:enumeration value="31"/>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="patronStatusCode">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PNS</xs:appinfo>
@@ -1257,8 +1376,25 @@
             <xs:enumeration value="14"/>
             <xs:enumeration value="15"/>
             <xs:enumeration value="16"/>
+            <xs:enumeration value="17"/>			
         </xs:restriction>
     </xs:simpleType>
+	
+<!-- PNT -->
+
+    <xs:simpleType name="paymentPurpose">
+        <xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PYP</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Payment purpose</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription"></xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes">Added in Issue 5</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="01"/>
+            <xs:enumeration value="02"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
     <xs:simpleType name="paymentStatus">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PYS</xs:appinfo>
@@ -1271,6 +1407,7 @@
             <xs:enumeration value="02"/>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="paymentType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">PYT</xs:appinfo>
@@ -1284,8 +1421,14 @@
             <xs:enumeration value="02"/>
             <xs:enumeration value="03"/>
             <xs:enumeration value="04"/>
+            <xs:enumeration value="05"/>
+            <xs:enumeration value="06"/>
+            <xs:enumeration value="07"/>
+            <xs:enumeration value="08"/>
+            <xs:enumeration value="09"/>		
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="reasonDeniedType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">RDN</xs:appinfo>
@@ -1303,8 +1446,18 @@
             <xs:enumeration value="07"/>
             <xs:enumeration value="08"/>
             <xs:enumeration value="09"/>
+            <xs:enumeration value="10"/>			
         </xs:restriction>
     </xs:simpleType>
+	
+<!-- RNQ -->
+
+<!-- RQT -->
+
+<!-- RST -->
+
+<!-- RVQ -->	
+	
     <xs:simpleType name="reservationStatus">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">RVS</xs:appinfo>
@@ -1364,6 +1517,7 @@
             </xs:enumeration>			
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="reservationType">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">RVT</xs:appinfo>
@@ -1376,32 +1530,10 @@
             <xs:enumeration value="2"/>
             <xs:enumeration value="3"/>
             <xs:enumeration value="4"/>
+            <xs:enumeration value="5"/>			
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="resourceAccessLinkType">
-        <xs:annotation>
-            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">LKT</xs:appinfo>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListName">Resource access link type</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListDescription">Added in v1.0.1</xs:documentation>
-            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="01">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">LKT01</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Direct link to resource</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="02">
-                <xs:annotation>
-                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">LKT02</xs:appinfo>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Indirect link to resource</xs:documentation>
-                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
+	
     <xs:simpleType name="securityDesensitize">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">SCD</xs:appinfo>
@@ -1415,6 +1547,7 @@
             <xs:enumeration value="02"/>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="selectionCriteria">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">SEL</xs:appinfo>
@@ -1614,6 +1747,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="specialAttention">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">SPA</xs:appinfo>
@@ -1626,6 +1760,7 @@
             <xs:enumeration value="02"/>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="staffedUnstaffed">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">STA</xs:appinfo>
@@ -1664,6 +1799,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="textFormat">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">TFT</xs:appinfo>
@@ -1732,6 +1868,7 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+	
     <xs:simpleType name="daysOfTheWeek">
         <xs:annotation>
             <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListID">WKD</xs:appinfo>
@@ -1796,14 +1933,14 @@
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="08">
+            <xs:enumeration value="11">
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">WKD09</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Weekdays (Monday to Friday inclusive)</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes"></xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="09">
+            <xs:enumeration value="12">
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">WKD10</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Weekends (Saturday to Sunday inclusive)</xs:documentation>
