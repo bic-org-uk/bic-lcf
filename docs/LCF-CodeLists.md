@@ -544,7 +544,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |---------------------- |--------------------------------------------------
   PNI01       |01             |Proprietary            |ONIX code ‘01’
   PNI02       |16             |ISNI                   |ONIX code ‘16’
-  PNI03       |18             |LCCN                   |ONIX code ‘17’
+  PNI03       |18             |NACO                   |ONIX code ‘18' (Definition was 'LCCN')<br/>*Definition updated and Note revised in Issue 5*
   PNI04       |21             |ORCID                  |ONIX code ‘21’
   PNI05       |31             |VIAF ID                |ONIX code ‘31’
 
