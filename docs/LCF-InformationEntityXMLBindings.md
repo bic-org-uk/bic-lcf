@@ -76,10 +76,10 @@ E01 MANIFESTATION
 |  35    | E01D10.2     | class-term-ref                   | 1       | string      |         |
 |  36    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
 |  37    | E01D12       | description                      | 0-1     | string      |         |
-|  38    | E01C27       | associated-location              | 0-n     |             | *Added in v*        |
+|  38    | E01C27       | associated-location              | 0-n     |             | *Added in v1.3.0*        |
 |  39    | E01DXX.1     | association-type                 | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)     |
 |  40    | E01DXX.2     | location-ref                     | 1       | string      |         |
-|  41    | E01C24       | associated-manifestation         | 0-n     |             | *Added in v*        |
+|  41    | E01C24       | associated-manifestation         | 0-n     |             | *Added in v1.3.0*        |
 |  42    | E01D24.1     | association-type                 | 1       | Code        | [MNA](LCF-CodeLists.md#MNA)     |
 |  43    | E01D24.2     | manifestation-ref                | 1       | string      |         |
 |  44    | E01C13       | loan-restriction                 | 0-n     |             |         |

@@ -7,9 +7,8 @@
 
     <!--
     The use of this document is subject to license terms and conditions that can be found at
-    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    https://bic.org.uk/resources/license-to-use-bic-standards/
     -->
-
 
     <xs:include schemaLocation="lcf-v1.0-entities.xsd"/>
     <xs:import namespace="http://a9.com/-/spec/opensearch/1.1/" schemaLocation="lcf-v1.0-openSearch-v1.1-terms.xsd"/>
@@ -31,6 +30,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+	
     <xs:element name="lcf-check-out-response">
         <xs:complexType>
             <xs:sequence>
@@ -40,7 +40,8 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="lcf-check-in-response">
+    
+	<xs:element name="lcf-check-in-response">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="loan"/>
@@ -52,7 +53,8 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="lcf-exception">
+    
+	<xs:element name="lcf-exception">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="exception-condition" maxOccurs="unbounded"/>
@@ -65,15 +67,20 @@
     <!-- REST Specific elements -->
 
     <xs:element name="code" type="selectionCriteria"/>
-    <xs:element name="condition-type" type="exceptionConditionType"/>
-    <xs:element name="element-id" type="nonEmptyString"/>
-    <xs:element name="entity">
+    
+	<xs:element name="condition-type" type="exceptionConditionType"/>
+    
+	<xs:element name="element-id" type="nonEmptyString"/>
+    
+	<xs:element name="entity">
         <xs:complexType>
             <xs:attribute name="href" type="xs:anyURI"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="entity-type" type="entityType"/>
-    <xs:element name="exception-condition">
+    
+	<xs:element name="entity-type" type="entityType"/>
+    
+	<xs:element name="exception-condition">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="condition-type"/>
@@ -82,16 +89,34 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="message">
+    
+	<xs:element name="message">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="message-type"/>
                 <xs:element name="message-text" type="nonEmptyString" maxOccurs="unbounded"/>
+				<xs:element ref="acknowledgement-code" minOccurs="0"/>
+				<xs:element ref="applicable-charge" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="reason-denied" type="reasonDeniedType"/>
-    <xs:element name="selection-criterion">
+    
+	<xs:element name="acknowledgement-code" type="nonEmptyString"/>
+
+	<xs:element name="applicable-charge">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element ref="charge-type" minOccurs="0"/>
+                <xs:element ref="description" minOccurs="0"/>
+                <xs:element ref="payment-due-date" minOccurs="0"/>				
+                <xs:group ref="pecuniaryGroup"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	
+	<xs:element name="reason-denied" type="reasonDeniedType"/>
+    
+	<xs:element name="selection-criterion">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="code"/>
@@ -99,7 +124,9 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="special-attention" type="specialAttention"/>
-    <xs:element name="special-attention-note" type="nonEmptyString"/>
+    
+	<xs:element name="special-attention" type="specialAttention"/>
+    
+	<xs:element name="special-attention-note" type="nonEmptyString"/>
 
 </xs:schema>

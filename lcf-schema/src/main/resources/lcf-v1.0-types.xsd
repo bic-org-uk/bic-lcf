@@ -6,8 +6,9 @@
 
     <!--
     The use of this document is subject to license terms and conditions that can be found at
-    http://www.bic.org.uk/files/bicstandardslicence.pdf.
+    https://bic.org.uk/resources/license-to-use-bic-standards/
     -->
+
 
     <xs:include schemaLocation="lcf-v1.0-iso-codelists.xsd"/>
 
@@ -33,6 +34,5 @@
     </xs:group>
     <xs:element name="amount" type="xs:decimal"/>
     <xs:element name="currency" type="iso4217CurrencyCode"/>
-
 
 </xs:schema>

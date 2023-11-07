@@ -231,7 +231,7 @@ of a given type, and hence the use of the plural form.
   ENT12       |13             |authorisations  |Authorisation codes           |LCF Entity E13<br/>*Added in Issue 2*
   ENT13       |14             |authorities     |Library authority / institution|LCF Entity E14<br/>*Added in Issue 2*
   ENT14       |15             |messages        |Message / alert               |LCF Entity E15<br/>*Added in Issue 2*
-  
+
 ### <a id="EXC"></a>EXC Exception condition response
 
 NOTE - In a web service implementation many of these responses may be
@@ -316,7 +316,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LAT05       |05             |Other location of authority/institution                    |*Added in Issue 2*
   LAT06       |06             |Website of library authority/institution, branch or section|*Added in Issue 2*
   LAT07       |07             |Possible collection point                                  |May be used to associate a manifestation or item with a specific location used for collection<br/>*Added in Issue 5*
-  
+
 ### <a id="LCS"></a>LCS Library classification scheme
 
   *Code ID*   |*Code value*   |*Definition*                         |*Notes*
@@ -365,7 +365,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOS09        |09             |Superseded by renewal loan             |Used when recording past loans. Element E05D09 may contain renewal loan reference
   LOS10        |10             |Cancelled                              |Used when recording past loans
   LOS11        |11             |Renewal loan                           |
-  
+
 ### <a id="LOT"></a>LOT Location type
 
 *Code ID*      |*Code value*   |*Definition*                        |*Notes*
@@ -374,7 +374,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOT02        |02             |Site within library / institution   |e.g. branch or building
   LOT03        |03             |Location within site                |e.g. department, room, shelf
   LOT04        |04             |Virtual location                    |Used for digital content<br/>*Added in Issue 2*
-  
+
 ### <a id="LST"></a>LST Library statutory status *(added in Issue 4)*
 
   *Code ID*    |*Code value*    |*Definition*                       |*Notes*
@@ -393,7 +393,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LTY05        | CRL+           | Community run libraries (paid staff may be involved in the day to day running of the library)                                                                      |
   LTY06        | ICL            | Independent community library (outside the local authority, staffed only by volunteers)                                                                            |
   LTY07        | ICL+           | Independent community library (outside the local authority with paid staff) |
-  
+
 ### <a id="MAC"></a>MAC Message/alert display/delivery constraints *(added in Issue 2)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
@@ -401,7 +401,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAC01     |01             |Display/deliver between from/until dates | If no 'until' date is specified, display indefinitely
   MAC02     |02             |Display/deliver until acknowledged  |
   MAC03     |03             |Not for display/delivery - inactive |
-  
+
 ### <a id="MAD"></a>MAD Message/alert delivery status *(added in Issue 2)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
@@ -409,7 +409,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAD01     |01             |Not yet delivered                   |
   MAD02     |02             |Delivered, not acknowledged         |
   MAD03     |03             |Delivered, acknowledged             |
-  
+
 ### <a id="MAP"></a>MAP Message/alert priority *(added in Issue 2)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
@@ -417,7 +417,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAP01     |01             |High priority                       |
   MAP02     |02             |Medium priority                     |
   MAP03     |03             |Low priority                        |
-  
+
 ### <a id="MAT"></a>MAT Message/alert type *(added in Issue 2)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
@@ -426,7 +426,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MAT02     |02             |Institution information             |e.g. opening hours, closures
   MAT03     |03             |Collection information              |e.g. acquisitions, disposals
   MAT04     |04             |Patron account information          |
-  
+
 ### <a id="MAU"></a>MAU Message/alert audience *(added in Issue 2)*
 
 *Code ID*   |*Code value*   |*Definition*                        |*Notes*
@@ -475,7 +475,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   MNA06       | 22            | Has serial issue | For use with serial titles only.
   MNA07       | 31            | Has bound set | For use with members of bound sets only. Only one associated manifestation may have this association type.
   MNA08       | 32            | Has bound set member | For use with bound sets only.
-  
+
 ### <a id="MND"></a>MND Manifestation detailed information type
 
   *Code ID*   |*Code value*   |*Definition*                                  |*Notes*
@@ -544,7 +544,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   ----------- |-------------- |---------------------- |--------------------------------------------------
   PNI01       |01             |Proprietary            |ONIX code ‘01’
   PNI02       |16             |ISNI                   |ONIX code ‘16’
-  PNI03       |18             |LCCN                   |ONIX code ‘17’
+  PNI03       |18             |NACO                   |ONIX code ‘18' (Definition was 'LCCN')<br/>*Definition updated and Note revised in Issue 5*
   PNI04       |21             |ORCID                  |ONIX code ‘21’
   PNI05       |31             |VIAF ID                |ONIX code ‘31’
 
@@ -775,4 +775,4 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   WKD08         |07                |Sunday         |
   WKD09         |11                |Weekdays (Monday to Friday inclusive) |
   WKD10         |12                |Weekends (Saturday and Sunday) |
-  
+
