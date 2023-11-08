@@ -403,7 +403,7 @@ If the request is successful, the HTTP response must include the status code 204
 
 The difference between a check-out and renewal is that in the latter case an existing, active loan of the same item to the same patron must exist. It should not be necessary for the terminal application to know whether an item is already on loan to the patron in question, because the LMS will be able to determine whether this is the case or not. A single function will therefore normally suffice.
 
-NOTE – *(added in v1.3.0)* This REST web service implementation of the LCF Data Framework does not implement a mechanism for specifying the type of a renewal, which in the Data Framework is represented by element Q11D02. In the Data Framework this element serves two purposes: 
+NOTE – *(Added in v1.3.0)* This REST web service implementation of the LCF Data Framework does not implement a mechanism for specifying the type of a renewal, which in the Data Framework is represented by element Q11D02. In the Data Framework this element serves two purposes: 
 
   -  to indicate if the request is to renew all items checked out to that patron; 
   
@@ -473,7 +473,7 @@ The response to a check-out or renewal may be the same response as for creating 
      <sensitive-media-warning>00</sensitive-media-warning>
     </lcf-check-out-response>
 
-#### <a name="checkout"></a>Exception condition response when check-out request requires an acknowledgement code *(added in v1.3.0)*
+#### <a name="checkout"></a>Exception condition response when check-out request requires an acknowledgement code *(Added in v1.3.0)*
 
 A exception condition response may be used to convey a warning message to the terminal user, which the user must acknowledge before the request can be accepted. Here are two examples of situations where this could apply:
 
