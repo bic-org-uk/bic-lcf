@@ -14,7 +14,7 @@ weight: 6
 
 ### Issue 3
 
-### Publication date to be determined
+### Release Candidate
 
 ---
 

@@ -14,7 +14,7 @@ weight: 2
 
 ### Issue 5
 
-### DRAFT
+### Release Candidate
 
 ---
 
