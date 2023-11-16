@@ -286,7 +286,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 An identified person or organization permitted to borrow an item from a library.
 
-NOTE – Contact information is held in separate contact records for security and privacy reasons.See E09 below.
+NOTE – Contact information is held in separate contact records for security and privacy reasons. See E09 below.
 
 #### Properties
 
