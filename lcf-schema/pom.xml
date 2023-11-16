@@ -52,10 +52,6 @@
         <maven.min-version>3.3</maven.min-version>
     </properties>
 
-    <prerequisites>
-        <maven>${maven.min-version}</maven>
-    </prerequisites>
-
     <dependencies>
         <dependency>
             <groupId>javax.xml.bind</groupId>
