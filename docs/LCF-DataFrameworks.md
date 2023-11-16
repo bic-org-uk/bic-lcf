@@ -476,7 +476,7 @@ An identified charge made to a patron. May be a fee or a fine.
 | **E07D03** | **Charge type**            | **BT**     | **1**   | **Code**   | **LCF code list [CHT](LCF-CodeLists.md#CHT)<br/>The type or category of charge.**                                                                                          |
 | **E07D04** | **Charge status**          |            | **1**   | **Code**   | **LCF code list [CHS](LCF-CodeLists.md#CHS)**          |
 | E07D05     | Charge description         |            | 0-1     | String     | Free-text description of charge. |
-| E07D06     | item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D06     | Item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D07     | Manifestation reference    |            | 0-1     | String     | A manifestation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D08     | Loan reference             |            | 0-1     | String     | A loan to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                                     |
 | E07D09     | Reservation reference      |            | 0-1     | String     | A reservation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
