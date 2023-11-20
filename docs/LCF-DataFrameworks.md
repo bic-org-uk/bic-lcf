@@ -286,7 +286,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 An identified person or organization permitted to borrow an item from a library.
 
-NOTE – Contact information is held in separate contact records for security and privacy reasons.See E09 below.
+NOTE – Contact information is held in separate contact records for security and privacy reasons. See E09 below.
 
 #### Properties
 
@@ -476,7 +476,7 @@ An identified charge made to a patron. May be a fee or a fine.
 | **E07D03** | **Charge type**            | **BT**     | **1**   | **Code**   | **LCF code list [CHT](LCF-CodeLists.md#CHT)<br/>The type or category of charge.**                                                                                          |
 | **E07D04** | **Charge status**          |            | **1**   | **Code**   | **LCF code list [CHS](LCF-CodeLists.md#CHS)**          |
 | E07D05     | Charge description         |            | 0-1     | String     | Free-text description of charge. |
-| E07D06     | item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D06     | Item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D07     | Manifestation reference    |            | 0-1     | String     | A manifestation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D08     | Loan reference             |            | 0-1     | String     | A loan to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                                     |
 | E07D09     | Reservation reference      |            | 0-1     | String     | A reservation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
@@ -662,7 +662,6 @@ A library authority or institution.
 | E14D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[INS](LCF-CodeLists.md#INS)**<br/>The identification scheme.                                                                   |
 | E14D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
 | E14D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
-| **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
 | E14D08     | Library statutory status   |           | 0-1      | Code       | LCF code list **[LST](LCF-CodeLists.md#LST)**<br/>*Added in v1.2.0*         |
 | E14D09     | Library type               |           | 0-1      | Code       | LCF code list **[LTY](LCF-CodeLists.md#LTY)**<br/>*Added in v1.2.0*         |

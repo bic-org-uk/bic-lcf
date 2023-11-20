@@ -41,11 +41,11 @@ E01 MANIFESTATION
 |--------|--------------|----------------------------------|---------|-------------|---------|
 | **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                       |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                 |
 |   2    | E01D01       | identifier                       | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
-|   3    | E01C02       | additional-manifestation-id      | 0-n     |             | *Made non-mandatory in v*        |
+|   3    | E01C02       | additional-manifestation-id      | 0-n     |             | *Made non-mandatory in v1.3.0*        |
 |   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | [MNI](LCF-CodeLists.md#MNI)     |
 |   5    | E01D02.2     | type-name                        | 0-1     | string      |         |
 |   6    | E01D02.3     | value                            | 1       | string      |         |
-|   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)<br/>*Added in v*     |
+|   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)<br/>*Added in v1.3.0*     |
 |   8    | E01C03       | media-type                       | 0-n     |             |         |
 |   9    | E01D03.1     | media-type-scheme                | 1       | Code        | [MES](LCF-CodeLists.md#MES)     |
 |  10    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
@@ -68,9 +68,9 @@ E01 MANIFESTATION
 |  27    | E01D07       | edition-statement                | 0-1     | string      |         |
 |  28    | E01D08       | publisher-name                   | 0-1     | string      |         |
 |  29    | E01D09       | year-of-publication              | 0-1     | year        |         |
-|  30    | E01D23       | serial-holding-statement         | 0-1     | string      | *Added in v*        |
-|  31    | E01D25       | serial-issue-enumeration         | 0-1     | string      | *Added in v*        |
-|  32    | E01D26       | serial-issue-chronology          | 0-1     | string      | *Added in v*        |
+|  30    | E01D23       | serial-holding-statement         | 0-1     | string      | *Added in v1.3.0*        |
+|  31    | E01D25       | serial-issue-enumeration         | 0-1     | string      | *Added in v1.3.0*        |
+|  32    | E01D26       | serial-issue-chronology          | 0-1     | string      | *Added in v1.3.0*        |
 |  33    | E01C10       | classification                   | 0-n     |             |         |
 |  34    | E01D10.1     | class-scheme-ref                 | 1       | string      |         |
 |  35    | E01D10.2     | class-term-ref                   | 1       | string      |         |
@@ -181,7 +181,7 @@ E03 PATRON
 |   6   | E02D27.2     | type-name                   | 0-1     | string      |         |
 |   7   | E02D27.3     | value                       | 1       | string      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
-|   9   | E03C36       | structured-name             | 0-1     |             | *Added in v*<br/>*NOTE: At the next major revision of LCF it is proposed to make this element mandatory in server responses.*                 |
+|   9   | E03C36       | structured-name             | 0-1     |             | *Added in v1.3.0*<br/>*NOTE: At the next major revision of LCF it is proposed to make this element mandatory in server responses.*                 |
 |  10   | E03D36.1     | title-before-names          | 0-1     | string      |                                   |
 |  11   | E03D36.2     | names-before-key            | 0-1     | string      |                                   |
 |  12   | E03D36.3     | prefix-to-key               | 0-1     | string      |                                   |
@@ -356,9 +356,9 @@ E08 PAYMENT
 |  **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **[PYT](LCF-CodeLists.md#PYT)** |
 |    5   | E08D04       | description                 | 0-1     | string      |         |
 |    6   | E08D05       | charge-ref                  | 0-n     | string      | *Non-mandatory in v1.0.1* |
-|    7   | E08D15       | deposit-type                | 0-1     | Code        | **[CHT](LCF-CodeLists.md#CHT)**<br/>*Added in v* |
-|    8   | E08D13       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in v* |
-|    9   | E08D14       | beneficiary-ref             | 0-1     | string      | *Added in v*               |
+|    7   | E08D15       | deposit-type                | 0-1     | Code        | **[CHT](LCF-CodeLists.md#CHT)**<br/>*Added in v1.3.0* |
+|    8   | E08D13       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in v1.3.0* |
+|    9   | E08D14       | beneficiary-ref             | 0-1     | string      | *Added in v1.3.0*               |
 |   10   | E08D06       | payment-date                | 0-1     | dateTime    |         |
 | **11** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
 |   12   | E08D08       | currency                    | 0-1     | Code        | ISO currency code |
