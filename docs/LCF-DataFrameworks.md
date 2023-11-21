@@ -652,7 +652,7 @@ A patron authorisation record, containing either a standard code from LCF code l
 
 #### Description
 
-A library authority or institution.
+An entity representing a single node in the logical structure for a library or wider institution. A single library would be modelled using only one entity record. Where a libary forms part of a wider institution or consortia, this can be represented with each node in the hierarchy being one record and the relationships between them described using the LCF code lists indicated below. 
 
 #### Properties
 
