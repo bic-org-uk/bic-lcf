@@ -365,6 +365,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   LOS09        |09             |Superseded by renewal loan             |Used when recording past loans. Element E05D09 may contain renewal loan reference
   LOS10        |10             |Cancelled                              |Used when recording past loans
   LOS11        |11             |Renewal loan                           |
+  LOS12        |12             |Pending approval                       |Used when the terminal submits a new Loan entity pending approval of the check-out request<br/>*Added in Issue 5*
 
 ### <a id="LOT"></a>LOT Location type
 
@@ -677,6 +678,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
   RVS05       |05             |Ended by check-out to patron             |Used when recording past reservations
   RVS06       |06             |Expired                                  |Reservation terminated on reaching expiry date without either check-out of the item or cancellation of the reservation. Used when recording past reservations.
   RVS07       |07             |Suspended                                |Reservation temporarily suspended. It is recommended to specify start and/or end dates of the suspension.<br/>*Added in Issue 3*
+  RVS08       |08             |Pending approval                         |Used when the terminal submits a new Reservation entity pending approval of the reservation request<br/>*Added in Issue 5*
 
 ### <a id="RVT"></a>RVT Reservation type (based upon SIP 2 hold type code list)
 
