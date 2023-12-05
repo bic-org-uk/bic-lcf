@@ -1346,7 +1346,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="01"/>
             <xs:enumeration value="16"/>
-            <xs:enumeration value="17"/>
+            <xs:enumeration value="18"/>
             <xs:enumeration value="21"/>
             <xs:enumeration value="31"/>
         </xs:restriction>
