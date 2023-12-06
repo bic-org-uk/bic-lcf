@@ -1780,7 +1780,7 @@
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">ONIX code '16'</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="17"> <!-- Bug: Should be 18--> 
+            <xs:enumeration value="18">
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">PNI03</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">NACO</xs:documentation>
