@@ -761,7 +761,7 @@ NOTE – This code list is to be revised in consultation with libraries. The exi
 
 ### TTL Title type (based upon ONIX Code List 15) *(removed in Issue 5)*
 
-### UNC Unnamed contributor type (based upon ONIX Code List 11) *(removed in Issue 5)*
+### UNC Unnamed contributor type (based upon ONIX Code List 19) *(removed in Issue 5)*
 
 ### <a id="WKD"></a>WKD Days of the week *(added in Issue 4)*
 
