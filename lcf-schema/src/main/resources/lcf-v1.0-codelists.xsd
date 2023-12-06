@@ -1044,7 +1044,6 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeListNotes"></xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-
             <xs:enumeration value="01">
                 <xs:annotation>
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">LOS01</xs:appinfo>
@@ -2212,6 +2211,13 @@
                     <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">RVS07</xs:appinfo>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Suspended</xs:documentation>
                     <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Reservation temporarily suspended. It is recommended to specify start and/or end dates of the suspension. Added in v1.1.0</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>			
+            <xs:enumeration value="08">
+                <xs:annotation>
+                    <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#CodeID">RVS08</xs:appinfo>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Definition">Pending approval</xs:documentation>
+                    <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-CodeLists#Notes">Reservation requested pending approval. Used when the terminal submits a new Reservation entity pending approval of the reservation request. Added in v1.3.0</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>			
         </xs:restriction>
