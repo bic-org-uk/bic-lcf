@@ -2,17 +2,12 @@
   "openapi" : "3.0.1",
   "info" : {
     "title" : "BIC LCF",
-    "description" : "BIC Library Communications Framework ",
-    "version" : "1.2.0"
+    "description" : "BIC Library Communications Framework "
   },
   "externalDocs" : {
     "description" : "BIC LCF Documentation",
     "url" : "https://bic-org-uk.githib.io/bic-lcf"
   },
-  "servers" : [ {
-    "url" : "https://lcf.ceridwen.com/lcfserver-server-1.2.0-SNAPSHOT/",
-    "description" : "Demo Server"
-  } ],
   "tags" : [ {
     "name" : "Authorisation",
     "description" : "Authorisation Operations"
@@ -22,12 +17,6 @@
   }, {
     "name" : "Charge",
     "description" : "Charge Operations"
-  }, {
-    "name" : "ClassScheme",
-    "description" : "ClassScheme Operations"
-  }, {
-    "name" : "ClassTerm",
-    "description" : "ClassTerm Operations"
   }, {
     "name" : "Contact",
     "description" : "Contact Operations"
@@ -57,6 +46,117 @@
     "description" : "Reservation Operations"
   } ],
   "paths" : {
+    "/lcf/1.0/authorisations" : {
+      "get" : {
+        "tags" : [ "Authorisation" ],
+        "operationId" : "List",
+        "parameters" : [ {
+          "name" : "location-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Authorisation" ],
+        "operationId" : "Create",
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/authorisation"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/authorisation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/authorisation"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/authorisation"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
     "/lcf/1.0/authorisations/{identifier}" : {
       "get" : {
         "tags" : [ "Authorisation" ],
@@ -193,10 +293,130 @@
         } ]
       }
     },
-    "/lcf/1.0/authorisations" : {
+    "/lcf/1.0/authorisations/{identifier}/locations" : {
       "get" : {
         "tags" : [ "Authorisation" ],
-        "operationId" : "List",
+        "operationId" : "List_1",
+        "parameters" : [ {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Authorisation" ],
+        "operationId" : "Create_1",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/location"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/location"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/location"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/location"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/authorities" : {
+      "get" : {
+        "tags" : [ "Authority" ],
+        "operationId" : "List_2",
         "parameters" : [ {
           "name" : "os:startIndex",
           "in" : "query",
@@ -248,19 +468,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "Authorisation" ],
-        "operationId" : "Create",
-        "parameters" : [ ],
+        "tags" : [ "Authority" ],
+        "operationId" : "Create_2",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/authorisation"
+                "$ref" : "#/components/schemas/authority"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/authorisation"
+                "$ref" : "#/components/schemas/authority"
               }
             }
           }
@@ -281,12 +500,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/authorisation"
+                  "$ref" : "#/components/schemas/authority"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/authorisation"
+                  "$ref" : "#/components/schemas/authority"
                 }
               }
             }
@@ -423,380 +642,6 @@
                 "style" : "simple",
                 "schema" : {
                   "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/authorities" : {
-      "get" : {
-        "tags" : [ "Authority" ],
-        "operationId" : "List_1",
-        "parameters" : [ {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Authority" ],
-        "operationId" : "Create_1",
-        "parameters" : [ ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/authority"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/authority"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/authority"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/authority"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/charges/{identifier}" : {
-      "get" : {
-        "tags" : [ "Charge" ],
-        "operationId" : "Retrieve_2",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "put" : {
-        "tags" : [ "Charge" ],
-        "operationId" : "Modify_2",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Modified",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "delete" : {
-        "tags" : [ "Charge" ],
-        "operationId" : "Delete_2",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Deleted",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/charges/{identifier}/payments" : {
-      "get" : {
-        "tags" : [ "Charge" ],
-        "operationId" : "List_2",
-        "parameters" : [ {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "payment-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Charge" ],
-        "operationId" : "Create_2",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/payment"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/payment"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/payment"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/payment"
                 }
               }
             }
@@ -957,10 +802,10 @@
         } ]
       }
     },
-    "/lcf/1.0/class-schemes/{identifier}" : {
+    "/lcf/1.0/charges/{identifier}" : {
       "get" : {
-        "tags" : [ "ClassScheme" ],
-        "operationId" : "Retrieve_3",
+        "tags" : [ "Charge" ],
+        "operationId" : "Retrieve_2",
         "parameters" : [ {
           "name" : "identifier",
           "in" : "path",
@@ -985,12 +830,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-scheme"
+                  "$ref" : "#/components/schemas/charge"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-scheme"
+                  "$ref" : "#/components/schemas/charge"
                 }
               }
             }
@@ -1003,8 +848,8 @@
         } ]
       },
       "put" : {
-        "tags" : [ "ClassScheme" ],
-        "operationId" : "Modify_3",
+        "tags" : [ "Charge" ],
+        "operationId" : "Modify_2",
         "parameters" : [ {
           "name" : "identifier",
           "in" : "path",
@@ -1017,12 +862,12 @@
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/class-scheme"
+                "$ref" : "#/components/schemas/charge"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/class-scheme"
+                "$ref" : "#/components/schemas/charge"
               }
             }
           }
@@ -1043,12 +888,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-scheme"
+                  "$ref" : "#/components/schemas/charge"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-scheme"
+                  "$ref" : "#/components/schemas/charge"
                 }
               }
             }
@@ -1061,8 +906,8 @@
         } ]
       },
       "delete" : {
-        "tags" : [ "ClassScheme" ],
-        "operationId" : "Delete_3",
+        "tags" : [ "Charge" ],
+        "operationId" : "Delete_2",
         "parameters" : [ {
           "name" : "identifier",
           "in" : "path",
@@ -1093,11 +938,23 @@
         } ]
       }
     },
-    "/lcf/1.0/class-schemes" : {
+    "/lcf/1.0/charges/{identifier}/payments" : {
       "get" : {
-        "tags" : [ "ClassScheme" ],
+        "tags" : [ "Charge" ],
         "operationId" : "List_4",
         "parameters" : [ {
+          "name" : "patron-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "os:startIndex",
           "in" : "query",
           "schema" : {
@@ -1112,6 +969,13 @@
             "type" : "integer",
             "format" : "int32",
             "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -1148,19 +1012,26 @@
         } ]
       },
       "post" : {
-        "tags" : [ "ClassScheme" ],
+        "tags" : [ "Charge" ],
         "operationId" : "Create_4",
-        "parameters" : [ ],
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/class-scheme"
+                "$ref" : "#/components/schemas/payment"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/class-scheme"
+                "$ref" : "#/components/schemas/payment"
               }
             }
           }
@@ -1181,12 +1052,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-scheme"
+                  "$ref" : "#/components/schemas/payment"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-scheme"
+                  "$ref" : "#/components/schemas/payment"
                 }
               }
             }
@@ -1199,147 +1070,23 @@
         } ]
       }
     },
-    "/lcf/1.0/class-terms/{identifier}" : {
+    "/lcf/1.0/contacts" : {
       "get" : {
-        "tags" : [ "ClassTerm" ],
-        "operationId" : "Retrieve_4",
+        "tags" : [ "Contact" ],
+        "operationId" : "List_7",
         "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
+          "name" : "patron-id",
+          "in" : "query",
           "schema" : {
             "type" : "string"
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/class-term"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/class-term"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
         }, {
-          "USER" : [ ]
-        } ]
-      },
-      "put" : {
-        "tags" : [ "ClassTerm" ],
-        "operationId" : "Modify_4",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
+          "name" : "location-id",
+          "in" : "query",
           "schema" : {
             "type" : "string"
           }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/class-term"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/class-term"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Modified",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/class-term"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/class-term"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
         }, {
-          "USER" : [ ]
-        } ]
-      },
-      "delete" : {
-        "tags" : [ "ClassTerm" ],
-        "operationId" : "Delete_4",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Deleted",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/class-terms" : {
-      "get" : {
-        "tags" : [ "ClassTerm" ],
-        "operationId" : "List_5",
-        "parameters" : [ {
           "name" : "os:startIndex",
           "in" : "query",
           "schema" : {
@@ -1390,19 +1137,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "ClassTerm" ],
-        "operationId" : "Create_5",
-        "parameters" : [ ],
+        "tags" : [ "Contact" ],
+        "operationId" : "Create_7",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/class-term"
+                "$ref" : "#/components/schemas/contact"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/class-term"
+                "$ref" : "#/components/schemas/contact"
               }
             }
           }
@@ -1423,12 +1169,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-term"
+                  "$ref" : "#/components/schemas/contact"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/class-term"
+                  "$ref" : "#/components/schemas/contact"
                 }
               }
             }
@@ -1577,18 +1323,18 @@
         } ]
       }
     },
-    "/lcf/1.0/contacts" : {
+    "/lcf/1.0/items" : {
       "get" : {
-        "tags" : [ "Contact" ],
-        "operationId" : "List_6",
+        "tags" : [ "Item" ],
+        "operationId" : "List_8",
         "parameters" : [ {
-          "name" : "patron-id",
+          "name" : "manifestation-id",
           "in" : "query",
           "schema" : {
             "type" : "string"
           }
         }, {
-          "name" : "location-id",
+          "name" : "circulation-status",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -1644,19 +1390,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "Contact" ],
-        "operationId" : "Create_6",
-        "parameters" : [ ],
+        "tags" : [ "Item" ],
+        "operationId" : "Create_8",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/contact"
+                "$ref" : "#/components/schemas/item"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/contact"
+                "$ref" : "#/components/schemas/item"
               }
             }
           }
@@ -1677,12 +1422,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/contact"
+                  "$ref" : "#/components/schemas/item"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/contact"
+                  "$ref" : "#/components/schemas/item"
                 }
               }
             }
@@ -1834,7 +1579,7 @@
     "/lcf/1.0/items/{identifier}/reservations" : {
       "get" : {
         "tags" : [ "Item" ],
-        "operationId" : "List_7",
+        "operationId" : "List_9",
         "parameters" : [ {
           "name" : "manifestation-id",
           "in" : "query",
@@ -1930,7 +1675,7 @@
       },
       "post" : {
         "tags" : [ "Item" ],
-        "operationId" : "Create_7",
+        "operationId" : "Create_9",
         "parameters" : [ {
           "name" : "confirmation",
           "in" : "header",
@@ -1987,422 +1732,6 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/reservation"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/items" : {
-      "get" : {
-        "tags" : [ "Item" ],
-        "operationId" : "List_8",
-        "parameters" : [ {
-          "name" : "manifestation-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "circulation-status",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Item" ],
-        "operationId" : "Create_8",
-        "parameters" : [ ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/item"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/item"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/item"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/item"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/loans/{identifier}" : {
-      "get" : {
-        "tags" : [ "Loan" ],
-        "operationId" : "Retrieve_7",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/loan"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/loan"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "put" : {
-        "tags" : [ "Loan" ],
-        "operationId" : "Modify_7",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/loan"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/loan"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "org.bic.ns.lcf.v1_0.LcfCheckInResponse",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-check-in-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-check-in-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "delete" : {
-        "tags" : [ "Loan" ],
-        "operationId" : "Delete_7",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Deleted",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/loans/{identifier}/charges" : {
-      "get" : {
-        "tags" : [ "Loan" ],
-        "operationId" : "List_9",
-        "parameters" : [ {
-          "name" : "manifestation-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "item-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "creation-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "payment-due-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "paid-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Loan" ],
-        "operationId" : "Create_9",
-        "parameters" : [ {
-          "name" : "confirmation",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
                 }
               }
             }
@@ -2575,6 +1904,409 @@
         } ]
       }
     },
+    "/lcf/1.0/loans/{identifier}" : {
+      "get" : {
+        "tags" : [ "Loan" ],
+        "operationId" : "Retrieve_7",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/loan"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/loan"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Loan" ],
+        "operationId" : "Modify_7",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/loan"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/loan"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "org.bic.ns.lcf.v1_0.LcfCheckInResponse",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-check-in-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-check-in-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Loan" ],
+        "operationId" : "Delete_7",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Deleted",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/loans/{identifier}/charges" : {
+      "get" : {
+        "tags" : [ "Loan" ],
+        "operationId" : "List_11",
+        "parameters" : [ {
+          "name" : "manifestation-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "item-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "patron-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "creation-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment-due-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "paid-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Loan" ],
+        "operationId" : "Create_11",
+        "parameters" : [ {
+          "name" : "confirmation",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/charge"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/charge"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/charge"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/charge"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/locations" : {
+      "get" : {
+        "tags" : [ "Location" ],
+        "operationId" : "List_12",
+        "parameters" : [ {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Location" ],
+        "operationId" : "Create_12",
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/location"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/location"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/location"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/location"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
     "/lcf/1.0/locations/{identifier}" : {
       "get" : {
         "tags" : [ "Location" ],
@@ -2714,7 +2446,7 @@
     "/lcf/1.0/locations/{identifier}/contacts" : {
       "get" : {
         "tags" : [ "Location" ],
-        "operationId" : "List_11",
+        "operationId" : "List_13",
         "parameters" : [ {
           "name" : "patron-id",
           "in" : "query",
@@ -2786,7 +2518,7 @@
       },
       "post" : {
         "tags" : [ "Location" ],
-        "operationId" : "Create_11",
+        "operationId" : "Create_13",
         "parameters" : [ {
           "name" : "identifier",
           "in" : "path",
@@ -2843,11 +2575,17 @@
         } ]
       }
     },
-    "/lcf/1.0/locations" : {
+    "/lcf/1.0/manifestations" : {
       "get" : {
-        "tags" : [ "Location" ],
-        "operationId" : "List_12",
+        "tags" : [ "Manifestation" ],
+        "operationId" : "List_14",
         "parameters" : [ {
+          "name" : "item-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "os:startIndex",
           "in" : "query",
           "schema" : {
@@ -2898,19 +2636,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "Location" ],
-        "operationId" : "Create_12",
-        "parameters" : [ ],
+        "tags" : [ "Manifestation" ],
+        "operationId" : "Create_14",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/location"
+                "$ref" : "#/components/schemas/manifestation"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/location"
+                "$ref" : "#/components/schemas/manifestation"
               }
             }
           }
@@ -2931,12 +2668,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/location"
+                  "$ref" : "#/components/schemas/manifestation"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/location"
+                  "$ref" : "#/components/schemas/manifestation"
                 }
               }
             }
@@ -3085,10 +2822,142 @@
         } ]
       }
     },
+    "/lcf/1.0/manifestations/{identifier}/items" : {
+      "get" : {
+        "tags" : [ "Manifestation" ],
+        "operationId" : "List_15",
+        "parameters" : [ {
+          "name" : "manifestation-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "circulation-status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Manifestation" ],
+        "operationId" : "Create_15",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/item"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/item"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/item"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/item"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
     "/lcf/1.0/manifestations/{identifier}/reservations" : {
       "get" : {
         "tags" : [ "Manifestation" ],
-        "operationId" : "List_13",
+        "operationId" : "List_16",
         "parameters" : [ {
           "name" : "manifestation-id",
           "in" : "query",
@@ -3184,7 +3053,7 @@
       },
       "post" : {
         "tags" : [ "Manifestation" ],
-        "operationId" : "Create_13",
+        "operationId" : "Create_16",
         "parameters" : [ {
           "name" : "confirmation",
           "in" : "header",
@@ -3253,144 +3122,24 @@
         } ]
       }
     },
-    "/lcf/1.0/manifestations/{identifier}/items" : {
+    "/lcf/1.0/messages" : {
       "get" : {
-        "tags" : [ "Manifestation" ],
-        "operationId" : "List_14",
+        "tags" : [ "MessageAlert" ],
+        "operationId" : "List_17",
         "parameters" : [ {
-          "name" : "manifestation-id",
+          "name" : "patron-id",
           "in" : "query",
           "schema" : {
             "type" : "string"
           }
         }, {
-          "name" : "circulation-status",
+          "name" : "start-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
           }
         }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Manifestation" ],
-        "operationId" : "Create_14",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/item"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/item"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/item"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/item"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/manifestations" : {
-      "get" : {
-        "tags" : [ "Manifestation" ],
-        "operationId" : "List_15",
-        "parameters" : [ {
-          "name" : "item-id",
+          "name" : "end-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -3446,19 +3195,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "Manifestation" ],
-        "operationId" : "Create_15",
-        "parameters" : [ ],
+        "tags" : [ "MessageAlert" ],
+        "operationId" : "Create_17",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/manifestation"
+                "$ref" : "#/components/schemas/message-alert"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/manifestation"
+                "$ref" : "#/components/schemas/message-alert"
               }
             }
           }
@@ -3479,12 +3227,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/manifestation"
+                  "$ref" : "#/components/schemas/message-alert"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/manifestation"
+                  "$ref" : "#/components/schemas/message-alert"
                 }
               }
             }
@@ -3621,300 +3369,6 @@
                 "style" : "simple",
                 "schema" : {
                   "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/messages/{identifier}/reservations" : {
-      "get" : {
-        "tags" : [ "MessageAlert" ],
-        "operationId" : "List_16",
-        "parameters" : [ {
-          "name" : "manifestation-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "item-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "start-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "end-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "pickup-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "MessageAlert" ],
-        "operationId" : "Create_16",
-        "parameters" : [ {
-          "name" : "confirmation",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "charge-acknowledged",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/reservation"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/reservation"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/messages/{identifier}/patrons" : {
-      "get" : {
-        "tags" : [ "MessageAlert" ],
-        "operationId" : "List_17",
-        "parameters" : [ {
-          "name" : "patron-expiration-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "MessageAlert" ],
-        "operationId" : "Create_17",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/patron"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/patron"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/patron"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/patron"
                 }
               }
             }
@@ -4101,11 +3555,149 @@
         } ]
       }
     },
-    "/lcf/1.0/messages" : {
+    "/lcf/1.0/messages/{identifier}/patrons" : {
       "get" : {
         "tags" : [ "MessageAlert" ],
         "operationId" : "List_19",
         "parameters" : [ {
+          "name" : "patron-expiration-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "MessageAlert" ],
+        "operationId" : "Create_19",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/patron"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/patron"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/patron"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/patron"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/messages/{identifier}/reservations" : {
+      "get" : {
+        "tags" : [ "MessageAlert" ],
+        "operationId" : "List_20",
+        "parameters" : [ {
+          "name" : "manifestation-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "item-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "patron-id",
           "in" : "query",
           "schema" : {
@@ -4119,6 +3711,150 @@
           }
         }, {
           "name" : "end-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "pickup-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "MessageAlert" ],
+        "operationId" : "Create_20",
+        "parameters" : [ {
+          "name" : "confirmation",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "charge-acknowledged",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reservation"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reservation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/patrons" : {
+      "get" : {
+        "tags" : [ "Patron" ],
+        "operationId" : "List_21",
+        "parameters" : [ {
+          "name" : "patron-expiration-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -4174,19 +3910,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "MessageAlert" ],
-        "operationId" : "Create_19",
-        "parameters" : [ ],
+        "tags" : [ "Patron" ],
+        "operationId" : "Create_21",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/message-alert"
+                "$ref" : "#/components/schemas/patron"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/message-alert"
+                "$ref" : "#/components/schemas/patron"
               }
             }
           }
@@ -4207,12 +3942,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/message-alert"
+                  "$ref" : "#/components/schemas/patron"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/message-alert"
+                  "$ref" : "#/components/schemas/patron"
                 }
               }
             }
@@ -4361,336 +4096,6 @@
         } ]
       }
     },
-    "/lcf/1.0/patrons/{identifier}/charges" : {
-      "get" : {
-        "tags" : [ "Patron" ],
-        "operationId" : "List_20",
-        "parameters" : [ {
-          "name" : "manifestation-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "item-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "creation-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "payment-due-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "paid-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Patron" ],
-        "operationId" : "Create_20",
-        "parameters" : [ {
-          "name" : "confirmation",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/patrons/{identifier}/reservations" : {
-      "get" : {
-        "tags" : [ "Patron" ],
-        "operationId" : "List_21",
-        "parameters" : [ {
-          "name" : "manifestation-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "item-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "start-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "end-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "pickup-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Patron" ],
-        "operationId" : "Create_21",
-        "parameters" : [ {
-          "name" : "confirmation",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "charge-acknowledged",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/reservation"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/reservation"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
     "/lcf/1.0/patrons/{identifier}/password" : {
       "put" : {
         "tags" : [ "Patron" ],
@@ -4782,6 +4187,12 @@
         "tags" : [ "Patron" ],
         "operationId" : "List_22",
         "parameters" : [ {
+          "name" : "location-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "os:startIndex",
           "in" : "query",
           "schema" : {
@@ -4897,11 +4308,17 @@
         } ]
       }
     },
-    "/lcf/1.0/patrons/{identifier}/loans" : {
+    "/lcf/1.0/patrons/{identifier}/charges" : {
       "get" : {
         "tags" : [ "Patron" ],
         "operationId" : "List_23",
         "parameters" : [ {
+          "name" : "manifestation-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "item-id",
           "in" : "query",
           "schema" : {
@@ -4914,31 +4331,19 @@
             "type" : "string"
           }
         }, {
-          "name" : "loan-status",
+          "name" : "creation-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
           }
         }, {
-          "name" : "start-date",
+          "name" : "payment-due-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
           }
         }, {
-          "name" : "end-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "end-due-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "recall-notice-date",
+          "name" : "paid-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -5010,12 +4415,6 @@
             "type" : "string"
           }
         }, {
-          "name" : "charge-acknowledged",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "identifier",
           "in" : "path",
           "required" : true,
@@ -5027,19 +4426,19 @@
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/loan"
+                "$ref" : "#/components/schemas/charge"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/loan"
+                "$ref" : "#/components/schemas/charge"
               }
             }
           }
         },
         "responses" : {
           "201" : {
-            "description" : "org.bic.ns.lcf.v1_0.LcfCheckOutResponse",
+            "description" : "With echoed content",
             "headers" : {
               "lcf-version" : {
                 "description" : "LCF Specification Version",
@@ -5053,12 +4452,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/lcf-check-out-response"
+                  "$ref" : "#/components/schemas/charge"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/lcf-check-out-response"
+                  "$ref" : "#/components/schemas/charge"
                 }
               }
             }
@@ -5203,12 +4602,360 @@
         } ]
       }
     },
-    "/lcf/1.0/patrons" : {
+    "/lcf/1.0/patrons/{identifier}/loans" : {
       "get" : {
         "tags" : [ "Patron" ],
         "operationId" : "List_25",
         "parameters" : [ {
-          "name" : "patron-expiration-date",
+          "name" : "item-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "patron-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "loan-status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "start-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end-due-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "recall-notice-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Patron" ],
+        "operationId" : "Create_25",
+        "parameters" : [ {
+          "name" : "confirmation",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "charge-acknowledged",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/loan"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/loan"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "org.bic.ns.lcf.v1_0.LcfCheckOutResponse",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-check-out-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-check-out-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/patrons/{identifier}/reservations" : {
+      "get" : {
+        "tags" : [ "Patron" ],
+        "operationId" : "List_26",
+        "parameters" : [ {
+          "name" : "manifestation-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "item-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "patron-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "start-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "pickup-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Patron" ],
+        "operationId" : "Create_26",
+        "parameters" : [ {
+          "name" : "confirmation",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "charge-acknowledged",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reservation"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reservation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/payments" : {
+      "get" : {
+        "tags" : [ "Payment" ],
+        "operationId" : "List_27",
+        "parameters" : [ {
+          "name" : "patron-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment-date",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -5264,19 +5011,18 @@
         } ]
       },
       "post" : {
-        "tags" : [ "Patron" ],
-        "operationId" : "Create_25",
-        "parameters" : [ ],
+        "tags" : [ "Payment" ],
+        "operationId" : "Create_27",
         "requestBody" : {
           "content" : {
             "application/xml" : {
               "schema" : {
-                "$ref" : "#/components/schemas/patron"
+                "$ref" : "#/components/schemas/payment"
               }
             },
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/patron"
+                "$ref" : "#/components/schemas/payment"
               }
             }
           }
@@ -5297,12 +5043,12 @@
             "content" : {
               "application/xml" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/patron"
+                  "$ref" : "#/components/schemas/payment"
                 }
               },
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/patron"
+                  "$ref" : "#/components/schemas/payment"
                 }
               }
             }
@@ -5454,422 +5200,6 @@
     "/lcf/1.0/payments/{identifier}/charges" : {
       "get" : {
         "tags" : [ "Payment" ],
-        "operationId" : "List_26",
-        "parameters" : [ {
-          "name" : "manifestation-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "item-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "creation-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "payment-due-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "paid-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Payment" ],
-        "operationId" : "Create_26",
-        "parameters" : [ {
-          "name" : "confirmation",
-          "in" : "header",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/charge"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/charge"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/payments" : {
-      "get" : {
-        "tags" : [ "Payment" ],
-        "operationId" : "List_27",
-        "parameters" : [ {
-          "name" : "patron-id",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "payment-date",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "os:startIndex",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
-          }
-        }, {
-          "name" : "os:count",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : -1
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/lcf-entity-list-response"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "post" : {
-        "tags" : [ "Payment" ],
-        "operationId" : "Create_27",
-        "parameters" : [ ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/payment"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/payment"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "With echoed content",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/payment"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/payment"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/reservations/{identifier}" : {
-      "get" : {
-        "tags" : [ "Reservation" ],
-        "operationId" : "Retrieve_13",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retrieved",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "put" : {
-        "tags" : [ "Reservation" ],
-        "operationId" : "Modify_13",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/xml" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/reservation"
-              }
-            },
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/reservation"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Modified",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            },
-            "content" : {
-              "application/xml" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              },
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/reservation"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      },
-      "delete" : {
-        "tags" : [ "Reservation" ],
-        "operationId" : "Delete_13",
-        "parameters" : [ {
-          "name" : "identifier",
-          "in" : "path",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Deleted",
-            "headers" : {
-              "lcf-version" : {
-                "description" : "LCF Specification Version",
-                "required" : true,
-                "style" : "simple",
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "security" : [ {
-          "TERMINAL" : [ ]
-        }, {
-          "USER" : [ ]
-        } ]
-      }
-    },
-    "/lcf/1.0/reservations/{identifier}/charges" : {
-      "get" : {
-        "tags" : [ "Reservation" ],
         "operationId" : "List_28",
         "parameters" : [ {
           "name" : "manifestation-id",
@@ -5965,7 +5295,7 @@
         } ]
       },
       "post" : {
-        "tags" : [ "Reservation" ],
+        "tags" : [ "Payment" ],
         "operationId" : "Create_28",
         "parameters" : [ {
           "name" : "confirmation",
@@ -6182,6 +5512,304 @@
           "USER" : [ ]
         } ]
       }
+    },
+    "/lcf/1.0/reservations/{identifier}" : {
+      "get" : {
+        "tags" : [ "Reservation" ],
+        "operationId" : "Retrieve_13",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Reservation" ],
+        "operationId" : "Modify_13",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reservation"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/reservation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modified",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reservation"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Reservation" ],
+        "operationId" : "Delete_13",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Deleted",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
+    },
+    "/lcf/1.0/reservations/{identifier}/charges" : {
+      "get" : {
+        "tags" : [ "Reservation" ],
+        "operationId" : "List_30",
+        "parameters" : [ {
+          "name" : "manifestation-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "item-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "patron-id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "creation-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "payment-due-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "paid-date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "os:startIndex",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "os:count",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : -1
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retrieved",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/lcf-entity-list-response"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Reservation" ],
+        "operationId" : "Create_30",
+        "parameters" : [ {
+          "name" : "confirmation",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/charge"
+              }
+            },
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/charge"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "With echoed content",
+            "headers" : {
+              "lcf-version" : {
+                "description" : "LCF Specification Version",
+                "required" : true,
+                "style" : "simple",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/charge"
+                }
+              },
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/charge"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TERMINAL" : [ ]
+        }, {
+          "USER" : [ ]
+        } ]
+      }
     }
   },
   "components" : {
@@ -6200,6 +5828,15 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/note"
+            }
+          },
+          "location-ref" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "xml" : {
+                "name" : "location-ref"
+              }
             }
           },
           "identifier" : {
@@ -6311,6 +5948,188 @@
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       },
+      "additional-location-id" : {
+        "required" : [ "location-id-type", "value" ],
+        "type" : "object",
+        "properties" : {
+          "location-id-type" : {
+            "type" : "string",
+            "enum" : [ "01", "02", "03", "04", "05" ]
+          },
+          "type-name" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        },
+        "xml" : {
+          "name" : "additional-location-id",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "associated-location" : {
+        "required" : [ "association-type", "location-ref" ],
+        "type" : "object",
+        "properties" : {
+          "association-type" : {
+            "type" : "string",
+            "enum" : [ "01", "02", "03", "04", "05", "06", "07" ]
+          },
+          "location-ref" : {
+            "type" : "string"
+          },
+          "library-location-service-period" : {
+            "$ref" : "#/components/schemas/library-location-service-period"
+          }
+        },
+        "xml" : {
+          "name" : "associated-location",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "closed" : {
+        "type" : "object",
+        "properties" : {
+          "days" : {
+            "type" : "string",
+            "enum" : [ "00", "01", "02", "03", "04", "05", "06", "07", "11", "12" ]
+          }
+        },
+        "xml" : {
+          "name" : "closed",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "library-location-service-period" : {
+        "required" : [ "end-date", "start-date" ],
+        "type" : "object",
+        "properties" : {
+          "period-name" : {
+            "type" : "string"
+          },
+          "start-date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "end-date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "closed" : {
+            "$ref" : "#/components/schemas/closed"
+          },
+          "open" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/open"
+            }
+          }
+        },
+        "xml" : {
+          "name" : "library-location-service-period",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "location" : {
+        "required" : [ "associated-location" ],
+        "type" : "object",
+        "properties" : {
+          "additional-location-id" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/additional-location-id"
+            }
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "location-type" : {
+            "type" : "string",
+            "enum" : [ "01", "02", "03", "04" ]
+          },
+          "location-purpose" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "xml" : {
+                "name" : "location-purpose"
+              },
+              "enum" : [ "01", "02", "03", "04" ]
+            }
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "contact-ref" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "xml" : {
+                "name" : "contact-ref"
+              }
+            }
+          },
+          "associated-location" : {
+            "$ref" : "#/components/schemas/associated-location"
+          },
+          "note" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/note"
+            }
+          },
+          "identifier" : {
+            "type" : "string"
+          }
+        },
+        "xml" : {
+          "name" : "location",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "open" : {
+        "required" : [ "open-time-period" ],
+        "type" : "object",
+        "properties" : {
+          "days" : {
+            "type" : "string",
+            "enum" : [ "00", "01", "02", "03", "04", "05", "06", "07", "11", "12" ]
+          },
+          "open-time-period" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/open-time-period"
+            }
+          }
+        },
+        "xml" : {
+          "name" : "open",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "open-time-period" : {
+        "required" : [ "end-time", "start-time" ],
+        "type" : "object",
+        "properties" : {
+          "start-time" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "end-time" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "staffed" : {
+            "type" : "string",
+            "enum" : [ "00", "01", "02", "03" ]
+          }
+        },
+        "xml" : {
+          "name" : "open-time-period",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
       "additional-authority-id" : {
         "required" : [ "authority-id-type", "value" ],
         "type" : "object",
@@ -6368,26 +6187,6 @@
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       },
-      "associated-location" : {
-        "required" : [ "association-type", "location-ref" ],
-        "type" : "object",
-        "properties" : {
-          "association-type" : {
-            "type" : "string",
-            "enum" : [ "01", "02", "03", "04", "05", "06" ]
-          },
-          "location-ref" : {
-            "type" : "string"
-          },
-          "library-location-service-period" : {
-            "$ref" : "#/components/schemas/library-location-service-period"
-          }
-        },
-        "xml" : {
-          "name" : "associated-location",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
       "authority" : {
         "required" : [ "name" ],
         "type" : "object",
@@ -6401,7 +6200,7 @@
           "name" : {
             "type" : "string"
           },
-          "library-status" : {
+          "library-statutory-status" : {
             "type" : "string",
             "enum" : [ "01", "02" ]
           },
@@ -6439,91 +6238,6 @@
         },
         "xml" : {
           "name" : "authority",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
-      "closed" : {
-        "type" : "object",
-        "properties" : {
-          "days" : {
-            "type" : "string",
-            "enum" : [ "00", "01", "02", "03", "04", "05", "06", "07", "08", "09" ]
-          }
-        },
-        "xml" : {
-          "name" : "closed",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
-      "library-location-service-period" : {
-        "required" : [ "end-date", "start-date" ],
-        "type" : "object",
-        "properties" : {
-          "period-name" : {
-            "type" : "string"
-          },
-          "start-date" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "end-date" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "closed" : {
-            "$ref" : "#/components/schemas/closed"
-          },
-          "open" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/open"
-            }
-          }
-        },
-        "xml" : {
-          "name" : "library-location-service-period",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
-      "open" : {
-        "required" : [ "open-time-period" ],
-        "type" : "object",
-        "properties" : {
-          "days" : {
-            "type" : "string",
-            "enum" : [ "00", "01", "02", "03", "04", "05", "06", "07", "08", "09" ]
-          },
-          "open-time-period" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/open-time-period"
-            }
-          }
-        },
-        "xml" : {
-          "name" : "open",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
-      "open-time-period" : {
-        "required" : [ "end-time", "start-time" ],
-        "type" : "object",
-        "properties" : {
-          "start-time" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "end-time" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "staffed" : {
-            "type" : "string",
-            "enum" : [ "00", "01", "02", "03" ]
-          }
-        },
-        "xml" : {
-          "name" : "open-time-period",
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       },
@@ -6615,7 +6329,7 @@
           },
           "payment-type" : {
             "type" : "string",
-            "enum" : [ "00", "01", "02", "03", "04" ]
+            "enum" : [ "00", "01", "02", "03", "04", "05", "06", "07", "08", "09" ]
           },
           "description" : {
             "type" : "string"
@@ -6628,6 +6342,17 @@
                 "name" : "charge-ref"
               }
             }
+          },
+          "deposit-type" : {
+            "type" : "string",
+            "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08", "09", "00", "10", "11", "12", "13" ]
+          },
+          "payment-purpose" : {
+            "type" : "string",
+            "enum" : [ "01", "02" ]
+          },
+          "beneficiary-ref" : {
+            "type" : "string"
           },
           "payment-date" : {
             "type" : "string",
@@ -6645,6 +6370,9 @@
             "enum" : [ "01", "02" ]
           },
           "transaction-reference" : {
+            "type" : "string"
+          },
+          "authorisation-ref" : {
             "type" : "string"
           },
           "note" : {
@@ -6909,7 +6637,7 @@
         "properties" : {
           "reservation-type" : {
             "type" : "string",
-            "enum" : [ "1", "2", "3", "4" ]
+            "enum" : [ "1", "2", "3", "4", "5" ]
           },
           "patron-ref" : {
             "type" : "string"
@@ -6940,7 +6668,7 @@
           },
           "reservation-status" : {
             "type" : "string",
-            "enum" : [ "01", "02", "03", "04", "05", "06", "07" ]
+            "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08" ]
           },
           "hold-queue-position" : {
             "type" : "integer",
@@ -7042,7 +6770,7 @@
               "xml" : {
                 "name" : "loan-status"
               },
-              "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11" ]
+              "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" ]
             }
           },
           "access-link" : {
@@ -7088,6 +6816,27 @@
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       },
+      "lcf-check-out-response" : {
+        "required" : [ "loan" ],
+        "type" : "object",
+        "properties" : {
+          "loan" : {
+            "$ref" : "#/components/schemas/loan"
+          },
+          "media-warning" : {
+            "type" : "string",
+            "enum" : [ "00", "01", "02" ]
+          },
+          "security-desensitize" : {
+            "type" : "string",
+            "enum" : [ "00", "01", "02" ]
+          }
+        },
+        "xml" : {
+          "name" : "lcf-check-out-response",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
       "lcf-check-in-response" : {
         "required" : [ "loan" ],
         "type" : "object",
@@ -7124,110 +6873,13 @@
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       },
-      "lcf-check-out-response" : {
-        "required" : [ "loan" ],
-        "type" : "object",
-        "properties" : {
-          "loan" : {
-            "$ref" : "#/components/schemas/loan"
-          },
-          "media-warning" : {
-            "type" : "string",
-            "enum" : [ "00", "01", "02" ]
-          },
-          "security-desensitize" : {
-            "type" : "string",
-            "enum" : [ "00", "01", "02" ]
-          }
-        },
-        "xml" : {
-          "name" : "lcf-check-out-response",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
-      "additional-location-id" : {
-        "required" : [ "location-id-type", "value" ],
-        "type" : "object",
-        "properties" : {
-          "location-id-type" : {
-            "type" : "string",
-            "enum" : [ "01", "02", "03", "04", "05" ]
-          },
-          "type-name" : {
-            "type" : "string"
-          },
-          "value" : {
-            "type" : "string"
-          }
-        },
-        "xml" : {
-          "name" : "additional-location-id",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
-      "location" : {
-        "type" : "object",
-        "properties" : {
-          "additional-location-id" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/additional-location-id"
-            }
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "location-type" : {
-            "type" : "string",
-            "enum" : [ "01", "02", "03", "04" ]
-          },
-          "location-purpose" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "xml" : {
-                "name" : "location-purpose"
-              },
-              "enum" : [ "01", "02", "03", "04" ]
-            }
-          },
-          "description" : {
-            "type" : "string"
-          },
-          "contact-ref" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "xml" : {
-                "name" : "contact-ref"
-              }
-            }
-          },
-          "associated-location" : {
-            "$ref" : "#/components/schemas/associated-location"
-          },
-          "note" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/note"
-            }
-          },
-          "identifier" : {
-            "type" : "string"
-          }
-        },
-        "xml" : {
-          "name" : "location",
-          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
-        }
-      },
       "additional-manifestation-id" : {
         "required" : [ "manifestation-id-type", "value" ],
         "type" : "object",
         "properties" : {
           "manifestation-id-type" : {
             "type" : "string",
-            "enum" : [ "01", "02", "03", "05", "14", "17" ]
+            "enum" : [ "01", "02", "03", "04", "05", "06", "13", "14", "15", "17", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "35" ]
           },
           "type-name" : {
             "type" : "string"
@@ -7238,6 +6890,23 @@
         },
         "xml" : {
           "name" : "additional-manifestation-id",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "associated-manifestation" : {
+        "required" : [ "association-type", "manifestation-ref" ],
+        "type" : "object",
+        "properties" : {
+          "association-type" : {
+            "type" : "string",
+            "enum" : [ "01", "02", "03", "04", "21", "22", "31", "32" ]
+          },
+          "manifestation-ref" : {
+            "type" : "string"
+          }
+        },
+        "xml" : {
+          "name" : "associated-manifestation",
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       },
@@ -7263,14 +6932,14 @@
         "properties" : {
           "contributor-role" : {
             "type" : "string",
-            "enum" : [ "A01", "A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", "A10", "A11", "A12", "A13", "A14", "A15", "A16", "A17", "A18", "A19", "A20", "A21", "A22", "A23", "A24", "A25", "A26", "A27", "A29", "A30", "A31", "A32", "A33", "A34", "A35", "A36", "A37", "A38", "A39", "A40", "A41", "A42", "A43", "A44", "A45", "A46", "A47", "A48", "A51", "A99", "B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13", "B14", "B15", "B16", "B17", "B18", "B19", "B20", "B21", "B22", "B23", "B24", "B25", "B26", "B27", "B28", "B29", "B30", "B31", "B99", "C01", "C02", "C03", "C04", "C99", "D01", "D02", "D03", "D04", "D99", "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E99", "F01", "F02", "F99", "Z01", "Z02", "Z98", "Z99" ]
+            "enum" : [ "A01", "A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", "A10", "A11", "A12", "A13", "A14", "A15", "A16", "A17", "A18", "A19", "A20", "A21", "A22", "A23", "A24", "A25", "A26", "A27", "A29", "A30", "A31", "A32", "A33", "A34", "A35", "A36", "A37", "A38", "A39", "A40", "A41", "A42", "A43", "A44", "A45", "A46", "A47", "A48", "A51", "A99", "B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13", "B14", "B15", "B16", "B17", "B18", "B19", "B20", "B21", "B22", "B23", "B24", "B25", "B26", "B27", "B28", "B29", "B30", "B31", "B32", "B99", "C01", "C02", "C03", "C04", "C99", "D01", "D02", "D03", "D04", "D99", "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E99", "F01", "F02", "F99", "Z01", "Z02", "Z03", "Z04", "Z98", "Z99" ]
           },
           "contributor-name" : {
             "type" : "string"
           },
           "unnamed-contributor" : {
             "type" : "string",
-            "enum" : [ "01", "02", "03" ]
+            "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08", "09" ]
           }
         },
         "xml" : {
@@ -7279,7 +6948,7 @@
         }
       },
       "manifestation" : {
-        "required" : [ "manifestation-status" ],
+        "required" : [ "manifestation-status", "manifestation-type" ],
         "type" : "object",
         "properties" : {
           "additional-manifestation-id" : {
@@ -7287,6 +6956,10 @@
             "items" : {
               "$ref" : "#/components/schemas/additional-manifestation-id"
             }
+          },
+          "manifestation-type" : {
+            "type" : "string",
+            "enum" : [ "01", "02", "03", "04", "05" ]
           },
           "media-type" : {
             "type" : "array",
@@ -7319,6 +6992,15 @@
             "type" : "string",
             "format" : "date-time"
           },
+          "serial-holding-statement" : {
+            "type" : "string"
+          },
+          "serial-issue-enumeration" : {
+            "type" : "string"
+          },
+          "serial-issue-chronology" : {
+            "type" : "string"
+          },
           "classification" : {
             "type" : "array",
             "items" : {
@@ -7336,6 +7018,12 @@
           },
           "description" : {
             "type" : "string"
+          },
+          "associated-location" : {
+            "$ref" : "#/components/schemas/associated-location"
+          },
+          "associated-manifestation" : {
+            "$ref" : "#/components/schemas/associated-manifestation"
           },
           "loan-restriction" : {
             "type" : "array",
@@ -7450,7 +7138,7 @@
         "properties" : {
           "title-type" : {
             "type" : "string",
-            "enum" : [ "00", "01", "03", "05", "11", "13" ]
+            "enum" : [ "00", "01", "02", "03", "04", "05", "06", "07", "08", "10", "11", "12", "13", "14", "15" ]
           },
           "title-text" : {
             "type" : "string"
@@ -7556,7 +7244,7 @@
           },
           "display-type" : {
             "type" : "string",
-            "enum" : [ "01", "02", "03" ]
+            "enum" : [ "01", "02", "03", "04" ]
           },
           "display-constraint" : {
             "type" : "string",
@@ -7657,7 +7345,7 @@
         "properties" : {
           "patron-id-type" : {
             "type" : "string",
-            "enum" : [ "01", "16", "17", "21", "31" ]
+            "enum" : [ "01", "16", "18", "21", "31" ]
           },
           "type-name" : {
             "type" : "string"
@@ -7797,6 +7485,9 @@
           "name" : {
             "type" : "string"
           },
+          "structured-name" : {
+            "$ref" : "#/components/schemas/structured-name"
+          },
           "contact-ref" : {
             "type" : "array",
             "items" : {
@@ -7826,7 +7517,7 @@
               "xml" : {
                 "name" : "patron-status"
               },
-              "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16" ]
+              "enum" : [ "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17" ]
             }
           },
           "card-status-info" : {
@@ -7961,6 +7652,40 @@
         },
         "xml" : {
           "name" : "patron",
+          "namespace" : "http://ns.bic.org.uk/lcf/1.0"
+        }
+      },
+      "structured-name" : {
+        "required" : [ "key-names" ],
+        "type" : "object",
+        "properties" : {
+          "titles-before-names" : {
+            "type" : "string"
+          },
+          "names-before-key" : {
+            "type" : "string"
+          },
+          "prefix-to-key" : {
+            "type" : "string"
+          },
+          "key-names" : {
+            "type" : "string"
+          },
+          "names-after-key" : {
+            "type" : "string"
+          },
+          "suffix-to-key" : {
+            "type" : "string"
+          },
+          "letters-after-names" : {
+            "type" : "string"
+          },
+          "titles-after-names" : {
+            "type" : "string"
+          }
+        },
+        "xml" : {
+          "name" : "structured-name",
           "namespace" : "http://ns.bic.org.uk/lcf/1.0"
         }
       }
