@@ -1,5 +1,5 @@
 ---
-title: LCF v1.2.0 Information Entities XML bindings
+title: LCF v1.3.0 Information Entities XML bindings
 menu: Information Entities XML bindings
 weight: 3
 ---
@@ -12,9 +12,9 @@ weight: 3
 
 ## Information Entities XML bindings
 
-### Version 1.2.0
+### Version 1.3.0
 
-### 23 December 2019
+### 16 December 2023
 
 ---
 
@@ -22,7 +22,7 @@ This document specifies XML bindings for the information entities defined in ver
 
 This document also specifies a standard XML binding for the data framework for communicating exception conditions in LCF response messages.
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
 The namespace for these XML bindings is "http://ns.bic.org.uk/lcf/1.0". This namespace will be used for all 1.x.x versions of this specification. From Version 1.1.0 onwards, wherever possible, the XML Bindings will be backwards compatible with earlier versions within the same Major version, for example, by only introducing optional, non-mandatory elements. However, clients and servers must be prepared to receive XML messages that might contain optional but unknown elements introduced in a newer versions, the contents of these elements being safe to ignore.
 
@@ -32,7 +32,7 @@ Data elements must be non-empty when included, as well as conforming to the spec
 
 Identifiers in requests are mandatory except when creating a new entity. When creating an entity, the LMS may expect the terminal to provide the identifier in the case of Item and Patron entities, but when creating any other type of entity the LMS will generally assign its own identifier to the entity and ignore any identifier provided by the terminal.
 
-An XML schema that corresponds to this specification is available at [https://github.com/bic-org-uk/bic-lcf/tree/v1.2.0/lcf-schema/src/main/resources](https://github.com/bic-org-uk/bic-lcf/tree/v1.2.0/lcf-schema/src/main/resources).
+An XML schema that corresponds to this specification is available at [https://github.com/bic-org-uk/bic-lcf/tree/vx.x.0/lcf-schema/src/main/resources](https://github.com/bic-org-uk/bic-lcf/tree/vx.x.0/lcf-schema/src/main/resources).
 
 E01 MANIFESTATION
 -----------------
@@ -41,55 +41,65 @@ E01 MANIFESTATION
 |--------|--------------|----------------------------------|---------|-------------|---------|
 | **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                       |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                 |
 |   2    | E01D01       | identifier                       | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
-|   3    | E01C02       | additional-manifestation-id      | 0-n     |             |         |
+|   3    | E01C02       | additional-manifestation-id      | 0-n     |             | *Made non-mandatory in v1.3.0*        |
 |   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | [MNI](LCF-CodeLists.md#MNI)     |
 |   5    | E01D02.2     | type-name                        | 0-1     | string      |         |
 |   6    | E01D02.3     | value                            | 1       | string      |         |
-|   7    | E01C03       | media-type                       | 0-n     |             |         |
-|   8    | E01D03.1     | media-type-scheme                | 1       | Code        | [MES](LCF-CodeLists.md#MES)     |
-|   9    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
-|  10    | E01D03.3     | scheme-code                      | 1       | string      |         |
-|  11    | E01C04       | title                            | 0-n     |             |         |
-|  12    | E01D04.1     | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
-|  13    | E01D04.2     | title-text                       | 1       | string      |         |
-|  14    | E01D04.3     | subtitle                         | 0-1     | string      |         |
-|  15    | E01C05       | contributor                      | 0-n     |             |         |
-|  16    | E01D05.1     | contributor-role                 | 1       | Code        | ONIX code list 17                                                                                           |
-|  17    | E01D05.2     | contributor-name                 | 0-1     | string      | Either a contributor name or an unnamed contributor code must be included in each contributor composite.                     |
-|  18    | E01D05.3     | unnamed-contributor              | 0-1     | Code        | [UNC](LCF-CodeLists.md#UNC)     |
-|  19    | E01C06       | series                           | 0-1     |             |         |
-|  20    | E01C06.1     | title                            | 0-n     |             |         |
-|  21    | E01D06.1.1   | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
-|  22    | E01D06.1.2   | title-text                       | 1       | string      |         |
-|  23    | E01D06.1.3   | subtitle                         | 0-1     | string      |         |
-|  24    | E01D06.2     | volume-or-part                   | 0-1     | string      |         |
-|  25    | E01D06.3     | other-manifestation-in-series-ref| 0-n     | string      | *Renamed in v1.0.1* |
-|  26    | E01D07       | edition-statement                | 0-1     | string      |         |
-|  27    | E01D08       | publisher-name                   | 0-1     | string      |         |
-|  28    | E01D09       | year-of-publication              | 0-1     | year        |         |
-|  29    | E01C10       | classification                   | 0-n     |             |         |
-|  30    | E01D10.1     | class-scheme-ref                 | 1       | string      |         |
-|  31    | E01D10.2     | class-term-ref                   | 1       | string      |         |
-|  32    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
-|  33    | E01D12       | description                      | 0-1     | string      |         |
-|  34    | E01C13       | loan-restriction                 | 0-n     |             |         |
-|  35    | E01D13.1     | restriction-type                 | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
-|  36    | E01D13.2     | value                            | 1       | string      |         |
-|  37    | E01D13.3     | note                             | 0-1     | string      |         |
-|  38    | E01C14       | loan-fee                         | 0-n     |             |         |
-|  39    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
-|  40    | E01D14.2     | amount                           | 1       | decimal     |         |
-|  41    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code                                                                                         |
-|  42    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
-|  43    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
-| **44** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
-|  45    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
-|  46    | E01D19       | item-ref                         | 0-nR    | string      |         |
-|  47    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
-|  48    | E01C21       | note                             | 0-n     |             |         |
-|  49    | E01D21.1     | note-type                        | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  50    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
-|  51    | E01D21.3     | note-text                        | 1       | string      |         |
+|   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)<br/>*Added in v1.3.0*     |
+|   8    | E01C03       | media-type                       | 0-n     |             |         |
+|   9    | E01D03.1     | media-type-scheme                | 1       | Code        | [MES](LCF-CodeLists.md#MES)     |
+|  10    | E01D03.2     | scheme-name                      | 0-1     | string      |         |
+|  11    | E01D03.3     | scheme-code                      | 1       | string      |         |
+|  12    | E01C04       | title                            | 0-n     |             |         |
+|  13    | E01D04.1     | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
+|  14    | E01D04.2     | title-text                       | 1       | string      |         |
+|  15    | E01D04.3     | subtitle                         | 0-1     | string      |         |
+|  16    | E01C05       | contributor                      | 0-n     |             |         |
+|  17    | E01D05.1     | contributor-role                 | 1       | Code        | ONIX code list 17                                                                                           |
+|  18    | E01D05.2     | contributor-name                 | 0-1     | string      | Either a contributor name or an unnamed contributor code must be included in each contributor composite.                     |
+|  19    | E01D05.3     | unnamed-contributor              | 0-1     | Code        | [UNC](LCF-CodeLists.md#UNC)     |
+|  20    | E01C06       | series                           | 0-1     |             |         |
+|  21    | E01C06.1     | title                            | 0-n     |             |         |
+|  22    | E01D06.1.1   | title-type                       | 1       | Code        | [TTL](LCF-CodeLists.md#TTL)     |
+|  23    | E01D06.1.2   | title-text                       | 1       | string      |         |
+|  24    | E01D06.1.3   | subtitle                         | 0-1     | string      |         |
+|  25    | E01D06.2     | volume-or-part                   | 0-1     | string      |         |
+|  26    | E01D06.3     | other-manifestation-in-series-ref| 0-n     | string      | *Renamed in v1.0.1* |
+|  27    | E01D07       | edition-statement                | 0-1     | string      |         |
+|  28    | E01D08       | publisher-name                   | 0-1     | string      |         |
+|  29    | E01D09       | year-of-publication              | 0-1     | year        |         |
+|  30    | E01D23       | serial-holding-statement         | 0-1     | string      | *Added in v1.3.0*        |
+|  31    | E01D25       | serial-issue-enumeration         | 0-1     | string      | *Added in v1.3.0*        |
+|  32    | E01D26       | serial-issue-chronology          | 0-1     | string      | *Added in v1.3.0*        |
+|  33    | E01C10       | classification                   | 0-n     |             |         |
+|  34    | E01D10.1     | class-scheme-ref                 | 1       | string      |         |
+|  35    | E01D10.2     | class-term-ref                   | 1       | string      |         |
+|  36    | E01D11       | cover-art                        | 0-n     | anyURI      |         |
+|  37    | E01D12       | description                      | 0-1     | string      |         |
+|  38    | E01C27       | associated-location              | 0-n     |             | *Added in v1.3.0*        |
+|  39    | E01DXX.1     | association-type                 | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)     |
+|  40    | E01DXX.2     | location-ref                     | 1       | string      |         |
+|  41    | E01C24       | associated-manifestation         | 0-n     |             | *Added in v1.3.0*        |
+|  42    | E01D24.1     | association-type                 | 1       | Code        | [MNA](LCF-CodeLists.md#MNA)     |
+|  43    | E01D24.2     | manifestation-ref                | 1       | string      |         |
+|  44    | E01C13       | loan-restriction                 | 0-n     |             |         |
+|  45    | E01D13.1     | restriction-type                 | 1       | Code        | [CRT](LCF-CodeLists.md#CRT)     |
+|  46    | E01D13.2     | value                            | 1       | string      |         |
+|  47    | E01D13.3     | note                             | 0-1     | string      |         |
+|  48    | E01C14       | loan-fee                         | 0-n     |             |         |
+|  49    | E01D14.1     | fee-type                         | 1       | Code        | [CHT](LCF-CodeLists.md#CHT)     |
+|  50    | E01D14.2     | amount                           | 1       | decimal     |         |
+|  51    | E01D14.3     | currency                         | 0-1     | Code        | ISO 3-letter code               |
+|  52    | E01D15       | patrons-in-hold-queue            |0-1R[\[1\]](#Notes)                                                 | int         |         |
+|  53    | E01D16       | manifestation-record             | 0-1     | string      | *Renamed in v1.0.1* |
+| **54** | **E01D17**   | **manifestation-status**         | **1**   | **Code**    | **[MNS](LCF-CodeLists.md#MNS)** |
+|  55    | E01D18       | items-in-stock                   | 0-1R    | int         |         |
+|  56    | E01D19       | item-ref                         | 0-nR    | string      |         |
+|  57    | E01D20       | reservation-ref                  | 0-nR    | string      |         |
+|  58    | E01C21       | note                             | 0-n     |             |         |
+|  59    | E01D21.1     | note-type                        | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|  60    | E01D21.2     | date-time                        | 0-1     | dateTime    |         |
+|  61    | E01D21.3     | note-text                        | 1       | string      |         |
 
 *Example of a manifestation*
 
@@ -165,60 +175,69 @@ E03 PATRON
 |-------|--------------|-----------------------------|---------|-------------|---------|
 | **1** |              | **patron<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
 |   2   | E03D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
-|   3   | E03D26       | barcode-id                  | 0-1     | String      | *Added in v1.0.1*                 |
+|   3   | E03D26       | barcode-id                  | 0-1     | string      | *Added in v1.0.1*                 |
 |   4   | E03C27       | additional-patron-id        | 0-n     |             | *Added in v1.0.1*                 |
 |   5   | E03D27.1     | patron-id-type              | 1       | Code        | **[PNI](LCF-CodeLists.md#PNI)** |
-|   6   | E02D27.2     | type-name                   | 0-1     | String      |         |
-|   7   | E02D27.3     | value                       | 1       | String      |         |
+|   6   | E02D27.2     | type-name                   | 0-1     | string      |         |
+|   7   | E02D27.3     | value                       | 1       | string      |         |
 | **8** | **E03D22**   | **name**                    | **1**   | **string**  | *Added in v1.0.1*                 |
-|   9   | E03D02       | contact-ref                 | 0-n     | string      |         |
-|  10   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added in v1.0.1*                                                                                |
-|  11   | E03C03       | associated-location         | 0-n     |             |         |
-|  12   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
-|  13   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
-|  14   | E03D35       | home-institution-ref        | 0-1     | string      | *added in v1.0.1, ID corrected in v1.1.0*                 |
-|  15   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
-|  16   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0*                 |
-|  17   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
-|  18   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
-|  19   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
-|  20   | E03D29       | patron-tag                  | 0-n     | string      | *Added in v1.0.1*                 |
-|  21   | E03D32       | authorisation-ref           | 0-n     | string      | *Added in v1.0.1*                 |
-|  22   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added in v1.0.1*                 |
-|  23   | E03C33       | associated-patron-group     | 0-n     |             | *Added in v1.0.1*                 |
-|  24   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |
-|  25   | E03D33.5     | group-type                  | 0-1     | String      |         |
-|  26   | E03D33.2     | patron-group-id             | 0-1     | String      |         |
-|  27   | E03D33.3     | lead-patron-ref             | 0-n     | String      |         |
-|  28   | E03D33.4     | patron-ref                  | 0-n     | String      |         |
-|  29   | E03D07       | loan-ref                    | 0-nR    | string      |         |
-|  30   | E03D08       | on-loan-items               | 0-1R    | int         |         |
-|  31   | E03D09       | loan-items-limit            | 0-1     | int         |         |
-|  32   | E03D10       | overdue-items               | 0-1R    | int         |         |
-|  33   | E03D11       | overdue-items-limit         | 0-1     | int         |         |
-|  34   | E03D12       | recalled-items              | 0-1R    | int         |         |
-|  35   | E03D13       | fees-due-items              | 0-1R    | int         |         |
-|  36   | E03D14       | fines-due-items             | 0-1R    | int         |         |
-|  37   | E03D15       | reservation-ref             | 0-nR    | string      |         |
-|  38   | E03D16       | available-hold-items        | 0-1R    | int         |         |
-|  39   | E03D17       | unavailable-hold-items      | 0-1R    | int         |         |
-|  40   | E03D18       | hold-items-limit            | 0-1     | int         |         |
-|  41   | E03D19       | charge-ref                  | 0-nR    | string      |         |
-|  42   | E03C20       | charge-limit                | 0-n     |             |         |
-|  43   | E03D20.1     | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)   |
-|  44   | E03D20.2     | amount                      | 1       | decimal     |         |
-|  45   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
-|  46   | E03C31       | deposit-balance             | 0-1     |             | *Added in v1.0.1*                |
-|  47   | E03D31.1     | amount                      | 1       | decimal     |         |
-|  48   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
-|  49   | E03C34       | associated-message          | 0-n     |             |         |
-|  50   | E03D34.1     | message-ref                 | 1       | string      |         |
-|  51   | E03D34.2     | delivery-status             | 1       | Code        | [MAD](LCF-CodeLists.md#MAD)   |
-|  52   | E03C21       | note                        | 0-n     |             |         |
-|  53   | E03D21.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)   |
-|  54   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
-|  55   | E03D21.3     | note-text                   | 1       | string      |         |
-|  56   | E03D25       | date-of-birth               | 0-1     | date        | *Added in v1.0.1*                |
+|   9   | E03C36       | structured-name             | 0-1     |             | *Added in v1.3.0*<br/>*NOTE: At the next major revision of LCF it is proposed to make this element mandatory in server responses.*                 |
+|  10   | E03D36.1     | title-before-names          | 0-1     | string      |                                   |
+|  11   | E03D36.2     | names-before-key            | 0-1     | string      |                                   |
+|  12   | E03D36.3     | prefix-to-key               | 0-1     | string      |                                   |
+|  13   | E03D36.4     | key-names                   | 1       | string      |                                   |
+|  14   | E03D36.5     | names-after-key             | 0-1     | string      |                                   |
+|  15   | E03D36.6     | suffix-to-key               | 0-1     | string      |                                   |
+|  16   | E03D36.7     | letters-after-names         | 0-1     | string      |                                   |
+|  17   | E03D36.8     | titles-after-names          | 0-1     | string      |                                   |
+|  18   | E03D02       | contact-ref                 | 0-n     | string      |         |
+|  19   | E03D23       | language                    | 0-1     | Code        | ISO three-letter code<br/>*Added in v1.0.1*                                                                                |
+|  20   | E03C03       | associated-location         | 0-n     |             |         |
+|  21   | E03D03.1     | association-type            | 1       | Code        | [LAT](LCF-CodeLists.md#LAT)    |
+|  22   | E03D03.2     | location-ref                | 1       | string      | *Cardinality corrected in v1.0.1* |
+|  23   | E03D35       | home-institution-ref        | 0-1     | string      | *Added in v1.0.1*<br/>*ID corrected in v1.1.0*                 |
+|  24   | E03D04       | patron-status               | 0-nR    | Code        | [PNS](LCF-CodeLists.md#PNS)    |
+|  25   | E03C24       | card-status-info            | 0-1R    |             | *Added in v1.0.1*<br/>*Cardinality corrected in v1.2.0*                 |
+|  26   | E03D24.1     | card-status                 | 1R      | Code        | [PCS](LCF-CodeLists.md#PCS)    |
+|  27   | E03D24.2     | blocked-card-message        | 0-1R    | string      |         |
+|  28   | E03D28       | patron-category             | 0-1     | string      | *Added in v1.0.1*                 |
+|  29   | E03D29       | patron-tag                  | 0-n     | string      | *Added in v1.0.1*                 |
+|  30   | E03D32       | authorisation-ref           | 0-n     | string      | *Added in v1.0.1*                 |
+|  31   | E03D30       | patron-expiration-date      | 0-1     | date        | *Added in v1.0.1*                 |
+|  32   | E03C33       | associated-patron-group     | 0-n     |             | *Added in v1.0.1*                 |
+|  33   | E03D33.1     | association-type            | 1       | Code        | [PGP](LCF-CodeLists.md#PGP)    |
+|  34   | E03D33.5     | group-type                  | 0-1     | string      |         |
+|  35   | E03D33.2     | patron-group-id             | 0-1     | string      |         |
+|  36   | E03D33.3     | lead-patron-ref             | 0-n     | string      |         |
+|  37   | E03D33.4     | patron-ref                  | 0-n     | string      |         |
+|  38   | E03D07       | loan-ref                    | 0-nR    | string      |         |
+|  39   | E03D08       | on-loan-items               | 0-1R    | int         |         |
+|  40   | E03D09       | loan-items-limit            | 0-1     | int         |         |
+|  41   | E03D10       | overdue-items               | 0-1R    | int         |         |
+|  42   | E03D11       | overdue-items-limit         | 0-1     | int         |         |
+|  43   | E03D12       | recalled-items              | 0-1R    | int         |         |
+|  44   | E03D13       | fees-due-items              | 0-1R    | int         |         |
+|  45   | E03D14       | fines-due-items             | 0-1R    | int         |         |
+|  46   | E03D15       | reservation-ref             | 0-nR    | string      |         |
+|  47   | E03D16       | available-hold-items        | 0-1R    | int         |         |
+|  48   | E03D17       | unavailable-hold-items      | 0-1R    | int         |         |
+|  49   | E03D18       | hold-items-limit            | 0-1     | int         |         |
+|  50   | E03D19       | charge-ref                  | 0-nR    | string      |         |
+|  51   | E03C20       | charge-limit                | 0-n     |             |         |
+|  52   | E03D20.1     | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)   |
+|  53   | E03D20.2     | amount                      | 1       | decimal     |         |
+|  54   | E03D20.3     | currency                    | 0-1     | Code        | ISO currency code             |
+|  55   | E03C31       | deposit-balance             | 0-1     |             | *Added in v1.0.1*                |
+|  56   | E03D31.1     | amount                      | 1       | decimal     |         |
+|  57   | E03D31.2     | currency                    | 0-1     | Code        | ISO currency code             |
+|  58   | E03C34       | associated-message          | 0-n     |             |         |
+|  59   | E03D34.1     | message-ref                 | 1       | string      |         |
+|  60   | E03D34.2     | delivery-status             | 1       | Code        | [MAD](LCF-CodeLists.md#MAD)   |
+|  61   | E03C21       | note                        | 0-n     |             |         |
+|  62   | E03D21.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)   |
+|  63   | E03D21.2     | date-time                   | 0-1     | dateTime    |         |
+|  64   | E03D21.3     | note-text                   | 1       | string      |         |
+|  65   | E03D25       | date-of-birth               | 0-1     | date        | *Added in v1.0.1*                |
 
 E04 LOCATION
 ------------
@@ -331,21 +350,25 @@ E08 PAYMENT
 
 |       | *Element ID* | *XML structure*             | *Card.* | *Data type* | *Notes* |
 |-------|--------------|-----------------------------|---------|-------------|---------|
-| **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
-|   2   | E08D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
-| **3** | **E08D02**   | **patron-ref**              | **1**   | **string**  |         |
-| **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **[PYT](LCF-CodeLists.md#PYT)** |
-|   5   | E08D04       | description                 | 0-1     | string      |         |
-|   6   | E08D05       | charge-ref                  | 0-n     | string      | *Non-mandatory in v1.0.1* |
-|   7   | E08D06       | payment-date                | 0-1     | dateTime    |         |
-| **8** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
-|   9   | E08D08       | currency                    | 0-1     | Code        | ISO currency code                                                                                   |
-|  10   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
-|  11   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
-|  12   | E08C11       | note                        | 0-n     |             |         |
-|  13   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
-|  14   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
-|  15   | E08D11.3     | note-text                   | 1       | string      |         |
+|  **1** |              | **payment<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                 |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                                        |
+|    2   | E08D01       | identifier                  | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier will be assigned by the LMS                       |
+|  **3** | **E08D02**   | **patron-ref**              | **1**   | **string**  |         |
+|  **4** | **E08D03**   | **payment-type**            | **1**   | **Code**    | **[PYT](LCF-CodeLists.md#PYT)** |
+|    5   | E08D04       | description                 | 0-1     | string      |         |
+|    6   | E08D05       | charge-ref                  | 0-n     | string      | *Non-mandatory in v1.0.1* |
+|    7   | E08D15       | deposit-type                | 0-1     | Code        | **[CHT](LCF-CodeLists.md#CHT)**<br/>*Added in v1.3.0* |
+|    8   | E08D13       | payment-purpose             | 0-1     | Code        | [PYP](LCF-CodeLists.md#PYP)<br/>*Added in v1.3.0* |
+|    9   | E08D14       | beneficiary-ref             | 0-1     | string      | *Added in v1.3.0*               |
+|   10   | E08D06       | payment-date                | 0-1     | dateTime    |         |
+| **11** | **E08D07**   | **amount**                  | **1**   | **decimal** |         |
+|   12   | E08D08       | currency                    | 0-1     | Code        | ISO currency code |
+|   13   | E08D09       | payment-status              | 0-1     | Code        | [PYS](LCF-CodeLists.md#PYS)     |
+|   14   | E08D10       | transaction-reference       | 0-1     | string      | *Renamed in v1.0.1* |
+|   15   | E08D12       | authorisation-ref           | 0-1     | string      | *Added in v1.3.0*    |
+|   16   | E08C11       | note                        | 0-n     |             |         |
+|   17   | E08D11.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
+|   18   | E08D11.2     | date-time                   | 0-1     | dateTime    |         |
+|   19   | E08D11.3     | note-text                   | 1       | string      |         |
 
 E09 CONTACT
 -----------
@@ -366,7 +389,7 @@ E09 CONTACT
 |   8  | E09C07       | note                         | 0-n     |             |         |
 |   9  | E09D07.1     | note-type                    | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT)     |
 |  10  | E09D07.2     | date-time                    | 0-1     | dateTime    |         |
-|  11  | D09D07.3     | note-text                    | 1       | string      |         |
+|  11  | E09D07.3     | note-text                    | 1       | string      |         |
 
 E10 TITLE CLASSIFICATION SCHEME *(DEPRECATED in v1.2.0)*
 -------------------------------
@@ -425,6 +448,7 @@ E13 AUTHORISATION CODE *(added in v1.0.1)*
 |   5   | E13D04.1     | note-type                   | 0-1     | Code        | [NOT](LCF-CodeLists.md#NOT) |
 |   6   | E13D04.2     | date-time                   | 0-1     | dateTime    |         |
 |   7   | E13D04.3     | note-text                   | 1       | string      |         |
+|   8   | E13D05       | location-ref                | 0-n     | string      | *Added in v1.3.0* |
 
 E14 LIBRARY AUTHORITY/INSTITUTION *(added in v1.0.1)*
 ---------------------------------
@@ -494,17 +518,17 @@ E15 MESSAGE / ALERT *(added in v1.0.1)*
 |  20   | E15D13.2     | date-time                   | 0-1     | dateTime    |         |
 |  21   | E15D13.3     | note-text                   | 1       | string      |         |
 |  21   | E15C16       | delivery-summary            | 0-1     |             | *Added in v1.2.0*              |
-|  22   | E15D16.1     | delivered                   | 0-1     | Integer     |         |
-|  23   | E15D16.2     | acknowledged                | 0-1     | Integer     |         |
+|  22   | E15D16.1     | delivered                   | 0-1     | int         |         |
+|  23   | E15D16.2     | acknowledged                | 0-1     | int         |         |
 |  24   | E15C16.3     | delivery-to-patron-category | 0-n     |             |         |
-|  25   | E15D16.3.1   | category-name               | 1       | String      |         |
-|  26   | E15D16.3.2   | total-patrons-in-category   | 0-1     | Integer     |         |
-|  27   | E15D16.3.3   | delivered                   | 0-1     | Integer     |         |
-|  28   | E15D16.3.4   | acknowledged                | 0-1     | Integer     |         |
+|  25   | E15D16.3.1   | category-name               | 1       | string      |         |
+|  26   | E15D16.3.2   | total-patrons-in-category   | 0-1     | int         |         |
+|  27   | E15D16.3.3   | delivered                   | 0-1     | int         |         |
+|  28   | E15D16.3.4   | acknowledged                | 0-1     | int         |         |
 |  29   | E15C16.4     | delivery-to-related-patrons | 0-n     |             |         |
-|  30   | E15D16.4.1   | total-related-patrons       | 0-1     | Integer     |         |
-|  31   | E15D16.4.2   | delivered                   | 0-1     | Integer     |         |
-|  32   | E15D16.4.3   | acknowledged                | 0-1     | Integer     |         |
+|  30   | E15D16.4.1   | total-related-patrons       | 0-1     | int         |         |
+|  31   | E15D16.4.2   | delivered                   | 0-1     | int         |         |
+|  32   | E15D16.4.3   | acknowledged                | 0-1     | int         |         |
 
 
 EXCEPTION CONDITIONS
@@ -520,7 +544,13 @@ EXCEPTION CONDITIONS
 |   6   | R00C06       | message                     | 0-n     |             |         |
 |   7   | R00D06.1     | message-type                | 1       | string      | [MGT](LCF-CodeLists.md#MGT)     |
 |   8   | R00D06.2     | message-text                | 1-n     | string      |         |
-
+|   9   | R00D06.3     | acknowledgement-code        | 0-1     | string      |  *Added in v1.3.0*       |
+|  10   | R00C06.4     | applicable-charge           | 0-1     |             |  *Added in v1.3.0*       |
+|  11   | R00D06.4.1   | charge-type                 | 0-1     | Code        | [CHT](LCF-CodeLists.md#CHT)     |
+|  12   | R00D06.4.2   | description                 | 0-1     | string      |         |
+|  13   | R00D06.4.3   | payment-due-date            | 0-1     | dateTime    |         |
+|  14   | R00D06.4.4   | charge-amount               | 1       | decimal     |         |
+|  15   | R00D06.4.5   | currency                    | 0-1     | Code        | ISO currency code        |
 ___
 
 

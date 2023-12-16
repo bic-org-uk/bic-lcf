@@ -1,5 +1,5 @@
 ---
-title: LCF v1.2.0 REST Web Services Implementation
+title: LCF v1.3.0 REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
@@ -12,15 +12,15 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version 1.2.0
+### Version 1.3.0
 
-### 23 December 2019
+### 16 December 2023
 
 ---
 
 This document defines a binding of the LCF data communication framework to the HTTP[\[1\]](#Notes) protocol suitable for implementation of LCF in web services, following REST (Representational State Transfer[\[2\]](#Notes)) design principles.
 
-The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
 ### General principles
 
@@ -59,7 +59,7 @@ In XML payloads the datatype of the following entity reference elements, which a
 
 ### Implementation notes
 
-#### 1. Terminal Application Authentication *(updated for v1.2.0)*
+#### 1. Terminal Application Authentication *(updated in v1.2.0)*
 
 LCF is designed with a web service architecture, servicing a client/server model. A Service Terminal is any client consumer of an LCF web service. Where a RESTful web service implementation of LCF requires authentication of the Service Terminal, it may use any of the following methods, provided it is practical to do so, but method A is recommended as the most RESTful approach:
 
@@ -94,7 +94,9 @@ where `{Base64-encoded-terminal-credentials}` is constructed from elements Q00D0
 
 **C** Public Key Infrastructure (PKI) authentication.
 
-#### 2. Patron Authentication *(updated for 1.2.0)*
+**D** Other standard terminal authentication methods, such as bearer token authentication.
+
+#### 2. Patron Authentication *(updated in v1.2.0)*
 
 In addition to terminal application authentication, an LMS will frequently require that the patron user of the terminal application be themselves authenticated. The LCF elements Q00D01.2 and Q00D02.2 should be used for this purpose. A RESTful web service implementation of LCF may use either of the following methods for authentication of patrons, but method A is recommended as being the most secure: 
 
@@ -131,14 +133,16 @@ For example:
 
 Implementers are reminded that, even when using HTTPS, query parameters may be stored as clear text in web server logs, so method B may not be sufficiently secure for most requirements.
 
-For either method the normal HTTP response status codes would apply:
+**C** Other standard terminal authentication methods, such as bearer token authentication.
+
+For each choice of patron authentication method the normal HTTP response status codes would apply:
 
 - 200 (OK), with the requested resource in the body of the response, indicating that the patron authentication has succeeded &ndash; if the patron does not have any access rights or privileges, the response body would typically contain an empty list
 - 401 (Unauthorized), indicating that terminal application authentication has not been provided or has failed
 - 403 (Forbidden), indicating that patron authentication has not been provided or has failed
 - 404 (Not Found), indicating that the specified patron ID does not exist.
 
-#### 3. Determining if an Operation requires Authentication *(added in 1.2.0)*
+#### 3. Determining if an Operation requires Authentication *(added in v1.2.0)*
 
 The client should attempt the operation with no authentication information (neither terminal authentication via HTTP Basic nor user authentication via lcf-patron-credential HTTP header) 
 
@@ -150,7 +154,7 @@ A response of 403 means that patron authentication is required.
 
 Care should be taken not to use operations which have side effects (e.g. POST, PUT, DELETE) purely for testing whether Authentication is required.
 
-#### 4. Patron Authorisation (Access Rights and Privileges) *(added in 1.2.0)*
+#### 4. Patron Authorisation (Access Rights and Privileges) *(added in v1.2.0)*
 
 A request for the Authorisations for a specific Patron is initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations.
 
@@ -196,23 +200,21 @@ Date and time stamps should be carried as HTTP parameters and the LCF elements Q
 
 In a RESTful web service implementation exception condition responses should generally be carried by an HTTP response status code. Where appropriate, in order to be more specific about the exception conditions that apply, an XML payload that conforms to the LCF Exception Conditions XML schema, may be included in the response, if it is valid to include a payload with the specific HTTP response status code.
 
+NOTE – *(Added in v1.3.0)* See [11 Checkout/renewal](#checkout) for examples of the use of exception conditions to require a client to repeat a request with an acknowledgement code.
+
 #### 8. Encoding rules in URI query parts 
 
 The URI syntax rules don't allow certain characters in query parts, including the space character. Although these rules allow a space character to be represented by a '+' sign, it is recommended that all non-allowed characters should always be encoded using percent encoding, i.e. '%' followed by hexadecimal digits representing the character's Unicode character number.
 
-#### 9. Reporting LCF version in responses *(Added in v1.2.0)*
+#### 9. Reporting LCF version in responses *(added in v1.2.0)*
 
 The LCF element R00D07 should be carried by a custom field 'lcf-version' in the HTTP(S) response header, e.g.
 
     lcf-version: 1.2.0
 
-#### 
+# Core functions
 
-Core functions
-==============
-
-01 Retrieve entity item information 
-------------------------------------
+## 01 Retrieve entity item information 
 
 The request is formulated using the HTTP GET method.
 
@@ -237,8 +239,7 @@ If the request is successful, the HTTP response will contain an XML payload that
 
 If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
-02 Retrieve entity instance list
---------------------------------
+## 02 Retrieve entity instance list
 
 The request is formulated using the HTTP GET method.
 
@@ -326,8 +327,7 @@ NOTE – LCF element R02C07 is not implemented.
 
 If the request is unsuccessful, i.e. the server is unable to process the request, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
-03 Create entity item
----------------------
+## 03 Create entity item
 
 The request is formulated using the HTTP POST method. The payload is an XML document that conforms to one of the LCF information entity XML schemas.
 
@@ -353,8 +353,7 @@ If the request is successful, the HTTP response should include status code 201 (
 
 If the request is unsuccessful, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
 
-04 Modify entity item
----------------------
+## 04 Modify entity item
 
 The request is formulated using the HTTP PUT method. The payload is an XML document that conforms to one of the LCF information entity XML schemas.
 
@@ -377,8 +376,7 @@ NOTE – This function replaces the entity item identified in the request with t
 
 If the request is successful, the HTTP response should include status code 200 (OK) and may additionally contain an XML payload that conforms to the LCF information entity XML schema for the specified entity type.
 
-05 Delete entity item
----------------------
+## 05 Delete entity item
 
 The request is formulated using the HTTP DELETE method.
 
@@ -399,15 +397,21 @@ The request is formulated using the HTTP DELETE method.
 
 If the request is successful, the HTTP response must include the status code 204 (No content) and no payload.
 
-Circulation functions
-=====================
+# Circulation functions
 
-11 Check-out / renewal
-----------------------
+## 11 Check-out / renewal
 
 The difference between a check-out and renewal is that in the latter case an existing, active loan of the same item to the same patron must exist. It should not be necessary for the terminal application to know whether an item is already on loan to the patron in question, because the LMS will be able to determine whether this is the case or not. A single function will therefore normally suffice.
 
-#### Request
+NOTE – *(Added in v1.3.0)* This REST web service implementation of the LCF Data Framework does not implement a mechanism for specifying the type of a renewal, which in the Data Framework is represented by element Q11D02. In the Data Framework this element serves two purposes: 
+
+  -  to indicate if the request is to renew all items checked out to that patron; 
+  
+  -  to indicate whether the request is being made by the patron directly or by a third party. 
+
+Renewal of a large number of loan items in a single request would place an arbitrarily large processing burden on the server, obliging the server to check and update the status of all the patron's loans before responding to the request, which could involve an unacceptable response-time. For this reason the ability to renew all items on loan is not supported. To renew all a patron's loans, the terminal client must retrieve a list of all the patron's loans and request renewal of each in turn.
+
+In a REST web service implementation it is not necessary to have a separate element or parameter to indicate whether it is the patron or a third party making the request, because this is already indicated by ensuring that the user making the request is authenticated in the request header.
 
 The request is formulated using the HTTP POST method.
 
@@ -418,20 +422,23 @@ The request is formulated using the HTTP POST method.
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment |
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/loans**            |                       | **1**   |             |              |
-| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           |              |
-| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                         |
+| 4     | Q11D01       |                       | confirmation          | 0-1     | Y           | Implements request type RQT02 confirmation request.<br/>*Added in v1.3.0*             |
+| 5     | Q11D07       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in v1.3.0*|
+| 6     | Q00D10       |                       | acknowledgement-code | 0-1      | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in v1.3.0*|
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans
 
-Request to confirm a new check-out, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
+Request to confirm a new check-out, which the LMS may not normally deny (equivalent to the SIP2 "no block" flag) *(Modified in v1.3.0)*, is indicated by including the 'confirmation' parameter in the request, e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans?confirmation=Y
 
-If a charge is applicable, the response may report an exception unless the 'charge-acknowledged' parameter is included in the request, e.g.
+If a charge is applicable, the response may report an exception unless _either_ the 'charge-acknowledged' parameter is included in the request, e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans?charge-acknowledged=Y
+
+_or_ the exception response contains an acknowledgement code to be included in the request (see [examples below](#checkout)).
 
 An XML document that conforms to the XML schema for a loan entity (E05) must be uploaded with the request.
 
@@ -439,15 +446,15 @@ In the case of a renewal, the creation of a new loan may be more readily perform
 
 It is assumed that the other record functions (check that copy can be loaned, check patron status, cancel reservation if any, create charge record if appropriate, update patron and copy records) are performed on the server side. If any of these functions have to be done manually by the terminal application client, a sequence of basic retrieval, modification and deletion functions may be used for this purpose.
 
-#### Response
+### Response
 
 The response to a check-out or renewal may be the same response as for creating any entity, i.e. status code 201 (Created) and a Location field in the HTTP header, or it may contain an XML payload that conforms to the following schema. The advantage of including the XML payload in the response is that the terminal application will thereby be alerted by the inclusion of any of R11D03 – R11D05 in the response, rather than having to retrieve the newly-created loan in order to determine whether or not sensitive media are involved or security needs de-sensitization, or what charge has been made for the loan.
 
 |       | *Element ID* | *XML structure*                          | *Card.* | *Data type* | *Notes*           |
 |-------|--------------|------------------------------------------|---------|-------------|-------------------|
 | **1** |              | **lcf-check-out-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1*                                                                  |
-| ~~2~~ | ~~R11D01~~   | ~~loan-ref~~                             | ~~0-1~~ | ~~anyURI~~  | ~~One of R11D01, R11C02 or R11D03 must be included in the response.~~ (Removed in 1.2.0)                                              |
-| **3** | **R12C09**   | **loan**                                 | **1** |             | **See E05 (Cardinality changed in 1.2.0)** |
+| ~~2~~ | ~~R11D01~~   | ~~loan-ref~~                             | ~~0-1~~ | ~~anyURI~~  | ~~One of R11D01, R11C02 or R11D03 must be included in the response.~~ <br/>*Removed in v1.2.0*                                              |
+| **3** | **R11C02**   | **loan**                                 | **1**   |             | **See E05**<br/>*Cardinality changed in v1.2.0* |
 | 4     | R11D03       | media-warning                            | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW) – Omitted if responding to a renewal                                                              |
 | 5     | R11D04       | security-desensitize                     | 0-1     | Code        | [SCD](LCF-CodeLists.md#SCD) – Omitted if responding to a renewal                                                              |
 | 6     | R11D05       | charge-ref                               | 0-1     | anyURI      |                   |
@@ -456,9 +463,93 @@ The response to a check-out or renewal may be the same response as for creating 
 *Example of a Response XML payload:*
 
     <lcf-check-out-response xmlns="http://ns.bic.org/lcf/1.0">
-     <loan-ref>http://192.168.0.99:80/lcf/1.0/loans/1234567890</loan-ref>
+     <loan>
+      <identifier>...</identifier>
+      <patron-ref>...</patron-ref>
+      <item-ref>...</item-ref>
+      <start-date>...</start-date>
+      <loan-status>...</loan-status>
+     </loan>
      <sensitive-media-warning>00</sensitive-media-warning>
     </lcf-check-out-response>
+
+#### <a name="checkout"></a>Exception condition response when check-out request requires an acknowledgement code *(Added in v1.3.0)*
+
+A exception condition response may be used to convey a warning message to the terminal user, which the user must acknowledge before the request can be accepted. Here are two examples of situations where this could apply:
+
+_Example 1: Title being checked out has been checked out previously to the same patron_
+
+A library may wish to warn the user that the title being checked out (or reserved) has previously been lent to the same patron. The initial request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
+
+```
+<exception-condition>
+  <condition-type>07</condition-type>
+  <reason-denied>10</reason-denied>
+  <message>
+    <message-type>04</message-type>
+    <message-text>Title xxx lent previously to this patron</message-text>
+    <acknowledgement-code>ack123456</acknowledgement-code>
+  </message>
+</exception-condition>
+```
+
+This response would require that the client repeat the request with the acknowledgement code included as the value of query parameter `acknowledgement-code` in the request, e.g.
+
+    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack123456
+
+
+_Example 2: Title being checked out will incur the specified charge_
+
+A library may wish to warn the user that the title being checked out will incur a charge, and specify the amount of the charge. The initial check-out request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
+
+```
+<exception-condition>
+  <condition-type>07</condition-type>
+  <reason-denied>10</reason-denied>
+  <message>
+    <message-type>04</message-type>
+    <message-text>A charge is applicable for the title(s) being checked out as specified.</message-text>
+    <acknowledgement-code>ack987654</acknowledgement-code>
+    <applicable-charge>
+      <charge-type>06</charge-type>
+      <charge-amount>nn.nn</charge-amount>
+    </applicable-charge>
+  </message>
+</exception-condition>
+```
+
+This response would require that the client repeat the request with the acknowledgement code included as the value of query parameter `acknowledgement-code` in the request, e.g.
+
+    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack987654
+
+_Example 3: Title being checked out has been lent previously to the same patron and also will incur a loan charge_
+
+In this example both the exception conditions of the first two examples have occurred. The initial check-out request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:
+
+```
+<exception-condition>
+  <condition-type>07</condition-type>
+  <reason-denied>10</reason-denied>
+  <message>
+    <message-type>04</message-type>
+    <message-text>Title xxx lent previously to this patron</message-text>
+    <acknowledgement-code>ack123456</acknowledgement-code>
+  </message>
+  <message>
+    <message-type>04</message-type>
+    <message-text>A charge is applicable for the loan of title xxx.</message-text>
+    <acknowledgement-code>ack987654</acknowledgement-code>
+    <applicable-charge>
+      <charge-type>06</charge-type>
+      <charge-amount>nn.nn</charge-amount>
+    </applicable-charge>
+  </message>
+</exception-condition>
+```
+
+This response would require that the client repeat the request with both the acknowledgement codes included in the string value of query parameter `acknowledgement-code` in the request, e.g.
+
+    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack123456,ack987654
 
 ### Cancel check-out / renewal
 
@@ -472,10 +563,9 @@ This also presumes that other record modifications (reset patron and item record
 
 It is implementation-defined as to whether cancellation of a renewal should reset all records as they were prior to the renewal, or treat the cancellation of the renewal as being the same as a check-in.
 
-12 Check-in
------------
+## 12 Check-in
 
-#### Request
+### Request
 
 The check-in function involves modification of a loan, using function 04 above, to change the status of the loan to '08' (checked in). The loan is first retrieved, then modified, e.g.
 
@@ -493,24 +583,33 @@ The check-in function involves modification of a loan, using function 04 above, 
 
 This presumes that a number of consequential functions are performed server-side.
 
-#### Response
+Note that the query parameter `confirmation=Y`, specified above for check-out requests, may also be used with check-in requests. *(Added in v1.3.0)*
+
+### Response
 
 A check-in response may be the same response as for modifying any entity, or may contain an XML message that conforms to the following schema. The advantage of including the XML payload in the response is that the terminal application will thereby be alerted by the inclusion of any of R12D04 – R12D08 in the response.
 
 |       | *Element ID* | *XML structure*           | *Card.* | *Data type* | *Notes*                                                      |
 | ----- | ------------ | ------------------------- | ------- | ----------- | ------------------------------------------------------------ |
 | **1** |              | **lcf-check-in-response** | **1**   |             | **Top-level message element**<br/>*'version' attribute removed in v1.0.1* |
-| **2** | **R12D01**   | **loan**                  | **1**   |             | See E05 (Type changed in 1.2.0)                              |
-| 3     | R12D04       | return-location-ref       | 0-1     | anyURI      |                                                              |
-| 4     | R12D05       | media-warning             | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW)                                  |
-| 5     | R12D06       | special-attention         | 0-1     | Code        | [SPA](LCF-CodeLists.md#SPA)                                  |
-| 6     | R12D07       | special-attention-note    | 0-1     | string      |                                                              |
-| 7     | R12D08       | charge-ref                | 0-n     | anyURI      |                                                              |
+| ~~2~~ | ~~R11D01~~   | ~~loan-ref~~              | ~~0-1~~ | ~~anyURI~~  | *Removed in v1.2.0*                                          |
+| **3** | **R12C09**   | **loan**                  | **1**   |             | See E05<br/>*Added in v1.2.0*                                |
+| 4     | R12D04       | return-location-ref       | 0-1     | anyURI      |                                                              |
+| 5     | R12D05       | media-warning             | 0-1     | Code        | [MEW](LCF-CodeLists.md#MEW)                                  |
+| 6     | R12D06       | special-attention         | 0-1     | Code        | [SPA](LCF-CodeLists.md#SPA)                                  |
+| 7     | R12D07       | special-attention-note    | 0-1     | string      |                                                              |
+| 8     | R12D08       | charge-ref                | 0-n     | anyURI      |                                                              |
 
 *Example of a Response XML payload:*
 
     <lcf-check-in-response xmlns="http://ns.bic.org/lcf/1.0">
-     <loan-ref>http://192.168.0.99:80/lcf/1.0/loans/1234567890</loan-ref>
+     <loan>
+      <identifier>...</identifier>
+      <patron-ref>...</patron-ref>
+      <item-ref>...</item-ref>
+      <start-date>...</start-date>
+      <loan-status>...</loan-status>
+     </loan>
      <return-location-ref>http://192.168.0.99:80/lcf/1.0/locations/repair-bin</return-location-ref>
      <sensitive-media-warning>00</sensitive-media-warning>
      <special-attention>02</special-attention>
@@ -520,10 +619,9 @@ A check-in response may be the same response as for modifying any entity, or may
 
 Cancellation of check-in involves modifying all records affected by the check-in process, to reset them as they were prior to the check-in function being performed. As a minimum, the terminal application will need to reset the status of the loan to '01' (on loan to patron), which could trigger the server/LMS to roll back changes made to other records (item, patron, charge).
 
-13 Patron payment
------------------
+## 13 Patron payment
 
-#### Request
+### Request
 
 Making a patron payment involves creating a payment record, assuming that all consequent modifications to charge and patron records are server-side functions.
 
@@ -531,16 +629,15 @@ Making a patron payment involves creating a payment record, assuming that all co
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
-#### Response *(Revised in v1.0.1)*
+### Response *(Revised in v1.0.1)*
 
 The response depends upon whether there is a need for a two-phase transaction process or not. If the LMS has to authorise payment before the transaction can proceed, a HTTP response 202 will be sent in response to the initial POST, which must be repeated with authorisation reference and transaction reference included in the Payment record.
 
 If the LMS does not have to authorise payment, the response is the same as for creating any entity - see function 03.
 
-14 Block patron account
------------------------
+## 14 Block patron account
 
-#### Request
+### Request
 
 Blocking a patron account involves a change to the status of a patron and therefore a modification to a specific patron record. No other functions are involved. Normally the patron record would need to be retrieved, then modified, i.e.:
 
@@ -550,14 +647,13 @@ Blocking a patron account involves a change to the status of a patron and theref
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
-#### Response
+### Response
 
 The response is the same as for modifying any entity – see function 04 above.
 
-15 Un-block patron account
---------------------------
+## 15 Un-block patron account
 
-#### Request
+### Request
 
 Un-blocking a patron account, as with blocking, involves a change in the status of a patron and therefore a modification to a specific patron record, having first retrieved the record. No other functions are involved.
 
@@ -567,14 +663,13 @@ Un-blocking a patron account, as with blocking, involves a change in the status 
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
-#### Response
+### Response
 
 The response is the same as for modifying any entity – see function 04 above.
 
-16 Reserve manifestation / item
--------------------------------
+## 16 Reserve manifestation / item
 
-#### Request
+### Request
 
 The request is formulated using the HTTP POST method.
 
@@ -586,7 +681,9 @@ The request is formulated using the HTTP POST method.
 | **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
 | **3** |              | **/reservations**     |                       | **1**   |             |              |
 | 4     | Q16D01       |                       | confirmation          | 0-1     | Y           |              |
-| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan.                                                                                                |
+| 5     | Q16D10       |                       | charge-acknowledged   | 0-1     | Y           | Inclusion of this query parameter with any value other than 'n' or 'N' should be interpreted as indicating that a charge may be created for this loan. Must not be used in combination with an acknowledgement code<br/>*Revised in v1.3.0*|
+| 6     | Q00D10       |                       | acknowledgement-code  | 0-1     | String      | This query parameter must be include in a repeated request, when an exception response to the initial request contained reason for denial code '10' (RDN10 Request requires acknowledgement) and at least one exception response message contained an acknowledgement code (R00D06.3). The value of this query parameter must be a comma-separated, concatenated string of all the acknowledgement codes in the exception response.<br/>*Added in v1.3.0*|
+                             |
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
@@ -602,15 +699,16 @@ If a charge is applicable, the response may report an exception unless the 'char
 
 An XML document that conforms to the XML schema for a reservation entity (E06) must be uploaded with the request.
 
-#### Response
+### Response
 
 The response is the same as for creating any entity – see function 03 above. *[Changed in v1.0.1.]*
 
-17 Set/reset patron password
-----------------------------
+NOTE – *(added in v1.3.0)* See [11 Checkout/renewal](#checkout) for examples of the use of exception conditions to require a client to repeat a request with an acknowledgement code. These can equally be used in response to reservation requests as in response to check-out requests.
+
+## 17 Set/reset patron password
 *[Added in v1.0.1]*
 
-#### Request
+### Request
 
 Setting or resetting a patron password involves modification of a property of a patron that is not stored as part of the corresponding patron entity. No other functions are involved.
 
@@ -624,16 +722,15 @@ To reset an existing patron password:
 
 The payload of the POST or PUT request is a plain text string containing the encrypted password.
 
-#### Response
+### Response
 
 If the request is successful, the HTTP response should include status code 200 (OK).
 
 
-18 Set/reset patron PIN
-----------------------------
+## 18 Set/reset patron PIN
 *[Added in v1.0.1]*
 
-#### Request
+### Request
 
 Setting or resetting a patron PIN involves modification of a property of a patron that may or may not be stored as part of the corresponding patron entity. No other functions are involved.
 
@@ -647,36 +744,31 @@ To reset an existing patron password:
 
 The payload of the POST or PUT request is a plain text string containing the encrypted PIN.
 
-#### Response
+### Response
 
 If the request is successful, the HTTP response should include status code 200 (OK).
 
-Stock management functions
-==========================
+# Stock management functions
 
-21 Retrieve location list
--------------------------
+## 21 Retrieve location list
 
 This function is the same as core function 02, applied to the retrieval of a list of location entities, for example:
 
     GET http://192.168.0.99:80/lcf/1.0/locations?{selection-criteria}
 
-22 Retrieve title classification scheme list
---------------------------------------------
+## 22 Retrieve title classification scheme list
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification scheme entities, for example:
 
     GET http://192.168.0.99:80/lcf/1.0/class-schemes
 
-23 Retrieve title classification list
--------------------------------------
+## 23 Retrieve title classification list
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification code entities, for example:
 
     GET http://192.168.0.99:80/lcf/1.0/class-codes?scheme=xxxxx
 
-24 Retrieve (stock) item list
------------------------------
+## 24 Retrieve (stock) item list
 
 This function combines the core functions for retrieval of a list of manifestations and list of items. A list of titles is first retrieved matching selection criteria that relate to titles. This list, coupled with further selection criteria that relate to copies, is used to retrieve a list of copies. The two can be combined in a single request that includes both manifestation-specific and copy-specific selection criteria.
 
@@ -688,8 +780,7 @@ The following selects all items that are copies of the same manifestation, for a
 
     GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?{all-selection-criteria}
 
-25 Retrieve selection criterion type list
------------------------------------------
+## 25 Retrieve selection criterion type list
 \[*Deprecated in v1.2.0*\]
 
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
@@ -700,8 +791,7 @@ The following selects all items that are copies of the same manifestation, for a
 
 NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
-26 Retrieve list of available items at a specific location
-----------------------------------------------------------
+## 26 Retrieve list of available items at a specific location
 \[*Deprecated in v1.2.0*\]
 
 The following selects all items that are available to be borrowed (circulation-status = '03') and are at a specific location 'shelf1':
@@ -710,10 +800,9 @@ The following selects all items that are available to be borrowed (circulation-s
 
 NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
-31 Apply charge to patron account
----------------------------------
+## 31 Apply charge to patron account
 
-#### Request
+### Request
 
 The request is formulated using the HTTP POST method to create a charge.
 

@@ -10,15 +10,15 @@ weight: 1
 
 ## Library Data Communication Framework for Terminal Applications (LCF)[\[1\]](#Notes)
 
-### Version 1.2.0
+### Version 1.3.0
 
-### 23 December 2019
+### 16 December 2023
 
 ---
 
 This document defines data frameworks for messages to meet the data communication requirements of a standard set of business functions for terminal applications within libraries.
 
-The use of this document is subject to license terms and conditions that can be found at <http://www.bic.org.uk/files/bicstandardslicence.pdf>.
+The use of this document is subject to license terms and conditions that can be found at <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
 Terminal applications typically involve the use of terminal devices and systems by library staff and patrons to carry out a range of business functions that involve data communication between a user terminal and a Library Management System (LMS). The user terminal communicates with the LMS to request that a specific function be executed. Execution of the function will normally involve retrieval of or changes to information held in the LMS. The LMS will respond to the request in a variety of ways, depending upon the nature of the request. Terminal applications include self-service applications used by library patrons, as well as other applications used by library staff.
 
@@ -169,54 +169,64 @@ An identified manifestation of an abstract work, e.g. a book, magazine, newspape
 
 | *Id*       | *Element*                  | *SIP2 ID* | *Card.*[\[3\]](#Notes)                                                    | *Format*   | *Description*                  |
 |------------|----------------------------|-----------|----------|------------|--------------------------------|
-| **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                          |
-| *E01C02*   | *Additional identifier*    |           | 1-n      |            | Composite element containing details of an additional identifier for the manifestation.                                                             |
-| E01D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[MNI](LCF-CodeLists.md#MNI)**          |
-| E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| **E01D01** | **Identifier**             |           | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF identifier used when referring to this manifestation entity.**                                                                      |
+| *E01C02*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for the manifestation.<br/>*Made non-mandatory in v1.3.0* |
+| E01D02.1   | Identifier type            |           | 1        | Code       | Manifestation identifier type from ONIX Code List 5[\[5\]](#Notes).<br/>*LCF Code List MNI deleted in Issue 5*                                                                                             |
+| E01D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme. |
 | E01D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| E01D22     | Manifestation type         |           | 0-1      | Code       | LCF code list **[MNT](LCF-CodeLists.md#MNT)**<br/>*Added in v1.3.0*                 |
 | *E01C03*   | *Media type / format*      | CK        | 0-n      |            |                                |
-| E01D03.1   | Media type / format scheme |           | 1        | Code       | LCF code list **[MES](LCF-CodeLists.md#MES)**<br/>Allowed values to include ONIX code lists 150 and 175, SIP2 media type and proprietary                                 |
-| E01D03.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme                                                                                                         |
+| E01D03.1   | Media type / format scheme |           | 1        | Code       | LCF code list **[MES](LCF-CodeLists.md#MES)**<br/>Allowed values to include ONIX code lists 150 and 175, SIP2 media type and proprietary                                                                       |
+| E01D03.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme |
 | E01D03.3   | Scheme code                |           | 1        | String     | Code from the specified scheme |
-| *E01C04*   | *Title*                    | AJ        | 0-n      |            | Composite element containing a title of the manifestation. Repeatable for multiple types of title (e.g. full title, abbreviated title)              |
-| E01D04.1   | Title type                 |           | 1        | Code       | LCF code list **[TTL](LCF-CodeLists.md#TTL)**          |
+| *E01C04*   | *Title*                    | AJ        | 0-n      |            | Composite element containing a title of the manifestation. Repeatable for multiple types of title (e.g. full title, abbreviated title)                                                                     |
+| E01D04.1   | Title type                 |           | 1        | Code       | Manifestation title type from ONIX Code List 15[\[5\]](#Notes).<br/>*LCF Code List TTL deleted in Issue 5*                                                                                             |
 | E01D04.2   | Title text                 |           | 1        | String     |                                |
 | E01D04.3   | Subtitle                   |           | 0-1      | String     |                                |
-| *E01C05*   | *Contributor*              |           | 0-n      |            | Composite element containing author or other contributor. Repeatable for multiple contributors.                                                    |
-| E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[\[5\]](#Notes).                                                                        |
-| E01D05.2   | Contributor name           |           | 0-1      | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                  |
-| E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | LCF code list **[UNC](LCF-CodeLists.md#UNC)**          |
+| *E01C05*   | *Contributor*              |           | 0-n      |            | Composite element containing author or other contributor. Repeatable for multiple contributors. |
+| E01D05.1   | Contributor role           |           | 1        | Code       | Contributor role code from ONIX Code List 17[\[5\]](#Notes). |
+| E01D05.2   | Contributor name           |           | 0-1      | String     | Either a contributor name or an unnamed contributor code must be included in each item contributor composite.                                                                                         |
+| E01D05.3   | Unnamed contributor        |           | 0-1      | Code       | Unnamed contributor(s) type from ONIX Code List 19[\[5\]](#Notes).<br/>*LCF Code List UNC deleted in Issue 5*                                                                                         |
 | *E01C06*   | *Series*                   |           | 0-1      |            | Composite element containing information about a series of which this manifestation is a member.                                            |
-| *E01C06.1* | *Series title*             |           | 0-n      |            | Composite element containing the title of the series. Repeatable for multiple types of title.                                                   |
-| E01D06.1.1 | Title type                 |           | 1        | Code       | LCF code list **[TTL](LCF-CodeLists.md#TTL)**          |
+| *E01C06.1* | *Series title*             |           | 0-n      |            | Composite element containing the title of the series. Repeatable for multiple types of title. |
+| E01D06.1.1 | Title type                 |           | 1        | Code       | Series title type from ONIX Code List 15[\[5\]](#Notes).<br/>*LCF Code List TTL deleted in Issue 5*                                                                                             |
 | E01D06.1.2 | Title text                 |           | 1        | String     |                                |
 | E01D06.1.3 | Subtitle                   |           | 0-1      | String     |                                |
-| E01D06.2   | Volume or part             |           | 0-1      | String     | Volume or part number within series                                                                                                         |
-| E01D06.3   | Other manifestation within series|     | 0-n      | String     | The LCF identifier of another manifestation entity in the same series. Repeatable if there is more than one other manifestation in the same series.                                                                                                        |
+| E01D06.2   | Volume or part             |           | 0-1      | String     | Volume or part number within series |
+| E01D06.3   | Other manifestation within series|     | 0-n      | String     | The LCF identifier of another manifestation entity in the same series. Repeatable if there is more than one other manifestation in the same series.                                                          |
 | E01D07     | Edition statement          |           | 0-1      | String     | Edition of the item            |
-| E01D08     | Publisher name             |           | 0-1      | String     | Name of the publisher of the manifestation                                                                                                  |
-| E01D09     | Year of publication        |           | 0-1      | YYYY       | Year of publication of the manifestation                                                                                                  |
+| E01D08     | Publisher name             |           | 0-1      | String     | Name of the publisher of the manifestation |
+| E01D09     | Year of publication        |           | 0-1      | YYYY       | Year of publication of the manifestation |
+| E01D23     | Serial holding statement   |           | 0-1      | String     | Description of the library's holding of a serial title. May only be included if the manifestation type (E01D22) is specified to be 'Serial title' (MNT02).<br/>*Added in v1.3.0* |
+| E01D25     | Serial issue enumeration   |           | 0-1      | String     | Numbers associated with a serial issue, as they appear on the title page; typically a volume and/or issue number. May only be included if the manifestation type (E01D22) is specified to be 'Serial issue' (MNT03).<br/>*Added in v1.3.0*  |
+| E01D26     | Serial issue chronology    |           | 0-1      | String     | Dates, periods or seasons associated with a serial issue, as they appear on the title page, for example the year for an annual publication. May only be included if the manifestation type (E01D22) is specified to be 'Serial issue' (MNT03).<br/>*Added in v1.3.0*  |
 | *E01C10*   | *Classification*           |           | 0-n      |            |                                |
 | E01D10.1   | Classification scheme      |           | 1        | Code       | LCF code list **[LCS](LCF-CodeLists.md#LCS)**          |
-| E01D10.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme                                                                                                         |
+| E01D10.2   | Scheme name                |           | 0-1      | String     | Name or description of proprietary scheme |
 | E01D10.3   | Scheme code                |           | 1        | String     |                                |
-| E01D11     | Item cover art             |           | 0-n      | URI        | URI reference to cover art resource                                                                                                       |
-| E01D12     | Other description          |           | 0-1      | String     | Other descriptive information about the manifestation.                                                                                             |
-| *E01C13*   | *Check-out restriction*    |           | 0-n      |            | Composite element containing details of a restriction on check-out of this manifestation. Repeatable for multiple restriction types.                |
-| E01D13.1   | Restriction type           |           | 1        | Code       | LCF code list **[CRT](LCF-CodeLists.md#CRT)**<br/>The type of restriction imposed.                                                                                        |
-| E01D13.2   | Restriction code / value   |           | 1        | String     | Restriction value of the specified type.                                                                                                          |
-| E01D13.3   | Restriction note           |           | 0-1      | String     | Free-text note or description of the restriction.                                                                                                   |
-| *E01C14*   | *Check-out fee*            | BO        | 0-n      |            | Composite element containing details of any fee required to check out this manifestation. Repeatable if there are fees of different types. NOTE – Infrequently used, as fees are rarely fixed for an individual manifestation and must be calculated at check-out time, based upon a variety of factors.                                                                         |
+| E01D11     | Item cover art             |           | 0-n      | URI        | URI reference to cover art resource |
+| E01D12     | Other description          |           | 0-1      | String     | Other descriptive information about the manifestation. |
+| E01C27     | *Associated location*      |           | 0-n      |            | *Added in v1.3.0*                 |
+| E01D27.1   | Location association type  |           | 1        | Code       | LCF code list **[LAT](LCF-CodeLists.md#LAT)**          |
+| E01D27.2   | Location reference         |           | 1        | String      |                                        |
+| *E01C24*   |*Associated manifestation*  |           | 0-n      |            | *Added in v1.3.0*                 |
+| E01D24.1   | Manifestation association type|        | 1        | Code       | LCF code list **[MNA](LCF-CodeLists.md#MNA)**              |
+| E01D24.2   | Manifestation reference    |           | 1-n      | String     |                                |
+| *E01C13*   | *Check-out restriction*    |           | 0-n      |            | Composite element containing details of a restriction on check-out of this manifestation. Repeatable for multiple restriction types.                                                                     |
+| E01D13.1   | Restriction type           |           | 1        | Code       | LCF code list **[CRT](LCF-CodeLists.md#CRT)**<br/>The type of restriction imposed. |
+| E01D13.2   | Restriction code / value   |           | 1        | String     | Restriction value of the specified type. |
+| E01D13.3   | Restriction note           |           | 0-1      | String     | Free-text note or description of the restriction. |
+| *E01C14*   | *Check-out fee*            | BO        | 0-n      |            | Composite element containing details of any fee required to check out this manifestation. Repeatable if there are fees of different types. NOTE – Infrequently used, as fees are rarely fixed for an individual manifestation and must be calculated at check-out time, based upon a variety of factors.                                                                               |
 | E01D14.1   | Fee type                   | BT        | 1        | Code       | LCF code list **[CHT](LCF-CodeLists.md#CHT)**          |
 | E01D14.2   | Fee amount                 | BV        | 1        | Value      | Currency value                 |
-| E01D14.3   | Fee currency               | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E01D15     | Number of patrons in hold queue | CF   | 0-1R[\[6\]](#Notes)                                                    | Integer    |                                |
-| E01D16     | Manifestation record reference  |      | 0-1      | String     | A reference (e.g. URI or query string) for retrieving a catalogue record for this manifestation from the LMS or online catalogue.             |
+| E01D14.3   | Fee currency               | BH        | 0-1      | Code       | ISO three-letter currency code, e.g. ‘GBP’ |
+| E01D15     | Number of patrons in hold queue | CF   | 0-1R[\[6\]](#Notes) | Integer |                        |
+| E01D16     | Manifestation record reference  |      | 0-1      | String     | A reference (e.g. URI or query string) for retrieving a catalogue record for this manifestation from the LMS or online catalogue.                                                                              |
 | **E01D17** | **Manifestation status**   |           | **1**    | **Code**   | LCF code list **[MNS](LCF-CodeLists.md#MNS)**          |
 | E01D18     | Number of copies in stock / holding |  | 0-1R     | Integer    |                                |
-| E01D19     | Item reference             |           | 0-nR     | String     | Reference to an item that is a copy of this manifestation                                                                                          |
-| E01D20     | Reservation reference      |           | 0-nR     | String     | If this manifestation has been reserved, a reference to the reservation record in the hold queue. Repeatable if there are multiple reservations in the “hold queue”.                                                                                              |
-| *E01C21*   | *Manifestation note*       |           | 0-n      |            | A note attached to the LMS record for this title.                                                                                                |
+| E01D19     | Item reference             |           | 0-nR     | String     | Reference to an item that is a copy of this manifestation |
+| E01D20     | Reservation reference      |           | 0-nR     | String     | If this manifestation has been reserved, a reference to the reservation record in the hold queue. Repeatable if there are multiple reservations in the “hold queue”.                                      |
+| *E01C21*   | *Manifestation note*       |           | 0-n      |            | A note attached to the LMS record for this title. |
 | E01D21.1   | Note type                  |           | 0-1      | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E01D21.2   | Note date-time             |           | 0-1      | DateTime   |                                |
 | E01D21.3   | Note text                  |           | 1        | String     |                                |
@@ -276,7 +286,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 An identified person or organization permitted to borrow an item from a library.
 
-NOTE – Contact information is held in separate contact records for security and privacy reasons.See E09 below.
+NOTE – Contact information is held in separate contact records for security and privacy reasons. See E09 below.
 
 #### Properties
 
@@ -286,9 +296,18 @@ NOTE – Contact information is held in separate contact records for security an
 | E03D26     | Barcode identifier         |           | 0-1      | String     | The identifier on the patron's library card. Mandatory unless the LCF entity identifier is the same identifier.<br/>*Added in v1.0.1*            |
 | *E03C27*   | *Additional identifier*    |           | 0-n      |            | Composite element containing details of an additional identifier for this patron.<br/>*Added in v1.0.1*                                                |
 | E03D27.1   | Identifier type            |           | 1        | Code       | LCF code list **[PNI](LCF-CodeLists.md#PNI)**<br/>The identification scheme.                                                                                         |
-| E02D27.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
-| E02D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
+| E03D27.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
+| E03D27.3   | Identifier value           |           | 1        | String     | The identifier string.         |
 | **E03D22** | **Name**                   | **AE**    | **1**    | **String** | **Name of primary contact for this patron.**<br/>*Added in v1.0.1*                                                                                   |
+| *E03C36*   | Structured name            |           | 0-1      |            | Name of primary contact in structure form, following the model provided by ONIX. Only for use with personal names. Note that, for display purposes, structured names would normally be re-assembled in the order specified here.<br/>*Added in v1.3.0*<br/>*NOTE: At the next major revision of LCF it is proposed to make this element mandatory in server responses.*   |
+| E03D36.1   | Title before names         |           | 0-1      | String     | Qualifications and/or titles preceding a person’s names, eg ‘Professor’ or ‘HRH Prince’ or ‘Saint’.                                        |
+| E03D36.2   | Names before key           |           | 0-1      | String     | Name(s) and/or initial(s) preceding a person’s key name(s), eg ‘James J.’                                                                   |
+| E03D36.3   | Prefix to key              |           | 0-1      | String     | A prefix which precedes the key name(s) but which is not to be treated as part of the key name, eg ‘van’ in Ludwig van Beethoven. This element may also be used for titles that appear after given names and before key names, eg ‘Lord’ in Alfred, Lord Tennyson.                    |
+| E03D36.4   | Key names                  |           | 1        | String     | Key name(s), ie the name elements normally used to open an entry in an alphabetical list, eg ‘Smith’ or ‘Garcia Marquez’ or ‘Madonna’ or ‘Francis de Sales’ (in Saint Francis de Sales).  |
+| E03D36.5   | Names after key            |           | 0-1      | String     | Name suffix, or name(s) following a person’s key name(s), eg ‘Ibrahim’ (in Anwar Ibrahim).                                                |
+| E03D36.6   | Suffix to key              |           | 0-1      | String     | A suffix following a person’s key name(s), eg ‘Jr’ or ‘III’.                                                                                   |
+| E03D36.7   | Letters after names        |           | 0-1      | String     | Qualifications and honors following a person’s names, eg ‘CBE FRS’.                                                                            |
+| E03D36.8   | Titles after names         |           | 0-1      | String     | Titles following a person’s names, eg ‘Duke of Edinburgh’.                                                                              |
 | E03D02     | Contact reference          |           | 0-n      | String     | Contact details for this patron<br/>*Repeatable in v1.0.1*                                                                                 |
 | E03D23     | Language                   |           | 0-1      | Code       | Language for communication with primary contact<br/>ISO three-letter language code, e.g. ‘eng’<br/>*Added in v1.0.1*                              |
 | *E03C03*   | *Associated location*      |           | 0-n      |            | A location associated with this patron.                                                                                                        |
@@ -457,7 +476,7 @@ An identified charge made to a patron. May be a fee or a fine.
 | **E07D03** | **Charge type**            | **BT**     | **1**   | **Code**   | **LCF code list [CHT](LCF-CodeLists.md#CHT)<br/>The type or category of charge.**                                                                                          |
 | **E07D04** | **Charge status**          |            | **1**   | **Code**   | **LCF code list [CHS](LCF-CodeLists.md#CHS)**          |
 | E07D05     | Charge description         |            | 0-1     | String     | Free-text description of charge. |
-| E07D06     | item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D06     | Item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D07     | Manifestation reference    |            | 0-1     | String     | A manifestation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D08     | Loan reference             |            | 0-1     | String     | A loan to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                                     |
 | E07D09     | Reservation reference      |            | 0-1     | String     | A reservation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
@@ -487,18 +506,22 @@ An identified payment made by a patron to settle one or more charges.
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
 |------------|----------------------------|------------|---------|------------|--------------------------------|
-| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                                                              |
+| **E08D01** | **Payment identifier**     | **AA**     | **1**[\[4\]](#Notes)                                                    | **String** | **The LCF entity identifier used when referring to this payment.**                                |
 | **E08D02** | **Patron reference**       |            | **1**   | **String** |                                |
-| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                           |
-| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                             |
-| E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.*                                                                                            |
-| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                    |
+| **E08D03** | **Payment type**           |            | **1**   | **Code**   | **LCF code list [PYT](LCF-CodeLists.md#PYT)<br/>The type or method of payment.**                                                                                   |
+| E08D04     | Payment description        |            | 0-1     | String     | Further information on type or method of payment.                                                                                                                      |
+| E08D05     | Charge reference           |            | 0-n     | String     | One or more charges to which this payment relates.<br/>*Non-mandatory in v1.0.1, to allow for payments that don't relate to specific charges, but simply credit an account.* |
+| E08D15     | Deposit type               |            | 0-1     | Code       | Payment made as a deposit against current or future charges of this type.<br/>**LCF code list [CHT](LCF-CodeLists.md#CHT)**<br/>*Added in v1.3.0*                 |
+| E08D13     | Payment purpose            |            | 0-1     | Code       | LCF code list [PYP](LCF-CodeLists.md#PYP)<br/>The purpose of the payment.<br/>*Added in v1.3.0*                                                                |
+| E08D14     | Beneficiary institution    |            | 0-1     | String     | Authority/institution to benefit from a donation. Must be included if the payment purpose is to make a donation.<br/>*Added in v1.3.0*                              |
+| E08D06     | Payment date-time          |            | 0-1     |            | The date and optionally time at which the payment was made.                                                                                                          |
 | **E08D07** | **Payment amount**         | **BV**     | **1**   | **Value**  | **Currency value**             |
-| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)**          |
+| E08D08     | Payment currency           | BH         | 0-1     | Code       | ISO three-letter currency code, e.g. ‘GBP’                                                                                                                            |
+| E08D09     | Payment status             |            | 0-1     | Code       | LCF code list **[PYS](LCF-CodeLists.md#PYS)** |
 | E08D10     | Transaction reference      |            | 0-1     | String     |                                |
+| E08D12     | Authorisation reference    |            | 0-1     | String     | Reference to an authorisation entity - see E13<br/>*Added in v1.3.0* |
 | *E08C11*   | *Payment note*             |            | 0-n     | String     |A note attached to this payment.|
-| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
+| E08D11.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)** |
 | E08D11.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E08D11.3   | Note text                  |            | 1       | String     |                                |
 
@@ -606,7 +629,8 @@ NOTE – The selection criterion identifier may be the same as the name. In any 
 
 #### Description *(clarified in v1.1.0)*
 
-A patron authorisation code: either a standard code from LCF code list [AUT](LCF-CodeLists.md#AUT) (E13D02) or a library-assigned heading or name (E13D03).
+A patron authorisation record, containing either a standard code from LCF code list [AUT](LCF-CodeLists.md#AUT) (E13D02) or a library-assigned heading or name (E13D03).
+
 
 #### Properties
 
@@ -619,6 +643,7 @@ A patron authorisation code: either a standard code from LCF code list [AUT](LCF
 | E13D04.1   | Note type                  |            | 0-1     | Code       | LCF code list **[NOT](LCF-CodeLists.md#NOT)**          |
 | E13D04.2   | Note date-time             |            | 0-1     | DateTime   |                                |
 | E13D04.3   | Note text                  |            | 1       | String     |                                |
+| E13D05     | Location reference         |            | 0-n     | String     | Location associated with this authorisation type (e.g. AUT03)<br/>*Added in v1.3.0*<br/>*NOTE: This element is intended for use in responses to Patron requests to retrieve their authorisation(s), which may include access to one or more library locations when un-staffed (authorisation code AUT03 'ACC'). The control of access to a library location is out of scope for LCF.* |
 
 ***
 
@@ -627,7 +652,7 @@ A patron authorisation code: either a standard code from LCF code list [AUT](LCF
 
 #### Description
 
-A library authority or institution.
+An entity representing a single node in the logical structure for a library or wider institution. A single library would be modelled using only one entity record. Where a libary forms part of a wider institution or consortia, this can be represented with each node in the hierarchy being one record and the relationships between them described using the LCF code lists indicated below. 
 
 #### Properties
 
@@ -638,7 +663,6 @@ A library authority or institution.
 | E14D02.1   | Identifier type            |           | 1        | Code       | LCF code list **[INS](LCF-CodeLists.md#INS)**<br/>The identification scheme.                                                                   |
 | E14D02.2   | Identifier type name       |           | 0-1      | String     | If the identification scheme is proprietary, the name of the scheme.                                                                           |
 | E14D02.3   | Identifier value           |           | 1        | String     | The identifier string.         |
-| **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
 | **E14D03** | **Authority / institution name** |     | **1**    | **String** | **The name of this authority/institution**                                                                                        |
 | E14D08     | Library statutory status   |           | 0-1      | Code       | LCF code list **[LST](LCF-CodeLists.md#LST)**<br/>*Added in v1.2.0*         |
 | E14D09     | Library type               |           | 0-1      | Code       | LCF code list **[LTY](LCF-CodeLists.md#LTY)**<br/>*Added in v1.2.0*         |
@@ -653,10 +677,10 @@ A library authority or institution.
 |E14D04.3.4.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the library location is closed on all days of the week during the specified service period. |
 |*E14C04.3.5*| Library open               |           | 0-n      |            | Explicit statement that the library location is open for at least one time period on the specified days of the service period. See Note 4 below on interpretation of repetitions of this composite element. |
 |E14D04.3.5.1| Days of the week           |           | 0-1      | String     | Days of the week are specified by a space-separated list of code values taken from LCF code list **[WKD](LCF-CodeLists.md#WKD)**. If omitted, the open time-period(s) apply to all days of the week during the specified service period. |
-|*E15C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
-|E15D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
-|E15D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
-|E15D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
+|*E14C04.3.5.2*| Open time-period         |           | 1-n      |            | A single continuous period of the day during which the library location is open. It is implied that the library location is closed at times outside open time-periods. |
+|E14D04.3.5.2.1| Start time               |           | 1        | Time       |                                  |
+|E14D04.3.5.2.2| End time                 |           | 1        | Time       |                                  |
+|E14D04.3.5.2.3| Staffed / un-staffed     |           | 0-1      | Code       | LCF code list **[STA](LCF-CodeLists.md#STA)**     |
 | *E14C05*   | *Associated contact*       |           | 0-n      |            | A contact associated with this authority/institution.                                                                                         |
 | E14D05.1   | Contact association type   |           | 1        | Code       | LCF code list **[CAT](LCF-CodeLists.md#CAT)**          |
 | E14D05.2   | Contact name               |           | 1        | String     |                                |
@@ -688,7 +712,16 @@ A library authority or institution.
 
 #### Description
 
-A message or alert that may be communicated to a patron or group of patrons.
+A message is any form of communication that should be displayed to any group of Patrons or an individual Patron.
+
+Messages for a specific [Patron](#e03) are typically retrieved through a request for the Patron record, which includes the associated messages for a specific Patron in field E03C34. This follows the use case for a self-service terminal, where the Patron is known and using the terminal. 
+
+Messages which require acknowledgement should follow [LCF function 32](#f32), confirming which messages have been acknowledged by the Patron.  
+
+All message entities must have a type, indicated by the [MAT](LCF-CodeLists.md#MAT) code list, indicating whether action is required, or whether the message relates to the Institutional, Collection, or Patron  level notices. 
+* Examples of Institution-level messages include opening hours, holiday closure periods, where the library as a whole may be unavailable, etc.
+* Examples of Collection-level messages include additions or removal of items from collections, whether there are rule changes for accessing collections, etc.
+* Examples of Patron-level messages include lost property or specific messages about fees or fines for one specific Patron, etc.
 
 #### Properties
 
@@ -700,13 +733,13 @@ A message or alert that may be communicated to a patron or group of patrons.
 | E15D04     | Message/alert priority     |            | 0-1     | Code       | LCF code list **[MAP](LCF-CodeLists.md#MAP)**                                                                                                  |
 | E15D05     | Message/alert display type |            | 0-1     | Code       | LCF code list **[MGT](LCF-CodeLists.md#MGT)**                                                                                                  |
 | E15D06     | Display/delivery constraint |          | 0-1     | Code       | LCF code list **[MAC](LCF-CodeLists.md#MAC)**                                                                                                  |
-| E15D07     | Display from date-time     |            | 0-1     | DateTime   |                                |
-| E15D08     | Display until date-time    |            | 0-1     | DateTime   |                                |
+| E15D07     | Display from date-time     |            | 0-1     | DateTime   | Only permitted when the delivery constraint is MAC01          |
+| E15D08     | Display until date-time    |            | 0-1     | DateTime   | Only permitted when the delivery constraint is MAC01                              |
 | E15D09     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[MAU](LCF-CodeLists.md#MAU)**                                                                                                  |
-| E15D10     | Patron category            |            | 0-n     | String     | Only included if audience is specified patrons and categories |
-| E15D11     | Patron reference           |            | 0-n     | String     | Only included if audience is specified patrons and categories |
-| E15D14     | Loan reference             |            | 0-n     | String     | Only included if audience is patrons related to specified loans |
-| E15D15     | Reservation reference      |            | 0-n     | String     | Only included if audience is patrons related to specified reservations |
+| E15D10     | Patron category            |            | 0-n     | String     | Only included if audience MAU02 is specified. Patron Category is a library-specific value |
+| E15D11     | Patron reference           |            | 0-n     | String     | Only included if audience MAU02 is specified |
+| E15D14     | Loan reference             |            | 0-n     | String     | Only included if audience MAU03 'patrons related to specified loans' is specified |
+| E15D15     | Reservation reference      |            | 0-n     | String     | Only included if audience MAU04 'patrons related to specified reservations' is specified |
 | ***E15C12***  | **Message/alert text**  |            | **1-n** |            | Repeatable if the message/alert text is available in several alternative text formats                                                               |
 | **E15D12.1**  | Text format             |            | **1**   | Code       | LCF code list **[TFT](LCF-CodeLists.md#TFT)**                                                                                                  |
 | **E15D12.2**  | Text string             |            | **1**   | String     |                                |
@@ -756,6 +789,8 @@ The following data elements and composites are typically used for control of mes
 | Q00D07     | Request ID                 |            | 0-1     | String    | An ID of a request. If included in a request, it must also be included in the LMS response.                                                         |
 | Q00D08     | Request date-time          |            | 0-1     | DateTime  | ISO date-time<br/>The date-time at which the terminal application user submitted the request. Normally generated by the application.              |
 | Q00D09     | Previous request ID        |            | 0-1     | String    | Used when cancelling a previous request, in which case this element contains the identifier of the previous request (see element Q00D07).      |
+| Q00D10     | Acknowledgement code       |            | 0-1     | String    | Used when repeating a previous request that was denied by the server, when the server response contains reason request denied code RDN10 in R00D05.2 and this acknowledgement code in R00D06.3.<br/>*Added in v1.3.0* |
+
 
 ***
 
@@ -770,11 +805,18 @@ The following data elements and composites are typically used for control of mes
 | R00D04     | Response date-time         |            | 0-1     | DateTime  | The date and time of the response.|
 | *R00C05*   | *Exception condition*      |            | 0-n     |           | Response if there is an exception condition, in which case this and, optionally, one or more of the following message elements terminate the response.|
 | R00D05.1   | Condition type             |            | 1       | Code      | LCF code list **[EXC](LCF-CodeLists.md#EXC)**<br/>Response code will often be specific to the function requested.                                                         |
-| R00D05.2   | Reason request denied      |            | 0-1     | Code      | LCF code list **[RDN](LCF-CodeLists.md#RDN)**<br/>Used if R00D05.1 contains ''08' (request denied)                                                                       |
+| R00D05.2   | Reason request denied      |            | 0-1     | Code      | LCF code list **[RDN](LCF-CodeLists.md#RDN)**<br/>Used if R00D05.1 contains code EXC07.<br/>*Description corrected in v1.3.0*                                                                       |
 | R00D05.3   | Element reference          |            | 0-1     | String    | A reference (e.g. the LCF element ID) that uniquely identifies the element in the request payload that generated the exception condition.            |
 | *R00C06*   | *Response message*         | AF / AG    | 0-n     |           | Composite element containing text to display or print on terminal.                                                                                  |
 | R00D06.1   | Message display type       |            | 1       | Code      | LCF code list **[MGT](LCF-CodeLists.md#MGT)**           |
-| R00D06.2   | Message to display         |            | 1-n     | String    | Repeatable if display type is ‘single line’                                                                                                          |
+| R00D06.2   | Message to display         |            | 1-n     | String    | Repeatable if display type is ‘single line’             |
+| R00D06.3   | Acknowledgement code       |            | 0-1     | String    | Library-specific code to be included in a repeat request, for the request to be accepted; only included if R00D05.2 contains code RDN10.<br/>*Added in v1.3.0* |
+| *R00C06.4* | *Applicable charge*        |            | 0-1     |           | Applicable charge, which must be acknowledged in a repeat request by including the acknowledgement code in R00D06.3. Only to be included if there is an exception condition and if R00D05.2 contains contains code RDN10.<br/>*Added in v1.3.0*   |
+| R00D06.4.1 | Charge type                |            | 0-1     | Code      | LCF code list **[CHT](LCF-CodeLists.md#CHT)**    |
+| R00D06.4.2 | Charge description         |            | 0-1     | String    | Description of proposed charge.    |
+| R00D06.4.3 | Charge payment due date-time |          | 0-1     | DateTime  | The date and optionally time on which the proposed charge would become due for payment.  |
+| R00D06.4.4 | Gross charge amount        |            | 1       | Value     | Currency value of proposed charge.     |
+| R00D06.4.5 | Charge currency            |            | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’.   |
 
 Core functions
 --------------
@@ -792,7 +834,7 @@ This function may be used to retrieve information about an instance of an entity
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **Q01D01** | **Entity type**            |            | **1**   | **Code**  | **LCF code list [ENT](LCF-CodeLists.md#ENT)<br/>The entity type of the item about which information is requested. Information may be requested for any of the entity types E01 to E12 defined above.**                                                                                        |
 | **Q01D02** | **Entity instance identifier** | **\*** | **1**   | **String**| **The primary (LMS) identifier for the entity instance.**                                                                                         |
-| Q01D03     | Requested item detailed information |   | 0-n     | Code      | LCF code list **[MND\|LCF-CodeLists.md#MND]]**, **[IMD](LCF-CodeLists.md#IMD)** or **[[PNT](LCF-CodeLists.md#PNT)**, depending upon entity type specified in Q01D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, the details to be included are determined by the LMS.                          |
+| Q01D03     | Requested item detailed information |   | 0-n     | Code      | LCF code list **[MND](LCF-CodeLists.md#MND)**, **[IMD](LCF-CodeLists.md#IMD)** or **[[PNT](LCF-CodeLists.md#PNT)**, depending upon entity type specified in Q01D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, the details to be included are determined by the LMS.                          |
 
 \* The correspondence with a SIP2 element depends upon the entity type. For entity types 'patron' and 'item' the correspondence is with SIP2 elements AA and AB respectively. The only other entity type that is likely to be specified with any frequency is ‘manifestation’.
 
@@ -817,7 +859,7 @@ This function may be used to retrieve a list of entity instances, with or withou
 | *Q02C02*   | *Selection criterion*      |            | 0-n     |           | A criterion for selecting instances to be retrieved. If multiple selection criteria are specified, all must apply to all items retrieved. If no selection criteria are specified, all items of the specified entity type are to be included in the list.       |
 | Q02D02.1   | Selection criterion code   |            | 0-1     | String    | LCF Code list **[SEL](LCF-CodeLists.md#SEL)**<br/>*Changed in v1.0.1*                                                                                                        |
 | Q02D02.2   | Criterion value            |            | 1       | String    |                                 |
-| Q02D03     | Requested instance detailed information | | 0-n   | Code      | LCF code list **[MND\|LCF-CodeLists.md#MND]]**, **[IMD](LCF-CodeLists.md#IMD)** or **[[PNT](LCF-CodeLists.md#PNT)**, depending upon entity type specified in Q02D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, minimal details are included as determined by the LMS.                         |
+| Q02D03     | Requested instance detailed information | | 0-n   | Code      | LCF code list **[MND](LCF-CodeLists.md#MND)**, **[IMD](LCF-CodeLists.md#IMD)** or **[[PNT](LCF-CodeLists.md#PNT)**, depending upon entity type specified in Q02D01.<br/>Indicates the type of information to be included in the response. May be repeated if several types of information are requested, unless the code indicates that all details are to be included. If omitted, minimal details are included as determined by the LMS.                         |
 | Q02D04     | Requested maximum number of instances in response | | 0-1 | Positive integer | If present, the maximum number of instances from the list matching the specified selection criteria that are desired in the response. If not present, the entire list of instances matching the specified selection criteria should be included in the response. Responses should, wherever possible, honour this maximum when requested.                      |
 | Q02D05     | Index, in the complete list of instances found, of first instance in the response                                  |            | 0-1     | Positive integer or zero | If present, the desired index of the first instance in the response in the list of instances that match the specified selection criteria. For example, an offset value ‘10’ would imply that the first instance in the response should be the eleventh instance in the list. Responses should, wherever possible, honour this index when requested.          |
 
@@ -908,7 +950,7 @@ Circulation management functions
 
 The check-out / renewal function, if successfully executed, causes an LMS to perform a number of consequential actions to create, delete or modify various entity records. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record creation, modification or deletion actions might be performed by an LMS:
 
--   Unless this is a confirmation or cancellation of check-out or renewal, an LMS would typically retrieve the patron, item and manifestation records to check the patron’s status and ensure that check-out is permitted and to check for any applicable fees.
+-   Unless this is a confirmation (request type RQT02) or cancellation (request type RQT03) of check-out or renewal, an LMS would typically retrieve the patron, item and manifestation records to check the patron’s status and ensure that check-out is permitted and to check for any applicable fees. An LMS may not block a confirmation request (equivalent to "no block" in SIP2). *(Modified in v1.3.0)*
 
 -   If check-out / renewal is to proceed, an LMS would create a loan record for the specified patron and item and, in the case of renewal, modify or delete the existing loan record. If cancelling a check-out or renewal, an LMS would retrieve and either delete or modify the loan record.
 
@@ -929,8 +971,8 @@ This implies that the terminal application must provide sufficient information i
 | **Q11D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list [RQT](LCF-CodeLists.md#RQT)<br/>Indicates type of check-out request.**                                                                                   |
 | Q11D02     | Renewal type               |            | 0-1     | Code      | LCF code list [RNQ](LCF-CodeLists.md#RNQ)<br/>Indicates that the request is a renewal request and which type                                                                |
 | Q11D03     | Patron reference           | AA         | 0-1     | String    | Reference to the patron record. Mandatory in a new check-out.                                                                                  |
-| Q11D04     | Item reference             | AB         | 0-1     | String    | Reference to the item in question. Mandatory unless cancelling a check-out / renewal.                                                             |
-| Q11D05     | Loan reference             |            | 0-1     | String    | Mandatory when renewing or cancelling a check-out or renewal.                                                                                        |
+| Q11D04     | Item reference             | AB         | 0-1     | String    | Reference to the item in question. Mandatory unless cancelling a check-out / renewal (Q11D01 contains RQT03) or the renewal type (Q11D02) contains code value RNQ01 or RNQ02 (renewal of all items currently on loan to patron).<br/>*Description modified in v1.3.0*                                                             |
+| Q11D05     | Loan reference             |            | 0-1     | String    | Mandatory when making a renewal or when cancelling a check-out or renewal, unless the renewal type (Q11D02) contains code value RNQ01 or RNQ02 (renewal of all items currently on loan to patron).<br/>*Description modified in v1.3.0*                                                                                        |
 | Q11D06     | Loan end date              |            | 0-1     | DateTime  | If confirming check-out / renewal, the due date-time given to the patron for this item.                                                           |
 | Q11D07     | Charge acknowledged        | BO         | 0-1     | Flag      | Empty element indicating that a charge may be created.                                                                                         |
 
@@ -938,11 +980,11 @@ This implies that the terminal application must provide sufficient information i
 
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
-| R11D01     | Loan reference             |            | 0-1     | String    | LCF entity identifier for loan. Either a loan reference, or a copy of the loan record must be included in the response.                        |
-| R11C02     | Loan entity record         |            | 0-1     |           | See E05                         |
-| R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[MEW](LCF-CodeLists.md#MEW)**<br/>Same as E02D07. Flag indicating that the item contains a media component that is sensitive to some security setting devices. Mandatory on a new check-out unless the loan entity record is included in the response.                        |
-| R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[SCD](LCF-CodeLists.md#SCD)**<br/>Same as E02D08. Flag indicating whether the security should or should not be desensitized / removed on check-out. Mandatory on a new check-out unless the loan entity record is included in the response.                                  |
-| R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan. |
+| R11D01     | Loan reference             |            | 0-1     | String    | LCF entity identifier for loan. Either a single loan reference, or a copy of each loan record must be included in the response.<br/>*Description modified in v1.3.0*                         |
+| *R11C02*   | Loan entity record         |            | 0-n     |           | See E05. Repeatable only if the renewal type in the request is RNQ01 or RNQ02 (renewal of all items currently on loan to patron).<br/>*Description modified in v1.3.0*                         |
+| R11D03     | Item sensitive media warning |          | 0-1     | Code      | LCF code list **[MEW](LCF-CodeLists.md#MEW)**<br/>Same as E02D07. Flag indicating that a loaned item contains a media component that is sensitive to some security setting devices.<br/>*Description modified in v1.3.0*                        |
+| R11D04     | Desensitize item security  |            | 0-1     | Code      | LCF code list **[SCD](LCF-CodeLists.md#SCD)**<br/>Same as E02D08. Flag indicating whether the security on a loaned item should or should not be desensitized / removed on check-out.<br/>*Description modified in v1.3.0*                                  |
+| R11D05     | Charge reference           |            | 0-1     | String    | Reference to charge created with this loan. Omitted when two or more complete loan records (R11C02) are included in the response.<br/>*Description modified in v1.3.0* |
 | R11D06     | Digital content access link |   | 0-1     | String    | Non-persistent link to be used by the patron to access checked-out digital content<br/>*Added in v1.0.1*                                                |
 
 ***
@@ -952,7 +994,7 @@ This implies that the terminal application must provide sufficient information i
 
 The check-in function, if successfully executed, causes an LMS to perform a number of consequential actions. These actions are performed internally within the LMS, so how they are performed is beyond the scope of LCF. Depending upon the precise circumstances, some or all of the following entity record modification or creation actions might be performed by an LMS:
 
--   The LMS would retrieve the item record and modify to update circulation status and location.
+-   Unless this is a cancellation (request type RQT03) of check-out or renewal, the LMS would retrieve the item record and modify to update circulation status and location. An LMS may not block a confirmation request (equivalent to "no block" in SIP2). *(Modified in v1.3.0)*
 
 -   The LMS would retrieve the loan record for this item and modify it to update its status.
 
@@ -975,7 +1017,7 @@ The check-in function, if successfully executed, causes an LMS to perform a numb
 | Id         | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R12D01     | Loan reference             |            | 0-1     | String    |                                 |
-| R12C09     | Loan entity record         |            | 0-1     |           | See E05 *Added in v1.2.0*       |
+|*R12C09*    |*Loan entity record*        |            | 0-1     |           | See E05 *Added in v1.2.0*       |
 | R12D02     | Patron reference           | AA         | 0-1     | String    |                                 |
 | R12D03     | Item reference             | AB         | 0-1     | String    |                                 |
 | R12D04     | Item return location reference| CL      | 0-1     | String    | LCF entity identifier for return location, e.g. sort bin.                                                                                       |
@@ -1000,11 +1042,12 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 | **Q13D01** | **Request type**           |            | **1**   | **Code**  | **LCF code list [RQT](LCF-CodeLists.md#RQT)** |
 | **Q13D02** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
 | Q13D03     | Charge reference           |            | 0-n     | String    | Charge(s) against which to set this payment. If omitted, the LMS determines the charges against which to set the payment.                          |
+| Q13D09     | Deposit type               |            | 0-1     | Code      | Deposit made against future charges of this type.<br/>**LCF code list [CHT](LCF-CodeLists.md#CHT)**<br/>*Added in v1.3.0*                 |
 | **Q13D04** | **Payment type**           |            | **1**   | **Code**  | **LCF code list [PYT](LCF-CodeLists.md#PYT)**           |
 | Q13D05     | Payment type description   |            | 0-1     | String    | Further information on method of payment                                                                                                        |
 | **Q13D06** | **Payment amount**         |            | **1**   | **Value** | **Currency value.**             |
 | Q13D07     | Payment currency           |            | 0-1     | Code      | ISO three-letter currency code, e.g. ‘GBP’                                                                                                          |
-| Q13D08     | Transaction reference      |            | 0-1     | String    | The identifier of the successful payment transaction. Only included if the request type (Q13D01) is '02' (Confirmation request).<br/>*Added in v1.0.1*                                                                       |
+| Q13D08     | Transaction reference      |            | 0-1     | String    | The identifier of the successful payment transaction. Only included if the request type (Q13D01) is code '02' (RQT02 Confirmation request).<br/>*Added in v1.0.1*                                                                       |
 
 #### Response
 
@@ -1013,6 +1056,7 @@ The patron payment function, if successfully executed, causes an LMS to perform 
 | R13D01     | Patron reference           | AA         | 0-1     | String    | *Cardinality changed in v1.2.0* |
 | R13D02     | Payment Identifier         |            | 0-1     | String    | Included if attempt to make the payment is successful.                                                                                                 |
 | R13D03     | Charge reference           |            | 0-n     |           | Mandatory if payment of any charge item is accepted or confirmed.                                                                                      |
+| R13D05     | Deposit type               |            | 0-1     | Code      | Mandatory if a deposit payment is accepted or confirmed against current or future charges of the specified type.<br/>*Added in v1.3.0*                 |
 | R13D04     | Authorisation reference    |            | 0-1     | String    | Reference to an authorisation entity when the LMS needs to authorise that a payment transaction can proceed. The authorisation must be of type AUT02.<br/>*Added in v1.0.1*                     |
 
 ### <a name="f14"></a> 14 Block patron account
@@ -1076,7 +1120,7 @@ The reserve function, if successfully executed, causes an LMS to perform a numbe
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | **Q16D01** | **Request type**           | **BX / BI**| **1**   | **Code**  | **LCF code list [RQT](LCF-CodeLists.md#RQT)**           |
 | **Q16D02** | **Patron reference**       | **AA**     | **1**   | **String**|                                 |
-| **Q16D03** | **Item entity type**       |            | **1**   | **Code**  | **LCF code list [ENT](LCF-CodeLists.md#ENT) – only code values '01' and '02' are valid**                                                                               |
+| **Q16D03** | **Item entity type**       |            | **1**   | **Code**  | **LCF code list [ENT](LCF-CodeLists.md#ENT) – only code values '01' (ENT01 Manifestation) and '02' (ENT02 Copy of a manifestation) are valid**                                                                               |
 | **Q16D04** | **Item reference**         | **AB**     | **1**   | **String**|                                 |
 | Q16D05     | Reservation type           | BY         | 0-1     | Code      | LCF code list **[RVT](LCF-CodeLists.md#RVT)**           |
 | Q16D06     | Pick-up institution reference| AO       | 0-1     | String    | The LCF entity identifier of the branch library or other institution where the items are to be picked up by the patron. Normally only included if the reservation type is ‘04’.                                                                                      |
@@ -1090,7 +1134,7 @@ The reserve function, if successfully executed, causes an LMS to perform a numbe
 | *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*  | *Description*                   |
 |------------|----------------------------|------------|---------|-----------|---------------------------------|
 | R16D01     | Reservation reference      |            | 0-1     | String    | Either a reservation reference or a copy of the reservation record must be included in the response.                                               |
-| R16C02     | Reservation entity record  |            | 0-1     |           | See E06.                        |
+|*R16C02*    |*Reservation entity record* |            | 0-1     |           | See E06.                        |
 | R16D03     | Charge reference           | BT / BV    | 0-1     | String    | LCF entity identifier for the charge associated with reservation of this manifestation or item.                                                     |
 
 ### <a name="f17"></a> 17 Set/reset patron password
