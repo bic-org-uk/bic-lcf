@@ -12,7 +12,7 @@ weight: 1
 
 ### Version 1.3.0
 
-### Release Candidate
+### 16 December 2023
 
 ---
 

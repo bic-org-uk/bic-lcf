@@ -14,7 +14,7 @@ weight: 6
 
 ### Issue 3
 
-### Release Candidate
+### 16 December 2023
 
 ---
 
