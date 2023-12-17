@@ -14,7 +14,7 @@ weight: 4
 
 ### Version 1.3.0
 
-### DRAFT
+### 16 December 2023
 
 ---
 
@@ -408,7 +408,7 @@ NOTE – *(Added in v1.3.0)* This REST web service implementation of the LCF Dat
   -  to indicate if the request is to renew all items checked out to that patron; 
   
   -  to indicate whether the request is being made by the patron directly or by a third party. 
-  
+
 Renewal of a large number of loan items in a single request would place an arbitrarily large processing burden on the server, obliging the server to check and update the status of all the patron's loans before responding to the request, which could involve an unacceptable response-time. For this reason the ability to renew all items on loan is not supported. To renew all a patron's loans, the terminal client must retrieve a list of all the patron's loans and request renewal of each in turn.
 
 In a REST web service implementation it is not necessary to have a separate element or parameter to indicate whether it is the patron or a third party making the request, because this is already indicated by ensuring that the user making the request is authenticated in the request header.
@@ -521,7 +521,7 @@ A library may wish to warn the user that the title being checked out will incur 
 This response would require that the client repeat the request with the acknowledgement code included as the value of query parameter `acknowledgement-code` in the request, e.g.
 
     POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack987654
-    
+
 _Example 3: Title being checked out has been lent previously to the same patron and also will incur a loan charge_
 
 In this example both the exception conditions of the first two examples have occurred. The initial check-out request would be refused by the server using HTTP response code 428 (Precondition required) and the response would include the details of the exception condition as an XML payload such as the following:

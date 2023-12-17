@@ -12,7 +12,7 @@ weight: 1
 
 ### Version 1.3.0
 
-### DRAFT
+### 16 December 2023
 
 ---
 
@@ -286,7 +286,7 @@ An identified copy of a manifestation that is in a library's stock / holding.
 
 An identified person or organization permitted to borrow an item from a library.
 
-NOTE – Contact information is held in separate contact records for security and privacy reasons.See E09 below.
+NOTE – Contact information is held in separate contact records for security and privacy reasons. See E09 below.
 
 #### Properties
 
@@ -476,7 +476,7 @@ An identified charge made to a patron. May be a fee or a fine.
 | **E07D03** | **Charge type**            | **BT**     | **1**   | **Code**   | **LCF code list [CHT](LCF-CodeLists.md#CHT)<br/>The type or category of charge.**                                                                                          |
 | **E07D04** | **Charge status**          |            | **1**   | **Code**   | **LCF code list [CHS](LCF-CodeLists.md#CHS)**          |
 | E07D05     | Charge description         |            | 0-1     | String     | Free-text description of charge. |
-| E07D06     | item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
+| E07D06     | Item reference             | AB         | 0-1     | String     | An item to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D07     | Manifestation reference    |            | 0-1     | String     | A manifestation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
 | E07D08     | Loan reference             |            | 0-1     | String     | A loan to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                                     |
 | E07D09     | Reservation reference      |            | 0-1     | String     | A reservation to which this charge relates. Normally the single most precise reference (e.g. loan) will be sufficient.                            |
@@ -629,7 +629,8 @@ NOTE – The selection criterion identifier may be the same as the name. In any 
 
 #### Description *(clarified in v1.1.0)*
 
-A patron authorisation code: either a standard code from LCF code list [AUT](LCF-CodeLists.md#AUT) (E13D02) or a library-assigned heading or name (E13D03).
+A patron authorisation record, containing either a standard code from LCF code list [AUT](LCF-CodeLists.md#AUT) (E13D02) or a library-assigned heading or name (E13D03).
+
 
 #### Properties
 
@@ -651,7 +652,7 @@ A patron authorisation code: either a standard code from LCF code list [AUT](LCF
 
 #### Description
 
-A library authority or institution.
+An entity representing a single node in the logical structure for a library or wider institution. A single library would be modelled using only one entity record. Where a libary forms part of a wider institution or consortia, this can be represented with each node in the hierarchy being one record and the relationships between them described using the LCF code lists indicated below. 
 
 #### Properties
 
@@ -711,7 +712,16 @@ A library authority or institution.
 
 #### Description
 
-A message or alert that may be communicated to a patron or group of patrons.
+A message is any form of communication that should be displayed to any group of Patrons or an individual Patron.
+
+Messages for a specific [Patron](#e03) are typically retrieved through a request for the Patron record, which includes the associated messages for a specific Patron in field E03C34. This follows the use case for a self-service terminal, where the Patron is known and using the terminal. 
+
+Messages which require acknowledgement should follow [LCF function 32](#f32), confirming which messages have been acknowledged by the Patron.  
+
+All message entities must have a type, indicated by the [MAT](LCF-CodeLists.md#MAT) code list, indicating whether action is required, or whether the message relates to the Institutional, Collection, or Patron  level notices. 
+* Examples of Institution-level messages include opening hours, holiday closure periods, where the library as a whole may be unavailable, etc.
+* Examples of Collection-level messages include additions or removal of items from collections, whether there are rule changes for accessing collections, etc.
+* Examples of Patron-level messages include lost property or specific messages about fees or fines for one specific Patron, etc.
 
 #### Properties
 
@@ -723,13 +733,13 @@ A message or alert that may be communicated to a patron or group of patrons.
 | E15D04     | Message/alert priority     |            | 0-1     | Code       | LCF code list **[MAP](LCF-CodeLists.md#MAP)**                                                                                                  |
 | E15D05     | Message/alert display type |            | 0-1     | Code       | LCF code list **[MGT](LCF-CodeLists.md#MGT)**                                                                                                  |
 | E15D06     | Display/delivery constraint |          | 0-1     | Code       | LCF code list **[MAC](LCF-CodeLists.md#MAC)**                                                                                                  |
-| E15D07     | Display from date-time     |            | 0-1     | DateTime   |                                |
-| E15D08     | Display until date-time    |            | 0-1     | DateTime   |                                |
+| E15D07     | Display from date-time     |            | 0-1     | DateTime   | Only permitted when the delivery constraint is MAC01          |
+| E15D08     | Display until date-time    |            | 0-1     | DateTime   | Only permitted when the delivery constraint is MAC01                              |
 | E15D09     | Message/alert audience     |            | 0-1     | Code       | LCF code list **[MAU](LCF-CodeLists.md#MAU)**                                                                                                  |
-| E15D10     | Patron category            |            | 0-n     | String     | Only included if audience is specified patrons and categories |
-| E15D11     | Patron reference           |            | 0-n     | String     | Only included if audience is specified patrons and categories |
-| E15D14     | Loan reference             |            | 0-n     | String     | Only included if audience is patrons related to specified loans |
-| E15D15     | Reservation reference      |            | 0-n     | String     | Only included if audience is patrons related to specified reservations |
+| E15D10     | Patron category            |            | 0-n     | String     | Only included if audience MAU02 is specified. Patron Category is a library-specific value |
+| E15D11     | Patron reference           |            | 0-n     | String     | Only included if audience MAU02 is specified |
+| E15D14     | Loan reference             |            | 0-n     | String     | Only included if audience MAU03 'patrons related to specified loans' is specified |
+| E15D15     | Reservation reference      |            | 0-n     | String     | Only included if audience MAU04 'patrons related to specified reservations' is specified |
 | ***E15C12***  | **Message/alert text**  |            | **1-n** |            | Repeatable if the message/alert text is available in several alternative text formats                                                               |
 | **E15D12.1**  | Text format             |            | **1**   | Code       | LCF code list **[TFT](LCF-CodeLists.md#TFT)**                                                                                                  |
 | **E15D12.2**  | Text string             |            | **1**   | String     |                                |

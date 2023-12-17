@@ -14,7 +14,7 @@ weight: 3
 
 ### Version 1.3.0
 
-### DRAFT
+### 16 December 2023
 
 ---
 

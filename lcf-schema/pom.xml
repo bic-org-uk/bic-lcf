@@ -12,7 +12,7 @@
 
     <groupId>org.bic.ns.lcf</groupId>
     <artifactId>lcf-schema</artifactId>
-    <version>x.x.0-SNAPSHOT</version>
+    <version>1.3.0</version>
     <packaging>jar</packaging>
 
     <name>BIC LCF Schema Components</name>
@@ -29,7 +29,7 @@
     <licenses>
         <license>
             <name>License to use BIC Standards</name>
-            <url>http://www.bic.org.uk/files/bicstandardslicence.pdf</url>
+            <url>https://bic.org.uk/resources/license-to-use-bic-standards/</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -46,15 +46,11 @@
     </scm>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.min-version>3.3</maven.min-version>
     </properties>
-
-    <prerequisites>
-        <maven>${maven.min-version}</maven>
-    </prerequisites>
 
     <dependencies>
         <dependency>
@@ -125,8 +121,8 @@
                 </plugin>            
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb21-plugin</artifactId>
-                <version>0.15.2</version>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.15.3</version>
                 <executions>
                     <execution>
                         <goals>

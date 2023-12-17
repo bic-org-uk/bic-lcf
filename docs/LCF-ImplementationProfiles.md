@@ -14,7 +14,7 @@ weight: 6
 
 ### Issue 3
 
-### Publication date to be determined
+### 16 December 2023
 
 ---
 
