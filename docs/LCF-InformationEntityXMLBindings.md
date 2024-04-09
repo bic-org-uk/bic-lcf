@@ -1,5 +1,5 @@
 ---
-title: LCF v1.3.0 Information Entities XML bindings
+title: LCF v1.3.x Information Entities XML bindings
 menu: Information Entities XML bindings
 weight: 3
 ---
@@ -12,9 +12,9 @@ weight: 3
 
 ## Information Entities XML bindings
 
-### Version 1.3.0
+### Version 1.3.x
 
-### 16 December 2023
+### xxxx 2024
 
 ---
 
@@ -42,7 +42,7 @@ E01 MANIFESTATION
 | **1**  |              | **manifestation<br/>xmlns=<br/>"http://ns.bic.org/lcf/1.0"**                                       |         |             | **Top-level&nbsp;element**<br/>*'version' attribute removed in v1.0.1*                                 |
 |   2    | E01D01       | identifier                       | 0-1     | string      | Mandatory except when creating a new entity, in which case the identifier may be assigned by the LMS                        |
 |   3    | E01C02       | additional-manifestation-id      | 0-n     |             | *Made non-mandatory in v1.3.0*        |
-|   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | [MNI](LCF-CodeLists.md#MNI)     |
+|   4    | E01D02.1     | manifestation-id-type            | 1       | Code        | ONIX code list 5<br/>*LCF Code List MNI deleted in Issue 5*     |
 |   5    | E01D02.2     | type-name                        | 0-1     | string      |         |
 |   6    | E01D02.3     | value                            | 1       | string      |         |
 |   7    | E01D22       | manifestation-type               | 0-1     | Code        | [MNT](LCF-CodeLists.md#MNT)<br/>*Added in v1.3.0*     |
