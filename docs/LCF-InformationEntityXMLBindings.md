@@ -103,7 +103,7 @@ E01 MANIFESTATION
 
 *Example of a manifestation*
 
-`<manifestation xmlns="http://ns.bic.org/lcf/1.0" version="1.0">`<br/>
+`<manifestation xmlns="http://ns.bic.org/lcf/1.0">`<br/>
 &#xA0;`<identifier\>1234567890</identifier>`<br/>
 &#xA0;`<media-type>`<br/>
 &#xA0;`<media-type-scheme>02</media-type-scheme>`<br/>
@@ -160,7 +160,7 @@ E02 ITEM
 
 *Example of an item*
 
-`<item xmlns="http://ns.bic.org/lcf/1.0" version="1.0">`<br/>
+`<item xmlns="http://ns.bic.org/lcf/1.0">`<br/>
 &#xA0;`<item-id>9876543210</item-id>`<br/>
 &#xA0;`<manifestation-ref>1234567890</manifestation-ref>`<br/>
 &#xA0;`<media-warning>02</media-warning>`<br/>
