@@ -35,9 +35,27 @@ To enable the server to trace the client's behaviour during profile validation, 
 
 The proposal is to provide a simple Web UI and underlying API as part of the server implementation. The Web UI presents a simple human user interface enabling the user to select which profile is under test, activate the test, complete the test and view the outcome. The API underpinning the Web UI enables the same behaviour, enabling automation of the test cycle process if required by LCF Consortium members. This is in line with modern CI/CD pipeline creation. 
 
-# Profiles
+# Profile Validation Strategies
 
 ## Profile P00 - Core LMS Behaviour
+
+### Simple Operation
+To determine simple interaction with the primary LCF entities, the system should be able to perform the client or server role for the following:
+
+* Perform an Entity List Request
+* Perform a GET request for each EntityRef in the response.
+* Perform an Entity List Request for page 2 of the results (next page move).
+
+### Chained Operation
+More complex use of the entity responses requires understanding of each entity response and to invoke a follow-on behaviour. This is best demonstrated by evaluating any EntityRefs returned from any entity. Starting from a given entity, perform the following steps:
+
+1. Perform a GET request against the Entity. eg. GET /lcf/1.0/patrons/1
+2. Evaluate the response.
+3. For each EntityRef listed within the response;
+   * Perform a GET request against the EntityRef.
+   * Do not recurse into the resulting entity as this introduces a risk of infinite loops.
+4. Move to the next primary Entity type.  
+
 
 ## Profile P01 - Circulation
 
