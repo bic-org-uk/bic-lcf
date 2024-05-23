@@ -223,7 +223,7 @@ The request is formulated using the HTTP GET method.
 |       | *Element ID* | *URI Path segment(s)* | *URI Query parameter* | *Card.* | *Data type* | *Notes*                                                      |
 | ----- | ------------ | --------------------- | --------------------- | ------- | ----------- | ------------------------------------------------------------ |
 | **1** |              | **/lcf**              |                       | **1**   |             | LCF initial segment                                          |
-| **2** |              | **/1.0**              |                       | **1**   |             | LCF version number. All 1.x.x. versions of this specification will use the string "1.0" here. |
+| **2** |              | ~~**/1.0**~~          |                       | ~~**0**~~   |             | Deprecated. Removed in LCF 1.4.0 due to Issue #327           |
 | **3** | **Q01D01**   | **/{entity-type}**    |                       | **1**   | **Code**    | **The alpha code value is used from code list [ENT](LCF-CodeLists.md#ENT)** |
 | **4** | **Q01D02**   | **/{id-value}**       |                       | **1**   | **string**  |                                                              |
 
