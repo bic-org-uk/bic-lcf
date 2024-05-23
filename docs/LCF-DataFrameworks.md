@@ -10,9 +10,9 @@ weight: 1
 
 ## Library Data Communication Framework for Terminal Applications (LCF)[\[1\]](#Notes)
 
-### Version 1.3.0
+### Version 1.x.x
 
-### 16 December 2023
+### 23 May 2024
 
 ---
 
@@ -45,6 +45,8 @@ The information that these functions retrieve or change related to a number of "
 -   payments – made by patrons in respect of charges incurred
 
 -   contacts – contact details for persons or organizations represented by patrons.
+
+-   version - the version number of the LCF implementation.
 
 Each entity and each request and response message-pair is defined in terms of a data framework[\[2\]](#Notes), or schema. A data framework specifies how to describe an entity in terms of a collection of properties (identifiers, name, etc.), and how to construct a message (request or response) in terms of entity descriptions and other parameters. Each data element and composite is defined in terms of what data it may contain and its meaning.
 
@@ -89,6 +91,8 @@ The data frameworks for the following other types of information entity are also
 -   [Patron authorisation codes](#e13)
 
 -   [Message / alert](#e15)
+
+-   [Version](#e16)
 
 Each of the data frameworks for entity types defines the properties associated with that entity type. These properties may be either simple data elements or composites: more complex structures, being groupings of data elements and other composites.
 
@@ -760,6 +764,27 @@ All message entities must have a type, indicated by the [MAT](LCF-CodeLists.md#M
 | E15D16.4.2    | Total delivered         |            | 0-1     | Integer    | Number of Patrons to whom this message/alert has been delivered |
 | E15D16.4.3    | Total acknowledged      |            | 0-1     | Integer    | Number of Patrons from whom acknowledgements of this message/alert have been received |
 
+### <a name="e16"></a>E16 LCF VERSION
+
+#### Description
+The VERSION entity empowers a conversation between the terminal service client and the server, allowing the client to ask "Which LCF version are you?" and enable the server to respond. 
+Previous implementations implied a version through request meta-data (eg. HTTP headers in responses). This changed approach allows clients to proactively determine the version of LCF server they are calling, and tune their behaviour to take advantage of any new capabilities offered. 
+
+#### Properties
+
+| *Id*       | *Element*                  | *SIP2 ID*  | *Card.* | *Format*   | *Description*                  |
+|------------|----------------------------|------------|---------|------------|--------------------------------|
+| **E16D01** | **version**                |            | **1**   | **String** | **LCF version string, compliant with semantic version model.** Aligned with the original R00D07 defintion.                       |
+| E16D02     | build-date                 |            | 0-1     | DateTime   |                                | (Optional) build date for this vendor version. 
+
+e.g.
+
+```
+<lcf-version>
+  <version>1.3.1</version>
+  <build-date>2024-01-01 13:59:25</date>
+</lcf-version>
+```
 
 Common components
 -----------------
