@@ -497,5 +497,8 @@
     <xs:element name="volume-or-part" type="nonEmptyString"/>
     <xs:element name="year-of-publication" type="xs:gYear"/>
 
+    <xs:element name="version" type="nonEmptyString"/>
+    <xs:element name="build-date" type="xs:dateTime"/>
+	
 </xs:schema>
 
