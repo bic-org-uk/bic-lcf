@@ -473,12 +473,10 @@
 	</xs:annotation>
 	<xs:complexType>
 	    <xs:complexContent> 
-                <xs:extension base="lcf-entity">
-                    <xs:sequence>
-			<xs:element ref="version" minOccurs="1" maxOccurs="1"/>
-			<xs:element ref="build-date" minOccurs="0" maxOccurs="1"/>
-		    </xs:sequence>
-                </xs:extension>
+                <xs:sequence>
+		    <xs:element ref="version" minOccurs="1" maxOccurs="1"/>
+		    <xs:element ref="build-date" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
             </xs:complexContent>
 	</xs:complexType>
     </xs:element>
