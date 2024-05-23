@@ -472,12 +472,10 @@
             <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
 	</xs:annotation>
 	<xs:complexType>
-	    <xs:complexContent> 
-                <xs:sequence>
-		    <xs:element ref="version" minOccurs="1" maxOccurs="1"/>
-		    <xs:element ref="build-date" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-            </xs:complexContent>
+            <xs:sequence>
+		<xs:element ref="version" minOccurs="1" maxOccurs="1"/>
+		<xs:element ref="build-date" minOccurs="0" maxOccurs="1"/>
+	    </xs:sequence>
 	</xs:complexType>
     </xs:element>
 	
