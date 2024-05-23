@@ -464,4 +464,23 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="lcf-version">
+	<xs:annotation>
+            <xs:appinfo source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#EntityID">E16</xs:appinfo>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Name">LCF VERSION</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Description">The version number of the LCF implementation.</xs:documentation>
+            <xs:documentation source="https://bic-org-uk.github.io/bic-lcf/LCF-DataFrameworks#Notes"></xs:documentation>
+	</xs:annotation>
+	<xs:complexType>
+	    <xs:complexContent> 
+                <xs:extension base="lcf-entity">
+                    <xs:sequence>
+			<xs:element ref="version" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="build-date" minOccurs="0" maxOccurs="1"/>
+		    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+	</xs:complexType>
+    </xs:element>
+	
 </xs:schema>
