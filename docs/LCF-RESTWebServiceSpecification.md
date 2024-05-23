@@ -1,5 +1,5 @@
 ---
-title: LCF v1.3.0 REST Web Services Implementation
+title: LCF v1.4.0 REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
@@ -12,9 +12,9 @@ weight: 4
 
 ## Web Services Implementation
 
-### Version 1.3.0
+### Version 1.4.x
 
-### 16 December 2023
+### 23 May 2024
 
 ---
 
@@ -72,7 +72,7 @@ In this case, HTTP BASIC authentication should be provided for each web service 
 A response code of 401 indicates that the Service Terminal credentials were incorrect or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
 
 ```
-GET /lcf/1.0/patrons/{id-value}
+GET /lcf/patrons/{id-value}
 Authorization: BASIC {Base64-encoded-terminal-credentials}
 
 Responds with:
@@ -107,7 +107,7 @@ Where an LCF web service requires authentication of a Patron, this is done by us
 A response code of 403 indicates that the patron credentials were incorrect, or (in the case of an external IdP) has expired and needs to be re-requested from the IdP.
 
 ```
-GET /lcf/1.0/patrons/{id-value}
+GET /lcf/patrons/{id-value}
 lcf-patron-credential: BASIC {Base64-encoded-patron-credentials}
 
 Responds with:
@@ -129,7 +129,7 @@ where `{Base64-encoded-patron-credentials}` is constructed from the patron's ID 
 
 For example:
 
-    GET https://192.168.0.99:443/lcf/1.0/patrons/{patron-id}/authorisations?patron-id={patron-id}&passwd={encrypted-patron-password}
+    GET https://192.168.0.99:443/lcf/patrons/{patron-id}/authorisations?patron-id={patron-id}&passwd={encrypted-patron-password}
 
 Implementers are reminded that, even when using HTTPS, query parameters may be stored as clear text in web server logs, so method B may not be sufficiently secure for most requirements.
 
@@ -156,7 +156,7 @@ Care should be taken not to use operations which have side effects (e.g. POST, P
 
 #### 4. Patron Authorisation (Access Rights and Privileges) *(added in v1.2.0)*
 
-A request for the Authorisations for a specific Patron is initiated with a GET request to /lcf/1.0/patrons/{id-value}/authorisations.
+A request for the Authorisations for a specific Patron is initiated with a GET request to /lcf/patrons/{id-value}/authorisations.
 
 The response to a successful Authorisations request is a list of zero or more [AUTHORISATION entities](LCF-Dataframeworks.md#E13). 
 
@@ -165,7 +165,7 @@ Each AUTHORISATION entity within the list must state which authorisation is bein
 Implementations SHOULD only provide a list of the Patron's [AUTHORISATION entities](LCF-Dataframeworks.md#E13) after a successful Patron Authentication (see above). As such this operation MAY be used for Patron authentication purposes.
 
 ```
-GET /lcf/1.0/patrons/{id-value}/authorisations
+GET /lcf/patrons/{id-value}/authorisations
 Authorization: BASIC {Base64-encoded-terminal-credentials}=
 lcf-patron-credential: BASIC {Base64-encoded-patron-credentials}
 
@@ -186,7 +186,7 @@ HTTP/403 - The id-value and password\pin combination are invalid, or need to be 
 HTTP/404 - the Patron represented by id-value does not exist
 ```
 
-*NOTE: A GET request to /lcf/1.0/authorisations, (as it does not explicitly specify a Patron), will return a list of all Authorisations supported by the LMS without indicating which ones are being granted to the Patron in question.*
+*NOTE: A GET request to /lcf/authorisations, (as it does not explicitly specify a Patron), will return a list of all Authorisations supported by the LMS without indicating which ones are being granted to the Patron in question.*
 
 #### 5. Secure communication
 
@@ -231,7 +231,7 @@ NOTE – LCF element Q01D03 is not implemented in this binding.
 
 *Example of a Request*
 
-    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
+    GET http://192.168.0.99:80/lcf/manifestations/1234567890
 
 ### XML payload format for response message
 
@@ -290,13 +290,13 @@ A set of alternative values may be specified as a comma-separated list of values
 *Examples of a Request*
 *(end-date range example added in v1.2.0)*
 
-    GET http://192.168.0.99:80/lcf/1.0/manifestations
+    GET http://192.168.0.99:80/lcf/manifestations
     
-    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
+    GET http://192.168.0.99:80/lcf/manifestations/1234567890/items
     
-    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?os:count=10&os:startIndex=0
+    GET http://192.168.0.99:80/lcf/manifestations/1234567890/items?os:count=10&os:startIndex=0
     
-    GET http://192.168.0.99:80/lcf/1.0/patrons/12345/loans?end-date=[2019-06-01,2019-06-30]
+    GET http://192.168.0.99:80/lcf/patrons/12345/loans?end-date=[2019-06-01,2019-06-30]
 
 ### XML payload format for response message
 
@@ -322,7 +322,7 @@ NOTE – LCF element R02C07 is not implemented.
 
     <lcf-entity-list-response xmlns="http://ns.bic.org/lcf/1.0"\>
      <entity-type>01</entity-type>
-     <entity href="http://192.168.0.99:80/lcf/1.0/items/1234567890"/>
+     <entity href="http://192.168.0.99:80/lcf/items/1234567890"/>
     </lcf-entity-list-response>
 
 If the request is unsuccessful, i.e. the server is unable to process the request, the HTTP response will include an appropriate status code, and may also contain an XML payload that conforms to the LCF exception conditions XML schema.
@@ -343,9 +343,9 @@ The request is formulated using the HTTP POST method. The payload is an XML docu
 
 *Examples of a Request*
 
-    POST http://192.168.0.99:80/lcf/1.0/manifestations
+    POST http://192.168.0.99:80/lcf/manifestations
     
-    POST http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items
+    POST http://192.168.0.99:80/lcf/manifestations/1234567890/items
 
 ### XML payload format for response message
 
@@ -370,7 +370,7 @@ NOTE – This function replaces the entity item identified in the request with t
 
 *Example of a Request*
 
-    PUT http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
+    PUT http://192.168.0.99:80/lcf/manifestations/1234567890
 
 ### XML payload format for response message
 
@@ -391,7 +391,7 @@ The request is formulated using the HTTP DELETE method.
 
 *Example of a Request*
 
-    DELETE http://192.168.0.99:80/lcf/1.0/manifestations/1234567890
+    DELETE http://192.168.0.99:80/lcf/manifestations/1234567890
 
 ### XML payload format for response message
 
@@ -428,15 +428,15 @@ The request is formulated using the HTTP POST method.
 
 A new check-out is performed by creating a new loan record, using LCF function 03 (see above), e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loans
+    POST http://192.168.0.99:80/lcf/loans
 
 Request to confirm a new check-out, which the LMS may not normally deny (equivalent to the SIP2 "no block" flag) *(Modified in v1.3.0)*, is indicated by including the 'confirmation' parameter in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loans?confirmation=Y
+    POST http://192.168.0.99:80/lcf/loans?confirmation=Y
 
 If a charge is applicable, the response may report an exception unless _either_ the 'charge-acknowledged' parameter is included in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loans?charge-acknowledged=Y
+    POST http://192.168.0.99:80/lcf/loans?charge-acknowledged=Y
 
 _or_ the exception response contains an acknowledgement code to be included in the request (see [examples below](#checkout)).
 
@@ -495,7 +495,7 @@ A library may wish to warn the user that the title being checked out (or reserve
 
 This response would require that the client repeat the request with the acknowledgement code included as the value of query parameter `acknowledgement-code` in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack123456
+    POST http://192.168.0.99:80/lcf/loans?acknowledgement-code=ack123456
 
 
 _Example 2: Title being checked out will incur the specified charge_
@@ -520,7 +520,7 @@ A library may wish to warn the user that the title being checked out will incur 
 
 This response would require that the client repeat the request with the acknowledgement code included as the value of query parameter `acknowledgement-code` in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack987654
+    POST http://192.168.0.99:80/lcf/loans?acknowledgement-code=ack987654
 
 _Example 3: Title being checked out has been lent previously to the same patron and also will incur a loan charge_
 
@@ -549,13 +549,13 @@ In this example both the exception conditions of the first two examples have occ
 
 This response would require that the client repeat the request with both the acknowledgement codes included in the string value of query parameter `acknowledgement-code` in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/loans?acknowledgement-code=ack123456,ack987654
+    POST http://192.168.0.99:80/lcf/loans?acknowledgement-code=ack123456,ack987654
 
 ### Cancel check-out / renewal
 
 In the case of a new check-out, a cancellation is simply a deletion of a loan, using LCF function 05 (see above), e.g.:
 
-    DELETE http://192.168.0.99:80/lcf/1.0/loans/1234567890
+    DELETE http://192.168.0.99:80/lcf/loans/1234567890
 
 In the case of a renewal, a cancellation involves both deletion of the new loan and modification of the loan that preceded the renewal to modify its status and to remove any reference to the (now deleted) renewal loan.
 
@@ -571,15 +571,15 @@ The check-in function involves modification of a loan, using function 04 above, 
 
 1. The URI of the current loan is found:
 
-    GET http://192.168.0.99:80/lcf/1.0/items/1234567890/loans?status=01
+    GET http://192.168.0.99:80/lcf/items/1234567890/loans?status=01
 
 2. The current loan is retrieved for modification:
 
-    GET http://192.168.0.99:80/lcf/1.0/loans/1234567654
+    GET http://192.168.0.99:80/lcf/loans/1234567654
 
 3. The retrieved loan is modified:
 
-    PUT http://192.168.0.99:80/lcf/1.0/loans/1234567654
+    PUT http://192.168.0.99:80/lcf/loans/1234567654
 
 This presumes that a number of consequential functions are performed server-side.
 
@@ -610,7 +610,7 @@ A check-in response may be the same response as for modifying any entity, or may
       <start-date>...</start-date>
       <loan-status>...</loan-status>
      </loan>
-     <return-location-ref>http://192.168.0.99:80/lcf/1.0/locations/repair-bin</return-location-ref>
+     <return-location-ref>http://192.168.0.99:80/lcf/locations/repair-bin</return-location-ref>
      <sensitive-media-warning>00</sensitive-media-warning>
      <special-attention>02</special-attention>
     </lcf-check-in-response>
@@ -625,7 +625,7 @@ Cancellation of check-in involves modifying all records affected by the check-in
 
 Making a patron payment involves creating a payment record, assuming that all consequent modifications to charge and patron records are server-side functions.
 
-    POST http://192.168.0.99:80/lcf/1.0/payments
+    POST http://192.168.0.99:80/lcf/payments
 
 An XML document conforming to the XML schema for payment entities must be attached to the POST request.
 
@@ -641,9 +641,9 @@ If the LMS does not have to authorise payment, the response is the same as for c
 
 Blocking a patron account involves a change to the status of a patron and therefore a modification to a specific patron record. No other functions are involved. Normally the patron record would need to be retrieved, then modified, i.e.:
 
-    GET http://192.168.0.99:80/lcf/1.0/patrons/1234567890
+    GET http://192.168.0.99:80/lcf/patrons/1234567890
     
-    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890
+    PUT http://192.168.0.99:80/lcf/patrons/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
@@ -657,9 +657,9 @@ The response is the same as for modifying any entity – see function 04 above.
 
 Un-blocking a patron account, as with blocking, involves a change in the status of a patron and therefore a modification to a specific patron record, having first retrieved the record. No other functions are involved.
 
-    GET http://192.168.0.99:80/lcf/1.0/patrons/1234567890
+    GET http://192.168.0.99:80/lcf/patrons/1234567890
     
-    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890
+    PUT http://192.168.0.99:80/lcf/patrons/1234567890
 
 The payload of the PUT request is an XML document containing the modified patron record.
 
@@ -687,15 +687,15 @@ The request is formulated using the HTTP POST method.
 
 A reservation is performed by creating a new reservation record, using LCF function 03 (see above), e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/reservations
+    POST http://192.168.0.99:80/lcf/reservations
 
 Request to confirm a reservation, which the LMS may not normally deny, is indicated by including the 'confirmation' parameter in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/reservations?confirmation=Y
+    POST http://192.168.0.99:80/lcf/reservations?confirmation=Y
 
 If a charge is applicable, the response may report an exception unless the 'charge-acknowledged' parameter is included in the request, e.g.
 
-    POST http://192.168.0.99:80/lcf/1.0/reservations?charge-acknowledged=Y
+    POST http://192.168.0.99:80/lcf/reservations?charge-acknowledged=Y
 
 An XML document that conforms to the XML schema for a reservation entity (E06) must be uploaded with the request.
 
@@ -714,11 +714,11 @@ Setting or resetting a patron password involves modification of a property of a 
 
 To set a patron password for the first time:
 
-    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/password
+    POST http://192.168.0.99:80/lcf/patrons/1234567890/password
 
 To reset an existing patron password:
 
-    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890/password
+    PUT http://192.168.0.99:80/lcf/patrons/1234567890/password
 
 The payload of the POST or PUT request is a plain text string containing the encrypted password.
 
@@ -736,11 +736,11 @@ Setting or resetting a patron PIN involves modification of a property of a patro
 
 To set a patron PIN for the first time:
 
-    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/pin
+    POST http://192.168.0.99:80/lcf/patrons/1234567890/pin
 
 To reset an existing patron password:
 
-    PUT http://192.168.0.99:80/lcf/1.0/patrons/1234567890/pin
+    PUT http://192.168.0.99:80/lcf/patrons/1234567890/pin
 
 The payload of the POST or PUT request is a plain text string containing the encrypted PIN.
 
@@ -754,19 +754,19 @@ If the request is successful, the HTTP response should include status code 200 (
 
 This function is the same as core function 02, applied to the retrieval of a list of location entities, for example:
 
-    GET http://192.168.0.99:80/lcf/1.0/locations?{selection-criteria}
+    GET http://192.168.0.99:80/lcf/locations?{selection-criteria}
 
 ## 22 Retrieve title classification scheme list
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification scheme entities, for example:
 
-    GET http://192.168.0.99:80/lcf/1.0/class-schemes
+    GET http://192.168.0.99:80/lcf/class-schemes
 
 ## 23 Retrieve title classification list
 
 This function is the same as core function 02, applied to the retrieval of a list of title classification code entities, for example:
 
-    GET http://192.168.0.99:80/lcf/1.0/class-codes?scheme=xxxxx
+    GET http://192.168.0.99:80/lcf/class-codes?scheme=xxxxx
 
 ## 24 Retrieve (stock) item list
 
@@ -774,20 +774,20 @@ This function combines the core functions for retrieval of a list of manifestati
 
 The following selects all items for a given set of selection criteria:
 
-    GET http://192.168.0.99:80/lcf/1.0/items?{all-selection-criteria}
+    GET http://192.168.0.99:80/lcf/items?{all-selection-criteria}
 
 The following selects all items that are copies of the same manifestation, for a given set of selection criteria:
 
-    GET http://192.168.0.99:80/lcf/1.0/manifestations/1234567890/items?{all-selection-criteria}
+    GET http://192.168.0.99:80/lcf/manifestations/1234567890/items?{all-selection-criteria}
 
 ## 25 Retrieve selection criterion type list
 \[*Deprecated in v1.2.0*\]
 
 <span id="h.1fob9te" class="anchor"></span>This function is the same as the core function 02 for retrieving a list of selection criterion entities. A list of selection criterion types can be retrieved for a specific entity type or for all entity types, e.g.:
 
-    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=manifestations
+    GET http://192.168.0.99:80/lcf/properties?entity-type=manifestations
     
-    GET http://192.168.0.99:80/lcf/1.0/properties?entity-type=locations
+    GET http://192.168.0.99:80/lcf/properties?entity-type=locations
 
 NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
@@ -796,7 +796,7 @@ NOTE - Implementation of this function is now deprecated. A new approach to the 
 
 The following selects all items that are available to be borrowed (circulation-status = '03') and are at a specific location 'shelf1':
 
-    GET http://192.168.0.99:80/lcf/1.0/items?current-location=shelf1&circulation-status=03
+    GET http://192.168.0.99:80/lcf/items?current-location=shelf1&circulation-status=03
 
 NOTE - Implementation of this function is now deprecated. A new approach to the expression of search and selection criteria for the retrieval of lists of entities is to be added in a future version of LCF.
 
@@ -819,7 +819,7 @@ The request is formulated using the HTTP POST method to create a charge.
 
 The following applies an overdue charge of GBP 2.00 to a patron's account:
 
-    POST http://192.168.0.99:80/lcf/1.0/patrons/1234567890/charges
+    POST http://192.168.0.99:80/lcf/patrons/1234567890/charges
 
 The XML payload should contain a Charge entity (E07) and must include as a minimum the patron reference (E07D02), the charge type (E07D03), the charge status (E07D04), and the charge amount (E07D12).
 
