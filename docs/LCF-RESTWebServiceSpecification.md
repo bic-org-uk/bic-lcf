@@ -1,5 +1,5 @@
 ---
-title: LCF v1.4.0 REST Web Services Implementation
+title: LCF v1.4.x REST Web Services Implementation
 menu: REST Web Services Implementation
 weight: 4
 ---
