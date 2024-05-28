@@ -24,8 +24,7 @@ This document defines implementation profiles for the LCF data communication fra
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
-#### P00 Core LMS Profile
-*(Added in Issue 2, substantially revised in Issue 3)*
+#### P00 Core Profile
 
 This profile defines which of the LCF core functions by entity type need to be supported by an LMS that implements LCF. As a minimum, an LMS must support all retrieval functions, to allow an authorised terminal, operated by an authorised user, to retrieve specific entities and lists of entities of all the specified types.
 
@@ -52,9 +51,76 @@ Using these core functions it must be possible for authorised users to operate a
 - E13 Authorisation
 - E14 Authority/institution
 - E15 Message/alert
+- E16 LCF Version
 
+#### P02 Circualation
+
+The Circulation profile covers the library behaviour to:
+
+* Issue an Item to a Patron
+* Renew an Item on loan to a Patron
+* Return an Item from a Patron, ending the loan. 
+* TBC: Overdue Fines - fit here?
+
+#### P03 Reservations
+
+The Reservation profile covers behaviour where a Patron is unable to take immedate loan of an Item, and therefore places a Reservation (a.k.a Hold) on the Item, allowing them to await their turn to Loan the Item. 
+
+* Create a Reservation of an Item for a Patron
+* Create a Reservation of a Work for a Patron
+* Update a Reservation for an Item or Work for a Patron.
+* Cancel a Reservation for an Item or Work for a Patron.
+* Issue a Reserved Item to the reserving Patron.
+
+#### P04 Patron Debt Management
+
+The Patron Debt Managent profile relates to the accruing of Fines, Fees and Charges, including the request to create a Charge my the terminal client, and the subsequent ability to inform the LMS/ILS that the payment has been made. 
+
+* Create a Charge for a Paton.
+* List the Charges for a Patron.
+* Record the Payment of a Charge.
+* Create Credit for a Patron. 
+* Record the Payment of a Change from Patron Credit.
+* Waive a Charge for a Patron.
+* Update an existing Charge.
+
+#### P05 Patron Interraction
+
+The Patron Account Information profile is designed to show a terminal client and server are able to perform effectively to empower the display of the information relating to a Patron's interaction with the library. A typical usecase would be a terminal client showing a Patron their list of active and/or overdue Loans as the Patron started to use the terminal client.
+
+* Authenticate Patron
+* Read Patron entity
+* Show active Loans for a Patron, including the Title, Author and due date for any Loan. 
+* Show active Reservations for a Patron, including the Title, Author and reservation queue position for any Reservation.
+* Show outstanding debt for a Patron, breaking down into individual oustanding Charges.
+
+#### P06 Cataloguing
+
+Enable a terminal service client to assist with cataloguing behaviour of the LMS/ILS.
+
+* Create an Item for an existing Manifestation
+* Update an existing Item
+
+#### P07 System Configuration
+
+* Create/Update a Location
+* Create/Update an Authorisation
+* Create/Update an Authority/institution
+* Create/Update/Delete a Message
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------- Francis Original
 #### P01 Self Issue 
-*(Substantially revised in Issue 3)*
 
 Implementation of this profile involves implementation of one or more of the following four function groups: 
 
@@ -80,6 +146,7 @@ In addition to the core functions specified in Profile P00, the following functi
 In addition to the core functions specified in Profile P00, the following function must also be supported:
 
 - 13 Patron payment
+
 
 #### P02 Record management 
 *(Substantially revised in Issue 3)*
