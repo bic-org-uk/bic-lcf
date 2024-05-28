@@ -10,7 +10,7 @@ weight: 1
 
 ## Library Data Communication Framework for Terminal Applications (LCF)[\[1\]](#Notes)
 
-### Version 1.x.x
+### Version 1.4.x
 
 ### 23 May 2024
 
