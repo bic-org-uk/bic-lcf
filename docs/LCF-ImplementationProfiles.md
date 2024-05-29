@@ -20,11 +20,15 @@ weight: 6
 
 ### Profiles
 
-This document defines implementation profiles for the LCF data communication framework.
+This document defines implementation profiles for the LCF data communication framework. 
+
+Profiles are designed to assist terminal clients and server vendors to be confident with interoperability and consistency between system vendor implementations. The structure of the profiles is designed to show a server LMS implementation provides basic access to all LCF entities, and then ensure that end user centric services can be completed through use case structured profile definitions. 
+
+Compliance with any given profile therefore confirms functionality is compliant with the expectations of LCF, and therefore should be compatible with any other system with compliance for that profile. 
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
-#### P00 Core Profile
+#### P01 Core LMS Profile
 
 This profile defines which of the LCF core functions by entity type need to be supported by an LMS that implements LCF. As a minimum, an LMS must support all retrieval functions, to allow an authorised terminal, operated by an authorised user, to retrieve specific entities and lists of entities of all the specified types.
 
@@ -53,26 +57,63 @@ Using these core functions it must be possible for authorised users to operate a
 - E15 Message/alert
 - E16 LCF Version
 
-#### P02 Circualation
+#### P02 Patron Membership
+
+Demonstrate the process of self sign-up to the library services, through creating a new Patron entity, including Contact information. Complete the lifecycle demonstration by deleting the Patron.
+
+* Create a new Patron entity, demonstrate joining the library.
+* Delete a Patron entity, demonstrating leaving the library. It is assumed that all Contact entities will be automatically deleted, and that all Charges and Loans have been previously processed. 
+
+
+#### P03 Patron Account
+
+The Patron Account Information profile is designed to show a terminal client and server are able to perform effectively to empower the display of the information relating to a Patron's interaction with the library. A typical usecase would be a terminal client showing a Patron their list of active and/or overdue Loans as the Patron started to use the terminal client.
+
+* Read a Patron entity
+* Show active Loans for a Patron, including the Title, Author and due date for any Loan. 
+* Show active Reservations for a Patron, including the Title, Author and reservation queue position for any Reservation.
+* Show outstanding debt for a Patron, breaking down into individual oustanding Charges.
+* Show a Message targetting for a Patron. 
+
+#### P04 Patron Contact Details
+
+As a Patron, when I review my details of my Patron record, enable me to update existing information and provide new information where details are absent. 
+
+* Authenticate Patron
+* Trigger a Forgotten PIN/password process?
+* Read a Patron entity
+* Show the Patron Contact details
+* Create a new Contact detail for a Patron
+* Update an existing Contact for a Patron
+* Delete an existing Contact for a Patron
+
+#### P05 Patron Groups
+
+Display and enable amendment of the associated group membership for a Patron. 
+
+* Add a Patron to a Patron Group
+* Display the Patron Group
+* Remove a Patron from a Patron Group
+
+#### P06 Circualation
 
 The Circulation profile covers the library behaviour to:
 
-* Issue an Item to a Patron
+* Issue/check-out an Item to a Patron
 * Renew an Item on loan to a Patron
-* Return an Item from a Patron, ending the loan. 
+* Return/check-in an Item from a Patron, ending the Loan. 
 * TBC: Overdue Fines - fit here?
 
-#### P03 Reservations
+#### P07 Reservations
 
 The Reservation profile covers behaviour where a Patron is unable to take immedate loan of an Item, and therefore places a Reservation (a.k.a Hold) on the Item, allowing them to await their turn to Loan the Item. 
 
-* Create a Reservation of an Item for a Patron
-* Create a Reservation of a Work for a Patron
-* Update a Reservation for an Item or Work for a Patron.
-* Cancel a Reservation for an Item or Work for a Patron.
+* Create a Reservation of an Item or Manifestation for a Patron
+* Update a Reservation for an Item or Manifestation for a Patron.
+* Cancel a Reservation for an Item or Manifestation for a Patron.
 * Issue a Reserved Item to the reserving Patron.
 
-#### P04 Patron Debt Management
+#### P08 Patron Debt Management
 
 The Patron Debt Managent profile relates to the accruing of Fines, Fees and Charges, including the request to create a Charge my the terminal client, and the subsequent ability to inform the LMS/ILS that the payment has been made. 
 
@@ -80,127 +121,20 @@ The Patron Debt Managent profile relates to the accruing of Fines, Fees and Char
 * List the Charges for a Patron.
 * Record the Payment of a Charge.
 * Create Credit for a Patron. 
-* Record the Payment of a Change from Patron Credit.
+* Record the Payment of a Charge from Patron Credit.
 * Waive a Charge for a Patron.
 * Update an existing Charge.
 
-#### P05 Patron Interraction
-
-The Patron Account Information profile is designed to show a terminal client and server are able to perform effectively to empower the display of the information relating to a Patron's interaction with the library. A typical usecase would be a terminal client showing a Patron their list of active and/or overdue Loans as the Patron started to use the terminal client.
-
-* Authenticate Patron
-* Read Patron entity
-* Show active Loans for a Patron, including the Title, Author and due date for any Loan. 
-* Show active Reservations for a Patron, including the Title, Author and reservation queue position for any Reservation.
-* Show outstanding debt for a Patron, breaking down into individual oustanding Charges.
-
-#### P06 Cataloguing
+#### P09 Cataloguing
 
 Enable a terminal service client to assist with cataloguing behaviour of the LMS/ILS.
 
 * Create an Item for an existing Manifestation
 * Update an existing Item
 
-#### P07 System Configuration
+#### P10 Library Configuration
 
 * Create/Update a Location
 * Create/Update an Authorisation
 * Create/Update an Authority/institution
 * Create/Update/Delete a Message
-
-
-
-
-
-
-
-
-
-
-
-
------------------------------ Francis Original
-#### P01 Self Issue 
-
-Implementation of this profile involves implementation of one or more of the following four function groups: 
-
-**P01.1**: Basic self-issue, including check-out, renewal and check-in.
-**P01.2**: Reservations, including making reservations
-**P01.3**: Payments, including the ability of the terminal user to make payments and of the server to accept payments.
-
-*P01.1 Basic self-issue*
-
-In addition to the core functions specified in Profile P00, the following functions must be supported:
-
-- 11 Check-out/renewal
-- 12 Check-in
-
-*P01.2 Reservations*
-
-In addition to the core functions specified in Profile P00, the following function must also be supported:
-
-- 16 Reserve manifestation / item
-
-*P01.3 Payments*
-
-In addition to the core functions specified in Profile P00, the following function must also be supported:
-
-- 13 Patron payment
-
-
-#### P02 Record management 
-*(Substantially revised in Issue 3)*
-
-Implementation of this profile involves implementation of one or more of the following five function groups: 
-
-**P02.1**: Maintain patron contact details, involving the creation, modification or deletion of Contact records and possible consequential modification of the associated Patron record.
-**P02.2**: Patron cancellation of library membership, involving the consequential modification or deletion of Patron records and any associated Contact and Reservation records; it is assumed that all Charges would have been paid and all Items on Loan would have been checked in.
-**P02.3**: Manage loans, involving the creation, modification or deletion of Loan records and possible consequential modification of Item, Patron and Charge records.
-**P02.4**: Manage reservations, involving the creation, modification or deletion of Reservation records and possible consequential modification of Item, Patron and Charge records.
-**P02.5**: Manage charges, involving the creation, modification or deletion of Charge records and possible consequential modification of Item, Patron, Loan and Reservation records.
-
-*P02.1 Maintain patron contact details*
-
-In addition to the core functions specified in Profile P00, the following functions must be supported for the specified entity types:
-
-- 03 Create new entity, to add a new contact, for entity type E09 Contact
-- 04 Modify existing entity, to change contact details, for entity type E09 Contact
-- 04 Modify existing entity, to add or delete contact references,, for entity type E03 Patron
-- 05 Delete entity, to remove an existing contact, for entity type E09 Contact
-
-*P02.2 Patron cancellation of library membership
-
-In addition to the core functions specified in Profile P00, the following functions must be supported for the specified entity types:
-
-- 04 Modify existing entity, to change patron status, for entity type E03 Patron
-- 04 Modify existing entity, to remove any references to this patron, for entity types E02 Item and E05 Loan
-- 05 Delete entity, for entity type E09 Contact
-
-*P02.3 Manage loans*
-
-In addition to the core functions specified in Profile P00, the following functions must be supported for the specified entity types:
-
-- 03 Create new entity, to create a new loan, for entity type E05 Loan
-- 04 Modify existing entity, to change loan details, for entity type E05 Loan
-- 04 Modify existing entity, to change charge details associated with a loan, for entity type E07 Charge
-- 04 Modify existing entity, to add or remove references to a loan for entity types E02 Item, E03 Patron and E07 Charge
-- 05 Delete entity, for entity type E05 Loan
-
-*P02.4 Manage reservations*
-
-In addition to the core functions specified in Profile P00, the following functions must be supported for the specified entity types:
-
-- 03 Create new entity, to create a new reservation, for entity type E06 Reservation
-- 04 Modify existing entity, to change reservation details, for entity type E06 Reservation
-- 04 Modify existing entity, to change charge details associated with a reservation, for entity type E07 Charge
-- 04 Modify existing entity, to add or remove references to a reservation for entity types E02 Item, E03 Patron and E07 Charge
-- 05 Delete entity, for entity type E06 Reservation
-
-*P02.5 Manage charges*
-
-In addition to the core functions specified in Profile P00, the following functions must be supported for the specified entity types:
-
-- 03 Create new entity, to create a new reservation, for entity type E07 Charge
-- 04 Modify existing entity, to change charge details, for entity type E07 Charge
-- 04 Modify existing entity, to add or remove references to a charge for entity types E02 Item, E03 Patron, E05 Loan and E06 Reservation
-- 05 Delete entity, for entity type E07 Charge
