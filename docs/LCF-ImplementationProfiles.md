@@ -1,5 +1,5 @@
 ---
-title: LCF Implementation Profiles Issue 3
+title: LCF Implementation Profiles
 menu: Implementation Profiles
 weight: 6
 ---
@@ -12,9 +12,7 @@ weight: 6
 
 ## Implementation Profiles
 
-### Issue 3
-
-### 16 December 2023
+### 29 May 2024
 
 ---
 
