@@ -26,6 +26,9 @@ Compliance with any given profile therefore confirms functionality is compliant 
 
 The use of this document is subject to license terms and conditions that can be found *at* <http://www.bic.org.uk/resources/license-to-use-bic-standards/>.
 
+#### P00 Basic Service Interaction
+The P00 profile relates to understanding the basic operational model of the LCF system, before making use of any entities. This related to authentication and version management. 
+
 #### P01 Core LMS Profile
 
 This profile defines which of the LCF core functions by entity type need to be supported by an LMS that implements LCF. As a minimum, an LMS must support all retrieval functions, to allow an authorised terminal, operated by an authorised user, to retrieve specific entities and lists of entities of all the specified types.
@@ -93,7 +96,7 @@ Display and enable amendment of the associated group membership for a Patron.
 * Display the Patron Group
 * Remove a Patron from a Patron Group
 
-#### P06 Circualation
+#### P06 Circulation
 
 The Circulation profile covers the library behaviour to:
 

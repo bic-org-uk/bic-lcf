@@ -37,29 +37,78 @@ The proposal is to provide a simple Web UI and underlying API as part of the ser
 
 # Profile Validation Strategies
 
-## Profile P00 - Core LMS Behaviour
+## Profile P00 - Basic Service Interaction
 
-### Simple Operation
-To determine simple interaction with the primary LCF entities, the system should be able to perform the client or server role for the following:
+1. E16 LCF Version Check
+2. Authentication
 
-* Perform an Entity List Request
-* Perform a GET request for each EntityRef in the response.
-* Perform an Entity List Request for page 2 of the results (next page move).
+### E16 LCF VERSION
+The E16 VERSION entity, added in LCF 1.4.x follows the pattern for a Entity List response however it will return the Entity representing the running version of the LCF implementation. There is therefore no requirement to iterate for this Entity, but only perform and act upon the VERSION described. 
 
-### Chained Operation
-More complex use of the entity responses requires understanding of each entity response and to invoke a follow-on behaviour. This is best demonstrated by evaluating any EntityRefs returned from any entity. Starting from a given entity, perform the following steps:
+1. Perform a GET request against the ``/lcf/version`` entity.
+For LCF v1.4.x and higher, the LCF implementation responds with a code 200 and a valid LCF Version payload.
+For LCF v1.3.x and lower, the LCF Version service did not exist. An HTTP code 404 response is expected. 
+2. Confirm the expected HTTP response code and payload.
 
-1. Perform a GET request against the Entity. eg. GET /lcf/1.0/patrons/1
-2. Evaluate the response.
-3. For each EntityRef listed within the response;
-   * Perform a GET request against the EntityRef.
-   * Do not recurse into the resulting entity as this introduces a risk of infinite loops.
-4. Move to the next primary Entity type.  
+### Authentication
 
 
-## Profile P01 - Circulation
 
-## Profile P02 - Record Management
+## Profile P01 - Core LMS Behaviour
+
+### Minimum interaction for each entity type
+To determine minimum interaction with the primary LCF entities, the system should be able to perform the client or server behaviour to iterate over the available values for each of the following entities:
+
+* E01 Manifestation
+* E02 Item
+* E03 Patron
+* E04 Location
+* E05 Loan
+* E06 Reservation
+* E07 Charge
+* E08 Payment
+* E09 Contact
+* E13 Authorisation
+* E14 Authority/institution
+* E15 Message/alert
+
+Iterating over these entity types will require the following steps for each entity:
+
+1. Perform an Entity List Request
+2. Perform a GET request for each EntityRef in the response.
+3. Perform an Entity List Request for the next page of results. 
+
+## Profile P01 - Patron Membership
+This scenario focusses on creating a new Patron for the library, where a new person joins the library to make use of their services. The second part of the vaildation is requesting to leave the library, by deleting the Patron which was just created. 
+
+#### P01.1 Create Patron
+1. Perform a POST to ``/lcf/patron`` containing a valid terminal client credential, and payload representing a valid Patron entity. 
+2. Confirm an HTTP/200 successful response. 
+3. Extract the ``identifier`` (field E03D01) from the response for use in the DELETE request. 
+4. Perform a GET against the URI ``/lcf/patrons/{identifier}`` and confirm that the provided fields from step 1 match the response. 
+5. Confirm that there are zero loans, reservations, or charges against the Patron. 
+
+#### P01.2 Delete Patron
+
+1. Perform a DELETE to ``/lcf/patron/{identifier}``
+2. Confirm an HTTP/200 successful response. 
+3. Perform a GET against the URI /lcf/patrons/{identifier} and confirm an HTTP/404 response with no data within the payload. 
+## Profile P02 - Patron Account
+
+## Profile P04 - Patron Contact Details
+
+## Profile P05 - Patron Groups
+
+## Profile P06 - Circulation
+
+## Profile P07 - Reservations
+
+## Profile P08 - Patron Debt Management
+
+## Profile P09 - Cataloguing
+
+## Profile P10 - Library Configuration
+
 
 
 
