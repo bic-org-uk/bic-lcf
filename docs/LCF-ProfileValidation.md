@@ -90,10 +90,35 @@ This scenario focusses on creating a new Patron for the library, where a new per
 
 #### P01.2 Delete Patron
 
-1. Perform a DELETE to ``/lcf/patron/{identifier}``
+1. Perform a DELETE to ``/lcf/patrons/{identifier}``
 2. Confirm an HTTP/200 successful response. 
 3. Perform a GET against the URI /lcf/patrons/{identifier} and confirm an HTTP/404 response with no data within the payload. 
 ## Profile P02 - Patron Account
+
+Retrive all the required information about a Patron and their current interations with the Library to be able to show a summary of their position. This should include a list of any on loan items (including the Title and Author), a list of any outstanding charges, and a list of all active reservations (including title and author).
+
+1. Perform a GET to ``/lcf/patrons``
+2. Perform a GET against the first ``entity-ref`` containing a URI for a Patron
+3. Confirm an HTTP/200 successful response
+4. Iterate through each ``contact-ref`` for Contacts
+4a. Confirm that the Patron entity data contains ``contact-ref`` URIs for Contacts
+4b. Perform a GET to each Contact ``contact-ref``.
+
+5. Iterate through each ``authorisation-ref`` for Patron Authorisations
+5a. Perform a GET to each Authorisation ``authorisation-ref``
+5b. Confirm the Authorisations are valid. 
+
+6. Iterate through each ``loan-ref`` for Loans
+6a. Confirm that the Patron entity data contains ``loan-ref`` URIs for multiple Loans
+6b. Perform a GET to each Loan ``loan-ref``
+6c. Perform a GET to the ``item-ref`` within the Loan
+6d. Perform a GET to the ``manifestation-ref`` within the Item
+
+7. Iterate through each ``reservation-ref`` for Reservations
+7a. Perform a GET to each Reservation ``reservation-ref``
+
+8. Iterate through each ``charge-ref`` for Charges
+8a. Perform a GET to each Charge ``charge-ref``
 
 ## Profile P04 - Patron Contact Details
 
