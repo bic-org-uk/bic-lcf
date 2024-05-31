@@ -122,6 +122,16 @@ Retrive all the required information about a Patron and their current interation
 
 ## Profile P04 - Patron Contact Details
 
+1. Perform a GET to ``/lcf/patrons``
+2. Perform a GET against the first ``entity-ref`` containing a URI for a Patron
+3. Confirm an HTTP/200 successful response
+4. Iterate through each ``contact-ref`` for Contacts
+4a. Confirm that the Patron entity data contains ``contact-ref`` URIs for Contacts
+4b. Perform a GET for each Contact ``contact-ref``.
+4c. Update the Contact entity with different contact details. 
+4d. Perform a PUT to the Contact ``contact-ref`` with the modified Contact as the payload. 
+4e. 
+
 ## Profile P05 - Patron Groups
 
 ## Profile P06 - Circulation
