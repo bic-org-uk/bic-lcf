@@ -20,7 +20,7 @@ Key improvements included within this release are:
 LCF has introduced a structured name extension (E03C36) to the Patron entity, aligning with the existing ONIX standard. This enables LCF users to represent person names more accurately, providing name information in separate fields, so the final presentation can be configured by each terminal client. This ensures flexibility for the terminal client and avoids error prone parsing of name information previously provided through a single field. 
 
 ## Improved Support for Serials and Periodicals
-LCF 1.3 now includes a more detailed model for supporting Serial and Periodical content. The changes introduce modifications to the MANIFESTATION entity, deprecated the MNI code list and added the new Manifestation Type (MNT) code list. These changes allow LCF to correctly describe serial holdings, and periodical materials.
+LCF 1.3 now includes a more detailed model for supporting Serial and Periodical content. The changes introduce modifications to the MANIFESTATION entity, deprecate the MNI code list and add the new Manifestation Type (MNT) code list. These changes allow LCF to correctly describe serial holdings and periodical materials.
 
 ## Quotations, Notifications and Acknowledgements
 Library patrons must be informed of potential charges they may incur and be given the opportunity to change their choices, effectively declining fees before they are incurred. 
