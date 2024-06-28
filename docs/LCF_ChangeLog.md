@@ -41,7 +41,7 @@ Libraries often have the requirement to permit new Patrons to join the library u
 ## Unstaffed Library Support
 Changes within LCF 1.3 to support authorisation for Patrons to use unstaffed library locations have been completed. The changes included fit into two scenarios, one for real-time access control, which LCF already supported, and the other for determining whether a patron would have access to one or more library locations if they were unstaffed.
 
-The changes affected the AUTHORISATION (E13) entity, through modifications to the AUT code list and the introduction of an optional list of location references (E10D05) indicating which locations the authorisation applies to. 
+The changes affect the AUTHORISATION (E13) entity, through modifications to the AUT code list and the introduction of an optional list of location references (E10D05) indicating which locations the authorisation applies to. 
 
 ## Other Changes and Next Steps
 Outside of these key changes in LCF 1.3, there have been minor changes and corrections to the existing documentation, and the provision of a draft example of OpenAPI support. 
