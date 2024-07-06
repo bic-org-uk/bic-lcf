@@ -30,6 +30,7 @@ LCF 1.3 now includes the capability to inform the Patron of a monetary charge wh
 Included within these changes is the capability to inform the Patron where they have previously been loaned the same content from the library. The intention is to ensure that the Patron does not unknowingly borrow duplicate content from the library and incur a fee and would acknowledge they have been loaned the content before. 
 
 These changes together help ensure the Patron can be fully informed of the impact of their choices. 
+
 ## Payment Modifications
 Payment processes supported within LCF 1.3 now include the ability to make monetary donations to the library and put credit against future charges on a patron’s account. 
 
