@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "1e505915-3e62-4694-8606-20919f9c6976",
+		"name": "LCF Core Read Functions",
+		"description": "Validation of the core LCF read-only behaviour involves performing a list request for each primary entity type, then performing a GET on each URI to retrieve the entity itself.\n\nThe environment must be configured with the base URI for the LCF installation and valid terminal application credetials for the installation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33458568"
+	},
+	"item": [
+		{
+			"name": "Version",
+			"item": [
+				{
+					"name": "Version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// If we have not had a successful LCF Version response,\r",
+									"if( pm.response.code != 200 ){\r",
+									"    console.log(\"LCF VERSION Entity not available.\");\r",
+									"    const lcfRoot = pm.environment.get('lcf-root');\r",
+									"\r",
+									"    // if the current lcf-root does not end with /1.0, then add it. \r",
+									"    if(!lcfRoot.endsWith('/1.0')){\r",
+									"        pm.environment.set('lcf-root', lcfRoot + '/1.0')\r",
+									"    }\r",
+									"\r",
+									"    console.log(pm.environment.get('lcf-root'));\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const lcfRoot = pm.environment.get('lcf-root');\r",
+									"\r",
+									"// If the lcf-root ends with /1.0 strip this prior to the request, as the version entity does not require the /1.0\r",
+									"if(lcfRoot.endsWith('/1.0')){\r",
+									"    pm.environment.set('lcf-root', lcfRoot.substring(0, lcfRoot.length - 4))\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/{{lcf-root}}/lcf-version",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"{{lcf-root}}",
+								"lcf-version"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The Version entity was introduced in LCF 1.4 and must be checked first. If the version entity exists, this impacts the LCF URI structure, removing the \"/1.0/\" from the path after the \"/lcf\" token."
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "GET Items List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"pm.test(\"Response has the required Content-Type header\", function () {",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/xml\");",
+									"});",
+									"",
+									"pm.test(\"Validate the XML schema of the response\", function () {",
+									"    const responseData = xml2Json(pm.response.text());",
+									"    ",
+									"    pm.expect(responseData).to.have.property('lcf-entity-list-response');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('$');",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.have.property('xmlns');",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.have.property('xmlns:ns2');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('entity-type');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:totalResults');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:itemsPerPage');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:startIndex');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('entity');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Ensure lcf-entity-list-response object contains expected properties and structure\", function () {",
+									"    const responseData = xml2Json(pm.response.text());",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']['entity-type']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:totalResults']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:itemsPerPage']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:startIndex']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['entity']).to.exist.and.to.be.an('array');",
+									"",
+									"    var hrefs = [];",
+									"    responseData['lcf-entity-list-response']['entity'].forEach((a) =>hrefs.push(a['$']['href']));",
+									"    pm.collectionVariables.set('item-hrefs', hrefs);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/{{lcf-root}}/items",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"{{lcf-root}}",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const hrefs = pm.collectionVariables.get(\"item-hrefs\");\r",
+									"\r",
+									"if (hrefs && hrefs.length > 0){\r",
+									"    pm.execution.setNextRequest(\"Item\");\r",
+									"} else {\r",
+									"    // Move on to the next section in the test schedule\r",
+									"    pm.execution.setNextRequest(\"GET Manifestations List\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let hrefs = pm.collectionVariables.get('item-hrefs');\r",
+									"\r",
+									"try{\r",
+									"    let currentHref = hrefs.shift();\r",
+									"\r",
+									"    pm.collectionVariables.set('currentHref', currentHref);\r",
+									"    pm.collectionVariables.set('item-hrefs', hrefs);\r",
+									"} catch (e) {\r",
+									"    console.log(\"Something went bang: \" + e);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{currentHref}}",
+							"host": [
+								"{{currentHref}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manifestation",
+			"item": [
+				{
+					"name": "GET Manifestations List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"pm.test(\"Response has the required Content-Type header\", function () {",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/xml\");",
+									"});",
+									"",
+									"pm.test(\"Validate the XML schema of the response\", function () {",
+									"    const responseData = xml2Json(pm.response.text());",
+									"    ",
+									"    pm.expect(responseData).to.have.property('lcf-entity-list-response');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('$');",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.have.property('xmlns');",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.have.property('xmlns:ns2');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('entity-type');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:totalResults');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:itemsPerPage');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:startIndex');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('entity');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Ensure lcf-entity-list-response object contains expected properties and structure\", function () {",
+									"    const responseData = xml2Json(pm.response.text());",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']['entity-type']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:totalResults']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:itemsPerPage']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:startIndex']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['entity']).to.exist.and.to.be.an('array');",
+									"",
+									"    var hrefs = [];",
+									"    responseData['lcf-entity-list-response']['entity'].forEach((a) =>hrefs.push(a['$']['href']));",
+									"    pm.collectionVariables.set('manifestation-hrefs', hrefs);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/{{lcf-root}}/manifestations",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"{{lcf-root}}",
+								"manifestations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manifestation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const hrefs = pm.collectionVariables.get(\"manifestation-hrefs\");\r",
+									"\r",
+									"if (hrefs && hrefs.length > 0){\r",
+									"    pm.execution.setNextRequest(\"Manifestation\");\r",
+									"} else {\r",
+									"    // Move on to the next section in the test schedule\r",
+									"    pm.execution.setNextRequest(\"GET Locations List\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let hrefs = pm.collectionVariables.get('manifestation-hrefs');\r",
+									"\r",
+									"try{\r",
+									"    let currentHref = hrefs.shift();\r",
+									"\r",
+									"    pm.collectionVariables.set('currentHref', currentHref);\r",
+									"    pm.collectionVariables.set('manifestation-hrefs', hrefs);\r",
+									"} catch (e) {\r",
+									"    console.log(\"Something went bang: \" + e);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{currentHref}}",
+							"host": [
+								"{{currentHref}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "GET Locations List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"pm.test(\"Response has the required Content-Type header\", function () {",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/xml\");",
+									"});",
+									"",
+									"pm.test(\"Validate the XML schema of the response\", function () {",
+									"    const responseData = xml2Json(pm.response.text());",
+									"    ",
+									"    pm.expect(responseData).to.have.property('lcf-entity-list-response');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('$');",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.have.property('xmlns');",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.have.property('xmlns:ns2');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('entity-type');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:totalResults');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:itemsPerPage');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('ns2:startIndex');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.have.property('entity');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Ensure lcf-entity-list-response object contains expected properties and structure\", function () {",
+									"    const responseData = xml2Json(pm.response.text());",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['$']).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData['lcf-entity-list-response']['entity-type']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:totalResults']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:itemsPerPage']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['ns2:startIndex']).to.exist;",
+									"    pm.expect(responseData['lcf-entity-list-response']['entity']).to.exist.and.to.be.an('array');",
+									"",
+									"    var hrefs = [];",
+									"    responseData['lcf-entity-list-response']['entity'].forEach((a) =>hrefs.push(a['$']['href']));",
+									"    pm.collectionVariables.set('location-hrefs', hrefs);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/{{lcf-root}}/locations",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"{{lcf-root}}",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const hrefs = pm.collectionVariables.get(\"location-hrefs\");\r",
+									"\r",
+									"if (hrefs && hrefs.length > 0){\r",
+									"    pm.execution.setNextRequest(\"Location\");\r",
+									"} else {\r",
+									"    // Move on to the next section in the test schedule\r",
+									"    pm.execution.setNextRequest(null);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let hrefs = pm.collectionVariables.get('location-hrefs');\r",
+									"\r",
+									"try{\r",
+									"    let currentHref = hrefs.shift();\r",
+									"\r",
+									"    pm.collectionVariables.set('currentHref', currentHref);\r",
+									"    pm.collectionVariables.set('location-hrefs', hrefs);\r",
+									"} catch (e) {\r",
+									"    console.log(\"Something went bang: \" + e);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{currentHref}}",
+							"host": [
+								"{{currentHref}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "item-hrefs",
+			"value": ""
+		},
+		{
+			"key": "currentHref",
+			"value": ""
+		},
+		{
+			"key": "manifestation-hrefs",
+			"value": ""
+		},
+		{
+			"key": "location-hrefs",
+			"value": ""
+		}
+	]
+}
