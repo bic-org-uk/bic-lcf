@@ -31,9 +31,17 @@ Provide two services:
 2.	A mock client implementation, driving the LCF REST API endpoint with specific behaviours.  This implementation must be able to trigger the start of a specific profile test, drive the REST API calls to fulfil the test, trigger the end of the profile test, and report on the outcome. 
 
 ## Test Management
+### Server Implemenetation
 To enable the server to trace the client's behaviour during profile validation, the server must understand where the client is within the validation process. This will require a method of communication with the server to inform it of the state of the test. Given that all REST service implementations are stateless, this behaviour must be provided outside of the normal operation of the service.
 
 The proposal is to provide a simple Web UI and underlying API as part of the server implementation. The Web UI presents a simple human user interface enabling the user to select which profile is under test, activate the test, complete the test and view the outcome. The API underpinning the Web UI enables the same behaviour, enabling automation of the test cycle process if required by LCF Consortium members. This is in line with modern CI/CD pipeline creation. 
+
+### Client Implementation
+There are multiple existing client solutions which enable the integration testing of Web APIs. Postman is widely accepted as an industry standard for API validation and is available as a SaaS implementation, requiring no locally installed software. This does however introduce a limitation, where the LCF Server deployment under test must be available to the public internet. 
+
+Alternate client side implementations, such as Apache jMeter, also enable the functional testing of a Web API and do require a locally installed agent. This would not require the LCF Server deployment under test to be available to the public internet. 
+
+Both options will enable the execution, testing and validation of LCF Server API reponses and only require the creation of a test script within the tool to be executed. 
 
 # Profile Validation Strategies
 
