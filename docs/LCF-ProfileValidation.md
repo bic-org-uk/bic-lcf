@@ -59,8 +59,17 @@ For LCF v1.3.x and lower, the LCF Version service did not exist. An HTTP code 40
 2. Confirm the expected HTTP response code and payload.
 
 ### Authentication
+Core to all operations with LCF is terminal service and patron authentication, discussed [here](LCF-RESTWebServiceSpecification.md#implementation-notes)
 
+This sets out the structure for:
+* a terminal client authenticating against an LCF endpoint representing itself;
+* a terminal client authenticating against an LCF endpoint impersonating a Patron;
+* determining whether authentication is required; and
+* determine whether patron authorisation is required.
 
+The existing standard (1.3) allows for variation in how these four items are implemented, specifically, it does not mandate which authentication and authorisation is required for any LCF entity. This enables implementors of LCF to have the flexibility to define their system as they see fit, however also presents complexity for defining profile compliance. 
+
+It is therefore intended to define profile compliance, including an implementation where authentication and authorisation will be flexible. However, this will increase the complexity of the profile validation solution. Market research also suggests that real-world implementations may have a more common strategy. If this proves true, this section of compliance validation could be simplified through standardisation. 
 
 ## Profile P01 - Core LMS Behaviour
 
