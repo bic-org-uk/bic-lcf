@@ -12,7 +12,7 @@ weight: 6
 
 ## Implementation Profile Validation
 
-LCF has multiple operational profiles described at <https://github.com/bic-org-uk/bic-lcf/blob/develop/docs/LCF-ImplementationProfiles.md>.
+LCF has multiple operational profiles described at [LCF-ImplementationProfiles.md](LCF-ImplementationProfiles.md).
 Each profile describes a specific set of behaviours expected from LCF Client and Server interactions. The validation of these implementation profiles ensures that any client will work with any server provided both have been validated to the same compliance profile. 
 Any validation process must be able to confirm both the client operation and the server operation to ensure that both halves of the equation can be confirmed. This also implies an internal self-check, where the LCF client validator works consistently with the LCF server validator, and both achieve positive certification when operating together.
 
