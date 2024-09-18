@@ -12,7 +12,7 @@ weight: 6
 
 ## Implementation Profile Validation
 
-LCF has multiple operational profiles described at <https://github.com/bic-org-uk/bic-lcf/blob/develop/docs/LCF-ImplementationProfiles.md>.
+LCF has multiple operational profiles described at [LCF-ImplementationProfiles.md](LCF-ImplementationProfiles.md).
 Each profile describes a specific set of behaviours expected from LCF Client and Server interactions. The validation of these implementation profiles ensures that any client will work with any server provided both have been validated to the same compliance profile. 
 Any validation process must be able to confirm both the client operation and the server operation to ensure that both halves of the equation can be confirmed. This also implies an internal self-check, where the LCF client validator works consistently with the LCF server validator, and both achieve positive certification when operating together.
 
@@ -59,8 +59,17 @@ For LCF v1.3.x and lower, the LCF Version service did not exist. An HTTP code 40
 2. Confirm the expected HTTP response code and payload.
 
 ### Authentication
+Core to all operations with LCF is terminal service and patron authentication, discussed [here](LCF-RESTWebServiceSpecification.md#implementation-notes)
 
+This sets out the structure for:
+* a terminal client authenticating against an LCF endpoint representing itself;
+* a terminal client authenticating against an LCF endpoint impersonating a Patron;
+* determining whether authentication is required; and
+* determine whether patron authorisation is required.
 
+The existing standard (1.3) allows for variation in how these four items are implemented, specifically, it does not mandate which authentication and authorisation is required for any LCF entity. This enables implementors of LCF to have the flexibility to define their system as they see fit, however also presents complexity for defining profile compliance. 
+
+It is therefore intended to define profile compliance, including an implementation where authentication and authorisation will be flexible. However, this will increase the complexity of the profile validation solution. Market research also suggests that real-world implementations may have a more common strategy. If this proves true, this section of compliance validation could be simplified through standardisation. 
 
 ## Profile P01 - Core LMS Behaviour
 
@@ -109,24 +118,24 @@ Retrive all the required information about a Patron and their current interation
 2. Perform a GET against the first ``entity-ref`` containing a URI for a Patron
 3. Confirm an HTTP/200 successful response
 4. Iterate through each ``contact-ref`` for Contacts
-4a. Confirm that the Patron entity data contains ``contact-ref`` URIs for Contacts
-4b. Perform a GET to each Contact ``contact-ref``.
+    1. Confirm that the Patron entity data contains ``contact-ref`` URIs for Contacts
+    2. Perform a GET to each Contact ``contact-ref``.
 
 5. Iterate through each ``authorisation-ref`` for Patron Authorisations
-5a. Perform a GET to each Authorisation ``authorisation-ref``
-5b. Confirm the Authorisations are valid. 
+    1. Perform a GET to each Authorisation ``authorisation-ref``
+    2. Confirm the Authorisations are valid. 
 
 6. Iterate through each ``loan-ref`` for Loans
-6a. Confirm that the Patron entity data contains ``loan-ref`` URIs for multiple Loans
-6b. Perform a GET to each Loan ``loan-ref``
-6c. Perform a GET to the ``item-ref`` within the Loan
-6d. Perform a GET to the ``manifestation-ref`` within the Item
+    1. Confirm that the Patron entity data contains ``loan-ref`` URIs for multiple Loans
+    2. Perform a GET to each Loan ``loan-ref``
+    3. Perform a GET to the ``item-ref`` within the Loan
+    4. Perform a GET to the ``manifestation-ref`` within the Item
 
 7. Iterate through each ``reservation-ref`` for Reservations
-7a. Perform a GET to each Reservation ``reservation-ref``
+    1. Perform a GET to each Reservation ``reservation-ref``
 
 8. Iterate through each ``charge-ref`` for Charges
-8a. Perform a GET to each Charge ``charge-ref``
+    1. Perform a GET to each Charge ``charge-ref``
 
 ## Profile P04 - Patron Contact Details
 
@@ -134,11 +143,11 @@ Retrive all the required information about a Patron and their current interation
 2. Perform a GET against the first ``entity-ref`` containing a URI for a Patron
 3. Confirm an HTTP/200 successful response
 4. Iterate through each ``contact-ref`` for Contacts
-4a. Confirm that the Patron entity data contains ``contact-ref`` URIs for Contacts
-4b. Perform a GET for each Contact ``contact-ref``.
-4c. Update the Contact entity with different contact details. 
-4d. Perform a PUT to the Contact ``contact-ref`` with the modified Contact as the payload. 
-4e. 
+    1. Confirm that the Patron entity data contains ``contact-ref`` URIs for Contacts
+    2. Perform a GET for each Contact ``contact-ref``.
+    3. Update the Contact entity with different contact details. 
+    4. Perform a PUT to the Contact ``contact-ref`` with the modified Contact as the payload. 
+    5. 
 
 ## Profile P05 - Patron Groups
 
