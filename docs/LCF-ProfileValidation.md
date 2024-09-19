@@ -140,6 +140,11 @@ Retrieve all the required information about a Patron and their current interacti
 
 8. Iterate through each ``charge-ref`` for Charges
     1. Perform a GET to each Charge ``charge-ref``
+    2. Confirm a successful response. 
+  
+9. Iterate through each ``associated-message``
+    1. Perform a GET request against each ``message-ref``
+    2. Confirm a successful response. 
 
 ## Profile P04 - Patron Contact Details
 This profile aims to ensure that the LCF implementation can update Contact details for a Patron in real time. This enables self-service use to maintain Patron details.
@@ -169,10 +174,19 @@ The key principle behind a Patron Group is to model structures between Patrons, 
 5. Confirm Patron#1 can view the loans and charges of Patron#2.
 
 ## Profile P06 - Circulation
+Ensure that an Item can be issued to a Patron, renewed and then returned, thus creating and completing a Loan of the Item. 
+Ensure that an Item that incurs a loan fee can be issued, renewed, and returned, ensuring the loan fees are created as Charges against the Patron record.  
+
+*Note:* It would be desirable to exercise overdue fine creation, however, this would require the amendment of the server perceived datetime or have a zero-time loan period, which is not expected behaviour. 
 
 ## Profile P07 - Reservations
+Ensure that an Item can be reserved by a Patron. 
+Ensure that a Manifestation can be reserved by a Patron. 
 
 ## Profile P08 - Patron Debt Management
+Ensure that the Charges for a Patron can be listed. 
+Ensure that a Payment can be made against a Charge.
+Ensure that the resulting outstanding Charges have been reduced inline with the Payment made. 
 
 ## Profile P09 - Cataloguing
 
