@@ -95,24 +95,25 @@ Iterating over these entity types will require the following steps for each enti
 2. Perform a GET request for each EntityRef in the response.
 3. Perform an Entity List Request for the next page of results. 
 
-## Profile P01 - Patron Membership
+## Profile P02 - Patron Membership
 This scenario focusses on creating a new Patron for the library, where a new person joins the library to make use of their services. The second part of the vaildation is requesting to leave the library, by deleting the Patron which was just created. 
 
-#### P01.1 Create Patron
+#### P02.1 Create Patron
 1. Perform a POST to ``/lcf/patron`` containing a valid terminal client credential, and payload representing a valid Patron entity. 
 2. Confirm an HTTP/200 successful response. 
 3. Extract the ``identifier`` (field E03D01) from the response for use in the DELETE request. 
 4. Perform a GET against the URI ``/lcf/patrons/{identifier}`` and confirm that the provided fields from step 1 match the response. 
 5. Confirm that there are zero loans, reservations, or charges against the Patron. 
 
-#### P01.2 Delete Patron
+#### P02.2 Delete Patron
 
 1. Perform a DELETE to ``/lcf/patrons/{identifier}``
 2. Confirm an HTTP/200 successful response. 
 3. Perform a GET against the URI /lcf/patrons/{identifier} and confirm an HTTP/404 response with no data within the payload. 
-## Profile P02 - Patron Account
 
-Retrive all the required information about a Patron and their current interations with the Library to be able to show a summary of their position. This should include a list of any on loan items (including the Title and Author), a list of any outstanding charges, and a list of all active reservations (including title and author).
+## Profile P03 - Patron Account
+
+Retrieve all the required information about a Patron and their current interactions with the Library to be able to show a summary of their position. This should include a list of any on loan items (including the Title and Author), a list of any outstanding charges, and a list of all active reservations (including title and author).
 
 1. Perform a GET to ``/lcf/patrons``
 2. Perform a GET against the first ``entity-ref`` containing a URI for a Patron
@@ -130,14 +131,18 @@ Retrive all the required information about a Patron and their current interation
     2. Perform a GET to each Loan ``loan-ref``
     3. Perform a GET to the ``item-ref`` within the Loan
     4. Perform a GET to the ``manifestation-ref`` within the Item
+    5. Extract the Title and Author for the Manifestation.
 
 7. Iterate through each ``reservation-ref`` for Reservations
     1. Perform a GET to each Reservation ``reservation-ref``
+    2. Perform a GET to the ``manifestation-ref`` within the Item
+    3. Extract the Title and Author for the Manifestation.
 
 8. Iterate through each ``charge-ref`` for Charges
     1. Perform a GET to each Charge ``charge-ref``
 
 ## Profile P04 - Patron Contact Details
+This profile aims to ensure that the LCF implementation can update Contact details for a Patron in real time. This enables self-service use to maintain Patron details.
 
 1. Perform a GET to ``/lcf/patrons``
 2. Perform a GET against the first ``entity-ref`` containing a URI for a Patron
@@ -147,9 +152,21 @@ Retrive all the required information about a Patron and their current interation
     2. Perform a GET for each Contact ``contact-ref``.
     3. Update the Contact entity with different contact details. 
     4. Perform a PUT to the Contact ``contact-ref`` with the modified Contact as the payload. 
-    5. 
+    5. Confirm a successful response
+5. Perform a GET agains the first ``entity-ref`` containing a URI for a Patron (as per step 2)
+6. Iterate through each ``contact-ref`` for Contacts
+    1. Perform a GET for each Contact ``contact-ref``
+    2. Confirm that the Contact record contains the modified information from step 4.3.
 
 ## Profile P05 - Patron Groups
+This profile aims to ensure that the LCF implementation can group Patron records together in a Patron Group, enabling the lead patron to perform transactions on behalf of all others within the group. 
+
+The key principle behind a Patron Group is to model structures between Patrons, such as a family with one or more parents and/or children. The role of the "lead patron" means a patron permitted to perform any action on behalf of any member of the group. For example, be able to view the loans for all other Patrons in the group, or view all the charges for all other Patrons in the group. See https://github.com/bic-org-uk/bic-lcf/issues/54#issuecomment-386060669.
+
+1. Using the same steps from P02.1, create two Patron entities, Patron#1 and Patron#2.
+2. Update Patron#1, populating the E03C33 composite entity to show Patron#1 as the lead group member (PGP02).
+4. Update Patron#2, populating the E03C33 composite entity to show Patron#2 as a member of the group (PGP01).
+5. Confirm Patron#1 can view the loans and charges of Patron#2.
 
 ## Profile P06 - Circulation
 
