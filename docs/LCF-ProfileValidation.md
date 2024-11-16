@@ -215,6 +215,12 @@ Ensure that the Charges for a Patron can be listed.
 Ensure that a Payment can be made against a Charge.
 Ensure that the resulting outstanding Charges have been reduced inline with the Payment made. 
 
+1. Create a Patron as per 2.1 above.
+2. Create a Charge (E07) against the Patron.
+3. Perform a Patron GET and confirm the Charge is present.
+4. Performa Payment (E08) Create, specifying the Patron and Charge just created.
+5. Perform a Patron GET and confirm the Charge is absent/paid.
+
 ## Profile P09 - Cataloguing
 
 ## Profile P10 - Library Configuration
