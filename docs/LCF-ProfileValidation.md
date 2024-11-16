@@ -222,9 +222,22 @@ Ensure that the resulting outstanding Charges have been reduced inline with the 
 5. Perform a Patron GET and confirm the Charge is absent/paid.
 
 ## Profile P09 - Cataloguing
+Create an Item for an existing Manifestation
+Update an existing Item
+
+1. List the available Manifestations.
+2. Get the first Manifestation from the list and extract the identifier. 
+3. Perform a Create Item using the extracted Manifestation identifier.
+4. Perform a Get against the Item to confirm it was created.
+5. Update an Item level property and perform a PUT of the Item.
+6. Perform a Get against the Item to confirm it was updated. 
 
 ## Profile P10 - Library Configuration
+For each of the Location, Authorisatin, Authority, and Message entity types:
 
-
+1. Create a new entity.
+2. Get the entity - confirm it was created.
+3. Update and PUT the entity.
+4. Get the entity - confirm it was updated.
 
 
