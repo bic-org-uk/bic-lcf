@@ -194,7 +194,21 @@ Ensure that an Item that incurs a loan fee can be issued, renewed, and returned,
 
 ## Profile P07 - Reservations
 Ensure that an Item can be reserved by a Patron. 
+
+1. Create a Patron as per 2.1 above.
+2. Perform an Item LIST
+3. Perform an Item GET using the first entity-ref from the list of Items.
+4. Perform a Reservation POST, using the Patron and Item identifiers.
+5. Perform a Reservation GET, check that the Reservation is listed for the Patron.
+
 Ensure that a Manifestation can be reserved by a Patron. 
+
+1. Create a Patron as per 2.1 above.
+2. Perform an Item LIST
+3. Perform an Item GET using the first entity-ref from the list of Items.
+4. Perform a Reservation POST, using the Patron and Item identifiers.
+5. Perform a Reservation GET, check that the Reservation is listed for the Patron.
+
 
 ## Profile P08 - Patron Debt Management
 Ensure that the Charges for a Patron can be listed. 
