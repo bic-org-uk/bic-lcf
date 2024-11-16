@@ -177,6 +177,19 @@ The key principle behind a Patron Group is to model structures between Patrons, 
 Ensure that an Item can be issued to a Patron, renewed and then returned, thus creating and completing a Loan of the Item. 
 Ensure that an Item that incurs a loan fee can be issued, renewed, and returned, ensuring the loan fees are created as Charges against the Patron record.  
 
+1. Using the steps from P02.1, create a Patron.
+2. List the Items within the system, and select the first entity-ref
+3. Perform a GET for the Item, and extract the identifier, element E02D01.
+4. Perform a POST for a Loan record, linking the Patron and Item.
+5. Confirm any acknoweldgement codes that are required and repeat the POST.
+6. Repeat the Patron GET from step 1 and confirm the loan is shown within the loan-refs.
+7. Perform a Loan DELETE to end the Loan.
+8. Perform a Loan POST for the same Patron and Item combination.
+9. Receive a request to acknowledge the Item has already been loaned to the Patron.
+10. Perform a Loan POST for the same Patron and Item, including the acknowledgement-code from step 9.
+11. Repeat the Patron GET from step 1 and confirm the loan is shown within the loan-refs.
+12. Perform a Loan DELETE to end the loan. 
+
 *Note:* It would be desirable to exercise overdue fine creation, however, this would require the amendment of the server perceived datetime or have a zero-time loan period, which is not expected behaviour. 
 
 ## Profile P07 - Reservations
